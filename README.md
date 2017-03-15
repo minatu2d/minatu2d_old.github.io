@@ -1,2 +1,2 @@
 # minatu2d.github.io
-Page
+Welcome to my github page
