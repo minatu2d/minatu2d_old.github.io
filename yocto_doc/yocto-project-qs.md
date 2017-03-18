@@ -1,6 +1,6 @@
-![](figures/yocto-project-transp.png)
+Ghi chú![](figures/yocto-project-transp.png)
 
-## Yocto Project Quick Start¶
+## Giới thiệu nhanh về Yocto Project
 
 Copyright © 2010-2016 Linux Foundation
 
@@ -9,220 +9,146 @@ the terms of the [Creative Commons Attribution-Share Alike 2.0 UK: England &
 Wales](http://creativecommons.org/licenses/by-sa/2.0/uk/) as published by
 Creative Commons.
 
-### Note
+### Ghi chú
 
-For the latest version of this manual associated with this Yocto Project
-release, see the [Yocto Project Quick
-Start](http://www.yoctoproject.org/docs/2.2/yocto-project-qs/yocto-project-
-qs.html) from the Yocto Project website.
+Phiên bản mới nhất của tài liệu này sẽ được cập nhật mỗi khi Yocto Project release, xem thêm tại  [Yocto Project Quick Start](http://www.yoctoproject.org/docs/2.2/yocto-project-qs/yocto-project-qs.html) từ website của dự án.
 
 * * *
 
-## Welcome!¶
+## Lời chào!
 
-Welcome to the Yocto Project! The Yocto Project is an open-source
-collaboration project whose focus is developers of embedded Linux systems.
-Among other things, the Yocto Project uses a build host based on the
-OpenEmbedded (OE) project, which uses the
-[BitBake](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#bitbake-term) tool, to construct complete Linux images. The BitBake and OE
-components are combined together to form a reference build host, historically
-known as [Poky](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-
-manual.html#poky).
+Chào mừng đến với Yocto Project! The Yocto Project là dự án mã nguồn mở, cộng tác, hướng đến các developers của hệ thống Linux nhúng.
+Trong đó, Yocto Project chọn thống build là kết quả của dự án OpenEmbedded (OE), nó sử dụng công cụ [BitBake](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#bitbake-term), để tạo nên một hệ thống Linux hoàn chỉnh.
+Các thành phần của BitBake and OE được kết hợp với nhau trong một hệ thống build, được gọi là [Poky](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#poky).
 
-If you do not have a system that runs Linux and you want to give the Yocto
-Project a test run, you might consider using the Yocto Project Build
-Appliance. The Build Appliance allows you to build and boot a custom embedded
-Linux image with the Yocto Project using a non-Linux development system. See
-the [Yocto Project Build Appliance](https://www.yoctoproject.org/tools-
-resources/projects/build-appliance) for more information.
+Nếu bạn chưa chạy Linux trên máy của bạn, hãy thử chạy Yocto Project trên đó xem, bạn có thể xem xét phần Yocto Project Build Appliance nếu bạn muốn thử. Build Appliance cho phép bạn build và boot một bản Linux được tùy biến 
+sử dụng Yocto Project trên một hệ thống không sử dụng Linux. xem thêm ở [Yocto Project Build Appliance](https://www.yoctoproject.org/tools-resources/projects/build-appliance).
 
-This quick start is written so that you can quickly get a build host set up to
-use the Yocto Project and then build some Linux images. Rather than go into
-great detail about the Yocto Project and its many capabilities, this quick
-start provides the minimal information you need to try out the Yocto Project
-using a supported Linux build host. Reading and using the quick start should
-result in you having a basic understanding of what the Yocto Project is and
-how to use some of its core components. You will also have worked through
-steps to produce two images: one that is suitable for emulation and one that
-boots on actual hardware. The examples highlight the ease with which you can
-use the Yocto Project to create images for multiple types of hardware.
+Tài liệu này giới thiệu nhanh này mong muốn giúp bạn có thể nhanh chóng setup được một môi trường build cho Yocto Project và build một vài bản Linux của riêng bạn.
+Không đi vào tìm hiểu chi tiết hơn về Yocto Project và những khả năng của nó, tài liệu này cung cấp những thông tin tối giản nhất cần cần thiết để thử ngay với Yocto Project sử dụng môi trường build Linux. Sau khi đọc và làm theo các hướng dẫn trong tài liệu, bạn sẽ hiểu được Yocto Project là gì và làm thế nào để sử dụng các thành phần của nó.
+Bạn cũng sẽ được hướng dẫn từng bước để tạo ra 2 ảnh hệ thống: 1 cái dành cho phần cứng mô phỏng, một cái dành cho phần cứng thật.
+Các ví dụ đều sẽ chỉ cho bạn thấy sự dễ dàng khi sử dụng Yocto Project để tạo nhiều loại ảnh hệ thống cho nhiều loại phần cứng khác nhau.
 
-For more detailed information on the Yocto Project, you can reference these
-resources:
+Thông tin chi tiết về Yocto Project, bạn có thể tham khảo các nguồn sau:
 
-  * _Website:_ The [Yocto Project Website](http://www.yoctoproject.org) provides the latest builds, breaking news, full development documentation, and access to a rich Yocto Project Development Community into which you can tap. 
+  * _Website:_ Dự án Yocto hay [Yocto Project Website](http://www.yoctoproject.org) cung cấp các phiên bản mới nhất của Yocto Project, tin tức, toàn bộ tài liệu, cũng như đường dẫn đến một cộng đông Yocto Project Development Community rất sôi nổi.
 
-  * _FAQs:_ Lists commonly asked Yocto Project questions and answers. You can find two FAQs: [Yocto Project FAQ](https://wiki.yoctoproject.org/wiki/FAQ) on a wiki, and the "[FAQ](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#faq)" chapter in the Yocto Project Reference Manual. 
+  * _FAQs:_ Danh sách các câu hỏi phổ biến về Yocto Project cùng câu trả lời. Bạn có thể tìm FAQs ở: [Yocto Project FAQ](https://wiki.yoctoproject.org/wiki/FAQ) dạng một trang wiki, và chương "[FAQ](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#faq)" trong tài liệu tham khảo Yocto Project.
 
-  * _Developer Screencast:_ The [Getting Started with the Yocto Project - New Developer Screencast Tutorial](http://vimeo.com/36450321) provides a 30-minute video created for users unfamiliar with the Yocto Project but familiar with Linux build hosts. While this screencast is somewhat dated, the introductory and fundamental concepts are useful for the beginner. 
+  * _Developer Screencast:_[Getting Started with the Yocto Project - New Developer Screencast Tutorial](http://vimeo.com/36450321) cung cấp các đoạn video khoảng 30-minute video cho người sử dụng chưa quen với Yocto Project dù đã từng sử dụng Linux. Những screencast này có thể đã cũ, tuy nhiên phần hướng dẫn cùng với các khái niệm nền tảng sẽ rất có ích với người mới.
 
-## Introducing the Yocto Project Development Environment¶
+## Giới thiệu môi trường phát triển của Yocto Project
 
-The Yocto Project through the OpenEmbedded build system provides an open
-source development environment targeting the ARM, MIPS, PowerPC, and x86
-architectures for a variety of platforms including x86-64 and emulated ones.
-You can use components from the Yocto Project to design, develop, build,
-debug, simulate, and test the complete software stack using Linux, the X
-Window System, GTK+ frameworks, and Qt frameworks.
+Yocto Project thông qua hệ thống build OpenEmbedded(OE) để cung cấp môi trường phát triển mã nguồn mở cho các ứng dụng trên các kiến trúc ARM, MIPS, PowerPC, and x86; nó có thể chạy trên rất nhiều platform khác nhau bao gồm cả x86_64 và các môi trường giả lập của nó.
+Bạn có thể sử dụng các thành phần từ Yocto Project để design, develop, build, debug, simulate (giả lập phần cứng), and test toàn bộ phần mềm từ hệ thống đến ứng dụng (software stack) trên Linux, bao gồm X Window System (hệ thống quản lý của sổ, giao diện), GTK+ frameworks (tạo giao diện), and Qt frameworks (cho phát triển giao diện và các ứng dụng liên quan).
 
 ![](figures/yocto-environment.png)
 
-The Yocto Project Development Environment
+Môi trường phát triển Yocto Project
 
-Here are some highlights for the Yocto Project:
+Dưới đây là một vài đặc điểm chính của môi trường phát triển Yocto Project:
 
-  * Provides a recent Linux kernel along with a set of system commands and libraries suitable for the embedded environment. 
+  * Cung cấp một nhân Linux kernel khá mới kèm theo các lệnh hệ thống và thư viện cho phát triển hệ thống nhúng.
 
-  * Makes available system components such as X11, GTK+, Qt, Clutter, and SDL (among others) so you can create a rich user experience on devices that have display hardware. For devices that do not have a display or where you wish to use alternative UI frameworks, these components need not be installed. 
+  * Cho phép các thành phần X11, GTK+, Qt, Clutter, and SDL (và nhiều thứ tương tự) được đưa vào sử dụng dễ dàng, vì thế bạn có thể tạo một giao diện tương tác "đẹp", "ngon lành cành đào" trên màn hình hiển thị (nếu có). Còn với các hệ thống không có màn hình hiển thị, thì bạn không cần cài đặt gì nữa vì chúng luôn có sẵn rồi (console).
 
-  * Creates a focused and stable core compatible with the OpenEmbedded project with which you can easily and reliably build and develop. 
+  * Có phần core ổn định tương thích với dự án OpenEmbedded vì thế bạn có thể tin tưởng được và dễ dàng sử dụng.
 
-  * Fully supports a wide range of hardware and device emulation through the Quick EMUlator (QEMU). 
+  * Support đầy đủ một loạt phần cứng và thiết bị mô phỏng thông qua Quick Emulator(QEMU - Một chương trình mô phỏng cực kì phổ biến).
 
-  * Provides a layer mechanism that allows you to easily extend the system, make customizations, and keep them organized. 
+  * Cung cấp 1 cơ chế phân lớp cho phép bạn dễ dàng mở rộng hệ thống, thực hiện thay đổi, và quản lý một cách có tổ chức.
 
-You can use the Yocto Project to generate images for many kinds of devices. As
-mentioned earlier, the Yocto Project supports creation of reference images
-that you can boot within and emulate using QEMU. The standard example machines
-target QEMU full-system emulation for 32-bit and 64-bit variants of x86, ARM,
-MIPS, and PowerPC architectures. Beyond emulation, you can use the layer
-mechanism to extend support to just about any platform that Linux can run on
-and that a toolchain can target.
+Bạn có thể sử dụng Yocto Project để sinh ảnh hệ thống cho nhiều loại thiết bị. Như đã nói ở phần đầu, Yocto Project hỗ trợ việc tạo các ảnh tham chiếu của hệ thống, vì thế bạn có thể build và mô phỏng hoạt động của ứng dụng sử dụng QEMU (mà không cần đến phần cứng thật).
+Các máy mà QEMU có thể mô phỏng đầy đủ gồm cả 32-bit và 64-bit trên các kiến trúc x86, ARM, MIPS, and PowerPC. Hiểu khả năng mô phỏng này, bạn có thể sử dụng cơ chế lớp để mở rộng việc chạy ứng dụng trên nhiều platform cái mà ta biết Linux có thể chạy và ta có toolchain cho nó.
 
-Another Yocto Project feature is the Sato reference User Interface. This
-optional UI that is based on GTK+ is intended for devices with restricted
-screen sizes and is included as part of the OpenEmbedded Core layer so that
-developers can test parts of the software stack.
+Một tính năng khác của Yocto Project, đó là giao diện người dùng tham chiếu Sato. Đây là UI không được đưa mặc định vào ảnh hệ thống, nó dựa trên GTK+, hướng đến các thiết bị có kích thước màn hình hạn chế, nó cũng là một phần của OpenEmbedded Core layer vì thế developers có thể test các thành phần của phần mềm dựa trên giao diện này.
 
-## Setting Up to Use the Yocto Project¶
+## Thiết lập môi trường sử dụng Yocto Project
 
-The following list shows what you need in order to use a Linux-based build
-host to use the Yocto Project to build images:
+Danh sách dưới đây chỉ ra những thứ cần thiết để sử dụng môi trường build chạy Linux
+cho việc build ảnh hệ thống bằng Yocto Project:
 
-  * _Build Host_ A build host with a minimum of 50 Gbytes of free disk space that is running a supported Linux distribution (i.e. recent releases of Fedora, openSUSE, CentOS, Debian, or Ubuntu). 
+  * _Build Host_ Môi trường build nên có ít nhất 50GB đĩa trống chạy một trong các bản phân phối Linux sau: Các phiên bản gần đây của Fedora, openSUSE, CentOS, Debian, hoặc Ubuntu).
 
-  * _Build Host Packages_ Appropriate packages installed on the build host. 
+  * _Build Host Packages_ Các gói tương ứng cần được cài trên môi trường build.
 
-  * _The Yocto Project_ A release of the Yocto Project. 
+  * _The Yocto Project_ Một phiên bản của Yocto Project.
 
-### The Linux Distribution¶
+### Về bản phân phối Linux
 
-The Yocto Project team verifies each release against recent versions of the
-most popular Linux distributions that provide stable releases. In general, if
-you have the current release minus one of the following distributions, you
-should have no problems.
+Team Yocto Project thường chạy thử trên các phiên bản ổn định gần đây của các distro Linux phổ biến. Về cơ bản, nếu bạn có từ phiên bản ngay trước phiên bản ổn định mới nhất của các distro dưới đây, thì thường sẽ không có vấn đề gì khi chạy Yocto Project.
 
-  * Ubuntu 
+  * Ubuntu
 
-  * Fedora 
+  * Fedora
 
-  * openSUSE 
+  * openSUSE
 
-  * CentOS 
+  * CentOS
 
-  * Debian 
+  * Debian
 
-For a more detailed list of distributions that support the Yocto Project, see
-the "[Supported Linux Distributions](http://www.yoctoproject.org/docs/2.2/ref-
-manual/ref-manual.html#detailed-supported-distros)" section in the Yocto
-Project Reference Manual.
+Danh sách chi tiết của các distro hỗ trợ Yocto Project có thể xem tại chương "[Supported Linux Distributions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#detailed-supported-distros)" trong Yocto Project Reference Manual.
 
-The OpenEmbedded build system should be able to run on any modern distribution
-that has the following versions for Git, tar, and Python.
+Hệ thống build OpenEmbedded có thể chạy trên bất cứ hệ thống nào chứa
+các phiên bản phù hợp của các phần mềm Git, tar, and Python.
 
-  * Git 1.8.3.1 or greater 
+  * Git 1.8.3.1 or greater
 
-  * tar 1.24 or greater 
+  * tar 1.24 or greater
 
-  * Python 3.4.0 or greater. 
+  * Python 3.4.0 or greater.
 
-If your build host does not meet any of these three listed version
-requirements, you can take steps to prepare the system so that you can still
-use the Yocto Project. See the "[Required Git, tar, and Python
-Versions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#required-git-tar-and-python-versions)" section in the Yocto Project Reference
-Manual for information.
+Nếu hệ thống của bạn không thỏa mãn bất cứ điều kiện nào ở trên, bạn có thể thực hiện một vài bước để chuẩn bị cho nó. Xem tại chương "[Required Git, tar, and Python
+Versions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#required-git-tar-and-python-versions)" trong hướng dẫn tham khảo Yocto Project.
 
-### The Build Host Packages¶
+### Các gói cho hệ thống build
 
-Required build host packages vary depending on your build machine and what you
-want to do with the Yocto Project. For example, if you want to build an image
-that can run on QEMU in graphical mode (a minimal, basic build requirement),
-then the build host package requirements are different than if you want to
-build an image on a headless system or build out the Yocto Project
-documentation set.
+Yêu cầu các gói cần có cho host (máy chạy Yocto Project) phụ thuộc vào mục đích sử dụng Yocto Project của bạn. Ví dụ, nếu bạn muốn build một "image" mà chạy được trên QEMU ở chế độ đồ họa (graphical mode) ( nó có thể dựa trên một ảnh tối thiểu (minimal), hoặc cơ bản (basic) này), nói chung yêu cầu về các gói cần thiết cho host cũng khác nhau khi build một "image" nhỏ gọn hoặc build một "image" nằm ngoài danh sách image được liệt kê trong Yocto Project.
 
-Collectively, the number of required packages is large if you want to be able
-to cover all cases.
+Tổng hợp lại, số lượng gói yêu cầu phải cài sẽ lớn nếu bạn muốn phủ (cover) hết các trường hợp sử dụng.
 
-### Note
+### Ghi chú
 
-In general, you need to have root access and then install the required
-packages. Thus, the commands in the following section may or may not work
-depending on whether or not your Linux distribution has `sudo` installed.
+Nói chung, bạn cần quyền root để tiến hành cài đặt các gói. Vì thế, các command bên dưới đây có thể có hoặc không chạy phụ thuộc vào hệ thống (distribition - bản phân phố) của bạn có cài đặt "sudo" hay không.
 
-The following list shows the required packages needed to build an image that
-runs on QEMU in graphical mode (e.g. essential plus graphics support). For
-lists of required packages for other scenarios, see the "[Required Packages
+Những package được chỉ ra dưới đây cần được cài đặt để có thể hỗ trợ chế độ đồ họa (ví dụ: chế độ cơ bản + hỗ trợ đồ họa). Danh sách các gói cho các ngữ cảnh khác xin hãy xem thêm tại chương "[Required Packages
 for the Host Development System](http://www.yoctoproject.org/docs/2.2/ref-
 manual/ref-manual.html#required-packages-for-the-host-development-system)"
-section in the Yocto Project Reference Manual.
+ trong hướng dẫn tham khảo của Yocto Project.
 
   * _Ubuntu and Debian_
-    
-    
          $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
          build-essential chrpath socat libsdl1.2-dev xterm
-                            
 
   * _Fedora_
-    
-    
          $ sudo dnf install gawk make wget tar bzip2 gzip python3 unzip perl patch \
          diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath \
          ccache perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue perl-bignum socat \
          findutils which SDL-devel xterm
-                            
 
   * _OpenSUSE_
-    
-    
          $ sudo zypper install python gcc gcc-c++ git chrpath make wget python-xml \
          diffstat makeinfo python-curses patch socat libSDL-devel xterm
-                            
 
   * _CentOS_
-    
-    
+
          $ sudo yum install gawk make wget tar bzip2 gzip python unzip perl patch \
          diffutils diffstat git cpp gcc gcc-c++ glibc-devel texinfo chrpath socat \
          perl-Data-Dumper perl-Text-ParseWords perl-Thread-Queue SDL-devel xterm
-                            
 
-### Note
+### Ghi chú
 
-CentOS 6.x users need to ensure that the required versions of Git, tar and
-Python are available. For details, See the "[Required Git, tar, and Python
-Versions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#required-git-tar-and-python-versions)" section in the Yocto Project Reference
-Manual for information.
+Người sử dụng CentOS 6.x cần đảm bảo phiên bản được yêu cầu của Git, tar và Python. Chi tiết xin hãy xem tại chương "[Required Git, tar, and PythonVersions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#required-git-tar-and-python-versions)" trong hướng dẫn tham khảo của Yocto Project.
 
-### Yocto Project Release¶
+### Các phiên bản của Yocto Project
 
-The last requirement you need to meet before using the Yocto Project is
-getting a Yocto Project release. It is recommended that you get the latest
-Yocto Project release by setting up (cloning in
-[Git](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#git)
-terms) a local copy of the `poky` Git repository on your build host and then
-checking out the latest release. Doing so allows you to easily update to newer
-Yocto Project releases as well as contribute back to the Yocto Project.
+Điều cuối cùng các bạn cần chắc chắn trước khi sử dụng Yocto Project phiên bản của chính Yocto Project. Có khuyến cáo rằng nên lấy phiên bản mới nhất bằng cách sử dụng thiết lập (tức là cloning trong [Git](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#git)) một bản copy kho chứa Git (Git repository) của `poky` trên máy host sau đó checkout (cập nhật) phiên bản mới nhất. Điều này cho phép bạn dễ dàng cập nhật phiên bản mới hơn của Yocto Project cũng như đóng góp trở lại (contribute back) cho Yocto Project.
 
-Here is an example from an Ubuntu build host that clones the `poky` repository
-and then checks out the latest Yocto Project Release (i.e. 2.2):
+Dưới đây là một ví dụ trên máy Ubuntu, nó at clones kho chứa `poky` và checkout theo phiên bản mới nhất của Yocto Project (i.e. 2.2):
 
-    
-    
+
+
          $ git clone git://git.yoctoproject.org/poky
          Cloning into 'poky'...
          remote: Counting objects: 226790, done.
@@ -231,168 +157,113 @@ and then checks out the latest Yocto Project Release (i.e. 2.2):
          Receiving objects: 100% (226790/226790), 100.98 MiB | 263 KiB/s, done.
          Resolving deltas: 100% (165212/165212), done.
          $ git checkout morty
-                    
 
-You can also get the Yocto Project Files by downloading Yocto Project releases
-from the [Yocto Project website](http://www.yoctoproject.org).
 
-For more information on getting set up with the Yocto Project release, see the
-"[Yocto Project Release](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-
-manual.html#local-yp-release)" item in the Yocto Project Development Manual.
+Bạn có có thể có được các phiên bản của Yocto bằng tải trực tiếp từ trang chủ của [Yocto Project website](http://www.yoctoproject.org).
 
-## Building Images¶
+Các thông tin thêm về việc thiết lập theo từng phiên bản của Yocto Project đều có đầy đủ tại "[Yocto Project Release](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#local-yp-release)"  trong hướng dẫn tham khảo dành cho phát triển của Yocto Project.
 
-Now that you have your system requirements in order, you can give Yocto
-Project a try. You can try out Yocto Project using either the command-line
-interface or using Toaster, which uses a graphical user interface. If you want
-to try out the Yocto Project using a GUI, see the [Toaster User
-Manual](http://www.yoctoproject.org/docs/2.2/toaster-manual/toaster-
-manual.html) for information on how to install and set up Toaster.
+## Tạo một ảnh hệ thống
 
-To use the Yocto Project through the command-line interface, finish this quick
-start, which presents steps that let you do the following:
+Giờ sau khi bạn đã có một môi trường đáp ứng đầy đủ các yêu cầu cần thiết, bạn có thể bắt đầu Yocto Project. Bạn có thể thao tác với Yocto bằng giao diện dòng lệnh (command-line) hoặc sử dụng một giao diện đồ họa được gọi là Toaster. Nếu bạn muốn sử dụng Toaster có thể xem thêm ở [Toaster User Manual](http://www.yoctoproject.org/docs/2.2/toaster-manual/toaster-
+manual.html) để biết thông tin chi tiết về cách cài đặt cũng như cấu hình cho Toaster.
 
-  * Build a `qemux86` reference image and run it in the QEMU emulator. 
+Còn với giao diện dòng lệnh, bạn có thể tiếp tục với hướng dẫn này với từng bước cho đến kết quả cuối cùng:
 
-  * Easily change configurations so that you can quickly create a second image that you can load onto bootable media and actually boot target hardware. This example uses the MinnowBoard MAX-compatible boards. 
+  * Tạo một ảnh hệ thống tham chiếu `qemux86` và chạy nó trên giả lập máy tính QEMU.
 
-### Note
+  * Dễ dàng thay đổi cấu hình vì thế bạn dễ dàng tạo một "ảnh" khác, rồi ghi nó lên một thiết bị lưu trữ có khả năng khởi động (bootable media) và xem kết quả trên phần cứng thật. Ví dụ này sử dụng phần cứng tương thích với board MinnowBoard MAX.
 
-The steps in the following two sections do not provide detail, but rather
-provide minimal, working commands and examples designed to just get you
-started. For more details, see the appropriate manuals in the [Yocto Project
+### Ghi chú
+
+Các bước trong 2 chương tiếp theo không đưa ra chi tiết, mà chỉ đưa dạng ngắn gọn nhất, các câu lệnh được đưa ra để phù hợp cho việc tiếp cận thôi. Về chi tiết mỗi câu lệnh, các bạn có thể xem thêm trong tập tài liệu [Yocto Project
 manual set](http://www.yoctoproject.org/documentation).
 
-### Building an Image for Emulation¶
+### Tạo một ảnh cho máy giả lập Emulation
 
-Use the following commands to build your image. The OpenEmbedded build system
-creates an entire Linux distribution, including the toolchain, from source.
+Sử dụng các câu lệnh dưới đây để build một ảnh hệ thống. Hệ thống build OpenEmbedded sẽ tạo toàn bộ một bản phân phối Linux (Linux distribution) bao gồm cả toolchain hoàn toàn từ source code (mã nguồn).
 
-### Note about Network Proxies
+### Ghi chú về Network Proxies
 
-By default, the build process searches for source code using a pre-determined
-order through a set of locations. If you are working behind a firewall and
-your build host is not set up for proxies, you could encounter problems with
-the build process when fetching source code (e.g. fetcher failures or Git
-failures).
+Ban đầu, quá trình build sẽ tìm source ở trên một tập các địa chỉ có sẵn. Nếu bạn đang sử dụng tường lửa ở máy host và không set proxy cho nó, thì bạn có thể gặp vấn đề trong quá trình build khi hệ thống Build cố gắng tải source về ( ví dụ ví dị việc tải bị failure hoặc Git bị failure).
 
-If you do not know your proxy settings, consult your local network
-infrastructure resources and get that information. A good starting point could
-also be to check your web browser settings. Finally, you can find more
-information on using the Yocto Project behind a firewall in the Yocto Project
-Reference Manual [FAQ](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#how-does-the-yocto-project-obtain-source-code-and-will-it-work-
-behind-my-firewall-or-proxy-server) and on the "[Working Behind a Network
-Proxy](https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy)"
-wiki page.
+Nếu bạn gặp vấn đề mà không biết cách thiết lập proxy, hãy tìm hiểu về nó. Một nơi thường thấy nhất là từ Thiết lập của Web Browser. Cuối cùng bạn có thể tìm thêm thông tin phần các câu hỏi thường gặp (FAQ) trong hướng dẫn tham khảo Yocto Project [FAQ](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#how-does-the-yocto-project-obtain-source-code-and-will-it-work-behind-my-firewall-or-proxy-server) và trong "[Working Behind a NetworkProxy](https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy)" nữa.
 
-  1. _Be Sure Your Build Host is Set Up:_ The steps to build an image in this section depend on your build host being properly set up. Be sure you have worked through the requirements described in the "Setting Up to Use the Yocto Project" section. 
+  1. _Hãy chắc chắn là máy host của bạn đã được setup:_ Các bước tiếp theo sử dụng để tạo Image trong chương này phụ thuộc vào môi trường đã được setup chuẩn hay chưa đấy. Vì thế, hãy chắc chắn rằng bạn đã ngó qua phần mô tả trong chương "Setting Up to Use the Yocto Project" rồi.
 
-  2. _Check Out Your Branch:_ Be sure you are in the [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) (e.g. `poky`) and then check out the branch associated with the latest Yocto Project Release: 
-    
-    
+  2. _Checkout phiên bản:_ Chắc chắn rằng bạn đang ở trong thư mục source [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) (ví dụ: `poky` chẳng hạn) và kiểm tra phiên bản mới nhất của Yocto:
+
+
          $ cd ~/poky
          $ git checkout -b morty origin/morty
-                            
 
-Git's `checkout` command checks out the current Yocto Project release into a
-local branch whose name matches the release (i.e. `morty`). The local branch
-tracks the upstream branch of the same name. Creating your own branch based on
-the released branch ensures you are using the latest files for that release.
 
-  3. _Initialize the Build Environment:_ Run the [`oe-init-build-env`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#structure-core-script) environment setup script to define the OpenEmbedded build environment on your build host. 
-    
-    
+Lệnh `checkout` của Git sẽ lấy phiên bản được chỉ định xuống local thông qua tên branch (ví dụ `morty` chẳng hạn). Phiên bản được lấy xuống chính là branch chỉ định tại thời điểm đó. Tức là chúng ta sẽ có các file mới nhất của branch đó.
+
+  3. _Khởi tạo môi trường Build:_ Hãy chạy script thiết lập môi trường [`oe-init-build-env`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#structure-core-script) để định nghĩa các biến cần thiết cho hệ thống build OpenEmbedded máy build của bạn bằng câu lệnh sau.
+
+
          $ source oe-init-build-env
-                            
 
-Among other things, the script creates the [Build
-Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#build-directory), which is `build` in this case and is located in the [Source
-Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#source-directory). After the script runs, your current working directory is
-set to the Build Directory. Later, when the build completes, the Build
-Directory contains all the files created during the build.
 
-### Note
+Ở câu lệnh trên, Script sẽ tự động tạo [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory), và trong trường hợp này thư mục `build` nằm bên dưới [Source
+Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory). Sau khi chạy script thì, thư mục làm việc hiện tại cũng được chuyển vào thư mục Build luôn. Kể từ giờ, đến lúc hoàn thành mọi thứ, thư mục Build chứa tất cả các file được tạo trong quá trình build.
 
-For information on running a memory-resident
-[BitBake](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#usingpoky-components-bitbake), see the [`oe-init-build-env-
-memres`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#structure-memres-core-script) setup script.
+### Ghi chú
+Để có thêm thông tin về việc BitBake thường chú trên bộ nhớ (memory-resident) [BitBake](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#usingpoky-components-bitbake), hãy xem chi tiết về Script [`oe-init-build-env-memres`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#structure-memres-core-script).
 
-  4. _Examine Your Local Configuration File:_ When you set up the build environment, a local configuration file named `local.conf` becomes available in a `conf` subdirectory of the Build Directory. Before using BitBake to start the build, you can look at this file and be sure your general configurations are how you want them: 
 
-    * To help conserve disk space during builds, you can add the following statement to your project's configuration file, which for this example is `poky/build/conf/local.conf`. Adding this statement deletes the work directory used for building a recipe once the recipe is built. 
-    
-    
+  4. _Xem xét các file cấu hình nội bộ (Local Configuration File):_ Sau khi chạy xong script setup môi trường, bạn sẽ thấy 1 file có tên là `local.conf` trong thư mục`conf` nằm bên dưới thư mục Build. Trước khi sử dụng BitBake để bắt đầu build, bạn có thể xem nội dung file và chắc chắn những thứ bạn muốn:
+
+    * Để giúp tiết kiệm dung lượng ổ cứng trong quá trình build, bạn có thể thêm dòng sau đây vào file cấu hình nội bộ trong project của bạn, trong ví dụ ở trên file đó là  `poky/build/conf/local.conf`. Thêm dòng này, thư mục working khi thực hiện build một recipe sẽ bị xóa.
+
+
          INHERIT += "rm_work"
-                                    
 
-    * By default, the target machine for the build is `qemux86`, which produces an image that can be used in the QEMU emulator and is targeted at an Intel® 32-bit based architecture. Further on in this example, this default is easily changed through the [`MACHINE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-MACHINE) variable so that you can quickly build an image for a different machine. 
 
-    * Another consideration before you build is the package manager used when creating the image. The default `local.conf` file selects the RPM package manager. You can control this configuration by using the `[`PACKAGE_CLASSES`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PACKAGE_CLASSES)` variable.
+  	* Mặc định, máy target machine cho lần build này là `qemux86`, có nghĩa là ảnh được tạo ra sẽ chạy trên QEMU emulator với kiến trúc CPU họ Intel® 32-bit . Bạn có thể thay đổi nó dễ dàng thông qua biến [`MACHINE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-MACHINE) vì thế bạn dễ dàng tạo một ảnh cho kiến trúc hoặc platform mới.
 
-Selection of the package manager is separate from whether package management
-is used at runtime in the target image.
+    * Một điểm khác cần xem xét trước khi build là chương trình quản lý gói phần mềm nào (package manager) sẽ được sử dụng khi tạo image. Mặc định RPM được chọn trong file `local.conf` là chương trình quản lý gói phần mềm khi tạo Image. Bạn có thể điều chỉnh thông tố này sử dụng biến`[`PACKAGE_CLASSES`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PACKAGE_CLASSES)`.
 
-For additional package manager selection information, see the
-"[`package.bbclass`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#ref-classes-package)" section in the Yocto Project Reference
-Manual.
+Việc lựa chọn trình quán lý gói phần mềm (package manager) ở đây không liên quan đến việc có sử dụng hay không sử dụng công cụ quản lý gói khi Image được chạy trên Target.
 
-  5. _Start the Build:_ Continue with the following command to build an OS image for the target, which is `core-image-sato` in this example: 
+Thông tin về các lựa chọn cho trình quản lý gói (package manager selection) có thể thấy ở chương "[`package.bbclass`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-classes-package)" trong hướng dẫn tham khảo Yocto Project.
 
-### Note
+  5. _Bắt đầu Build:_ Tiếp tục với câu lệnh dưới đây để tạo ra một ảnh hệ điều hành cho target của bạn, ở đây ảnh có tên `core-image-sato` được chọn: 
 
-Depending on the number of processors and cores, the amount of RAM, the speed
-of your Internet connection and other factors, the build process could take
-several hours the first time you run it. Subsequent builds run much faster
-since parts of the build are cached.
+### Ghi chú
 
-    
-    
+Phụ thuộc vào số processor, số cores, dung lượng RAM, tốc độ đường truyền Internet và các yếu tố khác, quá trình build có thể mất đến vài giờ cho lần build đầu tiên. Còn đối với những lần build sau đó, sẽ nhanh hơn rất nhiều vì nhiều thứ được cached lại rồi.
+
+
+
          $ bitbake core-image-sato
-                            
 
-For information on using the `bitbake` command, see the
-"[BitBake](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#usingpoky-components-bitbake)" section in the Yocto Project Reference Manual,
-or see the "[BitBake Command](http://www.yoctoproject.org/docs/2.2/bitbake-
-user-manual/bitbake-user-manual.html#bitbake-user-manual-command)" section in
-the BitBake User Manual. For information on other targets, see the
-"[Images](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-
-images)" chapter in the Yocto Project Reference Manual.
 
-  6. _Simulate Your Image Using QEMU:_ Once this particular image is built, you can start QEMU and run the image: 
-    
-    
+Thông tin chi tiết về cách sử dụng câu lệnh `bitbake` có thể xem tại chương "[BitBake](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#usingpoky-components-bitbake)" trong hướng dẫn tham khảo Yocto Project, hoặc xem ở chương "[BitBake Command](http://www.yoctoproject.org/docs/2.2/bitbake-
+user-manual/bitbake-user-manual.html#bitbake-user-manual-command)" trong hướng dẫn sử dụng BitBake cho người dùng. Thông tin về các các ảnh hệ thống có thể chọn khác, có thể xem thêm tại chương "[Images](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-images)" trong hướng dẫn tham khảo Yocto Project.
+
+  6. _Chạy thử ảnh hệ thống bằng QEMU:_ Khi đã có ảnh hệ thống rồi, bạn có thể khởi động QEMU và chạy hệ hệ thống trong ảnh đó:
+
+
          $ runqemu qemux86
-                            
 
-If you want to learn more about running QEMU, see the "[Using the Quick
-EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-
-manual.html#dev-manual-qemu)" chapter in the Yocto Project Development Manual.
 
-  7. _Exit QEMU:_ Exit QEMU by either clicking on the shutdown icon or by opening a terminal, typing `poweroff`, and then pressing "Enter". 
+Nếu bạn muốn tìm hiểu thêm về QEMU, có thể xem thêm tại chương "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" trong hướng dẫn phát triển Yocto Project.
 
-### Building an Image for Hardware¶
+  7. _Thoát QEMU:_ Để thoát QEMU, đơn giản bạn đóng cửa sổ hoăc mở 1 terminal và chạy lệnh `poweroff`.
 
-The following steps show how easy it is to set up to build an image for a new
-machine. These steps build an image for the MinnowBoard MAX, which is
-supported by the Yocto Project and the `meta-intel` `intel-corei7-64` and
-`intel-core2-32` Board Support Packages (BSPs).
+### Build ảnh cho phần cứng thật
 
-### Note
+Các câu lệnh dưới đây sẽ chỉ và việc tạo ảnh cho một máy mới dễ dàng ra sao. Những step này thực hiện cho phần cứng MinnowBoard MAX, cái mà được supported bởi Yocto Project và các gói hỗ trợ Board (BSP) `meta-intel` `intel-corei7-64` và `intel-core2-32`.
 
-The MinnowBoard MAX ships with 64-bit firmware. If you want to use the board
-in 32-bit mode, you must download the [32-bit
-firmware](http://firmware.intel.com/projects/minnowboard-max).
+### Ghi chú
 
-  1. _Create a Local Copy of the `meta-intel` Repository:_ Building an image for the MinnowBoard MAX requires the `meta-intel` layer. Use the `git clone` command to create a local copy of the repository inside your [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory), which is `poky` in this example: 
-    
-    
+Board mạch MinnowBoard MAX được cài đặt mặc định là firmware 64-bit. Nếu bạn muốn sử dụng mode 32-bit, bạn phải cài đặt firmware [32-bit](http://firmware.intel.com/projects/minnowboard-max).
+
+  1. _Lấy 1 bản copy của `meta-intel`:_ Để tạo image cho MinnowBoard MAX cần phải có layer `meta-intel`. Có thể sử dụng câu lệnh `git clone` để lấy 1 bản copy vào [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory), Trong ví dụ ở trên thư mục đó là `poky`:
+
+
          $ cd $HOME/poky
          $ git clone git://git.yoctoproject.org/meta-intel
          Cloning into 'meta-intel'...
@@ -402,122 +273,104 @@ firmware](http://firmware.intel.com/projects/minnowboard-max).
          remote: Total 11988 (delta 6881), reused 11752 (delta 6645)
          Resolving deltas: 100% (6881/6881), done.
          Checking connectivity... done.
-                            
 
-By default when you clone a Git repository, the "master" branch is checked
-out. Before you build your image that uses the `meta-intel` layer, you must be
-sure that both repositories (`meta-intel` and `poky`) are using the same
-releases. Consequently, you need to checkout out the "`morty`" release after
-cloning `meta-intel`:
 
-    
-    
+Về cơ bản, khi clone một Git repository, nhánh "master" sẽ được tải về. Trước khi bạn build image sử dụng layer `meta-intel`,  thì bạn phải chắc chắn rằng 2 cái đó (`meta-intel` và `poky`) đang sử dụng cùng 1 phiên bản. Trong trường hợp này, bạn cần checkout nhánh "`morty`" của layer `meta-intel` sau khi clone:
+
+
+
          $ cd $HOME/poky/meta-intel
          $ git checkout morty
          Branch morty set up to track remote branch morty from origin.
          Switched to a new branch 'morty'
-                            
 
-  2. _Configure the Build:_ To configure the build, you edit the `bblayers.conf` and `local.conf` files, both of which are located in the `build/conf` directory. 
 
-Here is a quick way to make the edits. The first command uses the `bitbake-
-layers add-layer` command to add the `meta-intel` layer, which contains the
-`intel-core*` BSPs to the build. The second command selects the BSP by setting
-the [`MACHINE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-MACHINE) variable.
+  2. _Cấu hình trước khi Build:_ Để cấu hình cho việc build, bạn có thể edit các file `bblayers.conf` và `local.conf`, cả 2 file này đều nằm dưới thư mục `build/conf`.
 
-    
-    
+Dưới đây là 1 cách nhanh chóng để edit 2 file này. Câu lệnh đầu tiên sử dụng là `bitbake-layers add-layer` tức là để thêm layer `meta-intel`, layer chứa các BSP của `intel-core*`. Câu lệnh thứ 2 sử dụng để chọn BSP bằng cách thiết lập biến [`MACHINE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-MACHINE).
+
+
+
          $ cd $HOME/poky/build
          $ bitbake-layers add-layer "$HOME/poky/meta-intel"
          $ echo 'MACHINE = "intel-corei7-64"' >> conf/local.conf
-                            
 
-### Notes
 
-If you want a 64-bit build, use the following:
+### Ghi chú
 
-    
-    
+Nếu muốn một bản build 64-bit, thì sử dụng câu lệnh sau:
+
+
+
          $ echo 'MACHINE = "intel-corei7-64"' >> conf/local.conf
-                                
 
-If you want 32-bit images, use the following:
 
-    
-    
+Còn nếu muốn một bản build 32-bit, thì sử dụng những câu lệnh sau:
+
+
+
          $ echo 'MACHINE = "intel-core2-32"' >> conf/local.conf
-                                
 
-  3. _Build an Image for MinnowBoard MAX:_ The type of image you build depends on your goals. For example, the previous build created a `core-image-sato` image, which is an image with Sato support. It is possible to build many image types for the MinnowBoard MAX. Some possibilities are `core-image-base`, which is a console-only image. Another choice could be a `core-image-full-cmdline`, which is another console-only image but has more full-features Linux system functionality installed. For types of images you can build using the Yocto Project, see the "[Images](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-images)" chapter in the Yocto Project Reference Manual.
 
-Because configuration changes are minimal to set up for this second build, the
-OpenEmbedded build system can re-use files from previous builds as much as
-possible. Re-using files means this second build will be much faster than an
-initial build. For this example, the `core-image-base` image is built:
+  3. _Tạo Image cho board MinnowBoard MAX:_ Loại Image mà bạn build phụ thuộc vào mục đích sử dụng. Ví dụ, ở ví dụ trước chúng ta tạo Image tên là `core-image-sato`, cái mà hỗ trợ giao diện Sato. Bạn có thể build rất nhiều loại Image cho MinnowBoard MAX. Nó có thể là `core-image-base`, cái chỉ có giảo diện console. Một lựa chọn khác đầy đủ hơn là `core-image-full-cmdline`, cũng chỉ có giao diện console nhưng có thêm những tính năng của một hệ thống Linux đầy đủ (full-features Linux system). Về các loại image khác mà bạn có thể build khi sử dụng Yocto Project, có thể xem thêm tại chương "[Images](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-images)" trong hướng dẫn tham khảo Yocto Project.
 
-    
-    
+Bởi vì cấu hình được thay đổi ít nhất khi buid lần 2 trở đi, hệ thống build OpenEmbedded có thể sử dụng lại các file từ bản build trước đó nhiều nhất có thể. Việc sử dụng lại này đồng nghĩa với từ lần build thứ 2 trở đi, tốc độ sẽ nhanh hơn rất nhiều so với lần build đầu tiên. Ví dụ, Image `core-image-base` được build bằng câu lệnh:
+
+
+
          $ bitbake core-image-base
-                            
 
-Once the build completes, the resulting console-only image is located in the
-Build Directory here:
 
-    
-    
+Khi quá trình build kết thúc, một ảnh chỉ có giao diện console sẽ được tạo ra ở đường dẫn dưới đây trong thư mục Build (Build Directory):
+
+
+
          tmp/deploy/images/intel-corei7-64/core-image-base-intel-corei7-64.wic
-                            
 
-  4. _Write the Image:_ You can write the image just built to a bootable media (e.g. a USB key, SATA drive, SD card, etc.) using the `dd` utility: 
-    
-    
+
+  4. _Ghi Image ra thiết bị lưu trữ:_ Bạn có thể ghi image ra thiết bị có khả năng build như (ví dụ: a USB key, SATA drive, SD card, vân vân.) sử dụng tiện ích `dd`:
+
+
          $ sudo dd if=tmp/deploy/images/intel-corei7-64/core-image-base-intel-corei7-64.wic of=TARGET_DEVICE
-                            
 
-In the previous command, the `TARGET_DEVICE` is the device node in the host
-machine (e.g. `/dev/sdc`, which is most likely a USB stick, or `/dev/mmcblk0`,
-which is most likely an SD card).
 
-  5. _Boot the Hardware:_ With the boot device provisioned, you can insert the media into the MinnowBoard MAX and boot the hardware. The board should automatically detect the media and boot to the bootloader and subsequently the operating system. 
+Ở câu lệnh trên, `TARGET_DEVICE` là một device node trên máy host ( ví dụ: `/dev/sdc` nếu là USB Stick, hoặc `/dev/mmcblk0` nếu là một SD card).
 
-If the board does not boot automatically, you can boot it manually from the
-EFI shell as follows:
+  5. _Boot vào Hardware:_ Với thiết bị boot đã được chuẩn bị ở trên, bạn có thể cắm vào board MinnowBoard MAX sau đó boot hệ thống. Board thường sẽ tự động phát hiện thiết bị lưu trữ và chạy vào bootloader tiếp theo đó là hệ điều hành.
 
-    
-    
+Nếu Board không tự động boot, bạn có thể boot bằng tay theo các câu lệnh dưới đây được thực hiện trên trên EFI shell:
+
+
+
          Shell> connect -r
          Shell> map -r
          Shell> fs0:
          Shell> bootx64
-                            
 
-### Note
 
-For a 32-bit image use the following:
+### Ghi chú
 
-    
-    
+Với Image 32-bit thì câu lệnh sẽ như sau:
+
+
+
          Shell> bootia32
-                                
 
-## Next Steps¶
 
-If you completed all the steps in the previous section then congratulations!
-What now?
+## Bước tiếp theo
 
-Depending on what you primary interests are with the Yocto Project, you could
-consider any of the following:
+Nếu bạn có thể hoàn thành tất cả các bước trong chương trước thì xin chúc mừng!　Nào, thế bây giờ làm gì tiếp đây?
 
-  * _Visit the Yocto Project Web Site:_ The official [Yocto Project](http://www.yoctoproject.org) web site contains information on the entire project. Visiting this site is a good way to familiarize yourself with the overall project. 
+Phụ thuộc vào cái bạn định làm trước khi tiếp tiếp cận sử dụng Yocto Project, hãy xem xét những gợi ý dưới đây sau:
 
-  * _Look Through the Yocto Project Development Manual:_ The [Yocto Project Development Manual](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-intro) is a great place to get a feel for how to use the Yocto Project. The manual contains conceptual and procedural information that covers [common development models](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-model) and introduces [the Yocto Project open source development environment](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-newbie). The manual also contains several targeted sections that cover specific [common tasks](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#extendpoky) such as understanding and creating layers, customizing images, writing new recipes, working with libraries, and configuring and patching the kernel. 
+  * _Ghé qua website của Yocto Project:_ Website chính thức của [Yocto Project](http://www.yoctoproject.org) chứa thông tin về toàn bộ dự án. Ghé thăm website này là một cách tốt để cho bạn quen với toàn bộ dự án.
 
-  * _Look Through the Yocto Project Software Development Kit (SDK) Developer's Guide:_ The [Yocto Project Software Development Kit (SDK) Developer's Guide](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-intro) describes how to use both the [standard SDK](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-using-the-standard-sdk) and the [extensible SDK](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-extensible), which are used primarily for application development. This manual also provides an example workflow that uses the popular Eclipse™ development environment. See the "[Workflow using Eclipse™](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#workflow-using-eclipse)" section. 
+  * _Xem qua hướng dẫn phát triển Yocto Project:_ [Yocto Project Development Manual](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-intro) là nơi tuyệt vời để có cảm nhận sơ qua về việc sử dụng Yocto Project như thế nào. Tài liệu này chứa những thông tin khái niệm và mang tính thủ tục, nhưng bao phủ toàn bộ [common development models](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-model), giới thiệu về [the Yocto Project open source development environment](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-newbie). Tài liệu cũng giới thiệu một vài chương liên quan các task cụ thể [common tasks](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#extendpoky) như hiểu và tạo các layers, tùy biến Images, viết các recipes mới, làm việc với các thư viện libraries, cấu hình và thực hiện các bản vá (patching) cho kernel.
 
-  * _Learn About Board Support Packages (BSPs):_ If you want to learn about BSPs, see the [Yocto Project Board Support Packages (BSP) Developer's Guide](http://www.yoctoproject.org/docs/2.2/bsp-guide/bsp-guide.html#bsp). 
+  * _Xem qua tài liệu về hướng dẫn phát triển bằng Yocto Project Software Development Kit (SDK):_[Yocto Project Software Development Kit (SDK) Developer's Guide](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-intro) miêu tả các sử dụng một SDK chuẩn [standard SDK](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-using-the-standard-sdk) và SDK mở rộng [extensible SDK](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#sdk-extensible), cái mà sẽ được sử dụng chủ yếu trong quá trình phát triển ứng dụng. Tài liệu này cũng cung cấp một ví dụ về luồng làm việc (workflow) IDE quen thuộc Eclipse™. Xem thêm tại chương "[Workflow using Eclipse™](http://www.yoctoproject.org/docs/2.2/sdk-manual/sdk-manual.html#workflow-using-eclipse)".
 
-  * _Learn About Toaster:_ Toaster is a web interface to the Yocto Project's OpenEmbedded build system. If you are interested in using this type of interface to create images, see the [Toaster User Manual](http://www.yoctoproject.org/docs/2.2/toaster-manual/toaster-manual.html#toaster-manual-intro). 
+  * _Học thêm về gói hỗ trợ board (Board Support Packages (BSPs) ):_ Nếu bạn muốn biết thêm về các BSPs, hãy xem tài liệu [Yocto Project Board Support Packages (BSP) Developer's Guide](http://www.yoctoproject.org/docs/2.2/bsp-guide/bsp-guide.html#bsp).
 
-  * _Have Available the Yocto Project Reference Manual_ The [Yocto Project Reference Manual](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-manual-intro), unlike the rest of the Yocto Project manual set, is comprised of material suited for reference rather than procedures. You can get [build details](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#usingpoky), a [closer look](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#closer-look) at how the pieces of the Yocto Project development environment work together, information on various [technical details](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#technical-details), guidance on [migrating to a newer Yocto Project release](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#migration), reference material on the [directory structure](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-structure), [classes](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-classes), and [tasks](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks). The Yocto Project Reference Manual also contains a fairly comprehensive [glossary of variables](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-variables-glossary) used within the Yocto Project. 
+  * _Học thêm về Toaster:_ Toaster là 1 giao diện web tương tác với môi trường build của Yocto Project hay OpenEmbedded. Nếu bạn muốn sử dụng loại giao diện này để tạo Image, hãy xem thêm [Toaster User Manual](http://www.yoctoproject.org/docs/2.2/toaster-manual/toaster-manual.html#toaster-manual-intro).
 
+  * _Cuối cùng luôn có sẵn tài liệu tham khảo Yocto Project_ [Yocto Project Reference Manual](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-manual-intro), không giống các tài liệu khác trong tập tài liệu của Yocto Project, nó bao gồm các tư liệu cho việc tham chiếu hơn là để sử dụng. Bạn có thể xem chi tiết tại [build details](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#usingpoky), hoặc kĩ hơn nữa [closer look](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#closer-look) về việc làm thế nào các thành phần của Yocto Project làm việc với nhau, cũng như thông tin về các vấn đề về kĩ thuật tại [technical details](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#technical-details), hướng dẫn chuyển đổi sang phiên bản mới [migrating to a newer Yocto Project release](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#migration), cấu trúc tham khảo [directory structure](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-structure), [classes](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-classes), and [tasks](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks). Tài liệu tham khảo Yocto Project cũng chứa những một tập toàn diện của các biến [glossary of variables](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-variables-glossary) được sử dụng trong Yocto Project.
