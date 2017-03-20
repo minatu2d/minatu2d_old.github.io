@@ -78,9 +78,9 @@ Released with the Yocto Project 2.2 Release.
 
 * * *
 
-**Table of Contents**
+**Mục lục**
 
-1. Introduction
+1. Giới thiệu
 
     
 
@@ -208,74 +208,41 @@ C. Kernel Development FAQ
 
 C.1. Common Questions and Solutions
 
-## Chapter 1. Introduction¶
+## Chương 1 1. Giới thiệu
 
-**Table of Contents**
+**Mục lục**
 
-1.1. Overview
+1.1. Tổng quan
 
 1.2. Other Resources
 
-## 1.1. Overview¶
+## 1.1. Tổng quan
 
-Regardless of how you intend to make use of the Yocto Project, chances are you
-will work with the Linux kernel. This manual provides background information
-on the Yocto Linux kernel [Metadata](http://www.yoctoproject.org/docs/2.2/dev-
-manual/dev-manual.html#metadata), describes common tasks you can perform using
-the kernel tools, and shows you how to use the kernel Metadata needed to work
-with the kernel inside the Yocto Project.
+Bất kể hướng đến việc sử dụng Yocto Project của bạn như thế nào, có nhiều cơ hội
+để làm việc với kernel. Tài liệu này cung câp những thông tin nền tảng về kernel sử dụng trong Yocto (Yocto Linux kernel) [Metadata](http://www.yoctoproject.org/docs/2.2/dev-
+manual/dev-manual.html#metadata), miêu tả các tasks phổ biến bạn có thể thực hiện khi sử dụng các kernel tools, rồi chỉ ra cho bạn thấy cách sử dụng kernel Metadata khi cần làm việc với kernel trong Yocto Project.
 
-Each Yocto Project release has a set of linux-yocto recipes, whose Git
-repositories you can view in the Yocto [Source
-Repositories](http://git.yoctoproject.org) under the "Yocto Linux Kernel"
-heading. New recipes for the release track the latest upstream developments
-and introduce newly-supported platforms. Previous recipes in the release are
-refreshed and supported for at least one additional release. As they align,
-these previous releases are updated to include the latest from the [Long Term
+Mỗi phiên bản của Yocto Project sẽ có một tập các recipe tên là `linux-yocto`, kho chứa trên Git bạn có thể xem tại kho chứa Git của Yocto [Source
+Repositories](http://git.yoctoproject.org), với tên bắt đầu là "Yocto Linux Kernel". Các recipe mới sẽ bám theo phiên bản mới nhất của quá trình phát triển trên "upstream"
+và giới thiệu các platform mới được supported. Các recipes trước sẽ được làm lại trong mỗi lần release và được hỗ trợ ít nhất thêm 1 lần release nữa. Khi chúng được sắp xếp,
+những phiên bản trước sẽ được đưa vào từng phiên bản hỗ trợ dài hạn [Long Term
 Support Initiative](http://www.yoctoproject.org/organization/long-term-
-support-initiative-ltsi) (LTSI) project. Also included is a linux-yocto
-development recipe (`linux-yocto-dev.bb`) should you want to work with the
-very latest in upstream Linux kernel development and kernel Metadata
-development.
+support-initiative-ltsi) trong dự án (LTSI). Cũng có một phiên bản sử dụng trong quá trình phát triển của linux-yocto, đó là recipe (`linux-yocto-dev.bb`) nếu bạn muốn làm việc với phiên bản mới nhất từ upstream của Linux kernel và các Metadata trong quá trình phát triển khác.
 
-The Yocto Project also provides a powerful set of kernel tools for managing
-Linux kernel sources and configuration data. You can use these tools to make a
-single configuration change, apply multiple patches, or work with your own
-kernel sources.
+Yocto Project cũng cung cấp một tập các công cụ liên quan đến kernel kernel rất mạnh để quản lý sourc code của Linux kernel cũng như dữ liệu về cấu hình. Bạn có thể sử dụng những tool này để thực hiện thay đổi cấu hình, thực hiện các bản patches, hoặc làm việc với chính kernel source của bạn kernel sources.
 
-In particular, the kernel tools allow you to generate configuration fragments
-that specify only what you must, and nothing more. Configuration fragments
-only need to contain the highest level visible `CONFIG` options as presented
-by the Linux kernel `menuconfig` system. Contrast this against a complete
-Linux kernel `.config`, which includes all the automatically selected `CONFIG`
-options. This efficiency reduces your maintenance effort and allows you to
-further separate your configuration in ways that make sense for your project.
-A common split separates policy and hardware. For example, all your kernels
-might support the `proc` and `sys` filesystems, but only specific boards
-require sound, USB, or specific drivers. Specifying these configurations
-individually allows you to aggregate them together as needed, but maintains
-them in only one place. Similar logic applies to separating source changes.
+Đặc biệt, những kernel tools cho phép bạn tạo ra những đoạn cấu hình cho riêng những gì bạn muốn thôi. Những đoạn cấu hình chỉ chứa những option ở mức cao nhất có trong cấu hình danh sách cấu hình `menuconfig` Linux kernel (khi thực hiện make menu config). Khác với file chứa toàn bộ cấu hình của Linux kernel `.config`, chứa toàn bộ các cấu hình mà được tự động set `CONFIG` dựa trên sự phụ thuộc của nó. Việc này sẽ giúp bạn giảm công sức cho việc cấu hình và cho phép tách những cấu hình dành riêng cho dự án của bạn.
+Các phân chia phổ biến là tách phần policy và hardware. Ví dụ, tất cả các kernel có thể hỗ trợ hệ thống file `proc` và `sys`, nhưng chỉ một số board có sound, USB, hoặc driver riêng biệt chẳng hạn. Tách những cấu hình cần chỉ định riêng ra giúp bạn tổng hợp các phần với nhau khi cần, nhưng chỉ cần maintain 1 nơi thôi. Tương tự logic thay đổi source riêng rẽ.
 
-If you do not maintain your own kernel sources and need to make only minimal
-changes to the sources, the released recipes provide a vetted base upon which
-to layer your changes. Doing so allows you to benefit from the continual
-kernel integration and testing performed during development of the Yocto
-Project.
+Nếu bạn định maintain kernel sources của riêng bạn và cần thực hiện ít thay đổi nhất đến sources, thì chính các recipes sẽ cung cấp cho bạn 1 cách thông qua thay đổi layer. Vẫn cho phép bạn tận dụng được quá trình tích hợp nhân, thực hiện các test trong chu trình phát triển sẵn có của Yocto Project.
 
-If, instead, you have a very specific Linux kernel source tree and are unable
-to align with one of the official linux-yocto recipes, an alternative exists
-by which you can use the Yocto Project Linux kernel tools with your own kernel
-sources.
+Kể cả bạn có một bản Linux kernel source rất đặc trưng và không thể khớp với một trong những phiên bản chính thức của recipe `linux-yocto`, có một cách khác nữa là bạn sử dụng các công cụ dành cho kernel của Yocto Project Linux kernel trên chính kernel
+sources của bạn.
 
-## 1.2. Other Resources¶
+## 1.2. Các nguồn khác
 
-The sections that follow provide instructions for completing specific Linux
-kernel development tasks. These instructions assume you are comfortable
-working with [BitBake](http://openembedded.org/wiki/Bitbake) recipes and basic
-open-source development tools. Understanding these concepts will facilitate
-the process of working with the kernel recipes. If you find you need some
-additional background, please be sure to review and understand the following
-documentation:
+Chương này cung cấp các chỉ dẫn để hoàn thành một task trong quá trình phát triển Linux
+kernel. Những chỉ dẫn dưới đây giả định rằng bạn đã biết cách làm việc với recipe của [BitBake](http://openembedded.org/wiki/Bitbake) và các công cụ phát triển open-source. Hiểu những khái niệm này sẽ thuận tiện cho khi làm việc với các recipe kernel. Nếu bạn cần tìm kiến thức nền tảng khác, hãy tìm hiểu những tài liệu dưới đây:
 
   * [Yocto Project Quick Start](http://www.yoctoproject.org/docs/2.2/yocto-project-qs/yocto-project-qs.html)
 
@@ -285,164 +252,155 @@ documentation:
 
   * The "[Modifying the Kernel](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#modifying-the-kernel)" section in the Yocto Project Development Manual.
 
-Finally, while this document focuses on the manual creation of recipes,
-patches, and configuration files, the Yocto Project Board Support Package
-(BSP) tools are available to automate this process with existing content and
-work well to create the initial framework and boilerplate code. For details on
-these tools, see the "[Using the Yocto Project's BSP
-Tools](http://www.yoctoproject.org/docs/2.2/bsp-guide/bsp-guide.html#using-
-the-yocto-projects-bsp-tools)" section in the Yocto Project Board Support
-Package (BSP) Developer's Guide.
+Cuối cùng, trong khi tài liệu này tập trung vào hướng dẫn việc tạo recipes, các bản patches, và các file cấu hình, thì các tool hỗ trợ Yocto Project Board Support Package
+(BSP) hướng tới thực hiện tự động quá trình đó trên một nội dung đã có trước đó để tạo ra một bộ khung ban đầu (initial framework) và code mẫu (boilerplate code). Về chi tiết của những công cụ này, hãy xem thêm ở chương "[Using the Yocto Project's BSP Tools](http://www.yoctoproject.org/docs/2.2/bsp-guide/bsp-guide.html#using-the-yocto-projects-bsp-tools)" trong hướng dẫn dành cho developer Yocto Project Board Support
+Package (BSP).
 
-## Chapter 2. Common Tasks¶
+## Chapter 2. Các task phổ biến
 
 **Table of Contents**
 
-2.1. Creating and Preparing a Layer
+2.1. Tạo và chuẩn bị một Layer
 
-2.2. Modifying an Existing Recipe
-
-    
-
-2.2.1. Creating the Append File
-
-2.2.2. Applying Patches
-
-2.2.3. Changing the Configuration
-
-2.2.4. Using an "In-Tree"  `defconfig` File
-
-2.3. Using an Iterative Development Process
+2.2. Sửa Recipe sẵn có
 
     
 
-2.3.1. "-dirty" String
+2.2.1. Tạo và thêm File
 
-2.3.2. Generating Configuration Files
+2.2.2. Thực hiện các bản Patched (Applying Patches)
 
-2.3.3. Modifying Source Code
+2.2.3. Thay đổi cấu hình
 
-2.4. Working With Your Own Sources
+2.2.4. Sử dụng file cấu hình dạng cây ("In-Tree"  `defconfig` File)
 
-2.5. Working with Out-of-Tree Modules
-
-    
-
-2.5.1. Building Out-of-Tree Modules on the Target
-
-2.5.2. Incorporating Out-of-Tree Modules
-
-2.6. Inspecting Changes and Commits
+2.3. Sử dụng một chu trình phát triển lặp (Iterative Development Process)
 
     
 
-2.6.1. What Changed in a Kernel?
+2.3.1. Về chuỗi kí tự "-dirty"
 
-2.6.2. Showing a Particular Feature or Branch Change
+2.3.2. Sinh các file cấu hình
 
-2.7. Adding Recipe-Space Kernel Features
+2.3.3. Sửa đổi Source Code
 
-This chapter presents several common tasks you perform when you work with the
-Yocto Project Linux kernel. These tasks include preparing a layer, modifying
-an existing recipe, iterative development, working with your own sources, and
-incorporating out-of-tree modules.
+2.4. Làm việc với Source của bạn
+
+2.5. Làm việc với các module đã hết date (Out-of-Tree Modules)
+
+    
+
+2.5.1. Build các module hết date trên Target
+
+2.5.2. Làm việc với các module đã hết date (Out-of-Tree Modulesl)
+
+2.6. Xem lại các thay đổi và commint 
+
+    
+
+2.6.1. Chuyện gì đã ra trong  Kernel vậy?
+
+2.6.2.  Xem một tính năng cụ thể và thay đổi trong nhánh 
+
+2.7. Thêm các recipe liên quan đến Kernel 
+
+Chương này miêu tả các task phổ biến mà bạn thực hiện khi làm việc với Linux kernel trong
+Yocto Project. Những task này bao gồm chuẩn bị một layer, sửa một recipe đã có sẵn, 
+ phát triển liên tục, làm  việc với chính source code của bạn, và
+ và xử lý các module đã hết date.
 
 ### Note
 
-The examples presented in this chapter work with the Yocto Project 1.2.2
-Release and forward.
+Ví dụ trong chương này được thực hiện với phiên bản Yocto Project 1.2.2 trở lên.
 
-## 2.1. Creating and Preparing a Layer¶
+## 2.1. Tạo và chuẩn bị một Layer
 
-If you are going to be modifying kernel recipes, it is recommended that you
-create and prepare your own layer in which to do your work. Your layer
-contains its own [BitBake](http://www.yoctoproject.org/docs/2.2/dev-manual
-/dev-manual.html#bitbake-term) append files (`.bbappend`) and provides a
-convenient mechanism to create your own recipe files (`.bb`). For details on
-how to create and work with layers, see the following sections in the Yocto
-Project Development Manual:
+ Nếu bạn đang định sửa recipe kernel, thì bạn nên tạo và chuẩn bị 1 layer cho việc đó . 
+Layer đó sẽ chứa các file [BitBake](http://www.yoctoproject.org/docs/2.2/dev-manual
+/dev-manual.html#bitbake-term)  có phần mở rộng là (`.bbappend`) được hỗ trợ bằng Bitbake
+cung cấp một cơ chế thuận tiện để tạo các file recipe files (`.bb`) của riêng bạn. 
+Chi tiết về việc tạo và thao tác với layers, có thể xem tại các trong trong tài liệu hướng dẫn phát triển Yocto
+Project:
 
-  * "[Understanding and Creating Layers](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#understanding-and-creating-layers)" for general information on layers and how to create layers.
+  * "[Understanding and Creating Layers](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#understanding-and-creating-layers)" các thông tin chong về layers và làm thế nào để tạo layers.
 
-  * "[Set Up Your Layer for the Build](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#set-up-your-layer-for-the-build)" for specific instructions on setting up a layer for kernel development.
+  * "[Set Up Your Layer for the Build](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#set-up-your-layer-for-the-build)" chỉ rõ các bước để setup một layer cho quá trình phát triển kernel.
 
-## 2.2. Modifying an Existing Recipe¶
+## 2.2. Sửa đổi một Recipe sẵn có
 
-In many cases, you can customize an existing linux-yocto recipe to meet the
-needs of your project. Each release of the Yocto Project provides a few Linux
-kernel recipes from which you can choose. These are located in the [Source
+Trong rất nhiều trường hợp, bạn có thể sửa một recipe linux-yocto đã có sẵn để phù hợp với yêu cầu của dự án. 
+ Mỗi phiên bản của Yocto Project thường cung cấp một vài recipe Linux
+kernel recipes để bạn có thể lựa chọn. Nhưng file này thường nằm ở thư mục `meta/recipes-kernel/linux` bên dưới [Source
 Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#source-directory) in `meta/recipes-kernel/linux`.
+#source-directory).
 
-Modifying an existing recipe can consist of the following:
+ Để sửa một recipe, thông thường sẽ thực hiện 3 bước sau:
 
-  * Creating the append file
+  *  Tạo append file
 
-  * Applying patches
+  *  Thực hiện các patches
 
-  * Changing the configuration
+  *  Thay đổi cấu hình
 
-Before modifying an existing recipe, be sure that you have created a minimal,
-custom layer from which you can work. See the "Creating and Preparing a Layer"
-section for some general resources. You can also see the "[Set Up Your Layer
+ Trước khi sửa một recipe đã có sẵn, nên ít nhất 1 lần tạo một minimal,
+ rồi custom nó trong công việc của bạn. Xem chương "Creating and Preparing a Layer"
+ để có thêm thông tin. Bạn cũng có thể xem chương  "[Set Up Your Layer
 for the Build](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#set-up-your-layer-for-the-build)" section of the Yocto Project Development
-Manual for a detailed example.
+#set-up-your-layer-for-the-build)" trong hướng dẫn phát triển Yocto Project để có thêm
+thông tin chi tiết.
 
-### 2.2.1. Creating the Append File¶
+### 2.2.1. Tạo file Append
 
-You create this file in your custom layer. You also name it accordingly based
-on the linux-yocto recipe you are using. For example, if you are modifying the
-`meta/recipes-kernel/linux/linux-yocto_3.19.bb` recipe, the append file will
-typically be located as follows within your custom layer:
+ Tạo file này trong custom layer. Tên của nó dựa trên tên của recipe linux-yocto mà bạn muốn thêm. 
+ Bạn đang sửa recipe tên là
+`meta/recipes-kernel/linux/linux-yocto_3.19.bb` chẳng hạn, append file sẽ được thêm vào
+vị trí như bên dưới đây:
 
     
     
          _your-layer_/recipes-kernel/linux/linux-yocto_3.19.bbappend
                     
 
-The append file should initially extend the
+Append file đầu tiên nên mở rộng biến môi trường dành cho các đường dẫn tìm kiếm 
 [`FILESPATH`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-FILESPATH) search path by prepending the directory that contains your
-files to the [`FILESEXTRAPATHS`](http://www.yoctoproject.org/docs/2.2/ref-
-manual/ref-manual.html#var-FILESEXTRAPATHS) variable as follows:
+#var-FILESPATH) bằng cách gắng đường dẫn chứa các file đó đến biến môi trương 
+[`FILESEXTRAPATHS`](http://www.yoctoproject.org/docs/2.2/ref-
+manual/ref-manual.html#var-FILESEXTRAPATHS) như dòng bên dưới đây:
 
     
     
          FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
                     
 
-The path `${`[`THISDIR`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
+Biến môi trường `${`[`THISDIR`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
 manual.html#var-THISDIR)`}/${`[`PN`](http://www.yoctoproject.org/docs/2.2/ref-
-manual/ref-manual.html#var-PN)`}` expands to "linux-yocto" in the current
-directory for this example. If you add any new files that modify the kernel
-recipe and you have extended `FILESPATH` as described above, you must place
-the files in your layer in the following area:
+manual/ref-manual.html#var-PN)`}` chính là "linux-yocto" trong thư mục hiện tại của ví dụ này. 
+Nếu bạn muốn một file mới sẽ thực hiện sửa đổi recipe kernel
+bạn có thể mở rộng biến `FILESPATH` giông như đã miêu tả ở trên, cuối cùng 
+bạn cũng phải đặt nói trong đường dẫn như sau:
 
     
     
          _your-layer_/recipes-kernel/linux/linux-yocto/
                     
 
-### Note
+### Ghi chú 
 
-If you are working on a new machine Board Support Package (BSP), be sure to
-refer to the [Yocto Project Board Support Package (BSP) Developer's
+ Nếu bạn đang làm việc trên một Board Support Package (BSP) của một máy mới, 
+ nên chắc chắn rằng bạn đã tham khảo tài liệu [Yocto Project Board Support Package (BSP) Developer's
 Guide](http://www.yoctoproject.org/docs/2.2/bsp-guide/bsp-guide.html).
 
-### 2.2.2. Applying Patches¶
+### 2.2.2. Thực hiện các Patches
 
-If you have a single patch or a small series of patches that you want to apply
-to the Linux kernel source, you can do so just as you would with any other
-recipe. You first copy the patches to the path added to
-[`FILESEXTRAPATHS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-FILESEXTRAPATHS) in your `.bbappend` file as described in the
-previous section, and then reference them in
-[`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-SRC_URI) statements.
+ Nếu bạn có một patch nhỏ bạn muốn apply vào source code của Linux kernel source, 
+ Các làm việc sau đây cũng tương tự với các recipe khác. Đơn giản bạn copy các patches đó đến dường dẫn
+đã được thêm vào [`FILESEXTRAPATHS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
+manual.html#var-FILESEXTRAPATHS) trong file `.bbappend` đã miêu tả ở chương trước, bạn có thể tham chiếu chúng
+vào [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
+#var-SRC_URI).
 
-For example, you can apply a three-patch series by adding the following lines
-to your linux-yocto `.bbappend` file in your layer:
+ Ví dụ, bạn có thể thực hiện đến 3 bản patch bằng cách như dưới đây trong
+ linux-yocto `.bbappend` trong layer của bạn:
 
     
     
@@ -451,21 +409,19 @@ to your linux-yocto `.bbappend` file in your layer:
          SRC_URI += "file://0003-third-change.patch"
                     
 
-The next time you run BitBake to build the Linux kernel, BitBake detects the
-change in the recipe and fetches and applies the patches before building the
-kernel.
+ Sau đó bạn chạy lại BitBake để build Linux kernel, Bitbake sẽ phát hiện thay đổi 
+ở recipe và applies các patches trước khi thực hiện kernel.
 
-For a detailed example showing how to patch the kernel, see the "[Patching the
+ Ví dụ về việc làm thế nào để patch kernel, có thể xem thêm tại chương "[Patching the
 Kernel](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#patching-the-kernel)" section in the Yocto Project Development Manual.
+#patching-the-kernel)" trong tài liệu hướng dẫn phát triển Yocto Project.
 
-### 2.2.3. Changing the Configuration¶
+### 2.2.3. Thay đổi cấu hình 
 
-You can make wholesale or incremental changes to the final `.config` file used
-for the eventual Linux kernel configuration by including a `defconfig` file
-and by specifying configuration fragments in the
-[`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-SRC_URI) to be applied to that file.
+ Bạn có thể nhanh chóng thực hiên một loại thay đổi đến file `.config` file 
+được thực sự sử dụng trong quá trình cấu hình Linux kernel bằng cách nhúng 1 file `defconfig` 
+và chỉ rõ đoạn cấu hình nào [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
+#var-SRC_URI) được apply trong file đó. 
 
 If you have a complete, working Linux kernel `.config` file you want to use
 for the configuration, as before, copy that file to the appropriate `${PN}`

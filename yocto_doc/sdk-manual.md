@@ -1,4 +1,4 @@
-#  Yocto Project Software Development Kit (SDK) Developer's Guide
+# Hướng dẫn về Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer
 
 ### Scott Rifenbark
 
@@ -36,369 +36,299 @@ Released with the Yocto Project 2.2 Release.
 
 * * *
 
-**Table of Contents**
+**Mục lục**
 
-1. Introduction
-
-    
-
-1.1. Introduction
+1. Giới thiệu 
 
     
 
-1.1.1. The Cross-Development Toolchain
-
-1.1.2. Sysroots
-
-1.1.3. The QEMU Emulator
-
-1.1.4. Eclipse Yocto Plug-in
-
-1.1.5. Performance Enhancing Tools
-
-1.2. SDK Development Model
-
-2. Using the Extensible SDK
+1.1. Giới thiệu 
 
     
 
-2.1. Why use the Extensible SDK and What is in It?
+1.1.1. Về Cross-Development Toolchain
 
-2.2. Setting Up to Use the Extensible SDK
+1.1.2. Về Sysroots
 
-2.3. Running the Extensible SDK Environment Setup Script
+1.1.3. Về QEMU Emulator
 
-2.4. Using `devtool` in Your SDK Workflow
+1.1.4. Về Yocto Plug-in dành cho IDE Eclipse 
 
-    
+1.1.5. Về các tool cho việc nâng cao hiệu năng (Performance Enhancing Tools)
 
-2.4.1. Use `devtool add` to Add an Application
+1.2. Về mô hình phát triển SDK (SDK Development Model)
 
-2.4.2. Use `devtool modify` to Modify the Source of an Existing Component
-
-2.4.3. Use `devtool upgrade` to Create a Version of the Recipe that Supports a
-Newer Version of the Software
-
-2.5. A Closer Look at `devtool add`
+2. Sử dụng SDK mở rộng (Extensible SDK)
 
     
 
-2.5.1. Name and Version
+2.1. Tại sao lại sử dụng Extensible SDK và có gì bên trong nó?
 
-2.5.2. Dependency Detection and Mapping
+2.2. Thiết lập để sử dụng Extensible SDK
 
-2.5.3. License Detection
+2.3. Chạy script Setup môi trường cho Extensible SDK
 
-2.5.4. Adding Makefile-Only Software
-
-2.5.5. Adding Native Tools
-
-2.5.6. Adding Node.js Modules
-
-2.6. Working With Recipes
+2.4. Sử dụng `devtool` trong SDK của bạn 
 
     
 
-2.6.1. Finding Logs and Work Files
+2.4.1. Sử dụng `devtool add` để thêm ứng dụng 
 
-2.6.2. Setting Configure Arguments
+2.4.2. Sử dụng `devtool modify` để sửa source của một component sẵn có (Existing Component)
 
-2.6.3. Sharing Files Between Recipes
+2.4.3. Sử dụng `devtool upgrade` để tạo một phiên bản của một Recipe để support
+một phiên bản mới của phần mềm 
 
-2.6.4. Packaging
-
-2.7. Restoring the Target Device to its Original State
-
-2.8. Installing Additional Items Into the Extensible SDK
-
-2.9. Updating the Extensible SDK
-
-2.10. Creating a Derivative SDK With Additional Components
-
-3. Using the Standard SDK
+2.5. Một cái nhìn gần hơn đối với `devtool add`
 
     
 
-3.1. Why use the Standard SDK and What is in It?
+2.5.1. Tên và phiên bản 
 
-3.2. Installing the SDK
+2.5.2. Phát hiện phụ thuộc và Mapping
 
-3.3. Running the SDK Environment Setup Script
+2.5.3. Phát hiện licence 
 
-4. Using the SDK Toolchain Directly
+2.5.4. Thêm phần mềm chỉ có Makefile-Only 
 
-    
+2.5.5. Thêm các công cụ Native 
 
-4.1. Autotools-Based Projects
+2.5.6. Thêm các module Node.js Modules
 
-    
-
-4.1.1. Creating and Running a Project Based on GNU Autotools
-
-4.1.2. Passing Host Options
-
-4.2. Makefile-Based Projects
-
-4.3. Developing Applications Using Eclipse™
+2.6. Làm việc với các Recipes
 
     
 
-4.3.1. Workflow Using Eclipse™
+2.6.1. Tìm Logs và Work Files
 
-4.3.2. Working Within Eclipse
+2.6.2. Thiết lập các tham số cấu hình 
 
-A. Obtaining the SDK
+2.6.3. Chia sẻ file giữa các Recipes
 
-    
+2.6.4. Đóng gói phần mềm 
 
-A.1. Locating Pre-Built SDK Installers
+2.7. Phục hồi Target Device về trạng thái ban đầu của nó
 
-A.2. Building an SDK Installer
+2.8. Cài đặt thêm Items vào Extensible SDK
 
-A.3. Extracting the Root Filesystem
+2.9. Update Extensible SDK
 
-A.4. Installed Standard SDK Directory Structure
+2.10. Tạo một SDK kế thừa với những Components khác
 
-A.5. Installed Extensible SDK Directory Structure
-
-B. Customizing the Extensible SDK
+3. Sử dụng một SDK chuẩn
 
     
 
-B.1. Configuring the Extensible SDK
+3.1. Tại sao sử dụng một Standard SDK và có gì trong nó?
 
-B.2. Adjusting the Extensible SDK to Suit Your Build System Setup
+3.2. Cài đặt SDK
 
-B.3. Changing the Appearance of the Extensible SDK
+3.3. Chạy script thiết lập môi trường SDK 
 
-B.4. Providing Updates After Installing the Extensible SDK
-
-B.5. Providing Additional Installable Extensible SDK Content
-
-B.6. Minimizing the Size of the Extensible SDK Installer Download
-
-C. Customizing the Standard SDK
+4. Sử dụng trực tiếp SDK Toolchain 
 
     
 
-C.1. Adding Individual Packages to the Standard SDK
-
-C.2. Adding API Documentation to the Standard SDK
-
-D. Using Eclipse Mars
+4.1. Các project dựa trên Autotools-Based Projects
 
     
 
-D.1. Setting Up the Mars Version of the Eclipse IDE
+4.1.1. Tạo và chạy một project dựa trên dựa trên GNU Autotools
+
+4.1.2. Truyền các options ở phía Host 
+
+4.2. Các project dựa trên Makefile-Based Projects
+
+4.3. Phát triển ứng dụng trên Eclipse™
 
     
 
-D.1.1. Installing the Mars Eclipse IDE
+4.3.1. Workflow khi sử dụng Eclipse™
 
-D.1.2. Configuring the Mars Eclipse IDE
+4.3.2. Working bên trong Eclipse
 
-D.1.3. Installing or Accessing the Mars Eclipse Yocto Plug-in
-
-D.1.4. Configuring the Mars Eclipse Yocto Plug-in
-
-D.2. Creating the Project
-
-D.3. Configuring the Cross-Toolchains
-
-D.4. Building the Project
-
-D.5. Starting QEMU in User-Space NFS Mode
-
-D.6. Deploying and Debugging the Application
-
-D.7. Using Linuxtools
-
-## Chapter 1. Introduction¶
-
-**Table of Contents**
-
-1.1. Introduction
+A. Hiểu vể SDK
 
     
 
-1.1.1. The Cross-Development Toolchain
+A.1. Xác định ví trí của bộ cài đặt Pre-Built SDK 
 
-1.1.2. Sysroots
+A.2. Về việc build một SDK Installer
 
-1.1.3. The QEMU Emulator
+A.3. Giải nén hệ thống fileRoot Filesystem
 
-1.1.4. Eclipse Yocto Plug-in
+A.4. Cấu trúc thư mục của Standard SDK khi được cài đặt
 
-1.1.5. Performance Enhancing Tools
+A.5. Cấu trúc thư mục của Extensible SDK khi được cài đặt
 
-1.2. SDK Development Model
+B. Tùy biến Extensible SDK
 
-## 1.1. Introduction¶
+    
 
-Welcome to the Yocto Project Software Development Kit (SDK) Developer's Guide.
-This manual provides information that explains how to use both the Yocto
-Project extensible and standard SDKs to develop applications and images.
-Additionally, the manual also provides information on how to use the popular
-Eclipse™ IDE as part of your application development workflow within the SDK
-environment.
+B.1. Cấu hình Extensible SDK
 
-### Note
+B.2. Điều chỉnh Extensible SDK để phù hợp với setup trên hệ thống build 
 
-Prior to the 2.0 Release of the Yocto Project, application development was
-primarily accomplished through the use of the Application Development Toolkit
-(ADT) and the availability of stand-alone cross-development toolchains and
-other tools. With the 2.1 Release of the Yocto Project, application
-development has transitioned to within a tool-rich extensible SDK and the more
-traditional standard SDK.
+B.3. Thay đổi diện mạo của Extensible SDK
 
-All SDKs consist of the following:
+B.4. Cung cấp các bản cập nhật sau khi đã cài đặt Extensible SDK
 
-  * _Cross-Development Toolchain_: This toolchain contains a compiler, debugger, and various miscellaneous tools. 
+B.5. Cung cấp các nội dung có thể cài đặt được cho Extensible SDK 
 
-  * _Libraries, Headers, and Symbols_: The libraries, headers, and symbols are specific to the image (i.e. they match the image). 
+B.6. Tối ưu kích thước của bộ cài đặt Extensible SDK dành cho việc tải về
 
-  * _Environment Setup Script_: This `*.sh` file, once run, sets up the cross-development environment by defining variables and preparing for SDK use. 
+C. Tùy chỉnh Standard SDK
 
-Additionally an extensible SDK has tools that allow you to easily add new
-applications and libraries to an image, modify the source of an existing
-component, test changes on the target hardware, and easily integrate an
-application into the [OpenEmbedded build
+    
+
+C.1. Thêm các gói riêng biệt vào Standard SDK
+
+C.2. Thêm tài liệu về API cho Standard SDK
+
+D. Sử dụng Eclipse Mars
+
+    
+
+D.1. Thiết lập cho phiển bản Mars của the Eclipse IDE
+
+    
+
+D.1.1. Cài đặt Eclipse IDE phiên bản Mars 
+
+D.1.2. Cấu hình Eclipse IDE phiển bản Mars
+
+D.1.3. Cài đặt và sử dụng Yocto Plug-in trên Eclipse Mars
+
+D.1.4. Cấu hình Yocto Plug-in trên Eclipse Mars 
+
+D.2. Tạo project 
+
+D.3. Cấu hình Cross-Toolchains
+
+D.4. Build Project
+
+D.5. Khởi động QEMU ở chế độ User-Space NFS
+
+D.6. Triển khai và Debugging ứng dụng 
+
+D.7. Sử dụng Linuxtools
+
+## Chương 1. Giới thiệu 
+
+**Mục lục**
+
+1.1. Giới thiệu 
+
+    
+
+1.1.1. Về Cross-Development Toolchain
+
+1.1.2. Về Sysroots
+
+1.1.3. Về QEMU Emulator
+
+1.1.4. Về Yocto Plug-in cho Eclipse
+
+1.1.5. Các tool năng cao hiệu năng (Performance Enhancing Tools)
+
+1.2. Mô hình phát triển SDK
+
+## 1.1. Giới thiệu 
+
+Chào mừng bạn đến với hướng dẫn về Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer. 
+Hướng dẫn này cung cấp những thông tin giải thích việc làm thế nào để sử dụng cả SDK mở rộng
+extensibleiSDK) và SDK chuẩn (standard SDKs))))))))) của Yocto Project để phát triển ứng dụng và tạo ảnh.
+Ngoài ra, tài liệu này cũng cung cấp thông tin về việc làm thế nào để sử dụng
+Eclipse™ IDE kết hợp với SDK trong quá trình phát triển ứng dụng.
+
+### Ghi chú 
+
+Tính đến phiên bản 2.0 của Yocto Project, việc phát triển ứng dụng được thực hiện thông qua
+Application Development Toolkit (ADT), các cross-development toolchains chạy độc lập và các công cụ khác. 
+Từ phiên bản 2,1 của Yocto Project, việc phát triển ứng dụng được chuyển sang extensible SDK với rất nhiều 
+tiện ích và một SDK chuẩn (standard SDK) gần với công cụ cũ.
+
+Mỗi SDK sẽ bao gồm các thành phần sau:
+
+  * _Cross-Development Toolchain_: Toolchain chứa một compiler, một debugger, và rất nhiều công cụ linh tinh khác. 
+
+  * _Libraries, Headers, and Symbols_: Thư viện dạng binary, các file header, và các symbols(hàm, biến toàn cục)
+ được có liên quan đến một ảnh hệ thống cụ thể ( ví dụ: chúng phải cùng phiên bản với image chẳng hạn). 
+
+  * _Environment Setup Script_: Các file `*.sh`, một khi được chạy, chúng sẽ thiết lập môi trường cross-development bằng cách định nghĩa các biến môi trường cũng như chuẩn bị cho việc sử dụng SDK. 
+
+ Ngoài ra, một SDK mở rộng (extensible SDK) có những công cụ cho phép bạn dễ dàng 
+ thêm ứng dụng mới, các thư viện vào ảnh hệ thống, chỉnh sửa mã nguồn của component sẵn có, 
+test các thay đổi trên phần cứng, và dễ dàng tích hợp ứng dụng vào [OpenEmbedded build
 system](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-
 system-term).
 
-You can use an SDK to independently develop and test code that is destined to
-run on some target machine. SDKs are completely self-contained. The binaries
-are linked against their own copy of `libc`, which results in no dependencies
-on the target system. To achieve this, the pointer to the dynamic loader is
-configured at install time since that path cannot be dynamically altered. This
-is the reason for a wrapper around the `populate_sdk` and `populate_sdk_ext`
-archives.
+ Bạn có thể sử dụng SDK một cách độc lập để phát triển develop và test code cái mà cuối cùng 
+ sẽ được chạy trên phần cứng đích (target machine). Các SDKs thông thường là hoàn toàn không 
+có phụ thuộc (self-contained), tức là nó chứa tất cả những gì cần thiết rồi. 
+Các binaries tạo ra sẽ được linked với một bản copy của `libc`, vì thế chúng không cần bất kì 
+phụ thuộc vào từ máy đích. 
+Để làm được điều này, đường đẫn dành cho bộ load động (dynamic loader) được cấu hình tại thời điểm
+cài đặt không thể bị thay đổi tùy tiện được. Đây là lý do có một wrapper cho `populate_sdk` và `populate_sdk_ext`.
 
-Another feature for the SDKs is that only one set of cross-compiler toolchain
-binaries are produced for any given architecture. This feature takes advantage
-of the fact that the target hardware can be passed to `gcc` as a set of
-compiler options. Those options are set up by the environment script and
-contained in variables such as [`CC`](http://www.yoctoproject.org/docs/2.2
-/ref-manual/ref-manual.html#var-CC) and
-[`LD`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-
-LD). This reduces the space needed for the tools. Understand, however, that a
-sysroot is still needed for every target since those binaries are target-
-specific.
+ Một đặc điểm khác của các SDKs là tập các cross-compiler toolchain
+ ở dạng binaries chỉ sinh code cho một architecture nhất định mà thôi.
+ Đặc điểm này sẽ tạo thuận lợi trongn thực tế khi trên phần cứng ta sử dụng `gcc` 
+ không phải là một câu lệnh đơn mà là một compiler với các option được thiết lập sẵn. 
+ Những option này được set bởi script thiết lập môi trường (environment script) và 
+ được lưu vào một biến gọi là [`CC`](http://www.yoctoproject.org/docs/2.2
+/ref-manual/ref-manual.html#var-CC) dành cho compiler và [`LD`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LD) dành cho Linker. Điều này sẽ giảm không gian cần thiết cho các công cụ.
+ Hiểu là như vậy, nhưng, vẫn cần một sysroot cho mỗi target muốn build 
+ vì các binaries nằm trên đó là phụ thuộc target.
 
-The SDK development environment consists of the following:
+ Mỗi trường phát triển bằng SDK (SDK development environment) chứa những thành phần sau:
 
-  * The self-contained SDK, which is an architecture-specific cross-toolchain and matching sysroots (target and native) all built by the OpenEmbedded build system (e.g. the SDK). The toolchain and sysroots are based on a [Metadata](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#metadata) configuration and extensions, which allows you to cross-develop on the host machine for the target hardware. Additionally, the extensible SDK contains the `devtool` functionality. 
+  * Một SDK không phụ thuộc (self-contained SDK), là một bộ bao gồm một cross-toolchain cho một kiến trúc cụ thể
+ và sysroots đồng bộ với nó (trên target và native), cả 2 được build bởi hệ thống build OpenEmbedded 
+(ví dụ: SDK). Toolchain và sysroot có gì, được build như thế nào thì được quy định bởi các 
+[Metadata](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#metadata) chứa cấu hình và thành phần mở rộng, SDK cho phép bạn phát triển chéo (cross-develop) ứng dụng trên máy host rồi chạy trên phần cứng target ( target hardware). Ngoài ra, SDK mở rộng chứa một số công cụ tiện ích gọi là `dedwdwlldi nữa. 
 
-  * The Quick EMUlator (QEMU), which lets you simulate target hardware. QEMU is not literally part of the SDK. You must build and include this emulator separately. However, QEMU plays an important role in the development process that revolves around use of the SDK. 
+  * The Quick EMUlator (QEMU), cho phép bạn giả lập phần cứng đích (target hardware). QEMU không phải là một phần của SDK. Bạn phải build và thêm Emulator này riêng. Tuy nhiên, QEMU đóng một vai trò quan trọng trong quá trình phát triển có sử dụng SDK. 
 
-  * The Eclipse IDE Yocto Plug-in. This plug-in is available for you if you are an Eclipse user. In the same manner as QEMU, the plug-in is not literally part of the SDK but is rather available for use as part of the development process. 
+  * Yocto Plug-in cho IDE Eclipse. Plug-in này đã sẵn có cho bạn sử dụng nếu nếu bạn là một người sử dụng 
+IDE Eclipse. Cũng giống với QEMU, Plug-in này vốn không phải là một phần của SDK, nó được sử dụng trong quá trình phát triển thì đúng hơn. 
 
-  * Various performance-related [tools](http://www.eclipse.org/linuxtools/index.php) that can enhance your development experience. These tools are also separate from the actual SDK but can be independently obtained and used in the development process. 
+  * Rất nhiều công cụ liên quan đến hiệu năng [tools](http://www.eclipse.org/linuxtools/index.php) cái sẽ hộ trợ rất nhiều trong quá trình phát triển. Những công cụ này cũng được tách biệt với phần thực sự của SDK nhưng được đánh giá và sử dụng độc lập trong quá trình phát triển. 
 
-In summary, the extensible and standard SDK share many features. However, the
-extensible SDK has powerful development tools to help you more quickly develop
-applications. Following is a table that summarizes the primary differences
-between the standard and extensible SDK types when considering which to build:
+ Tóm lại, SDK mở rộng và SDK chuẩn (extensible and standard SDK) có rất nhiều tính năng chung. Tuy nhiên, SDK mở rộng có nhiều công cụ phát triển mạnh giúp bạn làm nhanh hơn trong quá trình phát triển ứng dụng. 
+ Bên dưới là một bảng tổng kết những sự khác nhau chính giữa SDK chuẩn và SDK mở rộng khi xem xét để build:
 
-_Feature__Standard SDK__Extensible SDK_
+<Được nhúng vào bằng HTML>
 
-Toolchain
+### 1.1.1. Về Cross-Development Toolchain
 
-Yes
+[Cross-Development Toolchain](http://www.yoctoproject.org/docs/2.2/dev-
+manual/dev-manual.html#cross-development-toolchain) chứa một cross-
+compiler, một cross-linker, và một cross-debugger được sử dụng để phát triển ứng dụng
+ phía user-space cho phần cứng đích (targeted hardware). 
+ Ngoài ra, trong SDK mở rộng (extensible SDK), toolchain còn có một bộ công cụ gọi là `devtool`. 
+ Các toolchain được đặt cùng với SDK bằng script cài đặt thông qua [Build
+Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory) 
+ cái được tạo ra từ Metadata cấu hình hoặc hoặc mở rộng cho thiết bị đích (targeted device). 
+ Các cross-toolchain chỉ làm việc với target sysroot phù hợp.
 
-Yes*
+### 1.1.2. Về Sysroots (Filesystem của root)
 
-Debugger
+Sysroot native và target chứa các file headers and thư viện (libraries) sử dụng cho việc 
+ sinh mã binary chạy trên kiến trúc đích (target architecture). Sysroot target is
+ hệ thống file ở root mà target sử dụng và được build bởi hệ thống build OpenEmbedded
+ sử dụng cùng một tập các Metadata configuration để build toolchain.
 
-Yes
+### 1.1.3. Về QEMU Emulator
 
-Yes*
+QEMU emulator cho phép bạn giả lập phần cứng hardware để chạy ứng dụng hoặc ảnh hệ thống.
+ QEMU không phải là một phần của SDK chúng được đưa vào sử dụng theo các dạng như sau:
 
-Size
+  * Nếu bạn clone Git repository `poky` trong lúc tạo [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn đã chạy script setup môi trường rồi, thì QEMU đã được cài đặt và có thể sử dụng. 
 
-100+ MBytes
+  * Bạn tải một phiên bản của Yocto Project giải nén rồi tạo một thư mục [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn cũng đã chạy script setup môi trường rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được. 
 
-1+ GBytes (or 300+ MBytes for minimal w/toolchain)
-
-`devtool`
-
-No
-
-Yes
-
-Build Images
-
-No
-
-Yes
-
-Updateable
-
-No
-
-Yes
-
-Managed Sysroot**
-
-No
-
-Yes
-
-Installed Packages
-
-No***
-
-Yes****
-
-Construction
-
-Packages
-
-Shared State
-
-    
-    
-         * Extensible SDK will contain the toolchain and debugger if [SDK_EXT_TYPE](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SDK_EXT_TYPE) is "full" or [SDK_INCLUDE_TOOLCHAIN](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SDK_INCLUDE_TOOLCHAIN) is "1", which is the default.
-    
-         ** Sysroot is managed through use of devtool.  Thus, it is less likely that you will corrupt your SDK sysroot when you try to add additional libraries.
-    
-         *** Runtime package management can be added to the standard SDK but it is not supported by default.
-    
-         **** You must build and make the shared state available to extensible SDK users for "packages" you want to enable users to install.
-            
-
-### 1.1.1. The Cross-Development Toolchain¶
-
-The [Cross-Development Toolchain](http://www.yoctoproject.org/docs/2.2/dev-
-manual/dev-manual.html#cross-development-toolchain) consists of a cross-
-compiler, cross-linker, and cross-debugger that are used to develop user-space
-applications for targeted hardware. Additionally, for an extensible SDK, the
-toolchain also has built-in `devtool` functionality. This toolchain is created
-by running a SDK installer script or through a [Build
-Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#build-directory) that is based on your Metadata configuration or extension
-for your targeted device. The cross-toolchain works with a matching target
-sysroot.
-
-### 1.1.2. Sysroots¶
-
-The native and target sysroots contain needed headers and libraries for
-generating binaries that run on the target architecture. The target sysroot is
-based on the target root filesystem image that is built by the OpenEmbedded
-build system and uses the same Metadata configuration used to build the cross-
-toolchain.
-
-### 1.1.3. The QEMU Emulator¶
-
-The QEMU emulator allows you to simulate your hardware while running your
-application or image. QEMU is not part of the SDK but is made available a
-number of ways:
-
-  * If you have cloned the `poky` Git repository to create a [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) and you have sourced the environment setup script, QEMU is installed and automatically available. 
-
-  * If you have downloaded a Yocto Project release and unpacked it to create a [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) and you have sourced the environment setup script, QEMU is installed and automatically available. 
-
-  * If you have installed the cross-toolchain tarball and you have sourced the toolchain's setup environment script, QEMU is also installed and automatically available. 
+  * Nếu bạn cài đặt từ file nén tarball chứa cross-toolchain và bạn đã chạy script thiết lập cho toolchain rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được ngay . 
 
 ### 1.1.4. Eclipse Yocto Plug-in¶
 
@@ -415,68 +345,61 @@ enhance your development experience.
 
 ### Note
 
-Previous releases of the Eclipse Yocto Plug-in supported "user-space tools"
-(i.e. LatencyTOP, PowerTOP, Perf, SystemTap, and Lttng-ust) that also added to
-the development experience. These tools have been deprecated beginning with
-this release of the plug-in.
+ Phiên bản trước của Yocto Plug-in cho Eclipse có các tool chạy ở user-space ("user-space tools")
+( ví dụ: LatencyTOP, PowerTOP, Perf, SystemTap, and Lttng-ust) đã được thêm vào để sử dụng trong quá trình phát triển. Nhưng tool này không còn được sử dụng từ phiên bản này của Plug-in.
 
-For information about the application development workflow that uses the
-Eclipse IDE and for a detailed example of how to install and configure the
-Eclipse Yocto Project Plug-in, see the "Developing Applications Using
-Eclipse™" section.
+ Về chi tiết cho quá trình phát triển ứng dụng sử dụng IDE Eclipse cũng như chi tiết ví dụ làm thế nào để
+cài đặt, cấu hình Yocto Project Plug-in cho Eclipse, xem thêm ở chương "Developing Applications Using Eclipse™".
 
-### 1.1.5. Performance Enhancing Tools¶
+### 1.1.5. Các tool đánh giá hiệu năng (Performance Enhancing Tools)
 
-Supported performance enhancing tools are available that let you profile,
-debug, and perform tracing on your projects developed using Eclipse. For
-information on these tools see
-[http://www.eclipse.org/linuxtools/](http://www.eclipse.org/linuxtools/).
+ Có rất nhiều tool mà IDE Eclipse hỗ trợ, cho phép bạn đánh giá,
+debug, và thực hiện các bước truy vết khi phát triển ứng dụng sử dụng Eclipse.
+Thông tin về các tool này, có thể xem tại [http://www.eclipse.org/linuxtools/](http://www.eclipse.org/linuxtools/).
 
-## 1.2. SDK Development Model¶
+## 1.2. Mô hình phát triển sử dụng (SDK Development Model)
 
-Fundamentally, the SDK fits into the development process as follows:
+ Về nguyên tắc, các SDK sẽ phù hợp với quá trình phát triển như sau:
 
 ![](figures/sdk-environment.png)
 
-The SDK is installed on any machine and can be used to develop applications,
-images, and kernels. An SDK can even be used by a QA Engineer or Release
-Engineer. The fundamental concept is that the machine that has the SDK
-installed does not have to be associated with the machine that has the Yocto
-Project installed. A developer can independently compile and test an object on
-their machine and then, when the object is ready for integration into an
-image, they can simply make it available to the machine that has the Yocto
-Project. Once the object is available, the image can be rebuilt using the
-Yocto Project to produce the modified image.
+SDK có thể được cài đặt ở bất cứ máy nào và có thể được sử dụng để phát triển ứng dụng,
+ ảnh hệ thống, và cả kernel nữa. Một SDK thậm chí có thể được sử dụng bởi QA Enginer
+ hoặc Release Engineer nữa. Khái niệm nền tảng ở đây là máy mà SDK được cài đặt
+ không cần có bất cứ liên quan gì với máy mà Yocto Project được cài đặt.
+ Developer hoàn toàn có thể biên dịch, test các trên máy của họ, 
+ sau đó, khi code đã ngon lành rồi, thì họ mang code đó đến máy cài đặt Yocto
+Project. Khi đã có code, thư viện rồi , ảnh hệ thống có thể được build lại. 
 
-You just need to follow these general steps:
+ Bạn đơn giản cần làm theo các bước như sau:
 
-  1. _Install the SDK for your target hardware:_ For information on how to install the SDK, see the "Installing the SDK" section.
+  1. _Cài đặt SDK tương ứng với phần cứng đích của bạn (target hardware):_ 
+ Về cách cài đặt, hãy xem ở chương "Installing the SDK".
 
-  2. _Download or Build the Target Image:_ The Yocto Project supports several target architectures and has many pre-built kernel images and root filesystem images.
+  2. _ Tải hoặc là build ảnh hệ thống đích (Target Image):_ 
+Yocto Project hỗ trợ một vài kiến trúc đích (target architectures) 
+ và cũng có rất nhiều ảnh kernel, root filesystem.
 
-If you are going to develop your application on hardware, go to the [`machines
+ Nếu ban đang có ý định phát triển ứng dụng cho phần cứng hardware, hãy xem qua phần [`machines
 `](http://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines)
-download area and choose a target machine area from which to download the
-kernel image and root filesystem. This download area could have several files
-in it that support development using actual hardware. For example, the area
-might contain `.hddimg` files that combine the kernel image with the
-filesystem, boot loaders, and so forth. Be sure to get the files you need for
-your particular development process.
+ ở chỗ Tải về chọn máy đích (target machine) sau đó tải ảnh kernel và root filesystem.
+ Ở khu vực Tải về đó cũng có một vài file hỗ trợ một vài phần cứng nhất định. 
+ Ví dụ, file đuôi `.hddimg` và kết hợp giữa kernel image với filesystem, boot loaders trong 1 file.
+ Chắc chắn rằng bạn tải đúng file cho quá trình phát triển cụ thể của bạn.
 
-If you are going to develop your application and then run and test it using
-the QEMU emulator, go to the [`machines/qemu`](http://downloads.yoctoproject.o
-rg/releases/yocto/yocto-2.2/machines/qemu) download area. From this area, go
-down into the directory for your target architecture (e.g. `qemux86_64` for an
-Intel®-based 64-bit architecture). Download kernel, root filesystem, and any
-other files you need for your process.
+ Nếu bạn định phát triển ứng dụng chạy và test sử dụng QEMU emulator, 
+ hãy vào mục [`machines/qemu`](http://downloads.yoctoproject.o
+rg/releases/yocto/yocto-2.2/machines/qemu) ở khu vực tải về. 
+Từ đó vào thư mục tương ứng với kiến trúc đích của bạn ( ví dụ: `qemux86_64` dành cho
+ kiến trúc dựa trên Intel®-based 64-bit). 
+ Tải kernel, root filesystem, và bất cứ file nào khác cần cho quá trình phát triển của bạn.
 
-### Note
+### Ghi chú 
 
-To use the root filesystem in QEMU, you need to extract it. See the
-"Extracting the Root Filesystem" section for information on how to extract the
-root filesystem.
+ Để sử dụng root filesystem trong QEMU, bạn cần giải nén nó. Xem chương về 
+"Extracting the Root Filesystem" để biết cách giải nén một root file system. 
 
-  3. _Develop and Test your Application:_ At this point, you have the tools to develop your application. If you need to separately install and use the QEMU emulator, you can go to [QEMU Home Page](http://wiki.qemu.org/Main_Page) to download and learn about the emulator. See the "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" chapter in the Yocto Project Development Manual for information on using QEMU within the Yocto Project.
+  3. _:_ At this point, you have the tools to develop your application. If you need to separately install and use the QEMU emulator, you can go to [QEMU Home Page](http://wiki.qemu.org/Main_Page) to download and learn about the emulator. See the "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" chapter in the Yocto Project Development Manual for information on using QEMU within the Yocto Project.
 
 The remainder of this manual describes how to use both the standard SDK and
 the extensible SDK. Information also exists in appendix form that describes
