@@ -1,4 +1,4 @@
-# Hướng dẫn về Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer
+# Hướng dẫn sử dụng Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer
 
 ### Scott Rifenbark
 
@@ -38,13 +38,9 @@ Released with the Yocto Project 2.2 Release.
 
 **Mục lục**
 
-1. Giới thiệu 
+1. Giới thiệu
 
-    
-
-1.1. Giới thiệu 
-
-    
+1.1. Giới thiệu
 
 1.1.1. Về Cross-Development Toolchain
 
@@ -52,15 +48,14 @@ Released with the Yocto Project 2.2 Release.
 
 1.1.3. Về QEMU Emulator
 
-1.1.4. Về Yocto Plug-in dành cho IDE Eclipse 
+1.1.4. Về Yocto Plug-in dành cho IDE Eclipse
 
 1.1.5. Về các tool cho việc nâng cao hiệu năng (Performance Enhancing Tools)
 
 1.2. Về mô hình phát triển SDK (SDK Development Model)
 
-2. Sử dụng SDK mở rộng (Extensible SDK)
 
-    
+2. Sử dụng SDK mở rộng (Extensible SDK)
 
 2.1. Tại sao lại sử dụng Extensible SDK và có gì bên trong nó?
 
@@ -68,44 +63,38 @@ Released with the Yocto Project 2.2 Release.
 
 2.3. Chạy script Setup môi trường cho Extensible SDK
 
-2.4. Sử dụng `devtool` trong SDK của bạn 
+2.4. Sử dụng `devtool` trong SDK của bạn
 
-    
-
-2.4.1. Sử dụng `devtool add` để thêm ứng dụng 
+2.4.1. Sử dụng `devtool add` để thêm ứng dụng
 
 2.4.2. Sử dụng `devtool modify` để sửa source của một component sẵn có (Existing Component)
 
 2.4.3. Sử dụng `devtool upgrade` để tạo một phiên bản của một Recipe để support
-một phiên bản mới của phần mềm 
+một phiên bản mới của phần mềm
 
 2.5. Một cái nhìn gần hơn đối với `devtool add`
 
-    
-
-2.5.1. Tên và phiên bản 
+2.5.1. Tên và phiên bản
 
 2.5.2. Phát hiện phụ thuộc và Mapping
 
-2.5.3. Phát hiện licence 
+2.5.3. Phát hiện licence
 
-2.5.4. Thêm phần mềm chỉ có Makefile-Only 
+2.5.4. Thêm phần mềm chỉ có Makefile-Only
 
-2.5.5. Thêm các công cụ Native 
+2.5.5. Thêm các công cụ Native
 
 2.5.6. Thêm các module Node.js Modules
 
 2.6. Làm việc với các Recipes
 
-    
-
 2.6.1. Tìm Logs và Work Files
 
-2.6.2. Thiết lập các tham số cấu hình 
+2.6.2. Thiết lập các tham số cấu hình
 
 2.6.3. Chia sẻ file giữa các Recipes
 
-2.6.4. Đóng gói phần mềm 
+2.6.4. Đóng gói phần mềm
 
 2.7. Phục hồi Target Device về trạng thái ban đầu của nó
 
@@ -117,31 +106,30 @@ một phiên bản mới của phần mềm
 
 3. Sử dụng một SDK chuẩn
 
-    
+
 
 3.1. Tại sao sử dụng một Standard SDK và có gì trong nó?
 
 3.2. Cài đặt SDK
 
-3.3. Chạy script thiết lập môi trường SDK 
+3.3. Chạy script thiết lập môi trường SDK
 
-4. Sử dụng trực tiếp SDK Toolchain 
+4. Sử dụng trực tiếp SDK Toolchain
 
-    
+
 
 4.1. Các project dựa trên Autotools-Based Projects
 
-    
+
 
 4.1.1. Tạo và chạy một project dựa trên dựa trên GNU Autotools
 
-4.1.2. Truyền các options ở phía Host 
+4.1.2. Truyền các options ở phía Host
 
 4.2. Các project dựa trên Makefile-Based Projects
 
 4.3. Phát triển ứng dụng trên Eclipse™
 
-    
 
 4.3.1. Workflow khi sử dụng Eclipse™
 
@@ -149,9 +137,8 @@ một phiên bản mới của phần mềm
 
 A. Hiểu vể SDK
 
-    
 
-A.1. Xác định ví trí của bộ cài đặt Pre-Built SDK 
+A.1. Xác định ví trí của bộ cài đặt Pre-Built SDK
 
 A.2. Về việc build một SDK Installer
 
@@ -163,23 +150,20 @@ A.5. Cấu trúc thư mục của Extensible SDK khi được cài đặt
 
 B. Tùy biến Extensible SDK
 
-    
 
 B.1. Cấu hình Extensible SDK
 
-B.2. Điều chỉnh Extensible SDK để phù hợp với setup trên hệ thống build 
+B.2. Điều chỉnh Extensible SDK để phù hợp với setup trên hệ thống build
 
 B.3. Thay đổi diện mạo của Extensible SDK
 
 B.4. Cung cấp các bản cập nhật sau khi đã cài đặt Extensible SDK
 
-B.5. Cung cấp các nội dung có thể cài đặt được cho Extensible SDK 
+B.5. Cung cấp các nội dung có thể cài đặt được cho Extensible SDK
 
 B.6. Tối ưu kích thước của bộ cài đặt Extensible SDK dành cho việc tải về
 
 C. Tùy chỉnh Standard SDK
-
-    
 
 C.1. Thêm các gói riêng biệt vào Standard SDK
 
@@ -187,13 +171,10 @@ C.2. Thêm tài liệu về API cho Standard SDK
 
 D. Sử dụng Eclipse Mars
 
-    
-
 D.1. Thiết lập cho phiển bản Mars của the Eclipse IDE
 
-    
 
-D.1.1. Cài đặt Eclipse IDE phiên bản Mars 
+D.1.1. Cài đặt Eclipse IDE phiên bản Mars
 
 D.1.2. Cấu hình Eclipse IDE phiển bản Mars
 
@@ -201,7 +182,7 @@ D.1.3. Cài đặt và sử dụng Yocto Plug-in trên Eclipse Mars
 
 D.1.4. Cấu hình Yocto Plug-in trên Eclipse Mars 
 
-D.2. Tạo project 
+D.2. Tạo project
 
 D.3. Cấu hình Cross-Toolchains
 
@@ -209,17 +190,15 @@ D.4. Build Project
 
 D.5. Khởi động QEMU ở chế độ User-Space NFS
 
-D.6. Triển khai và Debugging ứng dụng 
+D.6. Triển khai và Debugging ứng dụng
 
 D.7. Sử dụng Linuxtools
 
-## Chương 1. Giới thiệu 
+## Chương 1. Giới thiệu
 
 **Mục lục**
 
-1.1. Giới thiệu 
-
-    
+1.1. Giới thiệu
 
 1.1.1. Về Cross-Development Toolchain
 
@@ -233,104 +212,73 @@ D.7. Sử dụng Linuxtools
 
 1.2. Mô hình phát triển SDK
 
-## 1.1. Giới thiệu 
+## 1.1. Giới thiệu
 
-Chào mừng bạn đến với hướng dẫn về Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer. 
-Hướng dẫn này cung cấp những thông tin giải thích việc làm thế nào để sử dụng cả SDK mở rộng
-extensibleiSDK) và SDK chuẩn (standard SDKs))))))))) của Yocto Project để phát triển ứng dụng và tạo ảnh.
-Ngoài ra, tài liệu này cũng cung cấp thông tin về việc làm thế nào để sử dụng
-Eclipse™ IDE kết hợp với SDK trong quá trình phát triển ứng dụng.
+Chào mừng bạn đến với hướng dẫn về Kit phát triển phần mềm (SDK) của Yocto Project dành cho Developer.
+Hướng dẫn này cung cấp những thông tin giải thích việc làm thế nào để sử dụng cả SDK mở rộng (extensible SDK) và SDK chuẩn (standard SDKs) của Yocto Project để phát triển ứng dụng và tạo ảnh hệ thống.
+Ngoài ra, tài liệu này cũng cung cấp thông tin về việc làm thế nào để sử dụng Eclipse™ IDE kết hợp với SDK trong quá trình phát triển ứng dụng.
 
-### Ghi chú 
+### Ghi chú
 
-Tính đến phiên bản 2.0 của Yocto Project, việc phát triển ứng dụng được thực hiện thông qua
-Application Development Toolkit (ADT), các cross-development toolchains chạy độc lập và các công cụ khác. 
-Từ phiên bản 2,1 của Yocto Project, việc phát triển ứng dụng được chuyển sang extensible SDK với rất nhiều 
-tiện ích và một SDK chuẩn (standard SDK) gần với công cụ cũ.
+Tính đến phiên bản 2.0 của Yocto Project, việc phát triển ứng dụng được thực hiện thông qua Application Development Toolkit (ADT), các cross-development toolchains chạy độc lập và các công cụ khác.
+Từ phiên bản 2,1 của Yocto Project, việc phát triển ứng dụng được chuyển sang extensible SDK với rất nhiều tiện ích và một SDK chuẩn (standard SDK) gần với công cụ cũ.
 
 Mỗi SDK sẽ bao gồm các thành phần sau:
 
-  * _Cross-Development Toolchain_: Toolchain chứa một compiler, một debugger, và rất nhiều công cụ linh tinh khác. 
+  * _Cross-Development Toolchain_: Toolchain chứa một compiler, một debugger, và rất nhiều công cụ linh tinh khác.
 
   * _Libraries, Headers, and Symbols_: Thư viện dạng binary, các file header, và các symbols(hàm, biến toàn cục)
- được có liên quan đến một ảnh hệ thống cụ thể ( ví dụ: chúng phải cùng phiên bản với image chẳng hạn). 
+ được có liên quan đến một ảnh hệ thống cụ thể ( ví dụ: chúng phải cùng phiên bản với image chẳng hạn).
 
-  * _Environment Setup Script_: Các file `*.sh`, một khi được chạy, chúng sẽ thiết lập môi trường cross-development bằng cách định nghĩa các biến môi trường cũng như chuẩn bị cho việc sử dụng SDK. 
+  * _Environment Setup Script_: Các file `*.sh`, một khi được chạy, chúng sẽ thiết lập môi trường cross-development bằng cách định nghĩa các biến môi trường cũng như chuẩn bị cho việc sử dụng SDK.
 
- Ngoài ra, một SDK mở rộng (extensible SDK) có những công cụ cho phép bạn dễ dàng 
- thêm ứng dụng mới, các thư viện vào ảnh hệ thống, chỉnh sửa mã nguồn của component sẵn có, 
-test các thay đổi trên phần cứng, và dễ dàng tích hợp ứng dụng vào [OpenEmbedded build
-system](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-
-system-term).
+ Ngoài ra, một SDK mở rộng (extensible SDK) có những công cụ cho phép bạn dễ dàng thêm ứng dụng mới, các thư viện vào ảnh hệ thống, chỉnh sửa mã nguồn của component sẵn có, test các thay đổi trên phần cứng, và dễ dàng tích hợp ứng dụng vào [OpenEmbedded build system](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-system-term).
 
- Bạn có thể sử dụng SDK một cách độc lập để phát triển develop và test code cái mà cuối cùng 
- sẽ được chạy trên phần cứng đích (target machine). Các SDKs thông thường là hoàn toàn không 
-có phụ thuộc (self-contained), tức là nó chứa tất cả những gì cần thiết rồi. 
-Các binaries tạo ra sẽ được linked với một bản copy của `libc`, vì thế chúng không cần bất kì 
-phụ thuộc vào từ máy đích. 
-Để làm được điều này, đường đẫn dành cho bộ load động (dynamic loader) được cấu hình tại thời điểm
-cài đặt không thể bị thay đổi tùy tiện được. Đây là lý do có một wrapper cho `populate_sdk` và `populate_sdk_ext`.
+ Bạn có thể sử dụng SDK một cách độc lập để phát triển và test code, cái mà cuối cùng sẽ được chạy trên phần cứng đích (target machine).
+ Các SDKs thông thường là hoàn toàn không có phụ thuộc (self-contained), tức là nó chứa tất cả những gì cần thiết rồi.
+Các binaries tạo ra sẽ được linked với một bản copy của `libc`, vì thế chúng không cần bất kì phụ thuộc nào từ máy đích nữa.
+Để làm được điều này, đường đẫn dành cho bộ load động (dynamic loader) được cấu hình tại thời điểm cài đặt không thể bị thay đổi tùy tiện được. Đây là lý do có một wrapper cho `populate_sdk` và `populate_sdk_ext`.
 
- Một đặc điểm khác của các SDKs là tập các cross-compiler toolchain
- ở dạng binaries chỉ sinh code cho một architecture nhất định mà thôi.
- Đặc điểm này sẽ tạo thuận lợi trongn thực tế khi trên phần cứng ta sử dụng `gcc` 
- không phải là một câu lệnh đơn mà là một compiler với các option được thiết lập sẵn. 
- Những option này được set bởi script thiết lập môi trường (environment script) và 
- được lưu vào một biến gọi là [`CC`](http://www.yoctoproject.org/docs/2.2
+ Một đặc điểm khác của các SDKs, nó là tập các cross-compiler toolchain ở dạng binaries chỉ sinh code cho một architecture nhất định mà thôi.
+ Đặc điểm này sẽ tạo thuận lợi trong thực tế khi trên phần cứng ta sử dụng `gcc` không phải là một câu lệnh đơn mà là một compiler với các option được thiết lập sẵn. Những option này được set bởi script thiết lập môi trường (environment script) và được lưu vào một biến môi trường gọi là [`CC`](http://www.yoctoproject.org/docs/2.2
 /ref-manual/ref-manual.html#var-CC) dành cho compiler và [`LD`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LD) dành cho Linker. Điều này sẽ giảm không gian cần thiết cho các công cụ.
- Hiểu là như vậy, nhưng, vẫn cần một sysroot cho mỗi target muốn build 
- vì các binaries nằm trên đó là phụ thuộc target.
+ Hiểu là như vậy, nhưng, vẫn cần một sysroot cho mỗi target muốn build vì các binaries nằm trên đó là phụ thuộc target.
 
  Mỗi trường phát triển bằng SDK (SDK development environment) chứa những thành phần sau:
 
-  * Một SDK không phụ thuộc (self-contained SDK), là một bộ bao gồm một cross-toolchain cho một kiến trúc cụ thể
- và sysroots đồng bộ với nó (trên target và native), cả 2 được build bởi hệ thống build OpenEmbedded 
-(ví dụ: SDK). Toolchain và sysroot có gì, được build như thế nào thì được quy định bởi các 
-[Metadata](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#metadata) chứa cấu hình và thành phần mở rộng, SDK cho phép bạn phát triển chéo (cross-develop) ứng dụng trên máy host rồi chạy trên phần cứng target ( target hardware). Ngoài ra, SDK mở rộng chứa một số công cụ tiện ích gọi là `dedwdwlldi nữa. 
+  * Một SDK không phụ thuộc (self-contained SDK), là một bộ bao gồm một cross-toolchain cho một kiến trúc cụ thể và sysroots đồng bộ với nó (trên target và native), cả 2 được build bởi hệ thống build OpenEmbedded (ví dụ: SDK). Toolchain và sysroot có gì, được build như thế nào thì được quy định bởi các [Metadata](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#metadata) chứa cấu hình và thành phần mở rộng, SDK cho phép bạn phát triển chéo (cross-develop) ứng dụng trên máy host rồi chạy trên phần cứng target ( target hardware). Ngoài ra, SDK mở rộng chứa một số công cụ tiện ích gọi là `devtool` nữa.
 
-  * The Quick EMUlator (QEMU), cho phép bạn giả lập phần cứng đích (target hardware). QEMU không phải là một phần của SDK. Bạn phải build và thêm Emulator này riêng. Tuy nhiên, QEMU đóng một vai trò quan trọng trong quá trình phát triển có sử dụng SDK. 
+  * The Quick EMUlator (QEMU), cho phép bạn giả lập phần cứng đích (target hardware). QEMU không phải là một phần của SDK. Bạn phải build và thêm Emulator này riêng. Tuy nhiên, QEMU đóng một vai trò quan trọng trong quá trình phát triển có sử dụng SDK.
 
-  * Yocto Plug-in cho IDE Eclipse. Plug-in này đã sẵn có cho bạn sử dụng nếu nếu bạn là một người sử dụng 
-IDE Eclipse. Cũng giống với QEMU, Plug-in này vốn không phải là một phần của SDK, nó được sử dụng trong quá trình phát triển thì đúng hơn. 
+  * Yocto Plug-in cho IDE Eclipse. Plug-in này đã sẵn có cho bạn sử dụng nếu bạn là một người sử dụng IDE Eclipse. Cũng giống với QEMU, Plug-in này vốn không phải là một phần của SDK, nó được sử dụng trong quá trình phát triển thì đúng hơn.
 
-  * Rất nhiều công cụ liên quan đến hiệu năng [tools](http://www.eclipse.org/linuxtools/index.php) cái sẽ hộ trợ rất nhiều trong quá trình phát triển. Những công cụ này cũng được tách biệt với phần thực sự của SDK nhưng được đánh giá và sử dụng độc lập trong quá trình phát triển. 
+  * Rất nhiều công cụ liên quan đến việc đánh giá hiệu năng [tools](http://www.eclipse.org/linuxtools/index.php) cái sẽ hộ trợ rất nhiều trong quá trình phát triển. Những công cụ này cũng được tách biệt với phần thực sự của SDK nhưng có thể được đưa vào sử dụng trong quá trình phát triển.
 
- Tóm lại, SDK mở rộng và SDK chuẩn (extensible and standard SDK) có rất nhiều tính năng chung. Tuy nhiên, SDK mở rộng có nhiều công cụ phát triển mạnh giúp bạn làm nhanh hơn trong quá trình phát triển ứng dụng. 
- Bên dưới là một bảng tổng kết những sự khác nhau chính giữa SDK chuẩn và SDK mở rộng khi xem xét để build:
+ Tóm lại, SDK mở rộng và SDK chuẩn (extensible and standard SDK) có rất nhiều tính năng chung. Tuy nhiên, SDK mở rộng có nhiều công cụ phát triển mạnh giúp bạn làm việc nhanh hơn trong quá trình phát triển ứng dụng. Bên dưới là một bảng tổng kết những sự khác nhau chính giữa SDK chuẩn và SDK mở rộng khi xem xét để build:
 
 <Được nhúng vào bằng HTML>
 
 ### 1.1.1. Về Cross-Development Toolchain
 
 [Cross-Development Toolchain](http://www.yoctoproject.org/docs/2.2/dev-
-manual/dev-manual.html#cross-development-toolchain) chứa một cross-
-compiler, một cross-linker, và một cross-debugger được sử dụng để phát triển ứng dụng
- phía user-space cho phần cứng đích (targeted hardware). 
- Ngoài ra, trong SDK mở rộng (extensible SDK), toolchain còn có một bộ công cụ gọi là `devtool`. 
- Các toolchain được đặt cùng với SDK bằng script cài đặt thông qua [Build
-Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory) 
- cái được tạo ra từ Metadata cấu hình hoặc hoặc mở rộng cho thiết bị đích (targeted device). 
- Các cross-toolchain chỉ làm việc với target sysroot phù hợp.
+manual/dev-manual.html#cross-development-toolchain) chứa một cross-compiler, một cross-linker, và một cross-debugger được sử dụng để phát triển ứng dụng phía user-space cho phần cứng đích (targeted hardware). Ngoài ra, trong SDK mở rộng (extensible SDK), còn có một bộ công cụ gọi là `devtool`.
+ Các toolchain được đặt cùng với SDK bằng script cài đặt thông qua [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory) cái được tạo ra từ Metadata cấu hình hoặc hoặc mở rộng cho thiết bị đích (targeted device). Các cross-toolchain chỉ làm việc với target sysroot phù hợp.
 
 ### 1.1.2. Về Sysroots (Filesystem của root)
 
-Sysroot native và target chứa các file headers and thư viện (libraries) sử dụng cho việc 
- sinh mã binary chạy trên kiến trúc đích (target architecture). Sysroot target is
- hệ thống file ở root mà target sử dụng và được build bởi hệ thống build OpenEmbedded
- sử dụng cùng một tập các Metadata configuration để build toolchain.
+Sysroot native và target chứa các file headers and thư viện (libraries) sử dụng cho việc sinh mã binary chạy trên kiến trúc đích (target architecture). Sysroot target là hệ thống file ở root mà target sử dụng và được build bởi hệ thống build OpenEmbedded, sử dụng cùng một tập các Metadata configuration để build toolchain.
 
 ### 1.1.3. Về QEMU Emulator
 
-QEMU emulator cho phép bạn giả lập phần cứng hardware để chạy ứng dụng hoặc ảnh hệ thống.
- QEMU không phải là một phần của SDK chúng được đưa vào sử dụng theo các dạng như sau:
+QEMU emulator cho phép bạn giả lập phần cứng hardware để chạy ứng dụng hoặc ảnh hệ thống. QEMU không phải là một phần của SDK, chúng được đưa vào sử dụng theo các dạng như sau:
 
-  * Nếu bạn clone Git repository `poky` trong lúc tạo [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn đã chạy script setup môi trường rồi, thì QEMU đã được cài đặt và có thể sử dụng. 
+  * Nếu bạn clone Git repository `poky` trong lúc tạo [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn đã chạy script setup môi trường rồi, thì QEMU đã được cài đặt và có thể sử dụng.
 
-  * Bạn tải một phiên bản của Yocto Project giải nén rồi tạo một thư mục [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn cũng đã chạy script setup môi trường rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được. 
+  * Bạn tải một phiên bản của Yocto Project giải nén rồi tạo một thư mục [Source Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#source-directory) và bạn cũng đã chạy script setup môi trường rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được.
 
-  * Nếu bạn cài đặt từ file nén tarball chứa cross-toolchain và bạn đã chạy script thiết lập cho toolchain rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được ngay . 
+  * Nếu bạn cài đặt từ file nén tarball chứa cross-toolchain và bạn đã chạy script thiết lập cho toolchain rồi, thì QEMU sẽ được cài đặt và có thể sử dụng được ngay.
 
-### 1.1.4. Eclipse Yocto Plug-in¶
+### 1.1.4. Eclipse Yocto Plug-in
 
 The Eclipse IDE is a popular development environment and it fully supports
 development using the Yocto Project. When you install and configure the
@@ -343,7 +291,7 @@ perform cross-debugging and profiling. The environment also supports many
 performance-related [tools](http://www.eclipse.org/linuxtools/index.php) that
 enhance your development experience.
 
-### Note
+### Ghi chú
 
  Phiên bản trước của Yocto Plug-in cho Eclipse có các tool chạy ở user-space ("user-space tools")
 ( ví dụ: LatencyTOP, PowerTOP, Perf, SystemTap, and Lttng-ust) đã được thêm vào để sử dụng trong quá trình phát triển. Nhưng tool này không còn được sử dụng từ phiên bản này của Plug-in.
@@ -357,7 +305,7 @@ cài đặt, cấu hình Yocto Project Plug-in cho Eclipse, xem thêm ở chươ
 debug, và thực hiện các bước truy vết khi phát triển ứng dụng sử dụng Eclipse.
 Thông tin về các tool này, có thể xem tại [http://www.eclipse.org/linuxtools/](http://www.eclipse.org/linuxtools/).
 
-## 1.2. Mô hình phát triển sử dụng (SDK Development Model)
+## 1.2. Mô hình phát triển sử dụng SDK (SDK Development Model)
 
  Về nguyên tắc, các SDK sẽ phù hợp với quá trình phát triển như sau:
 
@@ -399,173 +347,166 @@ Từ đó vào thư mục tương ứng với kiến trúc đích của bạn ( 
  Để sử dụng root filesystem trong QEMU, bạn cần giải nén nó. Xem chương về 
 "Extracting the Root Filesystem" để biết cách giải nén một root file system. 
 
-  3. _:_ At this point, you have the tools to develop your application. If you need to separately install and use the QEMU emulator, you can go to [QEMU Home Page](http://wiki.qemu.org/Main_Page) to download and learn about the emulator. See the "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" chapter in the Yocto Project Development Manual for information on using QEMU within the Yocto Project.
+  3. _ Phát triển và test ứng dụng:_ Ở thời điểm này, chúng ta có tất cả các tool để phát triển ứng dụng, bao gồm cả QEMU. Nếu bạn muốn tách riêng phần cài đặt và sử dụng QEMU emulator, bạn có thể vào trang chủ [QEMU Home Page](http://wiki.qemu.org/Main_Page) để tải về cũng như học cách sử dụng emulator này.
+Xem thêm ở chương "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" trong hướng dẫn phát triển Yocto Project về việc sử dụng QEMU trong Yocto Project.
 
-The remainder of this manual describes how to use both the standard SDK and
-the extensible SDK. Information also exists in appendix form that describes
-how you can build, install, and modify an SDK.
+ Phần còn lại của tài liệu này sẽ mô tả cách làm thế nào để sử dụng SDK chuẩn (standard SDK) và 
+SDK mở rộng (extensible SDK). Thông tin trong phần phụ lục cũng miêu tả cách build, cài đặt, chỉnh sửa một SDK.
 
-## Chapter 2. Using the Extensible SDK¶
+## Chương 2. Sử dụng SDK mở rộng 
 
-**Table of Contents**
+**Mục lục**
 
-2.1. Why use the Extensible SDK and What is in It?
+2.1. Tại sao lại sử dụng SDK mở rộng và có gì bên trong nó?
 
-2.2. Setting Up to Use the Extensible SDK
+2.2. Thiết lập để sử dụng SDK mở rộng 
 
-2.3. Running the Extensible SDK Environment Setup Script
+2.3. Chạy script thiết lập môi trường cho SDK mở rộng
 
-2.4. Using `devtool` in Your SDK Workflow
-
-    
-
-2.4.1. Use `devtool add` to Add an Application
-
-2.4.2. Use `devtool modify` to Modify the Source of an Existing Component
-
-2.4.3. Use `devtool upgrade` to Create a Version of the Recipe that Supports a
-Newer Version of the Software
-
-2.5. A Closer Look at `devtool add`
+2.4. Sử dụng `devtool` trong SDK của bạn 
 
     
 
-2.5.1. Name and Version
+2.4.1. Sử dụng `devtool add` để thêm ứng dụng
 
-2.5.2. Dependency Detection and Mapping
+2.4.2. Sử dụng `devtool modify` để sửa source và component có sẵn 
 
-2.5.3. License Detection
+2.4.3. Sử dụng `devtool upgrade` để tạo một phiên bản của Recipe cái hỗ trợ
+phiên bản mới hơn của phần mềm
 
-2.5.4. Adding Makefile-Only Software
-
-2.5.5. Adding Native Tools
-
-2.5.6. Adding Node.js Modules
-
-2.6. Working With Recipes
+2.5. Một cái nhìn gần hơn về `devtool add`
 
     
 
-2.6.1. Finding Logs and Work Files
+2.5.1. Tên và phiên bản 
 
-2.6.2. Setting Configure Arguments
+2.5.2. Phát hiện phục thuộc và Mapping
 
-2.6.3. Sharing Files Between Recipes
+2.5.3. Phát hiện licence 
 
-2.6.4. Packaging
+2.5.4. Thêm phần mềm chỉ hỗ trợ build bằng (Makefile-Only Software)
 
-2.7. Restoring the Target Device to its Original State
+2.5.5. Thêm các tool Native
 
-2.8. Installing Additional Items Into the Extensible SDK
+2.5.6. Thêm module của Node.js
 
-2.9. Updating the Extensible SDK
+2.6. Làm việc với các Recipe 
 
-2.10. Creating a Derivative SDK With Additional Components
+    
 
-This chapter describes the extensible SDK and how to install it. Information
-covers the pieces of the SDK, how to install it, and presents a look at using
-the `devtool` functionality. The extensible SDK makes it easy to add new
-applications and libraries to an image, modify the source for an existing
-component, test changes on the target hardware, and ease integration into the
-rest of the [OpenEmbedded build system](http://www.yoctoproject.org/docs/2.2
-/dev-manual/dev-manual.html#build-system-term).
+2.6.1. Tìm log và các work file 
 
-### Note
+2.6.2. Thiết lập các tham số cấu hình 
 
-For a side-by-side comparison of main features supported for an extensible SDK
-as compared to a standard SDK, see the "Introduction" section.
+2.6.3. Chia sẻ file giữa các recipe 
 
-In addition to the functionality available through `devtool`, you can
-alternatively make use of the toolchain directly, for example from Makefile,
-Autotools, and Eclipse-based projects. See the "Using the SDK Toolchain
-Directly" chapter for more information.
+2.6.4. Đóng gói 
 
-## 2.1. Why use the Extensible SDK and What is in It?¶
+2.7. Phục hồi máy target (target device) về trạng thái ban đầu 
 
-The extensible SDK provides a cross-development toolchain and libraries
-tailored to the contents of a specific image. You would use the Extensible SDK
-if you want a toolchain experience supplemented with the powerful set of
-`devtool` commands tailored for the Yocto Project environment.
+2.8. Cài đặt thêm cho SDK mở rộng 
 
-The installed extensible SDK consists of several files and directories.
-Basically, it contains an SDK environment setup script, some configuration
-files, an internal build system, and the `devtool` functionality.
+2.9. Update cho SDK mở rộng 
 
-## 2.2. Setting Up to Use the Extensible SDK¶
+2.10. Tạo một bản SDK kế thừa với những item được thêm vào 
 
-The first thing you need to do is install the SDK on your host development
-machine by running the `*.sh` installation script.
+ Chương này sẽ nói về SDK mở rộng, rồi làm thế nào để cài đặt nó. 
+Thông tin sẽ về SDK bao gồm làm thế nào để cài đặt nó, đưa ra cái nhìn 
+về chắc năng của `devtool`. SDK mở rộng kiến việc thêm một ứng dụng mới 
+thư viện vào ảnh hệ thống, hay sửa source của một component có sẽ 
+rồi test trên phần cứng đích trở nên dễ dàng hơn, và nó cũng cho phép
+dễ dàng tích hợp vào [OpenEmbedded build system](http://www.yoctoproject.org/docs/2.2
+/dev-manual/dev-manual.html#build-system-term) nữa.
 
-You can download a tarball installer, which includes the pre-built toolchain,
-the `runqemu` script, the internal build system, `devtool`, and support files
-from the appropriate directory under [http://downloads.yoctoproject.org/releas
+### Ghi chú 
+
+ Để xem so sánh chi tiết giữa tính năng của SDK mở rộng và SDK chuẩn
+hãy xem ở chương "Introduction".
+
+ Ngoài chức năng `devtool` được thêm vào SDK mở rộng, bạn vẫn có thể sử dụng
+trực tiếp toolchain, ví dụ cho Makefile, Autotools, và project được tạo bởi Eclipse.
+ Xem thêm chương "Using the SDK Toolchain Directly".
+
+## 2.1. Tại sao lại sử dụng SDK mở rộng và có gì trong nó
+
+SDK mở rộng cung cấp môi trường bao gồm cross-development toolchain và libraries
+ được điều chỉnh cho một ảnh hệ thống cụ thể. Bạn sẽ sử dụng SDK mở rộng nếu
+ bạn muốn một toolchain kèm theo một tập các công cụ được thiết kế cho môi trường phát triển của Yocto Project.
+
+ SDK mở rộng sau khi được cài đặt sẽ chứa một vài files và thư mục.
+ Về cơ bản, nó sẽ có một script để setup môi trường phát triển, các file cấu hình,
+một hệ thống build bên trong, và bộ công cụ `devtool`.
+
+## 2.2. Thiết lập để sử dụng SDK mở rộng
+
+ Đầu tiên, bạn cần cài đặt  SDK trên máy phát triển bằng cách chạy script cài đặt có 
+phần mở rộng `*.sh`.
+
+ Bạn có thể tải định dạng nén tarball của bộ cài đặt, cái đã bao gồm toolchain bên trong,
+ scrip để chạy QEMU có tên là `runqemu`, một hệ thống build bên trong, `devtool`, và các file hỗ trợ 
+ từ thư mục phù hợp nằm ở [http://downloads.yoctoproject.org/releas
 es/yocto/yocto-2.2/toolchain/](http://downloads.yoctoproject.org/releases/yoct
-o/yocto-2.2/toolchain/). Toolchains are available for 32-bit and 64-bit x86
-development systems from the `i686` and `x86_64` directories, respectively.
-The toolchains the Yocto Project provides are based off the `core-image-sato`
-image and contain libraries appropriate for developing against that image.
-Each type of development system supports five or more target architectures.
+o/yocto-2.2/toolchain/). Toolchains có dạng binary cho cả môi trường phát triển 32-bit và 64-bit x86
+ lần lượt trong các thư mục `i686` and `x86_64`.
+Toolchain mà Yocto Project cung cấp dựa trên ảnh hệ thống `core-image-sato`
+ và chứa các thư viện (libraries) tương ứng với việc phát triển ứng dụng trên ảnh này.
+ Mỗi loại của môi trường phát triển thường hỗ trợ từ 5 phần cứng đích trở lên. 
 
-The names of the tarball installer scripts are such that a string representing
-the host system appears first in the filename and then is immediately followed
-by a string representing the target architecture. An extensible SDK has the
-string "-ext" as part of the name.
+ Tên file nén tarball của bộ cài đặt thường bắt đầu bằng hệ thống host mà nó chạy, tiếp theo đó là
+kiến trúc đích mà nó hỗ trợ. Một SDK mở rộng có thêm phần "-ext" trong tên.
 
     
     
          poky-glibc-_host_system_-_image_type_-_arch_-toolchain-ext-_release_version_.sh
     
-         Where:
-             _host_system_ is a string representing your development system:
+         Trong đó:
+             _host_system_ là một chuỗi miêu tả hệ thống host để chạy SDK:
     
                         i686 or x86_64.
     
-             _image_type_ is the image for which the SDK was built.
+             _image_type_ là ảnh mà SDK đã được build trên đó.
     
-             _arch_ is a string representing the tuned target architecture:
+             _arch_  là một chuỗi mô tả kiến trúc hay chính là kiến trúc đích, bao gồm:
     
                         i586, x86_64, powerpc, mips, armv7a or armv5te
     
-             _release_version_ is a string representing the release number of the
-                    Yocto Project:
+             _release_version_ là một chuỗi miêu tả số phiên bản của Yocto Project:
     
                         2.2, 2.2+snapshot
                 
 
-For example, the following SDK installer is for a 64-bit development host
-system and a i586-tuned target architecture based off the SDK for `core-image-
-sato` and using the current 2.2 snapshot:
+ Ví dụ, bộ cài đặt của SDK bên dưới đây dành cho môi trường phát triển 64-bit development, 
+ kiến trúc đích là i586-tuned target architecture, và ảnh mà từ đó nó được build là `core-image-
+sato` sử dụng phiên bản 2.2 snapshot của Yocto Project:
 
     
     
          poky-glibc-x86_64-core-image-sato-i586-toolchain-ext-2.2.sh
                 
 
-### Note
+### Ghi chú 
 
-As an alternative to downloading an SDK, you can build the SDK installer. For
-information on building the installer, see the "Building an SDK Installer"
-section. Another helpful resource for building an installer is the [Cookbook
+ Nếu không muốn tải bộ cài đặt SDK, bạn hoàn toàn có thể tự build một bộ cài đặt SDK cho mình. 
+ Thông tin về việc làm thế nào để build một một bộ cài đặt, bạn có thể xem chương "Building an SDK Installer"
+. Hoặc một tài liệu khác nói về việc build bộ cài đặt, đó là trang wiki [Cookbook
 guide to Making an Eclipse Debug Capable Image](https://wiki.yoctoproject.org/
-wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage) wiki page. This wiki page
-focuses on development when using the Eclipse IDE.
+wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage). 
+Trang wiki này tập trung vào quá trình phát triển sử dụng Eclipse IDE.
 
-The SDK and toolchains are self-contained and by default are installed into
-the `poky_sdk` folder in your home directory. You can choose to install the
-extensible SDK in any location when you run the installer. However, the
-location you choose needs to be writable for whichever users need to use the
-SDK, since files will need to be written under that directory during the
-normal course of operation.
+ Mặc định thì SDK, Toolchain và các file sau khi được cài đặt sẽ nằm ở thư mục
+`poky_sdk` trong thư mục Home của bạn. Bạn có thể chọn bất cứ chỗ nào khác trong quá trình cài đặt
+. Tuy nhiên, cần nhớ rằng thư mục bạn cho cho phép quyền ghi với những user sẽ sử dụng SDK, 
+ Bởi vì nhiều file sẽ được ghi vào đó trong quá trình chạy SDK.
 
-The following command shows how to run the installer given a toolchain tarball
-for a 64-bit x86 development host system and a 64-bit x86 target architecture.
-The example assumes the SDK installer is located in `~/Downloads/`.
+ Các hướng dẫn bên dưới đây sẽ chỉ ra cách chạy bộ cài đặt từ file nén chứa Toolchain
+ môi trường phát triển với kiến trúc 64-bit x86 và build cho môi trường đích cũng là 64-bit x86 
+ Giả định rằng bộ cài đặt của SDK nằm ở thư mục `~/Downloads/`.
 
-### Note
+### Ghi chú 
 
-If you do not have write permissions for the directory into which you are
-installing the SDK, the installer notifies you and exits. Be sure you have
-write permissions in the directory and run the installer again.
+ Trong quá trình cài đặt, nếu bạn không có quyền ghi vào thư mục bạn chọn để cài
+ bộ cài đặt sẽ báo cho bạn biết và exit. Hãy chắc chắn rằng bạn có quyền ghi đến thư mục
+đã chọn một lần nữa.
 
     
     
@@ -584,20 +525,17 @@ write permissions in the directory and run the installer again.
           $ . /home/scottrif/poky_sdk/environment-setup-core2-64-poky-linux
                 
 
-## 2.3. Running the Extensible SDK Environment Setup Script¶
+## 2.3. Chạy script thiết lập môi trường cho SDK mở rông
 
-Once you have the SDK installed, you must run the SDK environment setup script
-before you can actually use it. This setup script resides in the directory you
-chose when you installed the SDK, which is either the default `poky_sdk`
-directory or the directory you chose during installation.
+ Sau khi đã có một SDK được cài đặt rồi, bạn phải chạy script thiết lập môi 
+trường cho SDK trước khi thực sự sử dụng nó. Script này sẽ nằm ở thư mục bạn chọn lúc cài đặt,
+ mặc định là `poky_sdk` nếu bạn không chọn thư mục khác.
 
-Before running the script, be sure it is the one that matches the architecture
-for which you are developing. Environment setup scripts begin with the string
-"`environment-setup`" and include as part of their name the tuned target
-architecture. As an example, the following commands set the working directory
-to where the SDK was installed and then source the environment setup script.
-In this example, the setup script is for an IA-based target machine using i586
-tuning:
+ Trước khi chạy script hãy chắc chắn rằng tên script đúng với kiến trúc bạn đang phát triển.
+ Tên script được bắt đầu bằng "`environment-setup`", sau đó là tên ngắn gọn của kiến trúc máy đích. 
+ Ví dụ, các câu lệnh bên dưới đây sẽ chuyển thư mục hiện tại về thư mục cài đặt, rồi chạy (source) 
+script thiết lập môi trường.
+ Trong ví dụ này, script sẽ thiết lập một trường cho một máy dựa trên kiến trúc IA sử dụng i586 tunning:
 
     
     
@@ -607,188 +545,164 @@ tuning:
          Run devtool --help for further details.
                 
 
-When you run the setup script, many environment variables are defined:
+ Sau khi chạy script trên, sẽ có rất nhiều biến môi trường được định nghĩa:
 
     
     
-         [SDKTARGETSYSROOT](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SDKTARGETSYSROOT) - The path to the sysroot used for cross-compilation
-         [PKG_CONFIG_PATH](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PKG_CONFIG_PATH) - The path to the target pkg-config files
-         [CONFIG_SITE](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CONFIG_SITE) - A GNU autoconf site file preconfigured for the target
-         [CC](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CC) - The minimal command and arguments to run the C compiler
-         [CXX](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CXX) - The minimal command and arguments to run the C++ compiler
-         [CPP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CPP) - The minimal command and arguments to run the C preprocessor
-         [AS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-AS) - The minimal command and arguments to run the assembler
-         [LD](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LD) - The minimal command and arguments to run the linker
-         [GDB](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-GDB) - The minimal command and arguments to run the GNU Debugger
-         [STRIP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-STRIP) - The minimal command and arguments to run 'strip', which strips symbols
-         [RANLIB](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-RANLIB) - The minimal command and arguments to run 'ranlib'
-         [OBJCOPY](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-OBJCOPY) - The minimal command and arguments to run 'objcopy'
-         [OBJDUMP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-OBJDUMP) - The minimal command and arguments to run 'objdump'
-         [AR](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-AR) - The minimal command and arguments to run 'ar'
-         [NM](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-NM) - The minimal command and arguments to run 'nm'
-         [TARGET_PREFIX](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-TARGET_PREFIX) - The toolchain binary prefix for the target tools
-         [CROSS_COMPILE](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CROSS_COMPILE) - The toolchain binary prefix for the target tools
-         [CONFIGURE_FLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CONFIGURE_FLAGS) - The minimal arguments for GNU configure
-         [CFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CFLAGS) - Suggested C flags
-         [CXXFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CXXFLAGS) - Suggested C++ flags
-         [LDFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LDFLAGS) - Suggested linker flags when you use CC to link
-         [CPPFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CPPFLAGS) - Suggested preprocessor flags
+         [SDKTARGETSYSROOT](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SDKTARGETSYSROOT) - Đường dẫn đến sysroot được sử dụng trong cross-compilation
+         [PKG_CONFIG_PATH](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PKG_CONFIG_PATH) -  Được dẫn đến các file cấu hình package (pkg-config files)
+         [CONFIG_SITE](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CONFIG_SITE) - Nơi chứa các file preconfigure của GNU autoconf dành cho the target
+         [CC](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CC) - Chứa câu lệnh và các tham số tối thiểu của C compiler
+         [CXX](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CXX) - Chứa câu lệnh và các tham số tối thiểu của C++ compiler.
+         [CPP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CPP) - Chứa câu lệnh và các tham số tối thiểu của C preprocessor
+         [AS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-AS) - Chứa câu lệnh và các tham số tối thiểu của assembler
+         [LD](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LD) - Chứa câu lệnh và các tham số tối thiểu của linker
+         [GDB](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-GDB) - Chứa câu lệnh và các tham số tối thiểu của GNU Debugger
+         [STRIP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-STRIP) - Chứa câu lệnh và các tham số tối thiểu của 'strip', công cụ thực hiện rút gọi symbol (strip symbol) 
+         [RANLIB](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-RANLIB) - Chứa câu lệnh và các tham số tối thiểu của 'ranlib'
+         [OBJCOPY](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-OBJCOPY) - Chứa câu lệnh và các tham số tối thiểu của 'objcopy'
+         [OBJDUMP](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-OBJDUMP) - Chứa câu lệnh và các tham số tối thiểu của 'objdump'
+         [AR](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-AR) - Chứa câu lệnh và các tham số tối thiểu của 'ar'
+         [NM](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-NM) - Chứa câu lệnh và các tham số tối thiểu của 'nm'
+         [TARGET_PREFIX](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-TARGET_PREFIX) - Tiền tố của toolchain cho các công cụ phía target.
+         [CROSS_COMPILE](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CROSS_COMPILE) - Tiền tố của toolchain cho các công cụ phía target.
+         [CONFIGURE_FLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CONFIGURE_FLAGS) -  Tham số tối thiểu cho GNU configure
+         [CFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CFLAGS) - C flags
+         [CXXFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CXXFLAGS) - C++ flags
+         [LDFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-LDFLAGS) - linker flags khi sử dụng CC để link
+         [CPPFLAGS](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CPPFLAGS) -preprocessor flags
                 
 
-## 2.4. Using `devtool` in Your SDK Workflow¶
+## 2.4. `devtool` trong luồng phát triển sử dụng SDK 
 
-The cornerstone of the extensible SDK is a command-line tool called `devtool`.
-This tool provides a number of features that help you build, test and package
-software within the extensible SDK, and optionally integrate it into an image
-built by the OpenEmbedded build system.
+ Các đem lại sự khác biệt cho SDK chính là công cụ dòng lệnh tên là `devtool`.
+ Công cụ này cung cấp một loạt tính năng giúp bạn build, test và đóng gói phần mềm, 
+ và có thể tích hợp nó vào hệ thống build OpenEmbedded nữa.
 
-The `devtool` command line is organized similarly to
-[Git](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#git) in
-that it has a number of sub-commands for each function. You can run `devtool
---help` to see all the commands.
+ Công cụ dòng lệnh `devtool` được quản lý ở kho [Git](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#git), trong đó mỗi chức năng có một loạt sub-command. Bạn có thể chạy `devtool
+--help` để xem toàn bộ commmand của nó.
 
-Three `devtool` subcommands that provide entry-points into development are:
+ Có 3 sub-command của `devtool` để cung cấp cho các thao tác cơ bản cho quá trình phát triển:
 
-  * _`devtool add`_: Assists in adding new software to be built. 
+  * _`devtool add`_: Hỗ trợ việc thêm một gói phần mềm vào để build. 
 
-  * _`devtool modify`_: Sets up an environment to enable you to modify the source of an existing component. 
+  * _`devtool modify`_: Thiết lập một môi trường cho phép bạn sửa source các thành phần có sẵn. 
 
-  * _`devtool upgrade`_: Updates an existing recipe so that you can build it for an updated set of source files. 
+  * _`devtool upgrade`_: Update các recipe có sẵn để bạn có thể build các file được cập nhật . 
 
-As with the OpenEmbedded build system, "recipes" represent software packages
-within `devtool`. When you use `devtool add`, a recipe is automatically
-created. When you use `devtool modify`, the specified existing recipe is used
-in order to determine where to get the source code and how to patch it. In
-both cases, an environment is set up so that when you build the recipe a
-source tree that is under your control is used in order to allow you to make
-changes to the source as desired. By default, both new recipes and the source
-go into a "workspace" directory under the SDK.
+ Do hệ thống build là OpenEmbedded, các "recipes" sẽ biểu diễn các gói phần mềm khi sử dụng `devtool`. 
+ Khi sử dụng `devtool add`, một recipe sẽ tự động được tạo. Khi bạn sử dụng `devtool modify`, 
+ recipe được chỉ định sẽ được dùng để xác định cần lấy source bằng cách nào và patch nó như thế nào. 
+ Trong cả 2 trường hợp trên, một môi trương được thiết lập để cho phép thay đổi source theo ý muốn,
+ khi định build một source tree của một recipe bất kì. Mặc định thì, các recipe và sources sẽ đều
+nằm ở thư mục "workspace" nằm bên dưới SDK.
 
-The remainder of this section presents the `devtool add`, `devtool modify`,
-and `devtool upgrade` workflows.
+ Phần của lại sẽ miêu tả về các workflows khi sử dụng `devtool add`, `devtool modify`,
+ và `devtool upgrade`.
 
-### 2.4.1. Use `devtool add` to Add an Application¶
+### 2.4.1. Sử dụng `devtool add` để thêm ứng dụng
 
-The `devtool add` command generates a new recipe based on existing source
-code. This command takes advantage of the
-[workspace](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#devtool-the-workspace-layer-structure) layer that many `devtool` commands
-use. The command is flexible enough to allow you to extract source code into
-both the workspace or a separate local Git repository and to use existing code
-that does not need to be extracted.
-
-Depending on your particular scenario, the arguments and options you use with
-`devtool add` form different combinations. The following diagram shows common
-development flows you would use with the `devtool add` command:
+ Lệnh `devtool add` sẽ sinh một recipe mới dựa trên một source đã có sẵn. Command này tận dụng lợi thế của 
+ lớp [workspace]http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
+#devtool-the-workspace-layer-structure) mà rất nhiều command `devtool` sử dụng. 
+ Command này rất linh hoạt, nó cho phép vừa cho phép bạn giải nén source đến workspace 
+ vừa cho phép đẩy vào kho local Git riêng để sử dụng mà không cần giải nén.
+ 
+ Phụ thuộc vào tình huống cụ thể của bạn, các tham số và option truyền cho 
+`devtool add` sẽ có nhiều dạng khác nhau. Hình sau sẽ biểu diễn một cách phổ biến của `devtool add` command:
 
 ![](figures/sdk-devtool-add-flow.png)
 
-  1. _Generating the New Recipe_: The top part of the flow shows three scenarios by which you could use `devtool add` to generate a recipe based on existing source code.
+  1. _Sinh ra một recipe mới_: Phần đầu chỉ ra 3 tình huống sử dụng `devtool add` để sinh một recipe mới dựa trên source sẵn có.
 
-In a shared development environment, it is typical where other developers are
-responsible for various areas of source code. As a developer, you are probably
-interested in using that source code as part of your development using the
-Yocto Project. All you need is access to the code, a recipe, and a controlled
-area in which to do your work.
+ Trong môi trường phát triển chia sẻ, đây là một tình huống hết sức phổ biến, khi mỗi developer chịu 
+trách nhiệm cho một phần code. Và trong trường hợp này, một developer mong muốn sử dụng source code
+như là một phần của quá trình phát triển thông qua Yocto Project. Tất cả những gì bạn cần là có thể truy
+cập vào source code, recipe và một khu vực được quản lý những cái bạn đang làm.
 
-Within the diagram, three possible scenarios feed into the `devtool add`
-workflow:
+ Trên biểu đồ ở trên, có 3 tình huống sử dụng `devtool add`:
 
-    * _Left_: The left scenario represents a common situation where the source code does not exist locally and needs to be extracted. In this situation, you just let it get extracted to the default workspace - you do not want it in some specific location outside of the workspace. Thus, everything you need will be located in the workspace: 
-    
-    
+    * _Ngữ cảnh bên trái_: Ngữ cảnh của một tình huống phổ biến khi source không có ở local mà phải tải về giải nén nó. Trong tình huống này, bạn hãy cho phép nó được giải nén đến thư mục mặc định của workspace - bạn không muốn chỉ định một nơi nào khác ngoài workspace. Vì thế, mọi thứ bạn cần là đặt nó vào đâu trong workspace thôi :
+
+
          $ devtool add _recipe fetchuri_
-                                    
 
-With this command, `devtool` creates a recipe and an append file in the
-workspace as well as extracts the upstream source files into a local Git
-repository also within the `sources` folder.
 
-    * _Middle_: The middle scenario also represents a situation where the source code does not exist locally. In this case, the code is again upstream and needs to be extracted to some local area - this time outside of the default workspace. If required, `devtool` always creates a Git repository locally during the extraction. Furthermore, the first positional argument _`srctree`_ in this case identifies where the `devtool add` command will locate the extracted code outside of the workspace: 
-    
-    
+ Với command này, `devtool` sẽ tạo một recipe vào thêm vào workspace, cũng như giải nến source vào một kho local Git trong thư mục `sources`.
+
+    * _Ngữ cảnh ở giữa_: Ngữ cảnh này cũng mô tả tình huống khi source không có ở local, phải lấy về giải nén. Trong trường hợp này, source cũng được lấy về, giải nén vào đâu đó ở local - lần này nó nằm ngoài khu vực của workspace. Nếu yêu cầu, `devtool` sẽ luôn tạo một kho Git trong quá trình lấy source. Hơn nữa, tham số có vị trí đầu tiên _`srctree`_ trong trường hợp này sẽ chi cho `devtool add` biết source sẽ được giải nén vào đâu:
+
+
          $ devtool add _recipe srctree fetchuri_
-                                    
 
-In summary, the source code is pulled from _`fetchuri`_ and extracted into the
-location defined by _`srctree`_ as a local Git repository.
 
-Within workspace, `devtool` creates both the recipe and an append file for the
-recipe.
+ Tóm lại, source sẽ được lấy từ _`fetchuri`_ và được giải nén vào _`srctree`_ như là một kho Git tại local.
 
-    * _Right_: The right scenario represents a situation where the source tree (srctree) has been previously prepared outside of the `devtool` workspace. 
+ Bên trong workspace, `devtool` sẽ tạo cả recipe lẫn append file cho source này.
 
-The following command names the recipe and identifies where the existing
-source tree is located:
+    * _Ngữ cảnh bên phải_: Ngữ cảnh của tình huống mà source code (srctree) nằm được chuẩn bị bên ngoài thư mục `devtool` workspace. 
+
+ Câu lệnh sau yêu cầu một tên của recipe và nơi chúng được chứa:
 
     
     
          $ devtool add _recipe srctree_
                                     
 
-The command examines the source code and creates a recipe for it placing the
-recipe into the workspace.
+ Câu lệnh trên sẽ đánh giá source rồi tạo recipe cho nó trong thư mục của workspace.
 
-Because the extracted source code already exists, `devtool` does not try to
-relocate it into the workspace - just the new the recipe is placed in the
-workspace.
+ Vì source code đã tồn tại rồi nên `devtool` sẽ không cố gắng mang nó vào worksapce nữa 
+- chỉ có recipe tương ứng với nó mới được đặt vào workspace thôi.
 
-Aside from a recipe folder, the command also creates an append folder and
-places an initial `*.bbappend` within.
+ Cũng trong thư mục của recipe, câu lệnh trên cũng tạo một thư mục append và 
+ thêm các file `*.bbappend` vào trong đó.
 
-  2. _Edit the Recipe_: At this point, you can use `devtool edit-recipe` to open up the editor as defined by the `$EDITOR` environment variable and modify the file: 
+  2. _Chỉnh sửa recipe_: Tới thời điểm này, bạn có thể sử dụng `devtool edit-recipe` để mở một editor, cái được set bằng biến môi trường `$EDITOR`, sau đó chỉnh sửa recipe đã chỉ định: 
     
     
          $ devtool edit-recipe _recipe_
                             
 
-From within the editor, you can make modifications to the recipe that take
-affect when you build it later.
+Trong editor, bạn có thể tạo ra bất cứ thay đổi nào cho recipe, và những thay đổi đó sẽ được nhận biết 
+nếu build lại.
 
-  3. _Build the Recipe or Rebuild the Image_: At this point in the flow, the next step you take depends on what you are going to do with the new code.
+  3. _Build một recipe hoặc rebuild cả Image_: Đến thời điểm này rồi, các bước tiếp theo bạn sẽ làm phụ thuộc bạn định làm gì với source mới.
 
-If you need to take the build output and eventually move it to the target
-hardware, you would use `devtool build`:
+ Nếu bạn cần kết quả build hay thậm chí đưa đưa xuống phần cứng đích, bạn có thể sử dụng `devtool build`:
 
     
     
          $ devtool build _recipe_
                             
 
-On the other hand, if you want an image to contain the recipe's packages for
-immediate deployment onto a device (e.g. for testing purposes), you can use
-the `devtool build-image` command:
+ Mặt khác, bạn muốn một ảnh hệ thống chứa các gói từ recipe để triển khai ngay lập tức lên thiết bị 
+ ( ví dụ: cho mục đích testing chẳng hạn), bạn có thể sử dụng câu lệnh `devtool build-image`:
 
     
     
          $ devtool build-image _image_
                             
 
-  4. _Deploy the Build Output_: When you use the `devtool build` command to build out your recipe, you probably want to see if the resulting build output works as expected on target hardware. 
+  4. _Triển khai kết quả build_: Khi bạn sử dụng `devtool build` để build recipe của bạn, thì hầu như sẽ muốn kiểm trả xem kết quả có như mong đợi trên thiết bị thật hay không. 
 
-### Note
+### Ghi chú 
 
-This step assumes you have a previously built image that is already either
-running in QEMU or running on actual hardware. Also, it is assumed that for
-deployment of the image to the target, SSH is installed in the image and if
-the image is running on real hardware that you have network access to and from
-your development machine.
-
-You can deploy your build output to that target hardware by using the `devtool
-deploy-target` command:
+ Bước này giả định rằng bạn đã một ảnh hệ thống được chạy trên  
+QEMU hoặc trên phần cứng thật. Và cũng giả định rằng ảnh hệ thống chạy trên phần cứng thật có hỗ trợ SSH
+cho phép bạn triển khai mọi thứ qua đường truyền mạng.
+ Bạn có thể triển khai trên phần cứng thật sử dụng command sau `devtool deploy-target`:
 
     
     
          $ devtool deploy-target _recipe target_
                             
 
-The _`target`_ is a live target machine running as an SSH server.
+_`target`_ là môi trường đích, nơi bạn chạy SSH server.
 
-You can, of course, also deploy the image you build using the `devtool build-
-image` command to actual hardware. However, `devtool` does not provide a
-specific command that allows you to do this.
+ Tất nhiên, bạn cũng có thể triển khai một ảnh hệ thống bằng câu lệnh build lại ảnh `devtool build-
+image`. Tuy nhiên, `devtool` không cung cấp một command cụ thể nào để bạn triển khai.
 
-  5. _Finish Your Work With the Recipe_: The `devtool finish` command creates any patches corresponding to commits in the local Git repository, moves the new recipe to a more permanent layer, and then resets the recipe so that the recipe is built normally rather than from the workspace. 
+  5. _Kết thúc việc với recipe_: Câu lệnh `devtool finish` sẽ tạo patch rồi commit đến kho Git, di chuyển recipe sang hẳn một layer vĩnh viễn, sau đó thì recipe sẽ được reset trạng thái chứ không phải nằm ở workspace nữa. 
     
     
          $ devtool finish _recipe layer_
@@ -796,269 +710,234 @@ specific command that allows you to do this.
 
 ### Note
 
-Any changes you want to turn into patches must be committed to the Git
-repository in the source tree.
+ Mọi thay đổi bạn muốn đưa vào patch thì phải được commit đến kho git của source tree.
 
-As mentioned, the `devtool finish` command moves the final recipe to its
-permanent layer.
+ Như đã nói ở trên, `devtool finish` sẽ di chuyển recipe đến layer của nó vĩnh viễn.
 
-As a final process of the `devtool finish` command, the state of the standard
-layers and the upstream source is restored so that you can build the recipe
-from those areas rather than the workspace.
+ Quá trình cuối cùng của `devtool finish`, trạng thái của layer chuẩn và upstream sẽ được phục hồi
+vì thế bạn cũng có thể tiếp tục build source từ đầu.
 
-### Note
+### Ghi chú 
 
-You can use the `devtool reset` command to put things back should you decide
-you do not want to proceed with your work. If you do use this command, realize
-that the source tree is preserved.
+ Bạn có thể sử dụng câu lệnh`devtool reset` để quay về trạng thái như chưa làm gì nếu bạn không muốn tiếp tục
+công việc nữa. Khi thực hiện câu lệnh này, hãy nhớ rằng source tree vẫn còn nguyên đấy.
 
-### 2.4.2. Use `devtool modify` to Modify the Source of an Existing Component¶
+### 2.4.2. Sử dụng `devtool modify` để sửa một thành phần đã có sẵn 
 
-The `devtool modify` command prepares the way to work on existing code that
-already has a recipe in place. The command is flexible enough to allow you to
-extract code, specify the existing recipe, and keep track of and gather any
-patch files from other developers that are associated with the code.
+`devtool modify` được đưa ra cho tình huống khi làm việc với source 
+mà recipe đi kèm. Command này đủ linh hoạt để bạn giải nén code,  
+ chỉ định recipe, quản lý các bản patch từ các developer khác có liên quan đến source của bạn.
 
-Depending on your particular scenario, the arguments and options you use with
-`devtool modify` form different combinations. The following diagram shows
-common development flows you would use with the `devtool modify` command:
+ Phụ thuộc vào ngữ cảnh cụ thể, tham số và options khi sử dụng với 
+`devtool modify` cũng có nhiều dạng khác nhau. Hình bên dưới đây sẽ chỉ ra một
+trường hợp sử dụng phổ biến của `devtool modify`:
 
 ![](figures/sdk-devtool-modify-flow.png)
 
-  1. _Preparing to Modify the Code_: The top part of the flow shows three scenarios by which you could use `devtool modify` to prepare to work on source files. Each scenario assumes the following: 
+  1. _Chuẩn bị để chuẩn bị source code_: Phần trên chỉ ra 3 ngữ cảnh bạn có thể sử dụng `devtool modify` để chuẩn bị làm việc với source code. Mỗi ngữ cảnh sẽ giả định như sau: 
 
-    * The recipe exists in some layer external to the `devtool` workspace. 
+    * Recipe nằm ở layer bên ngoài workspace của `devtool`. 
 
-    * The source files exist upstream in an un-extracted state or locally in a previously extracted state. 
+    * Source có có trên upstream ở trạng thái chưa được giải nén hoặc đã được giải nén ở local những phiên bản cũ. 
 
-The typical situation is where another developer has created some layer for
-use with the Yocto Project and their recipe already resides in that layer.
-Furthermore, their source code is readily available either upstream or
-locally.
+ Tình huống phổ biến cho trường hợp này là khi một developer khác tạo layer sử dụng với Yocto Project và recipe của họ nằm trong layer đó rồi.
+ Hơn nữa, source lại nằm ở upstream hoặc local thôi.
 
-    * _Left_: The left scenario represents a common situation where the source code does not exist locally and needs to be extracted. In this situation, the source is extracted into the default workspace location. The recipe, in this scenario, is in its own layer outside the workspace (i.e. `meta-`_`layername`_). 
+    * _Bên trái_: Ngữ cảnh bên trái miêu tả một tình huống phổ biến, khi source không có ở local và cần được tải về giả nén. Trong tình huống này, mặc định source sẽ được giải nén vào thư mục của workspace. Các recipe sẽ nằm trong layer, cái mà nằm bên ngoài workspace ( Ví dụ `meta-`_`layername`_). 
 
-The following command identifies the recipe and by default extracts the source
-files:
+ Câu lệnh sau được chỉ định recipe và mặc định sẽ giải nén các file source code:
 
     
     
          $ devtool modify _recipe_
                                     
 
-Once `devtool`locates the recipe, it uses the
+ Một khi `devtool` xác định được vị trí của biến
 [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-SRC_URI) variable to locate the source code and any local patch files
-from other developers are located.
+#var-SRC_URI), nó sẽ biết được vị trí của source code và vị trí các file patch đến từ các developer khác. 
 
-### Note
+### Ghi chú 
 
-You cannot provide an URL for _`srctree`_ when using the `devtool modify`
-command.
+ Bạn không thể sử dụng một URL cho source code  _`srctree`_ khi sử dụng câu lệnh `devtool modify`.
 
-With this scenario, however, since no _`srctree`_ argument exists, the
-`devtool modify` command by default extracts the source files to a Git
-structure. Furthermore, the location for the extracted source is the default
-area within the workspace. The result is that the command sets up both the
-source code and an append file within the workspace with the recipe remaining
-in its original location.
+ Với ngữ cảnh này thì không hề có tham số _`srctree`_ , 
+`devtool modify` sẽ giải nén source code vào một cấu trúc sử dụng Git. 
+ Hơn nữa, vị trí mặc định sẽ ở bên dưới workspace. Kết quả của câu lệnh này là source code và các file append
+sẽ được thêm vào project trong khi recipe của nó vẫn ở vị trí cũ.
 
-    * _Middle_: The middle scenario represents a situation where the source code also does not exist locally. In this case, the code is again upstream and needs to be extracted to some local area as a Git repository. The recipe, in this scenario, is again in its own layer outside the workspace.
+    * _Ở giữa_: Ngữ cảnh cho tình huống khi source code không có ở local. Trong trường hợp này, một lần nữa source nằm ở upstream, nó cần được lấy về lưu vào một kho Git. Một lần nữa, recipe và layer của nó lại nằm bên ngoài workspace.
 
-The following command tells `devtool` what recipe with which to work and, in
-this case, identifies a local area for the extracted source files that is
-outside of the default workspace:
-
+ Câu lệnh sau đây sẽ nói cho `devtool` biết recipe nào bạn muốn làm việc, trong trường hợp này
+, trong trường hợp này là chỉ ra các các file source code nằm ngoài workspace.
     
     
          $ devtool modify _recipe srctree_
                                     
 
-As with all extractions, the command uses the recipe's `SRC_URI` to locate the
-source files. Once the files are located, the command by default extracts
-them. Providing the _`srctree`_ argument instructs `devtool` where place the
-extracted source.
+ Đối với tất cả các thao tác giải nén, command sẽ sử dụng `SRC_URI` của recipe để xác định các file source code 
+ Khi xác định được vị trí rồi, nó sẽ thực hiện việc giải nén. Cung cấp tham số _`srctree`_ để cho `devtool` source sẽ được giải nén ra.
 
-Within workspace, `devtool` creates an append file for the recipe. The recipe
-remains in its original location but the source files are extracted to the
-location you provided with _`srctree`_.
+ Bên trong workspace, `devtool` sẽ tạo các file append cho recipe. Các recipe sẽ vẫn ở nguyên vị trí của nó
+nhưng source được giải nén vào _`srctree`_.
 
-    * _Right_: The right scenario represents a situation where the source tree (_`srctree`_) exists as a previously extracted Git structure outside of the `devtool` workspace. In this example, the recipe also exists elsewhere in its own layer. 
+    * _Bên phải_: Ngữ cảnh bên phải miêu tả tình huống mà source code(_`srctree`_) đã tồn tại trước đó trong một
+cấu trúc của kho Git nằm ngoài workspace của `devtool` workspace. Trong ví dụ này, recipe cũng ở đâu đó trong layer của nó. 
 
-The following command tells `devtool` the recipe with which to work, uses the
-"-n" option to indicate source does not need to be extracted, and uses
-_`srctree`_ to point to the previously extracted source files:
+ Câu lệnh sau sẽ nói cho `devtool` biết cái recipe nào bạn muốn làm việc, 
+ sử dụng  tham số "-n" để báo rằng không cần phải giải nén source code nữa, sử dụng 
+_`srctree`_ để chỉ ra nơi của source trước đó:
 
     
     
          $ devtool modify -n _recipe srctree_
                                     
+ 
+ Khi câu lệnh trên kết thúc, nó chỉ tạo 1 file append cho recipe bên trong workspace mà thôi. 
+ Cái recipe và source chính của nó vẫn ở vị trí cũ.
 
-Once the command finishes, it creates only an append file for the recipe in
-the workspace. The recipe and the source code remain in their original
-locations.
+  2. _Sửa source code_: Một khi bạn đã sử dụng câu lệnh `devtool modify`, bạn có thể thoải mái sửa source bằng bất cứ editor nào bạn muốn và save lại thôi. 
 
-  2. _Edit the Source_: Once you have used the `devtool modify` command, you are free to make changes to the source files. You can use any editor you like to make and save your source code modifications. 
+  3. _Build Recipe_: Sau khi đã update các source file, bạn có thể tiến hành build lại recipe . 
 
-  3. _Build the Recipe_: Once you have updated the source files, you can build the recipe. 
+  4. _Triển khai kết quả build_: Khi sử dụng câu lệnh `devtool build` để build recipe của bạn, bạn thường muốn xem kết quả có như mong đợi trên phần cứng đích. 
 
-  4. _Deploy the Build Output_: When you use the `devtool build` command to build out your recipe, you probably want to see if the resulting build output works as expected on target hardware. 
+### Ghi chú 
 
-### Note
+ Bước tiếp theo giả định rằng bạn đã có sẵn một ảnh hệ thống có thể chạy trên
+QEMU hoặc phần cứng thật rồi. Dành cho việc triển khai trên phần cứng thật, thì cũng
+giả định rằng bạn có một hệ thống đã có sẵn SSH có thể truy cập qua kết nối mạng.
 
-This step assumes you have a previously built image that is already either
-running in QEMU or running on actual hardware. Also, it is assumed that for
-deployment of the image to the target, SSH is installed in the image and if
-the image is running on real hardware that you have network access to and from
-your development machine.
-
-You can deploy your build output to that target hardware by using the `devtool
-deploy-target` command:
+ Bạn có thể triển khai kết quả build dựa trên phần cứng thật bằng câu lệnh sau `devtool deploy-target`:
 
     
     
          $ devtool deploy-target _recipe target_
                             
 
-The _`target`_ is a live target machine running as an SSH server.
+_`target`_ là một máy target đang chạy SSH server.
 
-You can, of course, also deploy the image you build using the `devtool build-
-image` command to actual hardware. However, `devtool` does not provide a
-specific command that allows you to do this.
+ Tất nhiên bạn có thể tạo ra một ảnh hệ thống bằng câu lệnh `devtool build-
+image`. Tuy nhiên, devtool không cung cấp câu lệnh để bạn làm điều này.
 
-  5. _Finish Your Work With the Recipe_: The `devtool finish` command creates any patches corresponding to commits in the local Git repository, updates the recipe to point to them (or creates a `.bbappend` file to do so, depending on the specified destination layer), and then resets the recipe so that the recipe is built normally rather than from the workspace. 
+  5. _Kết thúc công việc vớiRecipe_: Câu lệnh `devtool finish` sẽ tạo bất cứ bản nào cho bất kì commit nào được gửi đến Git repository cho phép update các recipe sử dụng ( hoặc tạo các file `.bbappend` để làm điều tương tự, dựa trên trạng thái của layer đích), cuối cùng reset trạng thái cho recipe để nó có thể được build một cách bình thường chứ không bắt buộc phải từ workspace nữa. 
     
     
          $ devtool finish _recipe layer_
                             
 
-### Note
+### Ghi chú 
 
-Any changes you want to turn into patches must be committed to the Git
-repository in the source tree.
+ Bất cứ thay đổi nào bạn muốn chuyển thành patch phải được commit lên kho Git.
 
-Because there is no need to move the recipe, `devtool finish` either updates
-the original recipe in the original layer or the command creates a `.bbappend`
-in a different layer as provided by _`layer`_.
+ Vì không cần phải thay đổi chỗ của recipe, nên câu lệnh `devtool finish` hoặc sẽ update
+recipe ở vị trí ban đầu hoặc sẽ tạo một file `.bbappend` trong một layer mà được set bởi _`layer`_.
 
-As a final process of the `devtool finish` command, the state of the standard
-layers and the upstream source is restored so that you can build the recipe
-from those areas rather than the workspace.
+ Kết thúc câu lệnh `devtool finish` trạng thái của layer ban đầu và workspace được
+phục hồi vì thế bạn có thể build từ chỗ khác chứ không chỉ từ workspace.
 
-### Note
+### Ghi chú 
 
-You can use the `devtool reset` command to put things back should you decide
-you do not want to proceed with your work. If you do use this command, realize
-that the source tree is preserved.
+ Bạn có thể sử dụng câu lệnh `devtool reset` để đưa trạng thái recipe về ban đầu bất cứ khi nào
+bạn không muốn tiếp tục làm việc với recipe nữa. Khi thực hiện câu lệnh này, bạn sẽ thấy rằng source
+tree vẫn được giữ lại.
 
-### 2.4.3. Use `devtool upgrade` to Create a Version of the Recipe that
-Supports a Newer Version of the Software¶
+### 2.4.3. Sử dụng câu lệnh `devtool upgrade` để tạo một phiên bản của Recipe
+support phiên bản mới hơn của phần mềm
 
-The `devtool upgrade` command updates an existing recipe so that you can build
-it for an updated set of source files. The command is flexible enough to allow
-you to specify source code revision and versioning schemes, extract code into
-or out of the `devtool` workspace, and work with any source file forms that
-the fetchers support.
+ Sử dụng câu lệnh `devtool upgrade` để update một recipe có sẵn giúp bạn
+có thể build một tập các source file mới. Command này đủ linh hoạt để cho phép bạn
+chỉ ra cấu trúc revision và versioning, cũng như giải nén source ra ngoài/hoặc vào bên trong 
+ workspace của `devtool`, giúp bạn làm việc với bất cứ source code nào Yocto đang hỗ trợ.
 
-Depending on your particular scenario, the arguments and options you use with
-`devtool upgrade` form different combinations. The following diagram shows a
-common development flow you would use with the `devtool modify` command:
+ Phụ thuộc vào ngữ cảnh cụ thể của bạn mà tham số và option cho 
+`devtool upgrade` sẽ có nhiều dạng khác nhau. Hình bên dưới đây ra chỉ ra một 
+trường hợp phổ biến của câu lệnh `devtool modify`:
 
 ![](figures/sdk-devtool-upgrade-flow.png)
 
-  1. _Initiate the Upgrade_: The top part of the flow shows a typical scenario by which you could use `devtool upgrade`. The following conditions exist: 
+  1. _Chuẩn bị upgrade_: Phần trên chỉ ra một tình huống thông thường sử dụng `devtool upgrade`. Một số điều kiện giả định: 
 
-    * The recipe exists in some layer external to the `devtool` workspace. 
+    * Một số recipe nằm ở các layer bên ngoài workspace của `devtool`. 
 
-    * The source files for the new release exist adjacent to the same location pointed to by [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SRC_URI) in the recipe (e.g. a tarball with the new version number in the name, or as a different revision in the upstream Git repository). 
+    * Các file source của phiên bản mới thường nằm cùng hoặc vị trí tương tự với địa chỉ ở [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-SRC_URI) được quy định trong recipe ( ví dụ: một file nén tarball với số phiên bản mới trong tên, revision từ Git repository của upstream). 
 
-A common situation is where third-party software has undergone a revision so
-that it has been upgraded. The recipe you have access to is likely in your own
-layer. Thus, you need to upgrade the recipe to use the newer version of the
-software:
+ Một tình huống phổ biến là các phần mềm bên thứ 3 (third-party) thường có một revision
+mà nó được update. Cái recipe cũng được access tương tự cái layer của bạn. 
+ Vì thế, bạn cần upgrade recipe để sử dụng phiên bản mới của phần mềm:
 
     
     
          $ devtool upgrade -V _version recipe_
                             
 
-By default, the `devtool upgrade` command extracts source code into the
-`sources` directory in the workspace. If you want the code extracted to any
-other location, you need to provide the _`srctree`_ positional argument with
-the command as follows:
+ Mặc định, câu lệnh `devtool upgrade` sẽ giải nén source xuống thư mục
+`sources` bên dưới workspace. Nếu bạn muốn giải nến đến bất cứ chỗ nào khác 
+ bạn cần cung cấp giá trị _`srctree`_ ở tham số như câu lệnh bên dưới đây:
 
     
     
          $ devtool upgrade -V _version recipe srctree_
                             
 
-Also, in this example, the "-V" option is used to specify the new version. If
-the source files pointed to by the `SRC_URI` statement in the recipe are in a
-Git repository, you must provide the "-S" option and specify a revision for
-the software.
+ Cũng trong ví dụ này, ta thấy tham số "-V" được sử dụng để chỉ định một phiên bản mới.
+ Nếu source được chỉ định bởi `SRC_URI` trong recipe là một kho Git, thì bạn phải chỉ định 
+ thêm tham số "-S" để chỉ rõ revision của phần mềm.
 
-Once `devtool` locates the recipe, it uses the `SRC_URI` variable to locate
-the source code and any local patch files from other developers are located.
-The result is that the command sets up the source code, the new version of the
-recipe, and an append file all within the workspace.
+ Một khi `devtool` xác định được vị trí các recipe, nó sẽ sử dụng biến `SRC_URI` để xác định source code
+cũng như các bản patch từ các developer khác.
+ Cuối cùng, command sẽ setup source code, một phiên bản mới của recipe, 
+ và thêm file vào workspace.
 
-  2. _Resolve any Conflicts created by the Upgrade_: At this point, there could be some conflicts due to the software being upgraded to a new version. This would occur if your recipe specifies some patch files in `SRC_URI` that conflict with changes made in the new version of the software. If this is the case, you need to resolve the conflicts by editing the source and following the normal `git rebase` conflict resolution process.
+  2. _Giải quyết các tranh cấp khi thực hiện Upgrade_: Ở thời điểm này, có thể xảy ra một vài "tranh chấp" (2 phiên bản phần mềm cùng sửa 1 chỗ) khi thực hiện upgrade phiên bản. Điều này xảy ra khi một số patch file bạn chỉ định trong `SRC_URI` có các thay đổi không khớp với phiên bản mới. Nếu xảy ra trường hợp này, chẳng còn cách nào khác bạn buộc phải edit lại source để xem các vị trí bị tranh chấp đó cùng với câu lệnh giải quyết tranh cấp `git rebase`.
 
-Before moving onto the next step, be sure to resolve any such conflicts
-created through use of a newer or different version of the software.
+ Trước khi sang bước tiếp theo, bạn hãy chắc chắn rằng các tranh chấp đã được giải quyết hết.
 
-  3. _Build the Recipe_: Once you have your recipe in order, you can build it. You can either use `devtool build` or `bitbake`. Either method produces build output that is stored in [`TMPDIR`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-TMPDIR). 
+  3. _Build lại recipe_: Một khi đã có một dãy các recipe rồi, bạn có thể build nó. Bạn có thể sư dụng câu lệnh `devtool build` hoặc `bitbake`. Kết quả build sẽ được lưu trong thư mục [`TMPDIR`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-TMPDIR). 
 
-  4. _Deploy the Build Output_: When you use the `devtool build` command or `bitbake` to build out your recipe, you probably want to see if the resulting build output works as expected on target hardware. 
+  4. _Triển khai kết quả build_: Khi bạn sử dụng câu lệnh `devtool build` hoặc `bitbake` để build recipe của bạn,  bạn thường muốn xem những thay đổi có được như mong muốn trên phần cứng đích. 
 
-### Note
+### Ghi chú 
 
-This step assumes you have a previously built image that is already either
-running in QEMU or running on actual hardware. Also, it is assumed that for
-deployment of the image to the target, SSH is installed in the image and if
-the image is running on real hardware that you have network access to and from
-your development machine.
+ Bước này giả định rằng bạn đã từng build ảnh hệ thống cho QEMU hoặc phần cứng thật trước đó rồi.
+  Và cũng giả định luôn rằng có một SSH server chạy trên ảnh hệ thống đó. Rồi nếu bạn chạy trên phần
+cứng thật thì giả định có thể truy cập bằng đường mạng đến máy đích từ máy phát triển.
 
-You can deploy your build output to that target hardware by using the `devtool
-deploy-target` command:
+ Bạn có thể deploy kết quả build xuống phần cứng thật sử dụng câu lệnh `devtool deploy-target`:
 
     
     
          $ devtool deploy-target _recipe target_
                             
 
-The _`target`_ is a live target machine running as an SSH server.
+ _`target`_  chỉ máy đích, có SSH server đang chạy trên đó.
 
-You can, of course, also deploy the image you build using the `devtool build-
-image` command to actual hardware. However, `devtool` does not provide a
-specific command that allows you to do this.
+ Tất nhiên bạn vẫn có thể sử dụng câu lệnh `devtool build-
+image` để triển khai xuống phần cứng thật. Tuy nhiên, `devtool` không cung cấp cụ thể sau đó.
 
-  5. _Finish Your Work With the Recipe_: The `devtool finish` command creates any patches corresponding to commits in the local Git repository, moves the new recipe to a more permanent layer, and then resets the recipe so that the recipe is built normally rather than from the workspace. If you specify a destination layer that is the same as the original source, then the old version of the recipe and associated files will be removed prior to adding the new version. 
+  5. _Kết thúc phiên làm việc với Recipe_: Câu lệnh `devtool finish` có thể tạo bản patch cho bất cứ commit nào đến kho Git Local, sử dụng khi di chuyển recipe đến một layer khác, hoặc reset lại recipe để nó có thể được build bình thường như các recipe khác. Nếu layer đích chính là layer nguồn, recipe và các file liên quan của phiên bản cũ sẽ được thay thế bởi phiên bản mới. 
     
     
          $ devtool finish _recipe layer_
                             
 
-### Note
+### Ghi chú 
 
-Any changes you want to turn into patches must be committed to the Git
-repository in the source tree.
+ Mọi thay đổi muốn trở thành các bản patch đều phải được commit đến kho Git Local.
 
-As a final process of the `devtool finish` command, the state of the standard
-layers and the upstream source is restored so that you can build the recipe
-from those areas rather than the workspace.
+ Câu lệnh kết thúc quá trình làm việc `devtool finish`, trạng thái chuẩn của các layer và 
+các source stream sẽ được trở về trạng thái chuẩn, vì thế bạn có thể build như bình thường thành vì
+từ những thứ trong workspace.
 
-### Note
+### Ghi chú 
 
-You can use the `devtool reset` command to put things back should you decide
-you do not want to proceed with your work. If you do use this command, realize
-that the source tree is preserved.
+ Bạn cũng có thể sử dụng câu lệnh `devtool reset` để đưa mọi thứ trở về trạng thái ban đầu
+nếu không muốn tiếp tục các xử lý với recipe nữa. Nếu bạn sử dụng câu lệnh này, thì hãy nhớ
+các source đã tải vẫn còn nguyên nha, dù nó không ảnh hưởng gì.
 
-## 2.5. A Closer Look at `devtool add`¶
+## 2.5. Một cái nhìn gần vào `devtool add`¶
 
-The `devtool add` command automatically creates a recipe based on the source
-tree with which you provide it. Currently, the command has support for the
-following:
+ Câu lệnh `devtool add` tự động tạo một recipe dựa trên cấu trúc source bạn cung cấp
+cho nó. Hiện tại, câu lệnh này hỗ trợ những dạng dưới đây:
 
   * Autotools (`autoconf` and `automake`) 
 
@@ -1078,369 +957,302 @@ following:
 
   * Python modules that use `setuptools` or `distutils`
 
-Apart from binary packages, the determination of how a source tree should be
-treated is automatic based on the files present within that source tree. For
-example, if a `CMakeLists.txt` file is found, then the source tree is assumed
-to be using CMake and is treated accordingly.
+Apart from binary packages, việc phát hiện source được tổ chức như thế nào
+nên được thực hiện một cách tự động dựa trên trạng thái các file hiện tại. 
+ Ví dụ, nếu có `CMakeLists.txt`, thì sẽ coi như chúng sử dụng CMake và sẽ
+build, chạy theo cách của CMake.
 
-### Note
+### Ghi chú 
 
-In most cases, you need to edit the automatically generated recipe in order to
-make it build properly. Typically, you would go through several edit and build
-cycles until you can build the recipe. Once the recipe can be built, you could
-use possible further iterations to test the recipe on the target device.
+ Trong hầu hết trường hợp, bạn cần edit lại các recipe được sinh tự động để
+có thể build được chúng. Thông thường, bạn sẽ phải xem qua một vài file rồi
+edit chúng đến khi việc build không còn lỗi nữa. Khi recipe được build rồi, bạn
+có thể tiếp tục với các thao tác khác để test chúng trên thiết bị đích.
 
-The remainder of this section covers specifics regarding how parts of the
-recipe are generated.
+ Phần còn lại của chương sẽ chỉ ra làm thế nào các thành phần của recipe được
+sinh ra.
 
-### 2.5.1. Name and Version¶
+### 2.5.1. Tên và phiên bản 
 
-If you do not specify a name and version on the command line, `devtool add`
-attempts to determine the name and version of the software being built from
-various metadata within the source tree. Furthermore, the command sets the
-name of the created recipe file accordingly. If the name or version cannot be
-determined, the `devtool add` command prints an error and you must re-run the
-command with both the name and version or just the name or version specified.
+ Nếu bạn không chỉ định tường minh tên và phiên bản trên dòng lệnh, câu lệnh `devtool add`
+ sẽ cố gắng phát hiện tên và phiên bản từ các meta data trong chính source code. 
+ Sau đó nó sẽ set tên của recipe tương ứng. Nếu nó không thể phát hiện ra tên và phiên bản, 
+ câu lệnh `devtool add` sẽ hiển thị lỗi và bạn phải chạy lại với tên và phiên bản được set.
 
-Sometimes the name or version determined from the source tree might be
-incorrect. For such a case, you must reset the recipe:
+ Thỉnh thoảng tên và phiên bản phát hiện được cũng không đúng
+. Với những trường hợp như thế, bạn phải reset lại recipe:
 
     
     
          $ devtool reset -n _recipename_
                     
 
-After running the `devtool reset` command, you need to run `devtool add` again
-and provide the name or the version.
+ Sau khi chạy câu lệnh `devtool reset` command, bạn cần chạy lại `devtool add` một lần nữa
+với tên và phiên bản được chỉ định trên dòng lệnh.
 
-### 2.5.2. Dependency Detection and Mapping¶
+### 2.5.2. Phát hiện phụ thuộc và mapping 
 
-The `devtool add` command attempts to detect build-time dependencies and map
-them to other recipes in the system. During this mapping, the command fills in
-the names of those recipes in the
-[`DEPENDS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-DEPENDS) value within the recipe. If a dependency cannot be mapped, then
-a comment is placed in the recipe indicating such. The inability to map a
-dependency might be caused because the naming is not recognized or because the
-dependency simply is not available. For cases where the dependency is not
-available, you must use the `devtool add` command to add an additional recipe
-to satisfy the dependency and then come back to the first recipe and add its
-name to `DEPENDS`.
+ Câu lệnh `devtool add` có gắng phát hiện các phụ thuộc của recipe hiện tại
+và map chúng với các recipe đang có sẵn. Trong quá trình mapping, nó sẽ thêm tên của các recipe
+đó vào biên môi trường trong recipe hiện tại [`DEPENDS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-DEPENDS). Nếu có phụ thuộc nào không thể map được thì sẽ co một comment
+được đưa vào để chỉ ra điều đó. Việc không map được có thể do tên không khớp,
+hoặc đơn giản là không có recipe nào cung cấp phụ thuộc đó. Trong trường hợp đó, bạn phải sử dụng
+ câu lệnh `devtool add` để thêm các recipe chứa các phụ thuộc trước, rồi quay lại recipe ban đầu để thêm các recipe tương ứng vào biến `DEPENDS` như ở trên.
 
-If you need to add runtime dependencies, you can do so by adding the following
-to your recipe:
+ Nếu bạn có những phụ thuộc dạng run-time, bạn có thể thêm chúng theo cách sau:
 
     
     
          RDEPENDS_${PN} += "dependency1 dependency2 ..."
                     
 
-### Note
+### Ghi chú 
 
-The `devtool add` command often cannot distinguish between mandatory and
-optional dependencies. Consequently, some of the detected dependencies might
-in fact be optional. When in doubt, consult the documentation or the configure
-script for the software the recipe is building for further details. In some
-cases, you might find you can substitute the dependency for an option to
-disable the associated functionality passed to the configure script.
+ Câu lệnh `devtool add` thường không thể phân biệt được cái nào là phụ thuộc bắt buộc, cái nào là không bắt buộc.
+ Dẫn đến, một số phụ thuộc được phát hiện hóa ra lại là không bắt buộc. 
+ Khi còn nghi ngờ điều đó, bạn cần xem kĩ lại tài liệu của phần mềm muốn đưa vào recipe đó
+để xem chính xác đó là những gì. Trong một vài trường hợp, nếu có thể tìm thấy một vài tham số truyền cho configure script để bỏ bớt một vài chứng năng không cần thiết, dẫn đến sẽ bớt đi được phụ thuộc.
 
-### 2.5.3. License Detection¶
+### 2.5.3. Phát hiện license 
 
-The `devtool add` command attempts to determine if the software you are adding
-is able to be distributed under a common open-source license and sets the
+ Câu lệnh `devtool add` sẽ cố gắng phát hiện xem phần mềm đang được thêm vào
+được phân phối dưới giấy phép mã nguồn mở phổ biến nào, và gán giá trị
 [`LICENSE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-LICENSE) value accordingly. You should double-check this value against
-the documentation or source files for the software you are building and update
-that `LICENSE` value if necessary.
+#var-LICENSE) tương ứng. Bạn nên kiểm tra thật kĩ, cả tài liệu lẫn source code
+của phần mềm đang muốn build để xác định chính xác license.
 
-The `devtool add` command also sets the
-[`LIC_FILES_CHKSUM`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-LIC_FILES_CHKSUM) value to point to all files that appear to
-be license-related. However, license statements often appear in comments at
-the top of source files or within documentation. Consequently, you might need
-to amend the `LIC_FILES_CHKSUM` variable to point to one or more of those
-comments if present. Setting `LIC_FILES_CHKSUM` is particularly important for
-third-party software. The mechanism attempts to ensure correct licensing
-should you upgrade the recipe to a newer upstream version in future. Any
-change in licensing is detected and you receive an error prompting you to
-check the license text again.
+ Câu lệnh `devtool add` cũng gán giá trị [`LIC_FILES_CHKSUM`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
+manual.html#var-LIC_FILES_CHKSUM) cho tất cả các file có liên quan đến vấn đề license. 
+ Tuy nhiên, các tuyên bố về license thường xuất hiện ở ngay đầu source hoặc tài liệu.
+  Do đó, bạn cần điều chỉnh giá trị biến `LIC_FILES_CHKSUM` trỏ đến một hoặc nhiều file như thế. 
+ Việc thiết lập giá trị biến `LIC_FILES_CHKSUM` đặc biệt quan trọng khi sử dụng phần mềm từ bên thứ 3
+(third-part software). Cơ chế về license đảm bảo cho bạn sử dụng đúng license khi update
+trong tương lai nữa. Bất cứ thay đổi nào liên quan đến license đều được phát hiện và thông báo
+đến bạn, do đó, bạn cần check lại những chỗ đó.
 
-If the `devtool add` command cannot determine licensing information, the
-`LICENSE` value is set to "CLOSED" and the `LIC_FILES_CHKSUM` value remains
-unset. This behavior allows you to continue with development but is unlikely
-to be correct in all cases. Consequently, you should check the documentation
-or source files for the software you are building to determine the actual
-license.
+ Nếu câu lệnh `devtool add` không thể phát hiện thông tin về license, giá trị biến 
+`LICENSE` được gán là "CLOSED", và giá trị `LIC_FILES_CHKSUM` sẽ không được gán gì hết. 
+ Điều này giúp bạn tiếp tục quá trình phát triển của mình, nhưng không phải bao giờ cũng là phù hợp. 
+ Bởi vậy, bạn nên kiểm tra tài liệu hoặc source để biết được license thực sự là gì.
 
-### 2.5.4. Adding Makefile-Only Software¶
+### 2.5.4. Thêm phần mềm chỉ có Makefile
 
-The use of `make` by itself is very common in both proprietary and open source
-software. Unfortunately, Makefiles are often not written with cross-
-compilation in mind. Thus, `devtool add` often cannot do very much to ensure
-that these Makefiles build correctly. It is very common, for example, to
-explicitly call `gcc` instead of using the
+ Chính `make` cũng là một cách rất phổ được sử dụng trong cả phần mềm mã nguồn mở lẫn nguồn đóng. 
+ Thật không may, hầu hết Makefile không được viết để có thể cross-platform. 
+ Vì thế, câu lệnh `devtool add` thường không làm được gì nhiều để đảm bảo các Makefile này 
+được build chính xác. Một ví dụ rất phổ biến là chỉ định `gcc` thay vì sử dụng giá trị biến 
 [`CC`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-CC)
-variable. Usually, in a cross-compilation environment, `gcc` is the compiler
-for the build host and the cross-compiler is named something similar to `arm-
-poky-linux-gnueabi-gcc` and might require some arguments (e.g. to point to the
-associated sysroot for the target machine).
+. Thông thường, trong môi trường cross-compilation, `gcc` thường nó đến compiler của host,
+còn cross-compiler thường có tên kiểu như `arm-poky-linux-gnueabi-gcc` và một vài tham số khác 
+( ví dụ: chỉ định đường dẫn của sysroot của máy đích chẳng hạn).
 
-When writing a recipe for Makefile-only software, keep the following in mind:
+Khi viết một recipe cho phần mềm chỉ có Makefile, hãy nhớ rằng:
 
-  * You probably need to patch the Makefile to use variables instead of hardcoding tools within the toolchain such as `gcc` and `g++`. 
+  * Bạn có thể cần sửa lại Makefile để sử dụng các giá trị biến chứ không phải chỉ định hardcoding như `gcc` và `g++`. 
 
-  * The environment in which `make` runs is set up with various standard variables for compilation (e.g. `CC`, `CXX`, and so forth) in a similar manner to the environment set up by the SDK's environment setup script. One easy way to see these variables is to run the `devtool build` command on the recipe and then look in `oe-logs/run.do_compile`. Towards the top of this file you will see a list of environment variables that are being set. You can take advantage of these variables within the Makefile. 
+  *  Môi trường để chạy `make` thường được setup với một vài giá trị chuẩn cho việc compilation ( Ví dụ: `CC`, `CXX`, hoặc tương tự) tương tự với cách thiết lập được sử dụng trong script setup môi trường cho SDK. Các dễ nhất để thấy các giá trị này là sử dụng câu lệnh `devtool build` trên chính recipe đó, sau đó xem nội dung file `oe-logs/run.do_compile`. Ở ngay đầu file, bạn sẽ thấy danh sách các biến môi trường, cái sẽ được set. Bạn có thể tạo ra Makefile tương thích với các biến đó. 
 
-  * If the Makefile sets a default for a variable using "=", that default overrides the value set in the environment, which is usually not desirable. In this situation, you can either patch the Makefile so it sets the default using the "?=" operator, or you can alternatively force the value on the `make` command line. To force the value on the command line, add the variable setting to [`EXTRA_OEMAKE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-EXTRA_OEMAKE) or [`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PACKAGECONFIG_CONFARGS) within the recipe. Here is an example using `EXTRA_OEMAKE`: 
+  * Nếu Makefile gán giá trị mặc định cho biến sử dụng "=", thì các giá trị mặc định đó sẽ ghi đè nên các giá trị sẵn có của môi trường, và đó là điều không mong đợi. Trong tình huống này, bạn cần sửa lại Makefile để nó sử dụng toán tử "?=", hoặc gán thông qua các tham số từ dòng lệnh `make`. Để truyền giá trị cho kiểu như thế, bạn có thể thêm giá trị biến [`EXTRA_OEMAKE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-EXTRA_OEMAKE) or [`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PACKAGECONFIG_CONFARGS) bên trong recipe. Dưới đây là ví dụ sử dụng `EXTRA_OEMAKE`: 
     
     
          EXTRA_OEMAKE += "'CC=${CC}' 'CXX=${CXX}'"
                             
 
-In the above example, single quotes are used around the variable settings as
-the values are likely to contain spaces because required default options are
-passed to the compiler.
+ Ở ví dụ ở trên, dấu nháy đơn được sử dụng bọc biểu thực giá trị biến môi trường
+khi giá trị có thể chứa dấu cách vì đây là các option mặc định cho compiler.
 
-  * Hardcoding paths inside Makefiles is often problematic in a cross-compilation environment. This is particularly true because those hardcoded paths often point to locations on the build host and thus will either be read-only or will introduce contamination into the cross-compilation by virtue of being specific to the build host rather than the target. Patching the Makefile to use prefix variables or other path variables is usually the way to handle this. 
+  * Việc để hardcode đường dẫn trong Makefiles thường gây ra vấn đề khi sử dụng môi trường cross-compilation. Điều này đúng là vì các đường dẫn đó thường chỉ một nơi trên môi trường build, thường sẽ không phù hợp với cross-compilation. Cần phải sửa lại Makefile cho phù hợp. 
 
-  * Sometimes a Makefile runs target-specific commands such as `ldconfig`. For such cases, you might be able to simply apply patches that remove these commands from the Makefile. 
+  * Thỉnh thoảng Makefile chứa câu lệnh chỉ dành cho target như `ldconfig`. Với những trường hợp như này bạn có đơn giản là comment bỏ dòng đó đi. 
 
-### 2.5.5. Adding Native Tools¶
+### 2.5.5. Thêm một tool native 
 
-Often, you need to build additional tools that run on the build host system as
-opposed to the target. You should indicate this using one of the following
-methods when you run `devtool add`:
+ Thông thường, thông thường bạn sẽ cần nhiều tool thêm trên môi trường build để tương ứng với target.
+ Về việc này, bạn nên chú ý những điểm sau khi làm việc với `devtool add`:
 
-  * Specify the name of the recipe such that it ends with "-native". Specifying the name like this produces a recipe that only builds for the build host. 
+  * Chỉ định tên của các recipe có phần đuôi là "-native". Chính là tên các recipe cho công cụ tương ứng nhưng được build cho môi trường build. 
 
-  * Specify the "‐‐also-native" option with the `devtool add` command. Specifying this option creates a recipe file that still builds for the target but also creates a variant with a "-native" suffix that builds for the build host. 
+  * Chỉ định các recipe có tên chứa phần đuôi "also-native" khi sử dụng câu lệnh `devtool add`. Chỉ định này có nghĩa rằng, recipe được build cho target những cũng build cho cả môi trường build nữa, trong khi "-native" chỉ build cho host. 
 
-### Note
+### Ghi chú 
 
-If you need to add a tool that is shipped as part of a source tree that builds
-code for the target, you can typically accomplish this by building the native
-and target parts separately rather than within the same compilation process.
-Realize though that with the "‐‐also-native" option, you can add the tool
-using just one recipe file.
+ Nếu bạn chỉ cần thêm một công cụ riêng lẻ, cái mà sẽ build code cho target, bạn có thể chỉ định riêng các recipe
+dành cho việc build native và target thay vì để chung trong quá trình build 
+ Và cũng để ý rằng với việc sử dụng "also-native", bạn có thể thêm công cụ mà chỉ cần sử dụng 1 recipe.
 
-### 2.5.6. Adding Node.js Modules¶
+### 2.5.6. Thêm module Node.js 
 
-You can use the `devtool add` command two different ways to add Node.js
-modules: 1) Through `npm` and, 2) from a repository or local source.
+ Bạn cũng có thể sử dụng câu lệnh `devtool add` để thêm một module Node.js theo 2 cách dưới đây:
+: 1) Thông qua `npm` and, 2) Từ repo hoặc từ source tại local.
 
-Use the following form to add Node.js modules through `npm`:
+ Sử dụng câu lệnh như bên dưới đây để thêm module Node.js thông qua `npm`:
 
     
     
          $ devtool add "npm://registry.npmjs.org;name=forever;version=0.15.1"
                     
 
-The name and version parameters are mandatory. Lockdown and shrinkwrap files
-are generated and pointed to by the recipe in order to freeze the version that
-is fetched for the dependencies according to the first time. This also saves
-checksums that are verified on future fetches. Together, these behaviors
-ensure the reproducibility and integrity of the build.
+ Tham số tên và phiên bản là bắt buộc. Các file Lockdown và shrinkwrap được sinh ra
+và được chỉ định bởi chính các recipe để gắn chúng với phiên bản của các file đã tải
+trong lần đầu tiên. Nó cũng lưu lại checksum để xác thực khi có tải tiếp trong tương lại.
+ Và tất cả những hành động này để đảm bảo tính tái hiện lại được và tính nhất quan của bạn build.
 
-### Notes
+### Ghi chú 
 
-  * You must use quotes around the URL. The `devtool add` does not require the quotes, but the shell considers ";" as a splitter between multiple commands. Thus, without the quotes, `devtool add` does not receive the other parts, which results in several "command not found" errors. 
+  * Bạn phải sử dụng dấu nháy kép ở URL. Bản thân câu lệnh `devtool add` không yêu cầu dấu nháy, nhưng bản thân shell thì lại coi ";" là dấu ngăn cách giữa nhiều câu lệnh. Vì thế, nếu không có dấu nháy, câu lẹnh `devtool add` sẽ không nhận đủ tham số số, đồng thời cũng xuất hiệt một vài dòng kiểu "command not found". 
 
-  * In order to support adding Node.js modules, a `nodejs` recipe must be part of your SDK in order to provide Node.js itself. 
+  * Để thêm được các Node.js modules, cần có recipe tên là `nodejs` trong SDK  của bạn để cung cấp chính Node.js. 
 
-As mentioned earlier, you can also add Node.js modules directly from a
-repository or local source tree. To add modules this way, use `devtool add` in
-the following form:
+ Như đã nói ở phía trên, bạn cũng có thể thêm trực tiếp Node.js modules từ một repo hoặc từ chính
+local. Để thêm theo cách đó, sử dụng câu lệnh `devtool add` theo cách như dưới đây:
 
     
     
          $ devtool add https://github.com/diversario/node-ssdp
                     
 
-In this example, `devtool` fetches the specified Git repository, detects that
-the code is Node.js code, fetches dependencies using `npm`, and sets
-[`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-SRC_URI) accordingly.
+ Trong ví dụ này, câu lệnh `devtool` tải Git repository được chỉ định, phát hiện đó là Node.js code, 
+ tự động lấy về bằng `npm`, và set [`SRC_URI`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
+#var-SRC_URI) tương ứng.
 
-## 2.6. Working With Recipes¶
+## 2.6. Làm việc với recipe 
 
-When building a recipe with `devtool build` the typical build progression is
-as follows:
+ Khi build một recipe sử dụng `devtool build`, thông thường hệ thống build
+sẽ thực hiện các bước sau:
 
-  1. Fetch the source 
+  1. Lấy source code 
 
-  2. Unpack the source 
+  2. Giải nén source code 
 
-  3. Configure the source 
+  3. Cấu hình source code 
 
-  4. Compiling the source 
+  4. Biên dịch source code 
 
-  5. Install the build output 
+  5. Cài đặt các kết quả biên dịch 
 
-  6. Package the installed output 
+  6. Đóng gói các kết quả biên dịch 
 
-For recipes in the workspace, fetching and unpacking is disabled as the source
-tree has already been prepared and is persistent. Each of these build steps is
-defined as a function, usually with a "do_" prefix. These functions are
-typically shell scripts but can instead be written in Python.
+ Với các recipe đã nằm trong workspace, fetching và unpacking sẽ bị vô hiệu
+nếu recipe đó đã được chuẩn bị, việc này để đảm bảo tính nhất quán. Mỗi bước trong quá trình
+build được định nghĩa là một hàm , thường bắt đầu bởi tiền tố "do_". Những hàm này
+có thể là các shell script hoặc cũng có thể viết bằng python.
 
-If you look at the contents of a recipe, you will see that the recipe does not
-include complete instructions for building the software. Instead, common
-functionality is encapsulated in classes inherited with the `inherit`
-directive, leaving the recipe to describe just the things that are specific to
-the software to be built. A [`base`](http://www.yoctoproject.org/docs/2.2/ref-
-manual/ref-manual.html#ref-classes-base) class exists that is implicitly
-inherited by all recipes and provides the functionality that most typical
-recipes need.
+ Nếu bạn từng xem nội dung của một recipe, bạn sẽ thấy rằng nó không chứa toàn bộ
+các bước nhỏ để build phần mềm đó. Thay vào đó, các bước thông dụng được nhóm thành class và
+được kế thường bằng từ khóa `inherit`, sau khi kế thừa thì recipe chỉ cần miêu tả những các dành riêng cho
+phần mềm nó định build cho thôi. Một lớp [`base`](http://www.yoctoproject.org/docs/2.2/ref-
+manual/ref-manual.html#ref-classes-base) được ngầm định kế thừa bởi tất cả các recipes để cung cấp
+các chức năng mà hầu hết các recipe đều cần.
 
-The remainder of this section presents information useful when working with
-recipes.
+ Phần còn lại của chương này sẽ nói về các thông tin hữu ích khi làm việc với recipe.
 
-### 2.6.1. Finding Logs and Work Files¶
+### 2.6.1. Tìm các log và working file 
 
-When you are debugging a recipe that you previously created using `devtool
-add` or whose source you are modifying by using the `devtool modify` command,
-after the first run of `devtool build`, you will find some symbolic links
-created within the source tree: `oe-logs`, which points to the directory in
-which log files and run scripts for each build step are created and `oe-
-workdir`, which points to the temporary work area for the recipe. You can use
-these links to get more information on what is happening at each build step.
+ Khi bạn debug các recipe mà bạn đã tạo lúc trước bằng câu lệnh `devtool add` lúc trước 
+ hoặc source code bạn đang sửa sử dụng câu lệnh `devtool modify`,
+ Kết quả từ câu lệnh build `devtool build`, bạn sẽ thấy có một vài symbol link được tạo 
+bên trong thư mục : `oe-logs`, nó sẽ trỏ đến thư mục chứa log files cùng các run scripts 
+ cho mỗi bước của quá trình build và `oe-workdir`, cái trỏ đến khu vực work tạm thời của mỗi recipe. 
+ Bạn có thể sử dụng những thông tin này để biết chuyện gì đã xảy ra trong lúc build.
 
-These locations under `oe-workdir` are particularly useful:
+ Cụ thể nội dung từ thư mục dưới `oe-workdir` được cho là có ích:
 
-  * `image/`: Contains all of the files installed at the [`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks-install) stage. Within a recipe, this directory is referred to by the expression `${`[`D`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-D)`}`. 
+  * `image/`: Chứa toàn bộ các file đã được cài đặt ở bước [`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks-install). Ở bên trong source code của recipe, thư mục này được tham chiếu bởi biểu thức `${`[`D`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-D)`}`. 
 
-  * `sysroot-destdir/`: Contains a subset of files installed within `do_install` that have been put into the shared sysroot. For more information, see the "Sharing Files Between Recipes" section. 
+  * `sysroot-destdir/`: Chứ một tập con của các file được cài đặt ở bước `do_install` mà sẽ được đưa vào shared sysroot. Thông tin thêm về loại này, hãy xem chương "Sharing Files Between Recipes". 
 
-  * `packages-split/`: Contains subdirectories for each package produced by the recipe. For more information, see the "Packaging" section. 
+  * `packages-split/`: Mỗi thư mục con trong này tương ứng với cái mà được recipe tạo ra. Thông tin thêm về loại này, xem chương "Packaging".
 
-### 2.6.2. Setting Configure Arguments¶
+### 2.6.2. Thiết lập các tham số cấu hình 
 
-If the software your recipe is building uses GNU autoconf, then a fixed set of
-arguments is passed to it to enable cross-compilation plus any extras
-specified by [`EXTRA_OECONF`](http://www.yoctoproject.org/docs/2.2/ref-manual
-/ref-manual.html#var-EXTRA_OECONF) or
-[`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual
-/ref-manual.html#var-PACKAGECONFIG_CONFARGS) set within the recipe. If you
-wish to pass additional options, add them to `EXTRA_OECONF` or
-`PACKAGECONFIG_CONFARGS`. Other supported build tools have similar variables
-(e.g. [`EXTRA_OECMAKE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-EXTRA_OECMAKE) for CMake,
-[`EXTRA_OESCONS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-EXTRA_OESCONS) for Scons, and so forth). If you need to pass
-anything on the `make` command line, you can use `EXTRA_OEMAKE` or the
-[`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual
-/ref-manual.html#var-PACKAGECONFIG_CONFARGS) variables to do so.
+ Nếu recipe cho sofware của bạn sử dụng GNU autoconf, một tập cố định các tham số
+được pass để cho phép cross-compilation công với các tham số thêm được chỉ định bởi [`EXTRA_OECONF`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-EXTRA_OECONF) hoặc từ 
+[`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-PACKAGECONFIG_CONFARGS) trong chính recipe đó. Vì thế, nếu bạn muốn thêm tham số cho quá trình configure, hãy thêm vào `EXTRA_OECONF` hoặc `PACKAGECONFIG_CONFARGS`. Nhưng hệ thống build khác cũng có cách tương tự,
+( ví dụ: biến [`EXTRA_OECMAKE`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-EXTRA_OECMAKE) là dành cho CMake,
+[`EXTRA_OESCONS`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#var-EXTRA_OESCONS) là dành cho Scons, cứ như vậy). Nếu bạn cần chuyển bất cứ thông tin nào cho câu lệnh `make` , bạn có thể sử dụng `EXTRA_OEMAKE` hoặc biến [`PACKAGECONFIG_CONFARGS`](http://www.yoctoproject.org/docs/2.2/ref-manual
+/ref-manual.html#var-PACKAGECONFIG_CONFARGS). 
 
-You can use the `devtool configure-help` command to help you set the arguments
-listed in the previous paragraph. The command determines the exact options
-being passed, and shows them to you along with any custom arguments specified
-through `EXTRA_OECONF` or `PACKAGECONFIG_CONFARGS`. If applicable, the command
-also shows you the output of the configure script's "‐‐help" option as a
-reference.
+ Bạn có thể sử dụng câu lệnh `devtool configure-help` để xem thêm các biến đã nhắc tới ở đoạn trên. 
+ Câu lệnh này sẽ đưa ra chính xác các option có thể được sử dụng, và cả cách kết sử dụng với `EXTRA_OECONF` or `PACKAGECONFIG_CONFARGS` nữa. Nếu có thể, câu lệnh cũng chỉ bạn đầu ra của lệnh configure với tham số help nữa.
 
-### 2.6.3. Sharing Files Between Recipes¶
+### 2.6.3. Chia sẻ file giữa các recipe 
 
-Recipes often need to use files provided by other recipes on the build host.
-For example, an application linking to a common library needs access to the
-library itself and its associated headers. The way this access is accomplished
-within the extensible SDK is through the sysroot. One sysroot exists per
-"machine" for which the SDK is being built. In practical terms, this means a
-sysroot exists for the target machine, and a sysroot exists for the build
-host.
+ Nhiều recipes sử dụng các file được cung cấp bởi các recipes khác trên máy build.
+ Ví dụ, một ứng dụng được linking với một thư viện dùng chung cần biết cách để truy cập đến 
+ chính các thư viện đó cũng như các file header liên quan. Điều này được giải quyết trong
+SDK mở rộng (extensible SDK) thông qua sysroot. Mỗi sysroot đặc trưng cho 1
+"machine" mà từ đó SDK được build. Trong thực tế, có một sysroot trên máy đich (target machine),
+ và một sysroot trên máy build.
 
-Recipes should never write files directly into the sysroot. Instead, files
-should be installed into standard locations during the
-[`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#ref-tasks-install) task within the
-`${`[`D`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#var-D)`}` directory. A subset of these files automatically go into
-the sysroot. The reason for this limitation is that almost all files that go
-into the sysroot are cataloged in manifests in order to ensure they can be
-removed later when a recipe is modified or removed. Thus, the sysroot is able
-to remain free from stale files.
+ Các recipe không bao giờ trực tiếp ghi file vào sysroot. Thay vào đó, các file được đưa vào một đường dẫn chung
+ (standard locations) trong quá trình thực hiện task 
+[`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks-install) được gọi là thư mục `${`[`D`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
+manual.html#var-D)`}`. Một tập nhỏ của các file đó sẽ tự động được đưa vào sysroot. 
+ Lý do cho giới hạn này là tất cả các file được đưa vào sysroot phải được phân loại theo một danh mục đã được quy định trước để đảm bảo chúng có thể được xóa bỏ khi gỡ recipe ra khỏi ảnh hệ thống. Sau đó, sysroot mới lấy lại được không gian từ các file không còn được sử dụng nữa (stale files).
 
-### 2.6.4. Packaging¶
+### 2.6.4. Đóng gói 
 
-Packaging is not always particularly relevant within the extensible SDK.
-However, if you examine how build output gets into the final image on the
-target device, it is important to understand packaging because the contents of
-the image are expressed in terms of packages and not recipes.
+ Việc đóng gói không phải luôn luôn tối ưu trong SDK mở rộng.
+Tuy nhiên, nếu bạn muốn đánh giá kết quả build được đưa vào ảnh hệ thống đích như thế nào, 
+ thì chắc chắn phải hiểu về đóng gói (packaging) bởi vì nội dung của ảnh hệ thống được miêu tả bằng
+khái niệm của package chứ không phải bằng các recip.
 
-During the [`do_package`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
-manual.html#ref-tasks-package) task, files installed during the
-[`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#ref-tasks-install) task are split into one main package, which is almost
-always named the same as the recipe, and several other packages. This
-separation is done because not all of those installed files are always useful
-in every image. For example, you probably do not need any of the documentation
-installed in a production image. Consequently, for each recipe the
-documentation files are separated into a `-doc` package. Recipes that package
-software that has optional modules or plugins might do additional package
-splitting as well.
+ Trong quá trình thực hiện task [`do_package`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-
+manual.html#ref-tasks-package), các file được cài đặt khi chạy task 
+[`do_install`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#ref-tasks-install) sẽ được đưa vào 1 package chính, thường là có cùng tên với recipe, 
+ và một vài package khác. Lý do có sự phân chia này là vì không phải tất cả các file được 
+cài đặt đó đều cần thiết cho mọi ảnh hệ thống. Ví dụ , bạn hầu như không cần bất cứ tài liệu nào trên ảnh hệ thống của sản phầm. Vì vậy, phần tài liệu trong mỗi recipe được đưa vào package có phần đuôi và `-doc`. 
+ Rồi thì, các phần mềm có các module hoặc plugin cũng có thể thực hiện việc phân chia tương tự.
 
-After building a recipe you can see where files have gone by looking in the
-`oe-workdir/packages-split` directory, which contains a subdirectory for each
-package. Apart from some advanced cases, the
-[`PACKAGES`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-PACKAGES) and [`FILES`](http://www.yoctoproject.org/docs/2.2/ref-manual
-/ref-manual.html#var-FILES) variables controls splitting. The `PACKAGES`
-variable lists all of the packages to be produced, while the `FILES` variable
-specifies which files to include in each package, using an override to specify
-the package. For example, `FILES_${PN}` specifies the files to go into the
-main package (i.e. the main package is named the same as the recipe and
-`${`[`PN`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
-#var-PN)`}` evaluates to the recipe name). The order of the `PACKAGES` value
-is significant. For each installed file, the first package whose `FILES` value
-matches the file is the package into which the file goes. Defaults exist for
-both the `PACKAGES` and `FILES` variables. Consequently, you might find you do
-not even need to set these variables in your recipe unless the software the
-recipe is building installs files into non-standard locations.
+ Sau khi build một recipe, bạn có thể thấy các file đã được đi vào đâu bằng cách xem nội dung thư mục
+`oe-workdir/packages-split`, nơi chứa một thư mục con cho mỗi package. Cho một vài trường hợp nâng cao, 
+biến [`PACKAGES`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
+#var-PACKAGES) và biến [`FILES`](http://www.yoctoproject.org/docs/2.2/ref-manual
+/ref-manual.html#var-FILES) được sử dụng để điều khiển việc chia gói. Biến môi trương `PACKAGES`
+ liệt kê tất cả các package được tạo ra, trong khi biến `FILES` chỉ rõ file nào được chứa trong mỗi package,
+ và được dùng để ghi đè cho package tương ứng. 
+ Ví dụ, biến `FILES_${PN}` chỉ định rõ file nào sẽ đi vào package main ( ví dụ: package main được đặt tên theo tên của recipe luôn, trong đó biến `${`[`PN`](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html
+#var-PN)`}` để chỉ tên recipe). Thứ tự của các giá trị trong biến `PACKAGES` là có ý nghĩa nhất định. Với mỗi file cài đặt, chỉ giá trị biến `FILE` đầu tiên của package đó được matched. Mặc định thì `PACKAGES` và `FILES` sẽ luôn tồn tại. Vì thế, bạn hầu như không phải gán giá trị cho nó trừ khi phần mềm bạn đang build sẽ không được
+cài đặt vào những chỗ thông thường.
 
-## 2.7. Restoring the Target Device to its Original State¶
+## 2.7. Phục hồi thiết bị về trạng thái ban đầu 
 
-If you use the `devtool deploy-target` command to write a recipe's build
-output to the target, and you are working on an existing component of the
-system, then you might find yourself in a situation where you need to restore
-the original files that existed prior to running the `devtool deploy-target`
-command. Because the `devtool deploy-target` command backs up any files it
-overwrites, you can use the `devtool undeploy-target` to restore those files
-and remove any other files the recipe deployed. Consider the following
-example:
+ Nếu bạn sử dụng câu lệnh `devtool deploy-target` để ghi những kết quả vào target, 
+ nơi có những thành phần đã tồn tại trước đó, sau đó bạn có thể rơi vào tình huống muốn phục hồi các trạng thái ngay trước khi chạy câu lệnh `devtool deploy-target`
+. Bởi vì câu lệnh `devtool deploy-target` sẽ thực hiện back up bất cứ file nào nó định ghi đè, vì thế, vạn có thể sử dụng câu lệnh `devtool undeploy-target` để phục hồi các file đó và và loại bỏ các file đã được deploy.
+ Hãy xem xét ví dụ dưới đây:
 
     
     
          $ devtool undeploy-target lighttpd root@192.168.7.2
                 
 
-If you have deployed multiple applications, you can remove them all at once
-thus restoring the target device back to its original state:
+ Nếu bạn đã deloy nhiều ứng dụng, bạn có thể sử dụng câu lệnh sau để gỡ bỏ tất
+cả và đưa chúng về trạng thái ban đầu:
 
     
     
          $ devtool undeploy-target -a root@192.168.7.2
                 
 
-Information about files deployed to the target as well as any backed up files
-are stored on the target itself. This storage of course requires some
-additional space on the target machine.
+ Thông tin về các file được deployed và các file back up đều được lưu ở phía target
+. Vì thế, nó sẽ chiếm thêm vùng lưu trữ trên target.
 
-### Note
+### Ghi chú 
 
-The `devtool deploy-target` and `devtool undeploy-target` command do not
-currently interact with any package management system on the target device
-(e.g. RPM or OPKG). Consequently, you should not intermingle operations
-`devtool deploy-target` and the package manager operations on the target
-device. Doing so could result in a conflicting set of files.
+ Câu lệnh `devtool deploy-target` và `devtool undeploy-target` không giao tiếp hay sử dụng bất cứ
+chương trình quản lý gói nào trên target  (như RPM hoặc OPKG). Chính vì vậy, bạn không nên trộn lẫn các thao tác 
+`devtool deploy-target` với các thao tác từ chương trình quản lý gói trên target.
+  Làm vậy sẽ dẫn đến có thể dẫn đến những kết quả không mong muốn.
 
-## 2.8. Installing Additional Items Into the Extensible SDK¶
+## 2.8. Cài đặt thêm cho SDK mở rộng 
 
-The extensible SDK typically only comes with a small number of tools and
-libraries out of the box. If you have a minimal SDK, then it starts mostly
-empty and is populated on-demand. However, sometimes you will need to
-explicitly install extra items into the SDK. If you need these extra items,
-you can first search for the items using the `devtool search` command. For
-example, suppose you need to link to libGL but you are not sure which recipe
-provides it. You can use the following command to find out:
+ Một SDK mở rộng thường chỉ kèm theo một tập nhỏ các tool và thư viện mà thôi. 
+ Nếu bạn có một SDK minimal, ban đầu chúng hầu như không có gì, mọi thứ được bung ra khi cần.
+ Tuy nhiên, thỉnh thoảng bạn lại cần phải cài thêm một vài thứ cho SKD đấy. 
+ Nếu bạn cần những thứ gì, đầu tiên hãy tìm kiếm chúng sử dụng câu lệnh `devtool search`. 
+Ví dụ, bạn cần liên kết thư viện libGL bạn không biết chắc cái recipe nào chứa nó. 
+ Bạn có thể giải quyết bằng câu lệnh dưới đây:
 
     
     
@@ -1448,87 +1260,80 @@ provides it. You can use the following command to find out:
          mesa                  A free implementation of the OpenGL API
                 
 
-Once you know the recipe (i.e. `mesa` in this example), you can install it:
+ Một khi đã biết recipe nào ( ví dụ: trong ví dụ này là `mesa`), bạn có thể cài đặt nó như sau:
 
     
     
          $ devtool sdk-install mesa
                 
 
-By default, the `devtool sdk-install` assumes the item is available in pre-
-built form from your SDK provider. If the item is not available and it is
-acceptable to build the item from source, you can add the "-s" option as
-follows:
+ Mặc định, câu lệnh `devtool sdk-install` giả định rằng, item đã được build trước từ SDK provider. 
+ Nếu nó có nhưng chưa được build trước, bạn cần build nó từ source, bằng cách thêm tham số "-s" như bên dưới đây:
 
     
     
          $ devtool sdk-install -s mesa
                 
 
-It is important to remember that building the item from source takes
-significantly longer than installing the pre-built artifact. Also, if no
-recipe exists for the item you want to add to the SDK, you must instead add it
-using the `devtool add` command.
+ Và nhớ rằng, bạn sẽ mất thời gian lâu hơn nhiều nếu build từ source
+thay vì lấy từ kết quả đã build sẵn. Và nhớ rằng, nếu không tồn tại cái mà bạn đang tìm kiếm
+để thêm vào SDK, bạn phải thêm nó bằng câu lệnh `devtool add` thôi.
 
-## 2.9. Updating the Extensible SDK¶
+## 2.9. Update SDK mở rộng
 
-If you are working with an extensible SDK that gets occasionally updated (e.g.
-typically when that SDK has been provided to you by another party), then you
-will need to manually pull down those updates to your installed SDK.
+ Nếu bạn đang làm việc với một SDK mở rộng thì chúng sẽ thường được update thường xuyên (
+thường thì SDK sẽ được cung cấp bởi một bên khác), bạn sẽ cần phải kéo các bản update
+về cho SDK mà bạn đã cài.
 
-To update your installed SDK, run the following:
+ Để update SDK, sử dụng lệnh sau:
 
     
     
          $ devtool sdk-update
                 
 
-The previous command assumes your SDK provider has set the default update URL
-for you. If that URL has not been set, you need to specify it yourself as
-follows:
+ Câu lệnh trên giả định rằng SDK provider có một tập các URL dành cho update rồi. 
+ Nếu URL đó không được set, bạn sẽ cần phải set nó bằng câu lệnh kiểu như bên dưới đây:
 
     
     
          $ devtool sdk-update _path_to_update_directory_
                 
 
-### Note
+### Ghi chú 
 
-The URL needs to point specifically to a published SDK and not an SDK
-installer that you would download and install.
+ URL này phải trỏ đến các published SDK và không phải cái bộ cài đặt SDK cái mà bạn
+có thể tải về và cài đặt.
 
-## 2.10. Creating a Derivative SDK With Additional Components¶
+## 2.10. Tạo một SDK dẫn xuất từ các thành phần đang có 
 
-You might need to produce an SDK that contains your own custom libraries for
-sending to a third party (e.g., if you are a vendor with customers needing to
-build their own software for the target platform). If that is the case, then
-you can produce a derivative SDK based on the currently installed SDK fairly
-easily. Use these steps:
+ Bạn có thể tạo ra một SDK chứa các thư viện mà bạn đã custom cho bên thứ 3  ( ví dụ: bạn là một vender, bạn cung cấp cấp SDK cho khách hàng để họ build phần mềm trên platform đích chẳng hạn). Trong trường hợp đó, bạn có thể
+tạo ra một SDK dẫn suất từ trạng thái hiện tại của bạn từ khá sớm. Sử dụng các bước dưới đây:
 
-  1. If necessary, install an extensible SDK that you want to use as a base for your derivative SDK. 
+  1. Nếu cần, hãy cài một SDK mở rộng để làm base cho SDK dẫn suất. 
 
-  2. Source the environment script for the SDK. 
+  2. Chạy script setup môi trường cho SDK. 
 
-  3. Add the extra libraries or other components you want by using the `devtool add` command. 
+  3. Thêm thư viện, các component sử dụng câu lệnh `devtool add`.
 
-  4. Run the `devtool build-sdk` command. 
+  4. Chạy câu lệnh `devtool build-sdk`. 
 
-The above procedure takes the recipes added to the workspace and constructs a
-new SDK installer containing those recipes and the resulting binary artifacts.
-The recipes go into their own separate layer in the constructed derivative
+ Câu lệnh trên sẽ lấy các recipe đã được thêm vào workspace để tạo ra một
+new SDK installer chứa các recipe đó cũng như kết quả nhị phân của nó.
+ Các recipe sẽ đứa chứa trong các layer của chúng in the constructed derivative
 SDK, leaving the workspace clean and ready for users to add their own recipes.
 
-## Chapter 3. Using the Standard SDK¶
+## Chapter 3. Sử dụng Standard SDK
 
-**Table of Contents**
+**Mục lục**
 
-3.1. Why use the Standard SDK and What is in It?
+3.1. Tại sao sử dụng Standard SDK và Có gì trong đấy?
 
-3.2. Installing the SDK
+3.2. Cài đặt Standard SDK 
 
-3.3. Running the SDK Environment Setup Script
+3.3. Chạy scrip setup môi trường 
 
-This chapter describes the standard SDK and how to install it. Information
+ Chương này mô tả về Standard SDK và cài đặt nó. Information
 includes unique installation and setup aspects for the standard SDK.
 
 ### Note
@@ -1877,100 +1682,88 @@ Plug-in to allow you to develop, deploy, and test your application all from
 within Eclipse. This section describes general workflow using the SDK and
 Eclipse and how to configure and set up Eclipse.
 
-### 4.3.1. Workflow Using Eclipse™¶
+### 4.3.1. Workflow khi sử dụng Eclipse™
 
-The following figure and supporting list summarize the application development
-general workflow that employs both the SDK Eclipse.
+ Hình bên dưới và nội dung bên dưới mô tả ngắn gọn luồng phát triển ứng dụng nói
+chung khi sử dụng cả 2 loại SDK trên Eclips:
 
 ![](figures/sdk-eclipse-dev-flow.png)
 
-  1. _Prepare the host system for the Yocto Project_: See "[Supported Linux Distributions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#detailed-supported-distros)" and "[Required Packages for the Host Development System](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#required-packages-for-the-host-development-system)" sections both in the Yocto Project Reference Manual for requirements. In particular, be sure your host system has the `xterm` package installed. 
+  1. _Chuẩn bị hệ thống host cho Yocto Project_: Xem thêm các chương "[Supported Linux Distributions](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#detailed-supported-distros)" và "[Required Packages for the Host Development System](http://www.yoctoproject.org/docs/2.2/ref-manual/ref-manual.html#required-packages-for-the-host-development-system)" trong tài liệu hướng dẫn tham khảo Yocto Project để biết thêm những yêu cầu cụ thể. Cần chắc chắn rằng trên hệ thống của bạn có gói `xterm` được cài đặt. 
 
-  2. _Secure the Yocto Project kernel target image_: You must have a target kernel image that has been built using the OpenEmbedded build system.
+  2. _ Làm việc với Yocto Project kernel target image_: Bạn phải có một ảnh của hệ thống đích, cái được build bởi OpenEmbedded build system.
 
-Depending on whether the Yocto Project has a pre-built image that matches your
-target architecture and where you are going to run the image while you develop
-your application (QEMU or real hardware), the area from which you get the
-image differs.
+ Phụ thuộc vào Yocto Project có sẵn ảnh hệ thống phù hợp với hệ thống đích của bạn hay không,
+ rồi nơi bạn sẽ chạy ảnh hệ thống là gì (QEMU hay phần cứng thật), đây là những nơi bạn có thể tải ảnh về.
 
-    * Download the image from [`machines`](http://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines) if your target architecture is supported and you are going to develop and test your application on actual hardware. 
+    * Tải từ [`machines`](http://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines) nếu kiến trúc của bạn được hỗ trợ và bạn có ý định phát triển và test ứng dụng trên phần cứng thật.
 
-    * Download the image from [ `machines/qemu`](http://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines/qemu) if your target architecture is supported and you are going to develop and test your application using the QEMU emulator. 
+    * Tải từ [ `machines/qemu`](http://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines/qemu) nếu kiến trúc của bạn được hỗ trợ và bạn có ý định phát triển và test ứng dụng trên QEMU emulator. 
 
-    * Build your image if you cannot find a pre-built image that matches your target architecture. If your target architecture is similar to a supported architecture, you can modify the kernel image before you build it. See the "[Patching the Kernel](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#patching-the-kernel)" section in the Yocto Project Development manual for an example. 
+    * Hãy build một ảnh hệ thống nếu bạn không tìm thấy ảnh build sẵn phù hợp với kiến trúc của bạn. Nếu hệ thống của bạn tương tự một hệ thống được hỗ trợ, bạn có thể sửa kernel trước khi build nó. Xem phần chương "[Patching the Kernel](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#patching-the-kernel)" trong hướng dẫn phát triển Yocto Project Development để thấy ví dụ. 
 
-  3. _Install the SDK_: The SDK provides a target-specific cross-development toolchain, the root filesystem, the QEMU emulator, and other tools that can help you develop your application. For information on how to install the SDK, see the "Installing the SDK" section. 
+  3. _Cài đặt SDK_: SDK cung cấp một toolchain cross-development cho target nhất định, hệ thống file root, QEMU emulator, và các tool khác phát triển ứng dụng dụng của mình. Thông tin về việc làm thế nào để cài đặt SDK, hãy xem thêm chương "Installing the SDK". 
 
-  4. _Secure the target root filesystem and the Cross-development toolchain_: You need to find and download the appropriate root filesystem and the cross-development toolchain.
+  4. _ Hệ thống file root và toolchain Cross-development: Bạn cần tìm và tải hệ thống file root thích hợp cũng như toolchain cross-development.
 
-You can find the tarballs for the root filesystem in the same area used for
-the kernel image. Depending on the type of image you are running, the root
-filesystem you need differs. For example, if you are developing an application
-that runs on an image that supports Sato, you need to get a root filesystem
-that supports Sato.
+ Bạn có thể tìm hệ thống file root ở cùng chỗ với ảnh kernel. Phụ thuộc vào loại ảnh hệ thống bạn đang chạy, hệ thống file root cũng khác nhau. Ví dụ , nếu bạn đang phát triển một ứng dụng hỗ trợ giao diện đồ họa Sato, thì bạn cũng cần một hệ thống file hỗ trợ Sato.
 
-You can find the cross-development toolchains at [`toolchains`](http://downloa
-ds.yoctoproject.org/releases/yocto/yocto-2.2/toolchain/). Be sure to get the
-correct toolchain for your development host and your target architecture. See
-the "Locating Pre-Built SDK Installers" section for information and the
-"Installing the SDK" section for installation information.
+ Bạn có thể tìm một toolchain cross-development tại [`toolchains`](http://downloa
+ds.yoctoproject.org/releases/yocto/yocto-2.2/toolchain/). Hãy chắc chắn rằng bạn tải
+đúng toolchain phù hợp với hệ thống host và target của mình. Xem ở chương "Locating Pre-Built SDK Installers" và 
+ chương "Installing the SDK" để biết thêm thông tin cài đặt.
 
-### Note
+### Ghi chú 
 
-As an alternative to downloading an SDK, you can build the SDK installer. For
-information on building the installer, see the "Building an SDK Installer"
-section. Another helpful resource for building an installer is the [Cookbook
+ Thay vì tải SDK về, bạn có thể tự build một bộ cài đặt SDK. Để biết thêm thông tin về một SDK như thế này,
+xem ở chương "Building an SDK Installer"
+. Một nơi khác cũng rất hữu ích để build một bộ cài đặt là trang wiki [Cookbook
 guide to Making an Eclipse Debug Capable Image](https://wiki.yoctoproject.org/
-wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage) wiki page.
+wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage).
 
-  5. _Create and build your application_: At this point, you need to have source files for your application. Once you have the files, you can use the Eclipse IDE to import them and build the project. If you are not using Eclipse, you need to use the cross-development tools you have installed to create the image.
+  5. _ Tạo và build ứng dụng_: Đến điểm này rồi, bạn cần source cho ứng dụng của bạn. Khi đã có các file source rồi, bạn có thể sử dụng Eclipse IDE để import rồi build ứng dụng của bạn. Nếu không sử dụng Eclipse ID đi nữa, bạn sẽ cần các công cụ cross-development tools bạn đã cài đặt để tạo ảnh.
 
-  6. _Deploy the image with the application_: Using the Eclipse IDE, you can deploy your image to the hardware or to QEMU through the project's preferences. You can also use Eclipse to load and test your image under QEMU. See the "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" chapter in the Yocto Project Development Manual for information on using QEMU. 
+  6. _Triển khai ảnh có chứa ứng dụng_: Sử dụng IDE, bạn có thể triển khai ảnh hệ thống xuống phần cứng hoặc QEMU  thông qua thiết lập project. Bạn cũng có thể sử dụng Eclipse để load và test ứng dụng trên QEMU. Xem thê ở chapter "[Using the Quick EMUlator (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-manual-qemu)" trong hướng dẫn phát triển Yocto Project Development Manual để biết thông tin sử dụng của QEMU. 
 
-  7. _Test and debug the application_: Once your application is deployed, you need to test it. Within the Eclipse IDE, you can use the debugging environment along with supported performance enhancing [Linux Tools](http://www.eclipse.org/linuxtools/). 
+  7. _ Test và debug ứng dụng_: Khi ứng dụng đã được triển khai, bạn cần phải test nó. Bên trong Eclipse IDE, bạn có thể sử dụng môi trường debugging một loạt tool nâng cao hiệu năng được hỗ trợ [Linux Tools](http://www.eclipse.org/linuxtools/). 
 
-### 4.3.2. Working Within Eclipse¶
+### 4.3.2. Làm việc với Eclipse  IDE 
 
-The Eclipse IDE is a popular development environment and it fully supports
-development using the Yocto Project.
+Eclipse IDE và một trường phát triển phổ biến, nó cũng hỗ trợ đầy đủ Yocto Project.
 
-When you install and configure the Eclipse Yocto Project Plug-in into the
-Eclipse IDE, you maximize your Yocto Project experience. Installing and
-configuring the Plug-in results in an environment that has extensions
-specifically designed to let you more easily develop software. These
-extensions allow for cross-compilation, deployment, and execution of your
-output into a QEMU emulation session as well as actual target hardware. You
-can also perform cross-debugging and profiling. The environment also supports
-performance enhancing [tools](http://www.eclipse.org/linuxtools/) that allow
-you to perform remote profiling, tracing, collection of power data, collection
-of latency data, and collection of performance data.
+ Khi bạn cài đặt và sử dụng plugin Eclipse Yocto Project Plug-in vào 
+Eclipse IDE, bạn có thể tận dụng tối đa khả năng của Yocto Project. Plugin này có những
+có những extensions được thiết kế riêng giúp bạn dễ dàng hơn trong phát triển phần mềm.
+. Những 
+extensions cho phép cross-compilation, triển khai, chạy kết quả trên QEMU emulation sessionss cũng như
+trên phần cứng thật. Bạn cũng có thể sử dụng cross-debugging và profiling. Môi trường này cũng có các
+tool nâng cao hiệu năng nữa [tools](http://www.eclipse.org/linuxtools/) cho phép bạn thực hiện profiling, tracing, thu thập dữ liệu về nguồn, thu thập dữ liệu về độ trễ, thu thập dữ liệu về performance.
 
-### Note
+### Ghi chú 
 
-This release of the Yocto Project supports both the Neon and Mars versions of
-the Eclipse IDE. This section provides information on how to use the Neon
-release with the Yocto Project. For information on how to use the Mars version
-of Eclipse with the Yocto Project, see "Appendix C.
+ Phiên bản lần này của Yocto Project hỗ trợ cả phiên bản Neon and Mars của Eclipse IDE. 
+ Chương này sẽ cung cấp các sử dụng Neon
+ với Yocto Project. Thông tin về việc sử dụng phiên bản Mars của Eclipse với Yocto Project,
+Xem thêm phần "Appendix C.
 
-#### 4.3.2.1. Setting Up the Neon Version of the Eclipse IDE¶
+#### 4.3.2.1. Thiết lập cho phiên bản Neon của Eclipse IDE
 
-To develop within the Eclipse IDE, you need to do the following:
+ Để phát triển sử dụng Eclipse IDE, bạn cần đã những việc sau:
 
-  1. Install the Neon version of the Eclipse IDE. 
+  1. Cài đặt phiên bản Neon của Eclipse IDE. 
 
-  2. Configure the Eclipse IDE. 
+  2. Cấu hình Eclipse IDE. 
 
-  3. Install the Eclipse Yocto Plug-in. 
+  3. Cài đặt Plug-in Yocto cho Eclipse. 
 
-  4. Configure the Eclipse Yocto Plug-in. 
+  4. Cấu hình Plug-in Yocto cho Eclipse. 
 
-### Note
+### Ghi chú 
 
-Do not install Eclipse from your distribution's package repository. Be sure to
-install Eclipse from the official Eclipse download site as directed in the
-next section.
+ Đừng cài đặt Eclipse từ kho phần mềm do distrobituon của bạn cung cấp. 
+Hãy chắc chắn bạn cài Eclipse trang chủ của Eclipse bằng cách download trực tiếp.
 
-##### 4.3.2.1.1. Installing the Neon Eclipse IDE¶
+##### 4.3.2.1.1. Cài đặt Eclipse Neon 
 
 Follow these steps to locate, install, and configure Neon Eclipse:
 
@@ -2041,11 +1834,12 @@ manual, it has already been installed.
 
   7. Complete the installation by clicking through appropriate "Next" and "Finish" buttons. 
 
-##### 4.3.2.1.3. Installing or Accessing the Neon Eclipse Yocto Plug-in¶
+##### 4.3.2.1.3. Cài đặt và sử dụng Plugin Yocto cho Neon Eclipse
 
-You can install the Eclipse Yocto Plug-in into the Eclipse IDE one of two
-ways: use the Yocto Project's Eclipse Update site to install the pre-built
-plug-in or build and install the plug-in from the latest source code.
+ Bạn có thể cài đặt Plugin Yocto cho Eclipse bằng một trong 2 cách sau
+: sử dụng trang update của chính Yocto Project dành cho Eclipse để tải bản Plug-in
+được build sẵn
+ hoặc build và cài đặt từ source mới nhất.
 
 ###### 4.3.2.1.3.1. Installing the Pre-built Plug-in from the Yocto Project
 Eclipse Update Site¶
@@ -2169,10 +1963,9 @@ described in the "Configuring the Neon Eclipse Yocto Plug-in" section.
 
 ##### 4.3.2.1.4. Configuring the Neon Eclipse Yocto Plug-in¶
 
-Configuring the Neon Eclipse Yocto Plug-in involves setting the Cross Compiler
-options and the Target options. The configurations you choose become the
-default settings for all projects. You do have opportunities to change them
-later when you configure the project (see the following section).
+ Cấu hình Neon Eclipse Yocto Plug-in đòi hỏi thiết lập tham số cho Cross Compiler
+ và Target. Cấu hình bạn chọn sẽ trở thành mặc định cho tất cả các project của bạn. 
+ Bạn không thể thay đổi chúng sau đó khi muốn cấu hình project ( Xem thêm ở chương bên dưới).
 
 To start, you need to do the following from within the Eclipse IDE:
 
@@ -2182,88 +1975,80 @@ To start, you need to do the following from within the Eclipse IDE:
 
 The following sub-sections describe how to configure the plug-in.
 
-### Note
+### Ghi chú 
 
-Throughout the descriptions, a start-to-finish example for preparing a QEMU
-image for use with Eclipse is referenced as the "wiki" and is linked to the
-example on the [ Cookbook guide to Making an Eclipse Debug Capable Image](http
+ Thông qua việc miêu tả, các ví dụ từ a đến z hướng dẫn đầy đủ để chuẩn bị ảnh
+hệ thống dành cho QEMU khi sử dụng với Eclipse được miêu tả chi tiết ở đây trang wiki 
+ [ Cookbook guide to Making an Eclipse Debug Capable Image](http
 s://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage)
-wiki page.
 
-###### 4.3.2.1.4.1. Configuring the Cross-Compiler Options¶
+###### 4.3.2.1.4.1. Cấu hình tham số của Cross-Compiler
 
-Cross Compiler options enable Eclipse to use your specific cross compiler
-toolchain. To configure these options, you must select the type of toolchain,
-point to the toolchain, specify the sysroot location, and select the target
-architecture.
+ Việc cấu hình Cross Compiler cho phép Eclipse sử dụng cross compiler
+toolchain. Để cấu hình những tham số này, bạn phải chọn loại toolchain,
+ đường dẫn đến toolchain, chỉ định vị trí của sysroot, lựa chọn kiến trúc đích.
 
-  * _Selecting the Toolchain Type:_ Choose between `Standalone pre-built toolchain` and `Build system derived toolchain` for Cross Compiler Options. 
+  * _Selecting the Toolchain Type:_Lựa chọn giữa `Standalone pre-built toolchain` và `Build system derived toolchain` là 2 option của Cross Compiler. 
 
-    * _ `Standalone Pre-built Toolchain:` _ Select this type when you are using a stand-alone cross-toolchain. For example, suppose you are an application developer and do not need to build a target image. Instead, you just want to use an architecture-specific toolchain on an existing kernel and target root filesystem. In other words, you have downloaded and installed a pre-built toolchain for an existing image. 
+    * _ `Standalone Pre-built Toolchain:` _ Chọn loại này, có nghĩa bạn sẽ sử dụng một stand-alone cross-toolchain. Ví dụ, giả sử bạn là developer phát triển ứng dụng, bạn không cần build build một ảnh hệ thống của target. Thay vào đó, bạn muốn sử dụng một toolchain cho kiến trúc cụ thể trên một kernel và một hệ thống file root sẵn có. Nói cách khác, bạn tải và cài đặt toolchain cho một ảnh hệ thống đã có sẵn. 
 
-    * _ `Build System Derived Toolchain:` _ Select this type if you built the toolchain as part of the [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory). When you select `Build system derived toolchain`, you are using the toolchain built and bundled inside the Build Directory. For example, suppose you created a suitable image using the steps in the [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage). In this situation, you would select the `Build system derived toolchain`. 
+    * _ `Build System Derived Toolchain:` _ Chọn loại này, có nghĩa bạn muốn build một toolchain từ [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#build-directory). Khi bạn chọn `Build system derived toolchain`, bạn sẽ sử dụng toolchain được build bên dưới Build Directory. Ví dụ, giả sử bạn tạo một ảnh hệ thống theo từng bước giống như trang [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage) này. Trong trường hợp này, bạn có thể chọn `Build system derived toolchain`. 
 
-  * _Specify the Toolchain Root Location:_ If you are using a stand-alone pre-built toolchain, you should be pointing to where it is installed (e.g. `/opt/poky/2.2`). See the "Installing the SDK" section for information about how the SDK is installed.
+  * _Specify the Toolchain Root Location:_ Nếu bạn sẽ sử dụng một stand-alone toolchain được build sẵn rồi, bạn cần chỉ ra nơi nó được cài đặt ( ví dụ: `/opt/poky/2.2` chẳng hạn). Xem thêm ở chương "Installing the SDK" để biết thông tin về việc SDK được cài đặt như thế nào.
 
-If you are using a build system derived toolchain, the path you provide for
-the `Toolchain Root Location` field is the [Build
+ Nếu bạn sử dụng toolchain từ build system (build system derived toolchain), đường dẫn bạn cung cấp cho trường `Toolchain Root Location` là [Build
 Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#build-directory) from which you run the `bitbake` command (e.g
+#build-directory) hay chính là nơi mà từ đó bạn chạy câu lệnh `bitbake`( ví dụ:
 `/home/scottrif/poky/build`).
 
-For more information, see the "Building an SDK Installer" section.
+ Để xem thêm thông tin, bạn có thể xem chương "Building an SDK Installer".
 
-  * _Specify Sysroot Location: _ This location is where the root filesystem for the target hardware resides. 
+  * _Specify Sysroot Location:_ Nơi chứa hệ thống file root chạy trên phần cứng. 
 
-This location depends on where you separately extracted and installed the
-target filesystem. As an example, suppose you prepared an image using the
-steps in the [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEc
-lipseAgainstBuiltImage). If so, the `MY_QEMU_ROOTFS` directory is found in the
+ Giá trị này phụ thuộc vào việc bạn có giải nén và cài đặt riêng cho hệ thống file root không . 
+ Ví dụ, giả sử bạn đang chuẩn bị một ảnh hệ thống theo các bước trong trang này [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEc
+lipseAgainstBuiltImage). Nếu vậy, thư mục `MY_QEMU_ROOTFS` bên dưới
 [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-
-manual.html#build-directory) and you would browse to and select that directory
+manual.html#build-directory) bạn có thể mở browser và chọn thư mục đó 
 (e.g. `/home/scottrif/poky/build/MY_QEMU_ROOTFS`).
 
-For more information on how to install the toolchain and on how to extract and
-install the sysroot filesystem, see the "Building an SDK Installer" section.
+ Thông tin về việc làm thế nào để cài đặt toolchain cũng như làm thế nào
+để giải nén, cài đặt sysroot filesystem, có thể xem thêm tại chương "Building an SDK Installer".
 
-  * _Select the Target Architecture: _ The target architecture is the type of hardware you are going to use or emulate. Use the pull-down `Target Architecture` menu to make your selection. The pull-down menu should have the supported architectures. If the architecture you need is not listed in the menu, you will need to build the image. See the "[Building Images](http://www.yoctoproject.org/docs/2.2/yocto-project-qs/yocto-project-qs.html#qs-building-images)" section of the Yocto Project Quick Start for more information. You can also see the [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage). 
+  * _Select the Target Architecture:_ Kiến trúc là loại phần cứng mà bạn sẽ chạy hoặc giả lập. Chọn ở phần `Target Architecture` để đưa ra lựa chọn cho bạn. Những kiến trúc được hỗ trợ sẽ hiện ra trong menu chọn. Nếu kiến trúc của bạn không có trong menu, bạn cần phải build một ảnh hệ thống. Xem thêm ở chương "[Building Images](http://www.yoctoproject.org/docs/2.2/yocto-project-qs/yocto-project-qs.html#qs-building-images)" của hướng dẫn nhanh về Yocto Project Quick Start để có thêm thông tin. Bạn cũng có thể xem ở trang [wiki](https://wiki.yoctoproject.org/wiki/TipsAndTricks/RunningEclipseAgainstBuiltImage). 
 
-###### 4.3.2.1.4.2. Configuring the Target Options¶
+###### 4.3.2.1.4.2. Cấu hình target 
 
-You can choose to emulate hardware using the QEMU emulator, or you can choose
-to run your image on actual hardware.
+ Bạn có thể chọn cách giả lập bằng QEMU emulator, hoặc chạy ảnh hệ thống trên một phần cứng thật.
 
-  * _QEMU:_ Select this option if you will be using the QEMU emulator. If you are using the emulator, you also need to locate the kernel and specify any custom options.
+  * _QEMU:_ Chọn option này nếu bạn muốn sử dụng QEMU emulator. Nếu bạn đang sử dụng QEMU Emulator, bạn cũng cần chỉ rõ chỗ chứa kernel cũng như các option khác.
 
-If you selected the `Build system derived toolchain`, the target kernel you
-built will be located in the [Build
-Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
-#build-directory) in `tmp/deploy/images/_`machine`_` directory. As an example,
-suppose you performed the steps in the [wiki](https://wiki.yoctoproject.org/wi
-ki/TipsAndTricks/RunningEclipseAgainstBuiltImage). In this case, you specify
-your Build Directory path followed by the image (e.g.
+ Nếu bạn đã chọn `Build system derived toolchain`, kernel dành cho target của bạn 
+trong trường hợp này nằm ở [Build Directory](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html
+#build-directory) với đường dẫn tương đối `tmp/deploy/images/_`machine`_`. Ví dụ,
+ giả sử bạn đang thực hiện các step như trang [wiki](https://wiki.yoctoproject.org/wi
+ki/TipsAndTricks/RunningEclipseAgainstBuiltImage) này. Trong trường hợp này, bạn chỉ định đường dẫn đến Build Directory kèm theo ảnh hệ thống  (e.g.
 `/home/scottrif/poky/build/tmp/deploy/images/qemux86/bzImage-qemux86.bin`).
 
-If you selected the standalone pre-built toolchain, the pre-built image you
-downloaded is located in the directory you specified when you downloaded the
-image.
+ Nếu bạn sử dụng một toolchain được build sẵn rồi, ảnh build sẵn của hệ thống 
+được đặt ở thư mục mà bạn đã chỉ định khi tải chúng.
 
-Most custom options are for advanced QEMU users to further customize their
-QEMU instance. These options are specified between paired angled brackets.
-Some options must be specified outside the brackets. In particular, the
-options `serial`, `nographic`, and `kvm` must all be outside the brackets. Use
-the `man qemu` command to get help on all the options and their use. The
-following is an example:
+ Hầu hết các option nâng cao dành cho người dụng QEMU để giúp họ tùy chỉnh một QEMU instance. 
+ Hầu hết option này được đặt trong một dấu nháy đơn.
+ Một số khác được chỉ định bên ngoài. Cụ thể như, các option
+ `serial`, `nographic`, and `kvm` phải được đặt bên ngoài. 
+ Câu lệnh quen thuộc `man qemu` giúp bạn có thêm thông tin về các option và cách sử dụng chúng. 
+ Dưới đây là một ví dụ:
 
     
     
         serial ‘<-m 256 -full-screen>’
                                         
 
-Regardless of the mode, Sysroot is already defined as part of the Cross-
-Compiler Options configuration in the `Sysroot Location:` field.
+ Bất kể bạn chọn mode nào, Sysroot luôn là một phần trong các option của Cross-
+Compiler, bạn có thể thấy ở trường `Sysroot Location:`.
 
-  * _External HW:_ Select this option if you will be using actual hardware.
+  * _External HW:_ Chọn giá trị này nếu bạn đang sử dụng phần cứng thật actual hardware.
 
 Click the "Apply" and "OK" to save your plug-in configurations.
 
@@ -2300,7 +2085,7 @@ code, follow these steps:
 
   9. The left-hand navigation pane shows your project. You can display your source by double clicking the project's source file. 
 
-#### 4.3.2.3. Configuring the Cross-Toolchains¶
+#### 4.3.2.3. Cấu hình Cross-Toolchains
 
 The earlier section, "Configuring the Neon Eclipse Yocto Plug-in", sets up the
 default project configurations. You can override these settings for a given
@@ -2344,96 +2129,93 @@ linked folder:
 
   6. Click "Finish" to save the linked folder. 
 
-#### 4.3.2.5. Starting QEMU in User-Space NFS Mode¶
+#### 4.3.2.5. Sử dụng QEMU trong User-Space NFS Mode
+ 
+Để bắt đầu sử dụng QEMU emulator trên Eclipse, hãy thực hiện các bước sau:
 
-To start the QEMU emulator from within Eclipse, follow these steps:
+### Ghi chú 
 
-### Note
-
-See the "[Using the Quick EMUlator
+ Xem thêm ở chapter "[Using the Quick EMUlator
 (QEMU)](http://www.yoctoproject.org/docs/2.2/dev-manual/dev-manual.html#dev-
-manual-qemu)" chapter in the Yocto Project Development Manual for more
-information on using QEMU.
+manual-qemu)" trong hướng dẫn phát triển Yocto Project Development
+để biết thêm thông tin khi sử dụng QEMU.
 
-  1. Expose and select "External Tools Configurations ..." from the "Run -> External Tools" menu. 
+  1. Tìm đến mục "External Tools Configurations ..." từ menu "Run -> External Tools". 
 
-  2. Locate and select your image in the navigation panel to the left (e.g. `qemu_i586-poky-linux`). 
+  2. Xác định và chọn ảnh ở panel bên trái ( ví dụ:`qemu_i586-poky-linux`). 
 
-  3. Click "Run" to launch QEMU. 
+  3. Click vào "Run" để chạy QEMU. 
 
-### Note
+### Ghi chú 
 
-The host on which you are running QEMU must have the `rpcbind` utility running
-to be able to make RPC calls on a server on that machine. If QEMU does not
-invoke and you receive error messages involving `rpcbind`, follow the
-suggestions to get the service running. As an example, on a new Ubuntu 16.04
-LTS installation, you must do the following in order to get QEMU to launch:
+ Máy host mà bạn đang chạy QEMU phải có tiện ích `rpcbind` được chạy sẵn 
+ thì mới có thể thực hiện lời gọi RPC trên server ở máy QEMU được. Nếu QEMU
+không bật lên được và hiện ra thông báo lỗi liên quan đến `rpcbind`, 
+Hãy theo dõi những gợi ý sau để thực hiện việc chạy nó. Ví dụ trên môi trường Ubuntu 16.04
+LTS, bạn có thể thực hiện các bước sau để chạy QEMU:
 
     
     
          $ sudo apt-get install rpcbind
                                     
 
-After installing `rpcbind`, you need to edit the `/etc/init.d/rpcbind` file to
-include the following line:
+ Sau khi cài đặt `rpcbind` rồi, bạn cần sửa lại file `/etc/init.d/rpcbind` theo cách sau:
 
     
     
          OPTIONS="-i -w"
                                     
 
-After modifying the file, you need to start the service:
+Sau khi sửa xong, bạn cần restart lại dịch vụ:
 
     
     
          $ sudo service portmap restart
                                     
 
-  4. If needed, enter your host root password in the shell window at the prompt. This sets up a `Tap 0` connection needed for running in user-space NFS mode. 
+  4. Nếu cần, bạn có khi phải gõ mật khẩu vào shell. Cái này sẽ thực hiện thiết lập kết nối `Tap 0` connection cần thiết cho việc chạy user-space NFS mode. 
 
-  5. Wait for QEMU to launch. 
+  5. Đợi đến khi QEMU chạy ở chế độ user-space NFS 
 
-  6. Once QEMU launches, you can begin operating within that environment. One useful task at this point would be to determine the IP Address for the user-space NFS by using the `ifconfig` command. The IP address of the QEMU machine appears in the xterm window. You can use this address to help you see which particular IP address the instance of QEMU is using. 
+  6. Khi QEMU đã chạy lên được rồi, bạn có thể thao tác với môi trường đó được rồi. Nhiệm vụ đầu tiên là xác định IP của user-space NFS bằng cách sử dụng câu lệnh quen thuộc `ifconfig`. IP của máy QEMU sẽ xuất hiện ở màn hình xterm. Bạn có thể dùng IP ở những mà địa chỉ IP của QEMU đang được sử dụng trong thiết lập. 
 
-#### 4.3.2.6. Deploying and Debugging the Application¶
+#### 4.3.2.6. Triển khai và debug ứng dụng 
 
-Once the QEMU emulator is running the image, you can deploy your application
-using the Eclipse IDE and then use the emulator to perform debugging. Follow
-these steps to deploy the application.
+ Một khi bạn có QEMU chạy một ảnh hệ thống rồi, bạn có thể triển khai ứng dụng sử dụng 
+Eclipse IDE sau đó sử dụng emulator để thực hiện debug. Làm theo các bước sau để triển khai ứng dụng.
 
-### Note
-
-Currently, Eclipse does not support SSH port forwarding. Consequently, if you
-need to run or debug a remote application using the host display, you must
-create a tunneling connection from outside Eclipse and keep that connection
-alive during your work. For example, in a new terminal, run the following:
+### Ghi chú 
+ 
+ Hiện tại, Eclipse IDE không hỗ trợ SSH port forwarding. Chính vì thế, nếu bạn muốn chạy và 
+debug ứng dụng trên máy host, bạn phải tạo một kết  
+ từ bên ngoài Eclipse và giữ kết nối đó trong suốt quá trình làm việc. 
+ Ví dụ, trên terminal bạn chạy lệnh sau:
 
     
     
          $ ssh -XY _user_name_@_remote_host_ip_
                             
 
-Using the above form, here is an example:
+ Với dạng sử dụng như trên, ta có ví dụ như sau:
 
     
     
          $ ssh -XY root@192.168.7.2
                             
 
-After running the command, add the command to be executed in Eclipse's run
-configuration before the application as follows:
+ Sau khi chạy câu lệnh trên, thêm command sau vào phần cấu hình chạy của Eclipse
+ trước khi chạy ứng dụng:
 
-    
+
     
          export DISPLAY=:10.0
                             
 
-Be sure to not destroy the connection during your QEMU session (i.e. do not
-exit out of or close that shell).
+ Hãy chắc chắn không phá hủy kết nối trong suốt QEMU session ( ví dụ: đừng thoát khỏi shell).
 
-  1. Select "Debug Configurations..." from the "Run" menu. 
+  1. Chọn "Debug Configurations..." từ menu "Run". 
 
-  2. In the left area, expand `C/C++Remote Application`. 
+  2. Mở rộng chỗ `C/C++Remote Application`. 
 
   3. Locate your project and select it to bring up a new tabbed view in the Debug Configurations Dialog. 
 
@@ -2576,14 +2358,13 @@ When the `bitbake` command completes, the SDK installer will be in
 
 ## A.3. Extracting the Root Filesystem¶
 
-After installing the toolchain, for some use cases you might need to
-separately extract a root filesystem:
+ Sau khi đã cài Toolchain rồi, thỉnh thoảng bạn có thể cần giải nén root file system:
 
-  * You want to boot the image using NFS. 
+  * Bạn muốn boot sử dụng NFS chẳng hạn. 
 
-  * You want to use the root filesystem as the target sysroot. For example, the Eclipse IDE environment with the Eclipse Yocto Plug-in installed allows you to use QEMU to boot under NFS.
+  * Bạn muốn sử dụng một root filesystem giống target. Ví dụ, IDE Eclipse mà được cài Yocto Plug-in cho phép sử dụng QEMU để build qua NFS.
 
-  * You want to develop your target application using the root filesystem as the target sysroot. 
+  * Nếu bạn muốn phát triển ứng dụng sử dụng root filesystem như trên target sysroot. 
 
 To extract the root filesystem, first `source` the cross-development
 environment setup script to establish necessary environment variables. If you
