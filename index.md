@@ -13,4 +13,10 @@
 ### B. Giao thức MQTT
 1. [Đặc tả giao thức MQTT](./MQTT_V3r1_Protocol_Specification_vi.htm) (đã xong)
 
+### C. Dòng lệnh
+1. [Nghệ thuật sử dụng dòng lệnh](https://github.com/minatu2d/the-art-of-command-line/blob/master/README-vi.md)
+
+### D. Nhân linux
+1. [Bên trong nhân linux](https://github.com/minatu2d/linux-insides-vi)
+
 {% include footer.html %}
