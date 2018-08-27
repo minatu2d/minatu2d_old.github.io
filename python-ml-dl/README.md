@@ -13,6 +13,9 @@ Python, Machine Learning, Deep Learning and other stuffs
 - [play_with_tensorflow_gradient](./play_with_tensorflow_gradient)
 - [play_with_movidius_usb_stick](./play_with_movidius_usb_stick)
 
+#### 3.2 Phát hiện bất thường
+- [play_with_AutoEncoder](./play_with_AutoEncoder)
+
 #### 3.2 Tổ chức dữ liệu
 - [play_with_imagedataset_processing](./play_with_imagedataset_processing)
 

@@ -3,5 +3,4 @@
 [autoencoder_nn_deep_mnist.py](./autoencoder_nn_deep_mnist.py)
 [autoencoder_nn_l1_mnist.py](./autoencoder_nn_l1_mnist.py)
 [autoencoder_nn_mnist.py](./autoencoder_nn_mnist.py)
-[README.md](./README.md)
 [variational_autoencoder.py](./variational_autoencoder.py)
