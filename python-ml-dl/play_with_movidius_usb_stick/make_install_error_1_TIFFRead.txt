@@ -1,0 +1,956 @@
+oedev@OEDEV-Ubuntu:ncsdk$ make install
+./uninstall-opencv.sh
+
+make install starting.
+./install.sh
+--2018-04-15 19:54:11--  https://software.intel.com/sites/default/files/managed/33/1b/NCSDK-1.12.00.01.tar.gz
+Resolving software.intel.com (software.intel.com)... 23.9.170.86
+Connecting to software.intel.com (software.intel.com)|23.9.170.86|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 975174 (952K) [application/octet-stream]
+Saving to: ‘NCSDK-1.12.tar.gz’
+
+NCSDK-1.12.tar.gz             100%[================================================>] 952.32K   592KB/s    in 1.6s
+
+2018-04-15 19:54:13 (592 KB/s) - ‘NCSDK-1.12.tar.gz’ saved [975174/975174]
+
+[sudo] password for oedev:
+NCSDK-1.12.00.01/
+NCSDK-1.12.00.01/ncsdk-x86_64/
+NCSDK-1.12.00.01/ncsdk-x86_64/udev/
+NCSDK-1.12.00.01/ncsdk-x86_64/udev/97-usbboot.rules
+NCSDK-1.12.00.01/ncsdk-x86_64/api/
+NCSDK-1.12.00.01/ncsdk-x86_64/api/c/
+NCSDK-1.12.00.01/ncsdk-x86_64/api/c/mvnc.h
+NCSDK-1.12.00.01/ncsdk-x86_64/api/c/libmvnc.so.0
+NCSDK-1.12.00.01/ncsdk-x86_64/api/c/mvnc_deprecated.h
+NCSDK-1.12.00.01/ncsdk-x86_64/api/setup.py
+NCSDK-1.12.00.01/ncsdk-x86_64/api/python/
+NCSDK-1.12.00.01/ncsdk-x86_64/api/python/mvnc/
+NCSDK-1.12.00.01/ncsdk-x86_64/api/python/mvnc/mvncapi.py
+NCSDK-1.12.00.01/ncsdk-x86_64/api/python/mvnc/__init__.py
+NCSDK-1.12.00.01/ncsdk-x86_64/LICENSE
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/FileIO.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/TensorFlowPreproc.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/CaffeParser.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/DataTransforms.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/Args.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/Metrics.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/TensorFlowParser.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/EnumController.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/MiscIO.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Controllers/CaffeEnumController.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/Blob.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/MyriadParam.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/CaffeEnumDeclarations.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/EnumDeclarations.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/Network.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Models/NetworkStage.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/mvNCCompile.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/mvNCProfile.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Views/
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Views/Validate.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Views/Graphs.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/Views/Summary.py
+NCSDK-1.12.00.01/ncsdk-x86_64/tk/mvNCCheck.py
+NCSDK-1.12.00.01/ncsdk-x86_64/MovidiusLogo.png
+NCSDK-1.12.00.01/ncsdk-x86_64/fw/
+NCSDK-1.12.00.01/ncsdk-x86_64/fw/MvNCAPI.mvcmd
+NCSDK-1.12.00.01/requirements.txt
+NCSDK-1.12.00.01/install-ncsdk.sh
+NCSDK-1.12.00.01/uninstall-ncsdk.sh
+NCSDK-1.12.00.01/ncsdk-armv7l/
+NCSDK-1.12.00.01/ncsdk-armv7l/udev/
+NCSDK-1.12.00.01/ncsdk-armv7l/udev/97-usbboot.rules
+NCSDK-1.12.00.01/ncsdk-armv7l/api/
+NCSDK-1.12.00.01/ncsdk-armv7l/api/c/
+NCSDK-1.12.00.01/ncsdk-armv7l/api/c/mvnc.h
+NCSDK-1.12.00.01/ncsdk-armv7l/api/c/libmvnc.so.0
+NCSDK-1.12.00.01/ncsdk-armv7l/api/c/mvnc_deprecated.h
+NCSDK-1.12.00.01/ncsdk-armv7l/api/setup.py
+NCSDK-1.12.00.01/ncsdk-armv7l/api/python/
+NCSDK-1.12.00.01/ncsdk-armv7l/api/python/mvnc/
+NCSDK-1.12.00.01/ncsdk-armv7l/api/python/mvnc/mvncapi.py
+NCSDK-1.12.00.01/ncsdk-armv7l/api/python/mvnc/__init__.py
+NCSDK-1.12.00.01/ncsdk-armv7l/LICENSE
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/FileIO.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/TensorFlowPreproc.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/CaffeParser.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/DataTransforms.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/Args.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/Metrics.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/TensorFlowParser.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/EnumController.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/MiscIO.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Controllers/CaffeEnumController.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/Blob.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/MyriadParam.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/CaffeEnumDeclarations.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/EnumDeclarations.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/Network.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Models/NetworkStage.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/mvNCCompile.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/mvNCProfile.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Views/
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Views/Validate.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Views/Graphs.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/Views/Summary.py
+NCSDK-1.12.00.01/ncsdk-armv7l/tk/mvNCCheck.py
+NCSDK-1.12.00.01/ncsdk-armv7l/MovidiusLogo.png
+NCSDK-1.12.00.01/ncsdk-armv7l/fw/
+NCSDK-1.12.00.01/ncsdk-armv7l/fw/MvNCAPI.mvcmd
+NCSDK-1.12.00.01/version.txt
+NCSDK-1.12.00.01/tests/
+NCSDK-1.12.00.01/tests/Makefile
+NCSDK-1.12.00.01/tests/api-check/
+NCSDK-1.12.00.01/tests/api-check/Makefile
+NCSDK-1.12.00.01/tests/api-check/ncs-python2-check.py
+NCSDK-1.12.00.01/tests/api-check/ncs-python3-check.py
+NCSDK-1.12.00.01/tests/api-check/ncs-c-check.c
+NCSDK-1.12.00.01/tests/sdk-check/
+NCSDK-1.12.00.01/tests/sdk-check/Makefile
+NCSDK-1.12.00.01/tests/sdk-check/img/
+NCSDK-1.12.00.01/tests/sdk-check/img/512_Phone.jpg
+NCSDK-1.12.00.01/tests/sdk-check/data/
+NCSDK-1.12.00.01/tests/sdk-check/data/alexnet.prototxt
+NCSDK-1.12.00.01/tests/sdk-check/data/googlenet.prototxt
+NCSDK-1.12.00.01/tests/sdk-check/data/readme.txt
+NCSDK-1.12.00.01/tests/sdk-check/data/squeezenet.prototxt
+NCSDK-1.12.00.01/tests/sdk-check/test_install.py
+NCSDK-1.12.00.01/ncsdk.conf
+NCSDK-1.12.00.01/requirements_apt.txt
+Movidius Neural Compute Toolkit Setup.
+Checking OS and version...
+Installing on Ubuntu 16.04
+
+Installer NCSDK version: 1.12.00.01
+Creating setup directory...
+Remove previous NCSDK references from PYTHONPATH...done
+Ign:1 http://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://jp.archive.ubuntu.com/ubuntu artful InRelease
+Get:3 http://jp.archive.ubuntu.com/ubuntu artful-updates InRelease [81.7 kB]
+Get:4 http://dl.google.com/linux/chrome/deb stable Release [1,189 B]
+Hit:5 https://repo.skype.com/deb stable InRelease
+Get:6 http://dl.google.com/linux/chrome/deb stable Release.gpg [819 B]
+Hit:7 http://archive.canonical.com/ubuntu artful InRelease
+Get:8 http://security.ubuntu.com/ubuntu artful-security InRelease [78.6 kB]
+Get:9 http://jp.archive.ubuntu.com/ubuntu artful-backports InRelease [72.2 kB]
+Get:10 http://dl.google.com/linux/chrome/deb stable/main amd64 Packages [1,334 B]
+Get:11 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe Sources [34.7 kB]
+Get:12 http://jp.archive.ubuntu.com/ubuntu artful-updates/multiverse Sources [2,892 B]
+Get:13 http://jp.archive.ubuntu.com/ubuntu artful-updates/main Sources [97.0 kB]
+Get:14 http://jp.archive.ubuntu.com/ubuntu artful-updates/main amd64 Packages [242 kB]
+Get:15 http://jp.archive.ubuntu.com/ubuntu artful-updates/main i386 Packages [238 kB]
+Get:16 http://jp.archive.ubuntu.com/ubuntu artful-updates/main Translation-en [107 kB]
+Get:17 http://jp.archive.ubuntu.com/ubuntu artful-updates/main amd64 DEP-11 Metadata [83.1 kB]
+Get:18 http://jp.archive.ubuntu.com/ubuntu artful-updates/main DEP-11 64x64 Icons [44.4 kB]
+Get:19 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe i386 Packages [107 kB]
+Get:20 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe amd64 Packages [108 kB]
+Get:21 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe Translation-en [60.1 kB]
+Get:22 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe amd64 DEP-11 Metadata [82.4 kB]
+Get:23 http://jp.archive.ubuntu.com/ubuntu artful-updates/universe DEP-11 64x64 Icons [95.4 kB]
+Get:24 http://jp.archive.ubuntu.com/ubuntu artful-updates/multiverse amd64 Packages [4,128 B]
+Get:25 http://jp.archive.ubuntu.com/ubuntu artful-updates/multiverse i386 Packages [4,276 B]
+Get:26 http://jp.archive.ubuntu.com/ubuntu artful-updates/multiverse amd64 DEP-11 Metadata [2,468 B]
+Get:27 http://jp.archive.ubuntu.com/ubuntu artful-backports/universe amd64 DEP-11 Metadata [5,088 B]
+Get:28 http://security.ubuntu.com/ubuntu artful-security/main Sources [48.7 kB]
+Get:29 http://security.ubuntu.com/ubuntu artful-security/multiverse Sources [1,168 B]
+Get:30 http://security.ubuntu.com/ubuntu artful-security/universe Sources [16.4 kB]
+Get:31 http://security.ubuntu.com/ubuntu artful-security/main i386 Packages [146 kB]
+Get:32 http://security.ubuntu.com/ubuntu artful-security/main amd64 Packages [149 kB]
+Get:33 http://security.ubuntu.com/ubuntu artful-security/main Translation-en [64.6 kB]
+Get:34 http://security.ubuntu.com/ubuntu artful-security/main amd64 DEP-11 Metadata [17.2 kB]
+Get:35 http://security.ubuntu.com/ubuntu artful-security/main DEP-11 64x64 Icons [27.5 kB]
+Get:36 http://security.ubuntu.com/ubuntu artful-security/universe i386 Packages [59.5 kB]
+Get:37 http://security.ubuntu.com/ubuntu artful-security/universe amd64 Packages [60.0 kB]
+Get:38 http://security.ubuntu.com/ubuntu artful-security/universe Translation-en [35.2 kB]
+Get:39 http://security.ubuntu.com/ubuntu artful-security/universe amd64 DEP-11 Metadata [39.6 kB]
+Get:40 http://security.ubuntu.com/ubuntu artful-security/universe DEP-11 64x64 Icons [39.7 kB]
+Get:41 http://security.ubuntu.com/ubuntu artful-security/multiverse i386 Packages [1,984 B]
+Get:42 http://security.ubuntu.com/ubuntu artful-security/multiverse amd64 Packages [1,824 B]
+Fetched 2,263 kB in 8s (253 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+coreutils is already the newest version (8.26-3ubuntu4).
+git is already the newest version (1:2.14.1-1ubuntu4).
+python3 is already the newest version (3.6.3-0ubuntu2).
+unzip is already the newest version (6.0-21ubuntu1).
+unzip set to manually installed.
+python3-pip is already the newest version (9.0.1-2).
+curl is already the newest version (7.55.1-1ubuntu2.4).
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.13.0-16-generic linux-image-4.10.0-37-generic
+  linux-image-4.13.0-16-generic linux-image-4.13.0-16-lowlatency
+  linux-image-4.4.0-97-generic linux-image-extra-4.10.0-37-generic
+  linux-image-extra-4.13.0-16-generic linux-image-extra-4.4.0-97-generic
+  linux-signed-image-4.10.0-37-generic linux-signed-image-4.13.0-16-generic
+  linux-signed-image-4.4.0-97-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 86 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+automake is already the newest version (1:1.15-6ubuntu1).
+automake set to manually installed.
+cmake is already the newest version (3.9.1-1).
+gfortran is already the newest version (4:7.2.0-1ubuntu1).
+gfortran set to manually installed.
+git is already the newest version (1:2.14.1-1ubuntu4).
+graphviz is already the newest version (2.38.0-16ubuntu2).
+libleveldb-dev is already the newest version (1.20-1).
+libprotobuf-dev is already the newest version (3.0.0-9ubuntu5).
+libsnappy-dev is already the newest version (1.1.6-4).
+lsb-release is already the newest version (9.20160110ubuntu5).
+protobuf-compiler is already the newest version (3.0.0-9ubuntu5).
+python-numpy is already the newest version (1:1.12.1-3.1ubuntu4).
+python3-dev is already the newest version (3.6.3-0ubuntu2).
+python3-dev set to manually installed.
+python3-yaml is already the newest version (3.12-1build2).
+python3-yaml set to manually installed.
+libatlas-base-dev is already the newest version (3.10.3-5).
+libgflags-dev is already the newest version (2.2.1-1).
+libgoogle-glog-dev is already the newest version (0.3.5-1).
+libhdf5-serial-dev is already the newest version (1.10.0-patch1+docs-4).
+liblmdb-dev is already the newest version (0.9.21-1).
+libopencv-dev is already the newest version (3.1.0+dfsg1-1~exp1ubuntu3).
+python-pip is already the newest version (9.0.1-2).
+python3-pip is already the newest version (9.0.1-2).
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.13.0-16-generic linux-image-4.10.0-37-generic
+  linux-image-4.13.0-16-generic linux-image-4.13.0-16-lowlatency
+  linux-image-4.4.0-97-generic linux-image-extra-4.10.0-37-generic
+  linux-image-extra-4.13.0-16-generic linux-image-extra-4.4.0-97-generic
+  linux-signed-image-4.10.0-37-generic linux-signed-image-4.13.0-16-generic
+  linux-signed-image-4.4.0-97-generic
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  python3-decorator
+Suggested packages:
+  python-nose-doc python-numpy-doc python3-numpy-dbg python-scipy-doc
+  swig3.0-examples swig3.0-doc
+The following NEW packages will be installed:
+  byacc libxml2-dev libxslt1-dev python3-decorator python3-nose python3-numpy
+  python3-scipy swig3.0
+0 upgraded, 8 newly installed, 0 to remove and 86 not upgraded.
+Need to get 12.8 MB of archives.
+After this operation, 57.1 MB of additional disk space will be used.
+Get:1 http://jp.archive.ubuntu.com/ubuntu artful-updates/main amd64 libxml2-dev amd64 2.9.4+dfsg1-4ubuntu1.2 [757 kB]
+Get:2 http://jp.archive.ubuntu.com/ubuntu artful/main amd64 libxslt1-dev amd64 1.1.29-2.1ubuntu1 [406 kB]
+Get:3 http://jp.archive.ubuntu.com/ubuntu artful/universe amd64 python3-decorator all 4.1.1-1 [9,264 B]
+Get:4 http://jp.archive.ubuntu.com/ubuntu artful/universe amd64 python3-nose all 1.3.7-2 [116 kB]
+Get:5 http://jp.archive.ubuntu.com/ubuntu artful/main amd64 python3-numpy amd64 1:1.12.1-3.1ubuntu4 [1,893 kB]
+Get:6 http://jp.archive.ubuntu.com/ubuntu artful/universe amd64 swig3.0 amd64 3.0.10-1.2 [1,074 kB]
+Get:7 http://jp.archive.ubuntu.com/ubuntu artful/universe amd64 byacc amd64 20140715-1 [56.9 kB]
+Get:8 http://jp.archive.ubuntu.com/ubuntu artful/universe amd64 python3-scipy amd64 0.18.1-2ubuntu5 [8,519 kB]
+Fetched 12.8 MB in 27s (470 kB/s)
+                                 Selecting previously unselected package libxml2-dev:amd64.
+(Reading database ... 486128 files and directories currently installed.)
+Preparing to unpack .../0-libxml2-dev_2.9.4+dfsg1-4ubuntu1.2_amd64.deb ...
+Unpacking libxml2-dev:amd64 (2.9.4+dfsg1-4ubuntu1.2) ...
+Selecting previously unselected package libxslt1-dev:amd64.
+Preparing to unpack .../1-libxslt1-dev_1.1.29-2.1ubuntu1_amd64.deb ...
+Unpacking libxslt1-dev:amd64 (1.1.29-2.1ubuntu1) ...
+Selecting previously unselected package python3-decorator.
+Preparing to unpack .../2-python3-decorator_4.1.1-1_all.deb ...
+Unpacking python3-decorator (4.1.1-1) ...
+Selecting previously unselected package python3-nose.
+Preparing to unpack .../3-python3-nose_1.3.7-2_all.deb ...
+Unpacking python3-nose (1.3.7-2) ...
+Selecting previously unselected package python3-numpy.
+Preparing to unpack .../4-python3-numpy_1%3a1.12.1-3.1ubuntu4_amd64.deb ...
+Unpacking python3-numpy (1:1.12.1-3.1ubuntu4) ...
+Selecting previously unselected package swig3.0.
+Preparing to unpack .../5-swig3.0_3.0.10-1.2_amd64.deb ...
+Unpacking swig3.0 (3.0.10-1.2) ...
+Selecting previously unselected package byacc.
+Preparing to unpack .../6-byacc_20140715-1_amd64.deb ...
+Unpacking byacc (20140715-1) ...
+Selecting previously unselected package python3-scipy.
+Preparing to unpack .../7-python3-scipy_0.18.1-2ubuntu5_amd64.deb ...
+Unpacking python3-scipy (0.18.1-2ubuntu5) ...
+Setting up swig3.0 (3.0.10-1.2) ...
+Setting up python3-numpy (1:1.12.1-3.1ubuntu4) ...
+Setting up libxml2-dev:amd64 (2.9.4+dfsg1-4ubuntu1.2) ...
+Setting up byacc (20140715-1) ...
+update-alternatives: using /usr/bin/byacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up python3-nose (1.3.7-2) ...
+Processing triggers for doc-base (0.10.7) ...
+Processing 1 added doc-base file...
+Registering documents with scrollkeeper...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up python3-decorator (4.1.1-1) ...
+Setting up libxslt1-dev:amd64 (1.1.29-2.1ubuntu1) ...
+Setting up python3-scipy (0.18.1-2ubuntu5) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libboost-all-dev is already the newest version (1.62.0.1).
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.13.0-16-generic linux-image-4.10.0-37-generic
+  linux-image-4.13.0-16-generic linux-image-4.13.0-16-lowlatency
+  linux-image-4.4.0-97-generic linux-image-extra-4.10.0-37-generic
+  linux-image-extra-4.13.0-16-generic linux-image-extra-4.4.0-97-generic
+  linux-signed-image-4.10.0-37-generic linux-signed-image-4.13.0-16-generic
+  linux-signed-image-4.4.0-97-generic
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 86 not upgraded.
+Installing python dependencies...
+Collecting Cython<=0.26,>=0.23.4 (from -r /opt/movidius/NCSDK/requirements.txt (line 1))
+  Downloading Cython-0.26-cp36-cp36m-manylinux1_x86_64.whl (8.1MB)
+Collecting Markdown<=2.6.8,>=2.6.2 (from -r /opt/movidius/NCSDK/requirements.txt (line 2))
+  Downloading Markdown-2.6.8.tar.gz (307kB)
+Requirement already satisfied: Pillow<=4.2.1,>=3.1.0 in /usr/lib/python3/dist-packages (from -r /opt/movidius/NCSDK/requirements.txt (line 3))
+Requirement already satisfied: PyYAML<=3.12,>=3.11 in /usr/lib/python3/dist-packages (from -r /opt/movidius/NCSDK/requirements.txt (line 4))
+Collecting graphviz<=0.8,>=0.4.10 (from -r /opt/movidius/NCSDK/requirements.txt (line 5))
+  Downloading graphviz-0.8-py2.py3-none-any.whl
+Collecting h5py<=2.7.0,>=2.5.0 (from -r /opt/movidius/NCSDK/requirements.txt (line 6))
+  Downloading h5py-2.7.0-cp36-cp36m-manylinux1_x86_64.whl (4.8MB)
+Collecting lxml<=3.8.0,>=3.4.4 (from -r /opt/movidius/NCSDK/requirements.txt (line 7))
+  Downloading lxml-3.8.0-cp36-cp36m-manylinux1_x86_64.whl (7.3MB)
+Collecting matplotlib<=2.0.2,>=1.5.0 (from -r /opt/movidius/NCSDK/requirements.txt (line 8))
+  Downloading matplotlib-2.0.2-cp36-cp36m-manylinux1_x86_64.whl (14.6MB)
+Collecting numpy<=1.13.3,>=1.13.0 (from -r /opt/movidius/NCSDK/requirements.txt (line 9))
+  Downloading numpy-1.13.3-cp36-cp36m-manylinux1_x86_64.whl (17.0MB)
+Collecting protobuf<=3.4.0,>=3.0.0b2 (from -r /opt/movidius/NCSDK/requirements.txt (line 10))
+  Downloading protobuf-3.4.0-cp36-cp36m-manylinux1_x86_64.whl (6.2MB)
+Collecting python-dateutil<=2.6.1,>=2.4.2 (from -r /opt/movidius/NCSDK/requirements.txt (line 11))
+  Downloading python_dateutil-2.6.1-py2.py3-none-any.whl (194kB)
+Collecting scikit-image<=0.13.0,>=0.11.3 (from -r /opt/movidius/NCSDK/requirements.txt (line 12))
+  Downloading scikit_image-0.13.0-cp36-cp36m-manylinux1_x86_64.whl (34.0MB)
+Requirement already satisfied: scipy<=0.19.1,>=0.14.1 in /usr/lib/python3/dist-packages (from -r /opt/movidius/NCSDK/requirements.txt (line 13))
+Requirement already satisfied: six>=1.10.0 in /usr/lib/python3/dist-packages (from -r /opt/movidius/NCSDK/requirements.txt (line 14))
+Collecting networkx<=1.11,>=1.10 (from -r /opt/movidius/NCSDK/requirements.txt (line 15))
+  Downloading networkx-1.11-py2.py3-none-any.whl (1.3MB)
+Collecting cycler>=0.10 (from matplotlib<=2.0.2,>=1.5.0->-r /opt/movidius/NCSDK/requirements.txt (line 8))
+  Downloading cycler-0.10.0-py2.py3-none-any.whl
+Collecting pytz (from matplotlib<=2.0.2,>=1.5.0->-r /opt/movidius/NCSDK/requirements.txt (line 8))
+  Downloading pytz-2018.4-py2.py3-none-any.whl (510kB)
+Collecting pyparsing!=2.0.0,!=2.0.4,!=2.1.2,!=2.1.6,>=1.5.6 (from matplotlib<=2.0.2,>=1.5.0->-r /opt/movidius/NCSDK/requirements.txt (line 8))
+  Downloading pyparsing-2.2.0-py2.py3-none-any.whl (56kB)
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from protobuf<=3.4.0,>=3.0.0b2->-r /opt/movidius/NCSDK/requirements.txt (line 10))
+Collecting PyWavelets>=0.4.0 (from scikit-image<=0.13.0,>=0.11.3->-r /opt/movidius/NCSDK/requirements.txt (line 12))
+  Downloading PyWavelets-0.5.2-cp36-cp36m-manylinux1_x86_64.whl (5.7MB)
+Requirement already satisfied: decorator>=3.4.0 in /usr/lib/python3/dist-packages (from networkx<=1.11,>=1.10->-r /opt/movidius/NCSDK/requirements.txt (line 15))
+Building wheels for collected packages: Markdown
+  Running setup.py bdist_wheel for Markdown: started
+  Running setup.py bdist_wheel for Markdown: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/85/a7/08/33ee5cd488d0365d8bed79d1d4e5c28dd3fbfc7f6d0ad4bb09
+Successfully built Markdown
+Installing collected packages: Cython, Markdown, graphviz, numpy, h5py, lxml, cycler, python-dateutil, pytz, pyparsing, matplotlib, protobuf, networkx, PyWavelets, scikit-image
+  Found existing installation: Markdown 2.6.9
+    Not uninstalling markdown at /usr/lib/python3/dist-packages, outside environment /usr
+  Found existing installation: numpy 1.12.1
+    Not uninstalling numpy at /usr/lib/python3/dist-packages, outside environment /usr
+  Found existing installation: lxml 4.0.0
+    Not uninstalling lxml at /usr/lib/python3/dist-packages, outside environment /usr
+Successfully installed Cython-0.26 Markdown-2.6.8 PyWavelets-0.5.2 cycler-0.10.0 graphviz-0.8 h5py-2.7.0 lxml-3.8.0 matplotlib-2.0.2 networkx-1.11 numpy-1.13.3 protobuf-3.4.0 pyparsing-2.2.0 python-dateutil-2.6.1 pytz-2018.4 scikit-image-0.13.0
+Requirement already satisfied: Enum34>=1.1.6 in /usr/local/lib/python2.7/dist-packages
+You are using pip version 9.0.1, however version 10.0.0 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Checking whether tensorflow is installed...
+looking for tensorflow CPU version...
+looking for tensorflow GPU version...
+Couldn't find a supported tensorflow version, installing tensorflow v1.4.0
+Collecting tensorflow==1.4.0
+  Downloading tensorflow-1.4.0-cp36-cp36m-manylinux1_x86_64.whl (41.2MB)
+Requirement already satisfied: six>=1.10.0 in /usr/lib/python3/dist-packages (from tensorflow==1.4.0)
+Collecting enum34>=1.1.6 (from tensorflow==1.4.0)
+  Downloading enum34-1.1.6-py3-none-any.whl
+Requirement already satisfied: protobuf>=3.3.0 in /usr/local/lib/python3.6/dist-packages (from tensorflow==1.4.0)
+Collecting tensorflow-tensorboard<0.5.0,>=0.4.0rc1 (from tensorflow==1.4.0)
+  Downloading tensorflow_tensorboard-0.4.0-py3-none-any.whl (1.7MB)
+Requirement already satisfied: wheel>=0.26 in /usr/lib/python3/dist-packages (from tensorflow==1.4.0)
+Requirement already satisfied: numpy>=1.12.1 in /usr/local/lib/python3.6/dist-packages (from tensorflow==1.4.0)
+Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from protobuf>=3.3.0->tensorflow==1.4.0)
+Requirement already satisfied: markdown>=2.6.8 in /usr/local/lib/python3.6/dist-packages (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow==1.4.0)
+Collecting html5lib==0.9999999 (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow==1.4.0)
+  Downloading html5lib-0.9999999.tar.gz (889kB)
+Collecting werkzeug>=0.11.10 (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow==1.4.0)
+  Downloading Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+Collecting bleach==1.5.0 (from tensorflow-tensorboard<0.5.0,>=0.4.0rc1->tensorflow==1.4.0)
+  Downloading bleach-1.5.0-py2.py3-none-any.whl
+Building wheels for collected packages: html5lib
+  Running setup.py bdist_wheel for html5lib: started
+  Running setup.py bdist_wheel for html5lib: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/6f/85/6c/56b8e1292c6214c4eb73b9dda50f53e8e977bf65989373c962
+Successfully built html5lib
+Installing collected packages: enum34, html5lib, werkzeug, bleach, tensorflow-tensorboard, tensorflow
+  Found existing installation: html5lib 0.999999999
+    Not uninstalling html5lib at /usr/lib/python3/dist-packages, outside environment /usr
+Successfully installed bleach-1.5.0 enum34-1.1.6 html5lib-0.9999999 tensorflow-1.4.0 tensorflow-tensorboard-0.4.0 werkzeug-0.14.1
+Caffe not found, installing caffe...
+Downloading Caffe...
+Cloning into 'ssd-caffe'...
+Switched to a new branch 'ssd'
+Branch ssd set up to track remote branch ssd from origin.
+Compiling Caffe...
+-- The C compiler identification is GNU 7.2.0
+-- The CXX compiler identification is GNU 7.2.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Boost version: 1.62.0
+-- Found the following Boost libraries:
+--   system
+--   thread
+--   filesystem
+--   regex
+--   chrono
+--   date_time
+--   atomic
+-- Found GFlags: /usr/include
+-- Found gflags  (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libgflags.so)
+-- Found Glog: /usr/include
+-- Found glog    (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libglog.so)
+-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.0.0")
+-- Found PROTOBUF Compiler: /usr/bin/protoc
+-- HDF5: Using hdf5 compiler wrapper to determine C configuration
+-- HDF5: Using hdf5 compiler wrapper to determine CXX configuration
+-- Found HDF5: /home/oedev/anaconda3/lib/libhdf5_cpp.so;/home/oedev/anaconda3/lib/libhdf5.so;/usr/lib/x86_64-linux-gnu/librt.so;/usr/lib/x86_64-linux-gnu/libpthread.so;/home/oedev/anaconda3/lib/libz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so (found version "1.10.1") found components:  HL
+-- Found LMDB: /usr/include
+-- Found lmdb    (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/liblmdb.so)
+-- Found LevelDB: /usr/include
+-- Found LevelDB (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libleveldb.so)
+-- Found Snappy: /usr/include
+-- Found Snappy  (include: /usr/include, library: /usr/lib/x86_64-linux-gnu/libsnappy.so)
+-- -- CUDA is disabled. Building without it...
+-- OpenCV found (/usr/share/OpenCV)
+-- Found Atlas: /usr/include/x86_64-linux-gnu
+-- Found Atlas (include: /usr/include/x86_64-linux-gnu, library: /usr/lib/x86_64-linux-gnu/libatlas.so)
+-- Found PythonInterp: /home/oedev/anaconda3/bin/python3 (found suitable version "3.6.3", minimum required is "3.0")
+-- Found PythonLibs: /home/oedev/anaconda3/lib/libpython3.6m.so (found suitable version "3.6.3", minimum required is "3.0")
+-- Found NumPy: /home/oedev/anaconda3/lib/python3.6/site-packages/numpy/core/include (found suitable version "1.14.0", minimum required is "1.7.1")
+-- NumPy ver. 1.14.0 found (include: /home/oedev/anaconda3/lib/python3.6/site-packages/numpy/core/include)
+CMake Warning at /usr/share/cmake-3.9/Modules/FindBoost.cmake:1582 (message):
+  No header defined for python-py363; skipping header check
+Call Stack (most recent call first):
+  cmake/Dependencies.cmake:124 (find_package)
+  CMakeLists.txt:43 (include)
+
+
+-- Could NOT find Boost
+CMake Warning at /usr/share/cmake-3.9/Modules/FindBoost.cmake:1582 (message):
+  No header defined for python-py36; skipping header check
+Call Stack (most recent call first):
+  cmake/Dependencies.cmake:131 (find_package)
+  CMakeLists.txt:43 (include)
+
+
+-- Boost version: 1.62.0
+-- Found the following Boost libraries:
+--   python-py36
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+-- Found Git: /usr/bin/git (found version "2.14.1")
+--
+-- ******************* Caffe Configuration Summary *******************
+-- General:
+--   Version           :   1.0.0-rc3
+--   Git               :   ssdv1.0-dirty
+--   System            :   Linux
+--   C++ compiler      :   /usr/bin/c++
+--   Release CXX flags :   -O3 -DNDEBUG -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Debug CXX flags   :   -g -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Build type        :   Release
+--
+--   BUILD_SHARED_LIBS :   ON
+--   BUILD_python      :   ON
+--   BUILD_matlab      :   OFF
+--   BUILD_docs        :   ON
+--   CPU_ONLY          :   ON
+--   USE_OPENCV        :   ON
+--   USE_LEVELDB       :   ON
+--   USE_LMDB          :   ON
+--   ALLOW_LMDB_NOLOCK :   OFF
+--
+-- Dependencies:
+--   BLAS              :   Yes (Atlas)
+--   Boost             :   Yes (ver. 1.62)
+--   glog              :   Yes
+--   gflags            :   Yes
+--   protobuf          :   Yes (ver. 3.0.0)
+--   lmdb              :   Yes (ver. 0.9.21)
+--   LevelDB           :   Yes (ver. 1.20)
+--   Snappy            :   Yes (ver. ..)
+--   OpenCV            :   Yes (ver. 3.1.0)
+--   CUDA              :   No
+--
+-- Python:
+--   Interpreter       :   /home/oedev/anaconda3/bin/python3 (ver. 3.6.3)
+--   Libraries         :   /home/oedev/anaconda3/lib/libpython3.6m.so (ver 3.6.3)
+--   NumPy             :   /home/oedev/anaconda3/lib/python3.6/site-packages/numpy/core/include (ver 1.14.0)
+--
+-- Documentaion:
+--   Doxygen           :   No
+--   config_file       :
+--
+-- Install:
+--   Install path      :   /opt/movidius/ssd-caffe/build/install
+--
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/movidius/ssd-caffe/build
+make[1]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[2]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+[  1%] Running C++/Python protocol buffer compiler on /opt/movidius/ssd-caffe/src/caffe/proto/caffe.proto
+Scanning dependencies of target proto
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+[  1%] Building CXX object src/caffe/CMakeFiles/proto.dir/__/__/include/caffe/proto/caffe.pb.cc.o
+[  1%] Linking CXX static library ../../lib/libproto.a
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+[  1%] Built target proto
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+Scanning dependencies of target caffe
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+[  1%] Building CXX object src/caffe/CMakeFiles/caffe.dir/blob.cpp.o
+[  1%] Building CXX object src/caffe/CMakeFiles/caffe.dir/common.cpp.o
+[  2%] Building CXX object src/caffe/CMakeFiles/caffe.dir/data_reader.cpp.o
+[  2%] Building CXX object src/caffe/CMakeFiles/caffe.dir/data_transformer.cpp.o
+[  4%] Building CXX object src/caffe/CMakeFiles/caffe.dir/internal_thread.cpp.o
+[  4%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layer.cpp.o
+[  4%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o
+[  5%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o
+[  5%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o
+[  7%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/annotated_data_layer.cpp.o
+[  7%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o
+[  7%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/base_conv_layer.cpp.o
+[  8%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o
+[  8%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o
+[ 10%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o
+[ 10%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o
+[ 11%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o
+[ 11%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o
+[ 11%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o
+[ 13%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o
+[ 13%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o
+[ 14%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o
+[ 14%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o
+[ 14%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o
+[ 16%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o
+[ 16%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o
+[ 17%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o
+[ 17%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o
+[ 19%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o
+[ 19%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o
+[ 19%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o
+[ 20%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/detection_evaluate_layer.cpp.o
+[ 20%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/detection_output_layer.cpp.o
+[ 22%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o
+[ 22%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o
+[ 22%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o
+[ 23%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o
+[ 23%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o
+[ 25%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o
+[ 25%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o
+[ 26%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o
+[ 26%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o
+[ 26%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o
+[ 28%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o
+[ 28%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o
+[ 29%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o
+[ 29%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o
+[ 29%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o
+[ 31%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o
+[ 31%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o
+[ 32%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o
+[ 32%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o
+[ 32%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o
+[ 34%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o
+[ 34%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o
+[ 35%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o
+[ 35%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/multibox_loss_layer.cpp.o
+[ 37%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o
+[ 37%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o
+[ 37%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o
+[ 38%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/normalize_layer.cpp.o
+[ 38%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o
+[ 40%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/permute_layer.cpp.o
+[ 40%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o
+[ 40%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o
+[ 41%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o
+[ 41%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/prior_box_layer.cpp.o
+[ 43%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o
+[ 43%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o
+[ 44%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o
+[ 44%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o
+[ 44%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o
+[ 46%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o
+[ 46%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o
+[ 47%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o
+[ 47%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o
+[ 47%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o
+[ 49%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/smooth_L1_loss_layer.cpp.o
+[ 49%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o
+[ 50%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o
+[ 50%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o
+[ 52%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o
+[ 52%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o
+[ 52%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o
+[ 53%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o
+[ 53%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/video_data_layer.cpp.o
+[ 55%] Building CXX object src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o
+[ 55%] Building CXX object src/caffe/CMakeFiles/caffe.dir/net.cpp.o
+[ 55%] Building CXX object src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o
+[ 56%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solver.cpp.o
+[ 56%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o
+[ 58%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o
+[ 58%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o
+[ 59%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o
+[ 59%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o
+[ 59%] Building CXX object src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o
+[ 61%] Building CXX object src/caffe/CMakeFiles/caffe.dir/syncedmem.cpp.o
+[ 61%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/bbox_util.cpp.o
+[ 62%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/benchmark.cpp.o
+[ 62%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o
+[ 62%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/cudnn.cpp.o
+[ 64%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/db.cpp.o
+[ 64%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/db_leveldb.cpp.o
+[ 65%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/db_lmdb.cpp.o
+[ 65%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/hdf5.cpp.o
+[ 65%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/im2col.cpp.o
+[ 67%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/im_transforms.cpp.o
+[ 67%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/insert_splits.cpp.o
+[ 68%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/io.cpp.o
+[ 68%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/math_functions.cpp.o
+[ 70%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/sampler.cpp.o
+[ 70%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o
+[ 70%] Building CXX object src/caffe/CMakeFiles/caffe.dir/util/upgrade_proto.cpp.o
+[ 71%] Linking CXX shared library ../../lib/libcaffe.so
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+[ 71%] Built target caffe
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+Scanning dependencies of target convert_imageset
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+[ 71%] Building CXX object tools/CMakeFiles/convert_imageset.dir/convert_imageset.cpp.o
+[ 73%] Linking CXX executable convert_imageset
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadDirectory@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFLastDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_use_certificate_chain_file@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_free@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFWriteEncodedStrip@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_version@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFIsTiled@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfShort@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_get_id_callback@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsByteSwapped@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_int_ctrl@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFlushData@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_use_PrivateKey_file@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_get_entry@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ASN1_STRING_length@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_ex_data@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFreeDirectory@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFScanlineSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_STORE_set_flags@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteEncodedTile@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteBufferSetup@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_new@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSLv23_method@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFTileSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_get_subject_name@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_load_private_key@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_ENTRY_get_data@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_set_id_callback@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFRGBAImageOK@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFClose@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteRawStrip@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetTagExtender@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_get_cert_store@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetFieldDefaulted@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_check_private_key@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfLong@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_by_id@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_set_locking_callback@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFTileSize64@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_clear_flags@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_write@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadRGBATileExt@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFStripSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_free@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_free@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFMergeFieldInfo@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_ctrl@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_verify@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CIPHER_get_bits@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_use_PrivateKey@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_free@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetWarningHandler@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_finish@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetConfiguredCODECs@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmalloc@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_get_ext_d2i@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_peer_certificate@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmemcpy@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_num_locks@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFClientdata@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFrealloc@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_current_compression@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmemset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadRGBAStripExt@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_free@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ASN1_STRING_data@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `OPENSSL_config@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteCheck@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_STORE_load_locations@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetWriteOffset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFDefaultStripSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CIPHER_get_name@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_num@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFScanlineSize64@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsBigEndian@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpoppler.so.68: undefined reference to `TIFFFdOpen@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFWriteScanline@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_read@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `_TIFFfree@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabLong@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFGetField@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabShort@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFNumberOfStrips@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_set_flags@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadEncodedTile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_get_locking_callback@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_value@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadRGBATile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `TIFFClientOpen@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFlush@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_new@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFErrorExt@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFNumberOfDirectories@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_put_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_get_error@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteRawTile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_s_socket@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFStripSize64@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFCreateDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_new@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_load_error_strings@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_current_cipher@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFOpen@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfDouble@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetSubDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_load_verify_locations@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `sqlite3_column_origin_name'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFUnlinkDirectory@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadEncodedStrip@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetField@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFCurrentDirOffset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsCODECConfigured@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFUnsetField@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_clear_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_init@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `sqlite3_column_table_name'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_bio@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_reason_error_string@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFDataWidth@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_connect@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_get_index_by_NID@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_ctrl@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_pending@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFRewriteDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_library_init@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetSizeProc@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetErrorHandler@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetDirectory@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadScanline@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_shutdown@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFNumberOfTiles@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadRGBAStrip@LIBTIFF_4.0'
+collect2: error: ld returned 1 exit status
+tools/CMakeFiles/convert_imageset.dir/build.make:135: recipe for target 'tools/convert_imageset' failed
+make[3]: *** [tools/convert_imageset] Error 1
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+CMakeFiles/Makefile2:441: recipe for target 'tools/CMakeFiles/convert_imageset.dir/all' failed
+make[2]: *** [tools/CMakeFiles/convert_imageset.dir/all] Error 2
+make[2]: Leaving directory '/opt/movidius/ssd-caffe/build'
+Makefile:129: recipe for target 'all' failed
+make[1]: *** [all] Error 2
+make[1]: Leaving directory '/opt/movidius/ssd-caffe/build'
+Installing caffe...
+make[1]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[2]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+[  1%] Built target proto
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+[ 71%] Built target caffe
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+make[3]: Entering directory '/opt/movidius/ssd-caffe/build'
+[ 73%] Linking CXX executable convert_imageset
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadDirectory@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFLastDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_use_certificate_chain_file@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_free@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFWriteEncodedStrip@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_version@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFIsTiled@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfShort@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_get_id_callback@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsByteSwapped@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_int_ctrl@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFlushData@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_use_PrivateKey_file@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_get_entry@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ASN1_STRING_length@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_ex_data@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFreeDirectory@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFScanlineSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_STORE_set_flags@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteEncodedTile@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteBufferSetup@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_new@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSLv23_method@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFTileSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_get_subject_name@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_load_private_key@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_ENTRY_get_data@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_set_id_callback@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFRGBAImageOK@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFClose@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteRawStrip@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetTagExtender@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_get_cert_store@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetFieldDefaulted@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_check_private_key@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfLong@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_by_id@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_set_locking_callback@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFTileSize64@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_clear_flags@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_write@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadRGBATileExt@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFStripSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_free@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_free@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFMergeFieldInfo@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_ctrl@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_verify@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CIPHER_get_bits@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_use_PrivateKey@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_free@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetWarningHandler@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_finish@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetConfiguredCODECs@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmalloc@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_get_ext_d2i@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_peer_certificate@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmemcpy@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_num_locks@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFClientdata@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFrealloc@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_current_compression@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `_TIFFmemset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadRGBAStripExt@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_free@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ASN1_STRING_data@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `OPENSSL_config@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteCheck@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_STORE_load_locations@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetWriteOffset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFDefaultStripSize@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CIPHER_get_name@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_num@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFScanlineSize64@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsBigEndian@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpoppler.so.68: undefined reference to `TIFFFdOpen@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFWriteScanline@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_read@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `_TIFFfree@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabLong@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFGetField@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabShort@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFNumberOfStrips@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_set_flags@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadEncodedTile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `CRYPTO_get_locking_callback@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `sk_value@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadRGBATile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libgeotiff.so.2: undefined reference to `TIFFClientOpen@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFFlush@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_new@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFErrorExt@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFNumberOfDirectories@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_put_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_get_error@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFWriteRawTile@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `BIO_s_socket@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFStripSize64@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFCreateDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_new@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_load_error_strings@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_get_current_cipher@OPENSSL_1.0.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFOpen@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSwabArrayOfDouble@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetSubDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_load_verify_locations@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `sqlite3_column_origin_name'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFUnlinkDirectory@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadEncodedStrip@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetField@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFCurrentDirOffset@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFIsCODECConfigured@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFUnsetField@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_clear_error@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ENGINE_init@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `sqlite3_column_table_name'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_set_bio@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `ERR_reason_error_string@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFDataWidth@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_connect@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `X509_NAME_get_index_by_NID@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_CTX_ctrl@OPENSSL_1.0.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_pending@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFRewriteDirectory@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_library_init@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFGetSizeProc@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFSetErrorHandler@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFSetDirectory@LIBTIFF_4.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFReadScanline@LIBTIFF_4.0'
+//usr/lib/x86_64-linux-gnu/libpq.so.5: undefined reference to `SSL_shutdown@OPENSSL_1.0.0'
+//usr/lib/libgdal.so.20: undefined reference to `TIFFNumberOfTiles@LIBTIFF_4.0'
+/usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.1.0: undefined reference to `TIFFReadRGBAStrip@LIBTIFF_4.0'
+collect2: error: ld returned 1 exit status
+tools/CMakeFiles/convert_imageset.dir/build.make:135: recipe for target 'tools/convert_imageset' failed
+make[3]: *** [tools/convert_imageset] Error 1
+make[3]: Leaving directory '/opt/movidius/ssd-caffe/build'
+CMakeFiles/Makefile2:441: recipe for target 'tools/CMakeFiles/convert_imageset.dir/all' failed
+make[2]: *** [tools/CMakeFiles/convert_imageset.dir/all] Error 2
+make[2]: Leaving directory '/opt/movidius/ssd-caffe/build'
+Makefile:129: recipe for target 'all' failed
+make[1]: *** [all] Error 2
+make[1]: Leaving directory '/opt/movidius/ssd-caffe/build'
+Installation failed. Error on line 535

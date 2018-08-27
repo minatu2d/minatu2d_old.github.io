@@ -1,0 +1,1056 @@
+➜  ncsdk git:(master) ✗ make examples
+./install-opencv.sh
+
+OpenCV already setup for python
+
+
+make examples starting.
+(cd examples; make)
+make[1]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples'
+make -C apps/.
+make[2]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps'
+make -C hello_ncs_py/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/hello_ncs_py'
+nothing to make, use 'make run' to run.
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/hello_ncs_py'
+make -C multistick_cpp/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/multistick_cpp'
+
+making googlenet
+(cd ../../caffe/GoogLeNet; make compile; cd ../../apps/multistick_cpp; cp ../../caffe/GoogLeNet/graph ./googlenet.graph;)
+make[4]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/GoogLeNet'
+
+making prereqs
+(cd ../../data/ilsvrc12; make)
+make[5]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+make[5]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+
+making prototxt
+Prototxt file already exists
+
+making caffemodel
+caffemodel file already exists
+
+making compile
+mvNCCompile -w bvlc_googlenet.caffemodel -s 12 deploy.prototxt
+mvNCCompile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses import imp
+Layer  inception_3b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_3b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/pool_proj  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+make[4]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/GoogLeNet'
+
+making squeezenet
+(cd ../../caffe/SqueezeNet; make compile; cd ../../apps/multistick_cpp; cp ../../caffe/SqueezeNet/graph ./squeezenet.graph;)
+make[4]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/SqueezeNet'
+
+making prereqs
+(cd ../../data/ilsvrc12; make)
+make[5]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+make[5]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+Downloading LICENSE file
+--2018-04-17 20:10:57--  https://github.com/DeepScale/SqueezeNet/raw/master/LICENSE
+Resolving github.com (github.com)... 192.30.255.112, 192.30.255.113
+Connecting to github.com (github.com)|192.30.255.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/LICENSE [following]
+--2018-04-17 20:10:59--  https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/LICENSE
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.88.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1250 (1.2K) [text/plain]
+Saving to: ‘./LICENSE’
+
+LICENSE                              100%[=====================================================================>]   1.22K  --.-KB/s    in 0s
+
+Last-modified header missing -- time-stamps turned off.
+2018-04-17 20:10:59 (73.1 MB/s) - ‘./LICENSE’ saved [1250/1250]
+
+
+making prototxt
+Downloading Prototxt file
+--2018-04-17 20:10:59--  https://github.com/DeepScale/SqueezeNet/raw/master/SqueezeNet_v1.0/deploy.prototxt
+Resolving github.com (github.com)... 192.30.255.113, 192.30.255.112
+Connecting to github.com (github.com)|192.30.255.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.0/deploy.prototxt [following]
+--2018-04-17 20:11:00--  https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.0/deploy.prototxt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.88.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9640 (9.4K) [text/plain]
+Saving to: ‘./deploy.prototxt’
+
+deploy.prototxt                      100%[=====================================================================>]   9.41K  --.-KB/s    in 0.01s
+
+2018-04-17 20:11:01 (669 KB/s) - ‘./deploy.prototxt’ saved [9640/9640]
+
+modifying prototxt file.
+
+making caffemodel
+Downloading caffemodel file
+--2018-04-17 20:11:01--  https://github.com/DeepScale/SqueezeNet/raw/master/SqueezeNet_v1.0/squeezenet_v1.0.caffemodel
+Resolving github.com (github.com)... 192.30.255.113, 192.30.255.112
+Connecting to github.com (github.com)|192.30.255.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.0/squeezenet_v1.0.caffemodel [following]
+--2018-04-17 20:11:02--  https://raw.githubusercontent.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.0/squeezenet_v1.0.caffemodel
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.88.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5001403 (4.8M) [application/octet-stream]
+Saving to: ‘./squeezenet_v1.0.caffemodel’
+
+squeezenet_v1.0.caffemodel           100%[=====================================================================>]   4.77M   876KB/s    in 4.9s
+
+Last-modified header missing -- time-stamps turned off.
+2018-04-17 20:11:08 (993 KB/s) - ‘./squeezenet_v1.0.caffemodel’ saved [5001403/5001403]
+
+
+making compile
+mvNCCompile -w squeezenet_v1.0.caffemodel -s 12 deploy.prototxt
+mvNCCompile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+make[4]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/SqueezeNet'
+
+making multistick_cpp
+cp googlenet.graph cpp/googlenet.graph;
+cp squeezenet.graph cpp/squeezenet.graph;
+g++ cpp/multistick.cpp cpp/fp16.c -o cpp/multistick_cpp -lmvnc
+Created cpp/multistick_cpp executable
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/multistick_cpp'
+make -C hello_ncs_cpp/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/hello_ncs_cpp'
+
+making hello_ncs_cpp
+g++ cpp/hello_ncs.cpp -o cpp/hello_ncs_cpp -lmvnc
+Created cpp/hello_ncs_cpp executable
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps/hello_ncs_cpp'
+make[2]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/apps'
+make -C caffe/.
+make[2]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe'
+make -C AlexNet/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/AlexNet'
+
+making prereqs
+(cd ../../data/ilsvrc12; make)
+make[4]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+make[4]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+chmod +x run.py
+
+making prototxt
+Downloading Prototxt file
+--2018-04-17 20:11:15--  https://raw.githubusercontent.com/BVLC/caffe/master/models/bvlc_alexnet/deploy.prototxt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.88.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3629 (3.5K) [text/plain]
+Saving to: ‘./deploy.prototxt’
+
+deploy.prototxt                      100%[=====================================================================>]   3.54K  --.-KB/s    in 0s
+
+2018-04-17 20:11:15 (32.4 MB/s) - ‘./deploy.prototxt’ saved [3629/3629]
+
+Adding input shape to prototxt file.
+
+making profile
+mvNCProfile deploy.prototxt -s 12
+mvNCProfile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+****** WARNING: using empty weights ******
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+Time to Execute :  106.81  ms
+USB: Myriad Execution Finished
+Time to Execute :  101.49  ms
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+Network Summary
+
+Detailed Per Layer Profile
+                                                                                                                                  Bandwidth   time
+#    Name                                                                                                                   MFLOPs  (MB/s)    (ms)
+==================================================================================================================================================
+0    data                                                                                                                      0.0122347.3   0.002
+1    conv1                                                                                                                   210.8  7446.4   4.803
+2    norm1                                                                                                                     0.0   717.1   0.773
+3    pool1                                                                                                                     0.6  1211.5   0.457
+4    pool1_s0                                                                                                                  0.0   923.6   0.072
+5    conv2_p0                                                                                                                223.9   611.0   5.951
+6    pool1_s1                                                                                                                  0.0  1436.5   0.046
+7    conv2_p1                                                                                                                223.9   604.3   6.017
+8    norm2                                                                                                                     0.0   652.3   0.546
+9    pool2                                                                                                                     0.4  1304.9   0.273
+10   conv3                                                                                                                   299.0   303.9   7.996
+11   conv3_s0                                                                                                                  0.0  1573.3   0.039
+12   conv4_p0                                                                                                                112.1   538.3   3.251
+13   conv3_s1                                                                                                                  0.0  1497.1   0.041
+14   conv4_p1                                                                                                                112.1   536.6   3.262
+15   conv4_p0_s0                                                                                                               0.0  1306.0   0.047
+16   conv5_p0                                                                                                                 74.8   567.7   2.709
+17   conv4_p0_s1                                                                                                               0.0  1320.0   0.047
+18   conv5_p1                                                                                                                 74.8   564.1   2.726
+19   pool5                                                                                                                     0.1   918.5   0.090
+20   fc6                                                                                                                      75.5  2145.5  33.567
+21   fc7                                                                                                                      33.6  2134.2  14.998
+22   fc8                                                                                                                       8.2  2634.6   2.968
+23   prob                                                                                                                      0.0     8.4   0.229
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                      Total inference time                   90.91
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Generating Profile Report 'output_report.html'...
+
+making caffemodel
+Downloading caffemodel file
+--2018-04-17 20:11:26--  http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel
+Resolving dl.caffe.berkeleyvision.org (dl.caffe.berkeleyvision.org)... 169.229.222.251
+Connecting to dl.caffe.berkeleyvision.org (dl.caffe.berkeleyvision.org)|169.229.222.251|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 243862414 (233M) [application/octet-stream]
+Saving to: ‘./bvlc_alexnet.caffemodel’
+
+bvlc_alexnet.caffemodel              100%[=====================================================================>] 232.56M  1.52MB/s    in 2m 28s
+
+2018-04-17 20:13:54 (1.58 MB/s) - ‘./bvlc_alexnet.caffemodel’ saved [243862414/243862414]
+
+
+making check
+mvNCCheck -w bvlc_alexnet.caffemodel -i ../../data/images/cat.jpg -s 12 -id 281 deploy.prototxt -M 110 -S 255 -metric top1
+mvNCCheck v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, 'constant', will be changed to 'reflect' in s          kimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+
+Result: Validation Pass
+
+Result:  (1000,)
+1) 281 0.45703
+Expected:  (1000,)
+1) 281 0.45288
+------------------------------------------------------------
+ Obtained values
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 0.9164420887827873% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 0.0022654934582533315% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 0.034660259743106124% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 0.01025998592376709
+------------------------------------------------------------
+
+making compile
+mvNCCompile -w bvlc_alexnet.caffemodel -s 12 deploy.prototxt
+mvNCCompile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+
+making cpp
+g++ cpp/run.cpp cpp/fp16.c -o cpp/run_cpp -lmvnc
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/AlexNet'
+make -C SqueezeNet/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/SqueezeNet'
+
+making prereqs
+(cd ../../data/ilsvrc12; make)
+make[4]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+make[4]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+LICENSE file already exists
+
+making prototxt
+Prototxt file already exists
+
+making profile
+mvNCProfile deploy.prototxt -s 12
+mvNCProfile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+****** WARNING: using empty weights ******
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+Time to Execute :  76.39  ms
+USB: Myriad Execution Finished
+Time to Execute :  58.41  ms
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+Network Summary
+
+Detailed Per Layer Profile
+                                                                                                                                  Bandwidth   time
+#    Name                                                                                                                   MFLOPs  (MB/s)    (ms)
+==================================================================================================================================================
+0    data                                                                                                                      0.0 78838.8   0.004
+1    conv1                                                                                                                   347.7  1624.8   8.914
+2    pool1                                                                                                                     2.6  1420.5   1.588
+3    fire2/squeeze1x1                                                                                                          9.3  1187.7   0.469
+4    fire2/expand1x1                                                                                                           6.2   159.4   0.592
+5    fire2/expand3x3                                                                                                          55.8   474.6   1.790
+6    fire3/squeeze1x1                                                                                                         12.4  1485.1   0.500
+7    fire3/expand1x1                                                                                                           6.2   155.4   0.607
+8    fire3/expand3x3                                                                                                          55.8   474.2   1.792
+9    fire4/squeeze1x1                                                                                                         24.8  1011.2   0.738
+10   fire4/expand1x1                                                                                                          24.8   184.6   1.044
+11   fire4/expand3x3                                                                                                         223.0   390.1   4.446
+12   pool4                                                                                                                     1.7  1263.3   1.169
+13   fire5/squeeze1x1                                                                                                         11.9   778.3   0.478
+14   fire5/expand1x1                                                                                                           6.0   152.6   0.344
+15   fire5/expand3x3                                                                                                          53.7   378.4   1.250
+16   fire6/squeeze1x1                                                                                                         17.9   673.9   0.563
+17   fire6/expand1x1                                                                                                          13.4   158.0   0.536
+18   fire6/expand3x3                                                                                                         120.9   266.6   2.859
+19   fire7/squeeze1x1                                                                                                         26.9   832.1   0.684
+20   fire7/expand1x1                                                                                                          13.4   159.5   0.531
+21   fire7/expand3x3                                                                                                         120.9   260.3   2.928
+22   fire8/squeeze1x1                                                                                                         35.8   737.3   0.788
+23   fire8/expand1x1                                                                                                          23.9   160.3   0.753
+24   fire8/expand3x3                                                                                                         215.0   199.1   5.459
+25   pool8                                                                                                                     0.8  1288.2   0.553
+26   fire9/squeeze1x1                                                                                                         11.1   558.0   0.408
+27   fire9/expand1x1                                                                                                           5.5   152.6   0.343
+28   fire9/expand3x3                                                                                                          49.8   288.5   1.634
+29   conv10                                                                                                                  173.1   335.8   3.400
+30   pool10                                                                                                                    0.3   676.0   0.477
+31   prob                                                                                                                      0.0     8.0   0.238
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                      Total inference time                   47.88
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Generating Profile Report 'output_report.html'...
+
+making caffemodel
+caffemodel file already exists
+
+making check
+mvNCCheck -w squeezenet_v1.0.caffemodel -i ../../data/images/cat.jpg -s 12 -id 281  deploy.prototxt -S 255 -M 120 -metric top1
+mvNCCheck v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, 'constant', will be changed to 'reflect' in s          kimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+
+Result: Validation Pass
+
+Result:  (1000, 1, 1)
+1) 281 0.55811
+Expected:  (1000, 1, 1)
+1) 281 0.56006
+------------------------------------------------------------
+ Obtained values
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 0.47951177693903446% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 0.0019096713003818877% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 0.026146444662612452% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 0.010695278644561768
+------------------------------------------------------------
+
+making compile
+mvNCCompile -w squeezenet_v1.0.caffemodel -s 12 deploy.prototxt
+mvNCCompile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+
+making cpp
+g++ cpp/run.cpp cpp/fp16.c -o cpp/run_cpp -lmvnc
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/SqueezeNet'
+make -C GoogLeNet/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/GoogLeNet'
+
+making prereqs
+(cd ../../data/ilsvrc12; make)
+make[4]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+make[4]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data/ilsvrc12'
+
+making prototxt
+Prototxt file already exists
+
+making profile
+mvNCProfile deploy.prototxt -s 12
+mvNCProfile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+****** WARNING: using empty weights ******
+Layer  inception_3b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_3b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/pool_proj  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+Time to Execute :  128.52  ms
+USB: Myriad Execution Finished
+Time to Execute :  107.23  ms
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+Network Summary
+
+Detailed Per Layer Profile
+                                                                                                                                  Bandwidth   time
+#    Name                                                                                                                   MFLOPs  (MB/s)    (ms)
+==================================================================================================================================================
+0    data                                                                                                                      0.0 55249.9   0.005
+1    conv1/7x7_s2                                                                                                            236.0  2469.5   5.707
+2    pool1/3x3_s2                                                                                                              1.8  1340.7   1.142
+3    pool1/norm1                                                                                                               0.0   704.6   0.543
+4    conv2/3x3_reduce                                                                                                         25.7   452.3   0.864
+5    conv2/3x3                                                                                                               693.6   308.3  11.863
+6    conv2/norm2                                                                                                               0.0   775.4   1.481
+7    pool2/3x3_s2                                                                                                              1.4  1400.0   0.820
+8    inception_3a/1x1                                                                                                         19.3   535.1   0.581
+9    inception_3a/3x3_reduce                                                                                                  28.9   459.0   0.702
+10   inception_3a/3x3                                                                                                        173.4   307.3   4.898
+11   inception_3a/5x5_reduce                                                                                                   4.8  1030.2   0.284
+12   inception_3a/5x5                                                                                                         20.1   629.7   0.991
+13   inception_3a/pool                                                                                                         1.4   634.9   0.452
+14   inception_3a/pool_proj                                                                                                    9.6   606.0   0.493
+15   inception_3b/1x1                                                                                                         51.4   422.7   1.054
+16   inception_3b/3x3_reduce                                                                                                  51.4   443.5   1.004
+17   inception_3b/3x3                                                                                                        346.8   263.5   8.151
+18   inception_3b/5x5_reduce                                                                                                  12.8   846.2   0.471
+19   inception_3b/5x5                                                                                                        120.4   513.7   2.623
+20   inception_3b/pool                                                                                                         1.8   697.0   0.549
+21   inception_3b/pool_proj                                                                                                   25.7   599.7   0.691
+22   pool3/3x3_s2                                                                                                              0.8  1216.9   0.590
+23   inception_4a/1x1                                                                                                         36.1   359.8   0.988
+24   inception_4a/3x3_reduce                                                                                                  18.1   477.2   0.560
+25   inception_4a/3x3                                                                                                         70.4   291.7   2.295
+26   inception_4a/5x5_reduce                                                                                                   3.0   721.6   0.269
+27   inception_4a/5x5                                                                                                          7.5   374.7   0.503
+28   inception_4a/pool                                                                                                         0.8   605.3   0.297
+29   inception_4a/pool_proj                                                                                                   12.0   560.9   0.425
+30   inception_4b/1x1                                                                                                         32.1   338.4   1.028
+31   inception_4b/3x3_reduce                                                                                                  22.5   398.5   0.755
+32   inception_4b/3x3                                                                                                         88.5   283.3   2.864
+33   inception_4b/5x5_reduce                                                                                                   4.8   564.3   0.381
+34   inception_4b/5x5                                                                                                         15.1   311.8   0.964
+35   inception_4b/pool                                                                                                         0.9   602.8   0.318
+36   inception_4b/pool_proj                                                                                                   12.8   546.8   0.465
+37   inception_4c/1x1                                                                                                         25.7   370.3   0.855
+38   inception_4c/3x3_reduce                                                                                                  25.7   396.4   0.798
+39   inception_4c/3x3                                                                                                        115.6   262.6   3.799
+40   inception_4c/5x5_reduce                                                                                                   4.8   582.2   0.369
+41   inception_4c/5x5                                                                                                         15.1   310.6   0.968
+42   inception_4c/pool                                                                                                         0.9   621.6   0.308
+43   inception_4c/pool_proj                                                                                                   12.8   550.8   0.461
+44   inception_4d/1x1                                                                                                         22.5   378.0   0.796
+45   inception_4d/3x3_reduce                                                                                                  28.9   494.0   0.672
+46   inception_4d/3x3                                                                                                        146.3   394.7   3.043
+47   inception_4d/5x5_reduce                                                                                                   6.4   674.6   0.330
+48   inception_4d/5x5                                                                                                         20.1   389.4   1.027
+49   inception_4d/pool                                                                                                         0.9   610.2   0.314
+50   inception_4d/pool_proj                                                                                                   12.8   565.6   0.449
+51   inception_4e/1x1                                                                                                         53.0   280.7   1.623
+52   inception_4e/3x3_reduce                                                                                                  33.1   265.0   1.353
+53   inception_4e/3x3                                                                                                        180.6   283.2   5.024
+54   inception_4e/5x5_reduce                                                                                                   6.6   492.9   0.466
+55   inception_4e/5x5                                                                                                         40.1   351.0   1.426
+56   inception_4e/pool                                                                                                         0.9   611.2   0.323
+57   inception_4e/pool_proj                                                                                                   26.5   439.8   0.743
+58   pool4/3x3_s2                                                                                                              0.4  1227.8   0.253
+59   inception_5a/1x1                                                                                                         20.9   612.3   0.791
+60   inception_5a/3x3_reduce                                                                                                  13.0   579.6   0.572
+61   inception_5a/3x3                                                                                                         45.2   570.6   1.786
+62   inception_5a/5x5_reduce                                                                                                   2.6   323.8   0.397
+63   inception_5a/5x5                                                                                                         10.0   421.5   0.655
+64   inception_5a/pool                                                                                                         0.4   492.4   0.158
+65   inception_5a/pool_proj                                                                                                   10.4   465.1   0.604
+66   inception_5b/1x1                                                                                                         31.3   609.8   1.128
+67   inception_5b/3x3_reduce                                                                                                  15.7   607.1   0.630
+68   inception_5b/3x3                                                                                                         65.0   583.6   2.457
+69   inception_5b/5x5_reduce                                                                                                   3.9   363.3   0.424
+70   inception_5b/5x5                                                                                                         15.1   418.2   0.983
+71   inception_5b/pool                                                                                                         0.4   485.6   0.160
+72   inception_5b/pool_proj                                                                                                   10.4   483.8   0.581
+73   pool5/7x7_s1                                                                                                              0.1   448.8   0.213
+74   loss3/classifier                                                                                                          2.0  2500.5   0.782
+75   prob                                                                                                                      0.0     8.5   0.224
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                      Total inference time                   96.02
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Generating Profile Report 'output_report.html'...
+
+making caffemodel
+caffemodel file already exists
+
+making check
+mvNCCheck -w bvlc_googlenet.caffemodel -i ../../data/images/nps_electric_guitar.png -s 12 -id 546  deploy.prototxt -S 255 -M 110 -metric top1
+mvNCCheck v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, 'constant', will be changed to 'reflect' in s          kimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+Layer  inception_3b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_3b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/pool_proj  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+
+Result: Validation Pass
+
+Result:  (1000,)
+1) 546 0.99609
+Expected:  (1000,)
+1) 546 0.99609
+------------------------------------------------------------
+ Obtained values
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 0.0032552085031056777% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 7.264380030846951e-06% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 0.00011369892179413199% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 7.236003875732422e-05
+------------------------------------------------------------
+
+making compile
+mvNCCompile -w bvlc_googlenet.caffemodel -s 12 deploy.prototxt
+mvNCCompile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/skimage/__init__.py:60: DeprecationWarning: the imp module is deprecated in favour of importlib; see the mod          ule's documentation for alternative uses
+  import imp
+Layer  inception_3b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_3b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4b/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4c/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4d/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_4e/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5a/pool_proj  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/1x1  forced to im2col_v2, because its output is used in concat
+Layer  inception_5b/pool_proj  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+
+making cpp
+g++ cpp/run.cpp cpp/fp16.c -o cpp/run_cpp -lmvnc
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe/GoogLeNet'
+make[2]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/caffe'
+make -C tensorflow/.
+make[2]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow'
+make -C inception_v3/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow/inception_v3'
+test -f output/inception-v3.meta || ((wget http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz && tar zxf inception_v3_2016_08_28.          tar.gz && rm inception_v3_2016_08_28.tar.gz) && ./inception-v3.py)
+--2018-04-17 20:14:35--  http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz
+Resolving download.tensorflow.org (download.tensorflow.org)... 216.58.196.240, 2404:6800:400a:806::2010
+Connecting to download.tensorflow.org (download.tensorflow.org)|216.58.196.240|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 100885009 (96M) [application/x-tar]
+Saving to: ‘inception_v3_2016_08_28.tar.gz’
+
+inception_v3_2016_08_28.tar.gz       100%[=====================================================================>]  96.21M  1.04MB/s    in 80s
+
+2018-04-17 20:15:55 (1.21 MB/s) - ‘inception_v3_2016_08_28.tar.gz’ saved [100885009/100885009]
+
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+2018-04-17 20:16:12.345556: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not           compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+mvNCProfile -s 12 output/inception-v3.meta -in=input -on=InceptionV3/Predictions/Reshape_1
+mvNCProfile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/pywrap_tensorflow_internal.py:15: DeprecationWarning: the imp module is deprecated in favo          ur of importlib; see the module's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/ops.py:766: DeprecationWarning: builtin type EagerTensor has no __module__ attri          bute
+  EagerTensor = c_api.TFE_Py_InitEagerTensor(_EagerTensorBase)
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/util/tf_inspect.py:45: DeprecationWarning: inspect.getargspec() is deprecated, use inspect          .signature() or inspect.getfullargspec()
+  if d.decorator_argspec is not None), _inspect.getargspec(target))
+Layer  InceptionV3/InceptionV3/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6a/Branch_0/Conv2d_1a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6e/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6e/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0c_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0d_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0b_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0c_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0c_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0d_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+Time to Execute :  390.66  ms
+USB: Myriad Execution Finished
+Time to Execute :  343.22  ms
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+Network Summary
+
+Detailed Per Layer Profile
+                                                                                                                                  Bandwidth   time
+#     Name                                                                                                                  MFLOPs  (MB/s)    (ms)
+==================================================================================================================================================
+0     InceptionV3/InceptionV3/Conv2d_1a_3x3/Relu                                                                              38.4  1093.2   4.214
+1     InceptionV3/InceptionV3/Conv2d_2a_3x3/Relu                                                                             398.3   983.4  12.419
+2     InceptionV3/InceptionV3/Conv2d_2b_3x3/Relu                                                                             796.6   665.6  17.888
+3     InceptionV3/InceptionV3/MaxPool_3a_3x3/MaxPool                                                                           3.1  1435.8   1.837
+4     InceptionV3/InceptionV3/Conv2d_3b_1x1/Relu                                                                              54.6   447.0   1.478
+5     InceptionV3/InceptionV3/Conv2d_4a_3x3/Relu                                                                            1393.7   245.9  30.845
+6     InceptionV3/InceptionV3/MaxPool_5a_3x3/MaxPool                                                                           2.1  1271.2   1.453
+7     InceptionV3/InceptionV3/Mixed_5b/Branch_0/Conv2d_0a_1x1/Relu                                                            30.1   644.4   0.733
+8     InceptionV3/InceptionV3/Mixed_5b/Branch_1/Conv2d_0a_1x1/Relu                                                            22.6   757.3   0.616
+9     InceptionV3/InceptionV3/Mixed_5b/Branch_1/Conv2d_0b_5x5/Relu                                                           188.2   643.5   4.590
+10    InceptionV3/InceptionV3/Mixed_5b/Branch_2/Conv2d_0a_1x1/Relu                                                            30.1   654.3   0.722
+11    InceptionV3/InceptionV3/Mixed_5b/Branch_2/Conv2d_0b_3x3/Relu                                                           135.5   488.9   2.972
+12    InceptionV3/InceptionV3/Mixed_5b/Branch_2/Conv2d_0c_3x3/Relu                                                           203.2   515.2   4.228
+13    InceptionV3/InceptionV3/Mixed_5b/Branch_3/AvgPool_0a_3x3/AvgPool                                                         4.2   530.4   0.847
+14    InceptionV3/InceptionV3/Mixed_5b/Branch_3/Conv2d_0b_1x1/Relu                                                            15.1   902.1   0.510
+15    InceptionV3/InceptionV3/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu                                                            40.1   697.9   0.902
+16    InceptionV3/InceptionV3/Mixed_5c/Branch_1/Conv2d_0b_1x1/Relu                                                            30.1   877.9   0.708
+17    InceptionV3/InceptionV3/Mixed_5c/Branch_1/Conv_1_0c_5x5/Relu                                                           188.2   639.1   4.621
+18    InceptionV3/InceptionV3/Mixed_5c/Branch_2/Conv2d_0a_1x1/Relu                                                            40.1   693.7   0.908
+19    InceptionV3/InceptionV3/Mixed_5c/Branch_2/Conv2d_0b_3x3/Relu                                                           135.5   489.6   2.968
+20    InceptionV3/InceptionV3/Mixed_5c/Branch_2/Conv2d_0c_3x3/Relu                                                           203.2   514.3   4.236
+21    InceptionV3/InceptionV3/Mixed_5c/Branch_3/AvgPool_0a_3x3/AvgPool                                                         5.6   562.1   1.065
+22    InceptionV3/InceptionV3/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu                                                            40.1   684.2   0.920
+23    InceptionV3/InceptionV3/Mixed_5d/Branch_0/Conv2d_0a_1x1/Relu                                                            45.2   725.5   0.976
+24    InceptionV3/InceptionV3/Mixed_5d/Branch_1/Conv2d_0a_1x1/Relu                                                            33.9   913.2   0.766
+25    InceptionV3/InceptionV3/Mixed_5d/Branch_1/Conv2d_0b_5x5/Relu                                                           188.2   641.5   4.604
+26    InceptionV3/InceptionV3/Mixed_5d/Branch_2/Conv2d_0a_1x1/Relu                                                            45.2   730.6   0.969
+27    InceptionV3/InceptionV3/Mixed_5d/Branch_2/Conv2d_0b_3x3/Relu                                                           135.5   489.8   2.966
+28    InceptionV3/InceptionV3/Mixed_5d/Branch_2/Conv2d_0c_3x3/Relu                                                           203.2   514.4   4.235
+29    InceptionV3/InceptionV3/Mixed_5d/Branch_3/AvgPool_0a_3x3/AvgPool                                                         6.4   552.3   1.219
+30    InceptionV3/InceptionV3/Mixed_5d/Branch_3/Conv2d_0b_1x1/Relu                                                            45.2   676.5   1.047
+31    InceptionV3/InceptionV3/Mixed_6a/Branch_0/Conv2d_1a_1x1/Relu                                                           575.3   669.3  11.895
+32    InceptionV3/InceptionV3/Mixed_6a/Branch_1/Conv2d_0a_1x1/Relu                                                            45.2   729.1   0.971
+33    InceptionV3/InceptionV3/Mixed_6a/Branch_1/Conv2d_0b_3x3/Relu                                                           135.5   488.1   2.977
+34    InceptionV3/InceptionV3/Mixed_6a/Branch_1/Conv2d_1a_1x1/Relu                                                            47.9  1386.1   1.572
+35    InceptionV3/InceptionV3/Mixed_6a/Branch_2/MaxPool_1a_3x3/MaxPool                                                         0.7  1383.0   0.487
+36    InceptionV3/InceptionV3/Mixed_6b/Branch_0/Conv2d_0a_1x1/Relu                                                            85.2   326.4   2.160
+37    InceptionV3/InceptionV3/Mixed_6b/Branch_1/Conv2d_0a_1x1/Relu                                                            56.8   467.2   1.308
+38    InceptionV3/InceptionV3/Mixed_6b/Branch_1/Conv2d_0b_1x7/Relu                                                            66.3   320.4   2.230
+39    InceptionV3/InceptionV3/Mixed_6b/Branch_1/Conv2d_0c_7x1/Relu                                                            99.4   321.9   2.561
+40    InceptionV3/InceptionV3/Mixed_6b/Branch_2/Conv2d_0a_1x1/Relu                                                            56.8   465.4   1.313
+41    InceptionV3/InceptionV3/Mixed_6b/Branch_2/Conv2d_0b_7x1/Relu                                                            66.3   316.0   2.260
+42    InceptionV3/InceptionV3/Mixed_6b/Branch_2/Conv2d_0c_1x7/Relu                                                            66.3   323.0   2.211
+43    InceptionV3/InceptionV3/Mixed_6b/Branch_2/Conv2d_0d_7x1/Relu                                                            66.3   315.5   2.264
+44    InceptionV3/InceptionV3/Mixed_6b/Branch_2/Conv2d_0e_1x7/Relu                                                            99.4   308.2   2.676
+45    InceptionV3/InceptionV3/Mixed_6b/Branch_3/AvgPool_0a_3x3/AvgPool                                                         4.0   417.4   1.018
+46    InceptionV3/InceptionV3/Mixed_6b/Branch_3/Conv2d_0b_1x1/Relu                                                            85.2   325.3   2.167
+47    InceptionV3/InceptionV3/Mixed_6c/Branch_0/Conv2d_0a_1x1/Relu                                                            85.2   326.4   2.160
+48    InceptionV3/InceptionV3/Mixed_6c/Branch_1/Conv2d_0a_1x1/Relu                                                            71.0   291.5   2.258
+49    InceptionV3/InceptionV3/Mixed_6c/Branch_1/Conv2d_0b_1x7/Relu                                                           103.6   234.1   4.106
+50    InceptionV3/InceptionV3/Mixed_6c/Branch_1/Conv2d_0c_7x1/Relu                                                           124.3   265.9   3.875
+51    InceptionV3/InceptionV3/Mixed_6c/Branch_2/Conv2d_0a_1x1/Relu                                                            71.0   270.6   2.432
+52    InceptionV3/InceptionV3/Mixed_6c/Branch_2/Conv2d_0b_7x1/Relu                                                           103.6   230.8   4.164
+53    InceptionV3/InceptionV3/Mixed_6c/Branch_2/Conv2d_0c_1x7/Relu                                                           103.6   228.8   4.202
+54    InceptionV3/InceptionV3/Mixed_6c/Branch_2/Conv2d_0d_7x1/Relu                                                           103.6   233.5   4.117
+55    InceptionV3/InceptionV3/Mixed_6c/Branch_2/Conv2d_0e_1x7/Relu                                                           124.3   268.5   3.837
+56    InceptionV3/InceptionV3/Mixed_6c/Branch_3/AvgPool_0a_3x3/AvgPool                                                         4.0   419.0   1.014
+57    InceptionV3/InceptionV3/Mixed_6c/Branch_3/Conv2d_0b_1x1/Relu                                                            85.2   320.2   2.202
+58    InceptionV3/InceptionV3/Mixed_6d/Branch_0/Conv2d_0a_1x1/Relu                                                            85.2   326.7   2.158
+59    InceptionV3/InceptionV3/Mixed_6d/Branch_1/Conv2d_0a_1x1/Relu                                                            71.0   292.4   2.250
+60    InceptionV3/InceptionV3/Mixed_6d/Branch_1/Conv2d_0b_1x7/Relu                                                           103.6   236.7   4.062
+61    InceptionV3/InceptionV3/Mixed_6d/Branch_1/Conv2d_0c_7x1/Relu                                                           124.3   268.0   3.843
+62    InceptionV3/InceptionV3/Mixed_6d/Branch_2/Conv2d_0a_1x1/Relu                                                            71.0   284.3   2.315
+63    InceptionV3/InceptionV3/Mixed_6d/Branch_2/Conv2d_0b_7x1/Relu                                                           103.6   232.8   4.129
+64    InceptionV3/InceptionV3/Mixed_6d/Branch_2/Conv2d_0c_1x7/Relu                                                           103.6   232.2   4.140
+65    InceptionV3/InceptionV3/Mixed_6d/Branch_2/Conv2d_0d_7x1/Relu                                                           103.6   235.0   4.091
+66    InceptionV3/InceptionV3/Mixed_6d/Branch_2/Conv2d_0e_1x7/Relu                                                           124.3   263.2   3.914
+67    InceptionV3/InceptionV3/Mixed_6d/Branch_3/AvgPool_0a_3x3/AvgPool                                                         4.0   417.2   1.018
+68    InceptionV3/InceptionV3/Mixed_6d/Branch_3/Conv2d_0b_1x1/Relu                                                            85.2   323.0   2.182
+69    InceptionV3/InceptionV3/Mixed_6e/Branch_0/Conv2d_0a_1x1/Relu                                                            85.2   315.5   2.235
+70    InceptionV3/InceptionV3/Mixed_6e/Branch_1/Conv2d_0a_1x1/Relu                                                            85.2   319.9   2.203
+71    InceptionV3/InceptionV3/Mixed_6e/Branch_1/Conv2d_0b_1x7/Relu                                                           149.2   316.9   3.899
+72    InceptionV3/InceptionV3/Mixed_6e/Branch_1/Conv2d_0c_7x1/Relu                                                           149.2   317.5   3.892
+73    InceptionV3/InceptionV3/Mixed_6e/Branch_2/Conv2d_0a_1x1/Relu                                                            85.2   338.5   2.083
+74    InceptionV3/InceptionV3/Mixed_6e/Branch_2/Conv2d_0b_7x1/Relu                                                           149.2   324.4   3.808
+75    InceptionV3/InceptionV3/Mixed_6e/Branch_2/Conv2d_0c_1x7/Relu                                                           149.2   317.9   3.887
+76    InceptionV3/InceptionV3/Mixed_6e/Branch_2/Conv2d_0d_7x1/Relu                                                           149.2   326.1   3.789
+77    InceptionV3/InceptionV3/Mixed_6e/Branch_2/Conv2d_0e_1x7/Relu                                                           149.2   304.5   4.057
+78    InceptionV3/InceptionV3/Mixed_6e/Branch_3/AvgPool_0a_3x3/AvgPool                                                         4.0   419.0   1.014
+79    InceptionV3/InceptionV3/Mixed_6e/Branch_3/Conv2d_0b_1x1/Relu                                                            85.2   327.3   2.154
+80    InceptionV3/InceptionV3/Mixed_7a/Branch_0/Conv2d_0a_1x1/Relu                                                            85.2   331.9   2.124
+81    InceptionV3/InceptionV3/Mixed_7a/Branch_0/Conv2d_1a_3x3/Relu                                                            70.8   918.7   2.191
+82    InceptionV3/InceptionV3/Mixed_7a/Branch_1/Conv2d_0a_1x1/Relu                                                            85.2   327.1   2.155
+83    InceptionV3/InceptionV3/Mixed_7a/Branch_1/Conv2d_0b_1x7/Relu                                                           149.2   318.5   3.880
+84    InceptionV3/InceptionV3/Mixed_7a/Branch_1/Conv2d_0c_7x1/Relu                                                           149.2   324.8   3.804
+85    InceptionV3/InceptionV3/Mixed_7a/Branch_1/Conv2d_1a_3x3/Relu                                                            42.5  1033.2   1.538
+86    InceptionV3/InceptionV3/Mixed_7a/Branch_2/MaxPool_1a_3x3/MaxPool                                                         0.4  1247.3   0.341
+87    InceptionV3/InceptionV3/Mixed_7b/Branch_0/Conv2d_0a_1x1/Relu                                                            52.4   521.7   1.798
+88    InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0a_1x1/Relu                                                            62.9   570.6   1.918
+89    InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_1x3/Relu                                                            56.6   552.0   1.787
+90    InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_3x1/Relu                                                            56.6   568.8   1.734
+91    InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0a_1x1/Relu                                                            73.4   632.0   1.979
+92    InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0b_3x3/Relu                                                           198.2   726.2   4.753
+93    InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0c_1x3/Relu                                                            56.6   565.6   1.744
+94    InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0d_3x1/Relu                                                            56.6   552.0   1.787
+95    InceptionV3/InceptionV3/Mixed_7b/Branch_3/AvgPool_0a_3x3/AvgPool                                                         1.5   269.4   0.589
+96    InceptionV3/InceptionV3/Mixed_7b/Branch_3/Conv2d_0b_1x1/Relu                                                            31.5   474.6   1.318
+97    InceptionV3/InceptionV3/Mixed_7c/Branch_0/Conv2d_0a_1x1/Relu                                                            83.9   532.7   2.817
+98    InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0a_1x1/Relu                                                           100.7   743.1   2.356
+99    InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0b_1x3/Relu                                                            56.6   574.7   1.717
+100   InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0c_3x1/Relu                                                            56.6   570.2   1.730
+101   InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0a_1x1/Relu                                                           117.4   580.8   3.445
+102   InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0b_3x3/Relu                                                           198.2   731.4   4.719
+103   InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0c_1x3/Relu                                                            56.6   555.8   1.775
+104   InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0d_3x1/Relu                                                            56.6   565.7   1.744
+105   InceptionV3/InceptionV3/Mixed_7c/Branch_3/AvgPool_0a_3x3/AvgPool                                                         2.4   269.4   0.943
+106   InceptionV3/InceptionV3/Mixed_7c/Branch_3/Conv2d_0b_1x1/Relu                                                            50.3   664.2   1.506
+107   InceptionV3/AuxLogits/AvgPool_1a_5x5/AvgPool                                                                             1.0   740.7   0.574
+108   InceptionV3/AuxLogits/Conv2d_1b_1x1/Relu                                                                                 4.9   538.8   0.416
+109   InceptionV3/AuxLogits/Conv2d_2a_5x5/Relu                                                                                 4.9  1101.5   4.427
+110   InceptionV3/AuxLogits/Conv2d_2b_1x1/BiasAdd                                                                              1.5  1985.5   0.740
+111   InceptionV3/Logits/AvgPool_1a_8x8/AvgPool                                                                                0.3  1059.1   0.240
+112   InceptionV3/Logits/Conv2d_1c_1x1/BiasAdd                                                                                 4.1  2076.4   1.886
+113   InceptionV3/Predictions/Softmax                                                                                          0.0    19.0   0.201
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                      Total inference time                  326.70
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Generating Profile Report 'output_report.html'...
+mvNCCheck -s 12 output/inception-v3.meta -in=input -on=InceptionV3/Predictions/Reshape_1 -i ../../data/images/cat.jpg -id 917 -M 128 -S 2 -cs 0,1,2           -metric top1
+mvNCCheck v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/pywrap_tensorflow_internal.py:15: DeprecationWarning: the imp module is deprecated in favo          ur of importlib; see the module's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/ops.py:766: DeprecationWarning: builtin type EagerTensor has no __module__ attri          bute
+  EagerTensor = c_api.TFE_Py_InitEagerTensor(_EagerTensorBase)
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/util/tf_inspect.py:45: DeprecationWarning: inspect.getargspec() is deprecated, use inspect          .signature() or inspect.getfullargspec()
+  if d.decorator_argspec is not None), _inspect.getargspec(target))
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, 'constant', will be changed to 'reflect' in s          kimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+Layer  InceptionV3/InceptionV3/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_5d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6a/Branch_0/Conv2d_1a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6e/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_6e/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_1/Conv2d_0b_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0c_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_2/Conv2d_0d_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0b_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_1/Conv2d_0c_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0c_1x3/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_2/Conv2d_0d_3x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV3/InceptionV3/Mixed_7c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+
+Result: Validation Pass
+
+Result:  (1, 1, 1001)
+1) 917 1.0
+Expected:  (1, 1, 1, 1001)
+1) 917 1.0
+------------------------------------------------------------
+ Obtained values
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 0.0% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 0.0% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 0.0% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 0.0
+------------------------------------------------------------
+test -f graph || mvNCCompile -s 12 output/inception-v3.meta -in=input -on=InceptionV3/Predictions/Reshape_1
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow/inception_v3'
+make -C inception_v1/.
+make[3]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow/inception_v1'
+test -f output/inception-v1.meta || ((wget http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz && tar zxf inception_v1_2016_08_28.          tar.gz && rm inception_v1_2016_08_28.tar.gz) && ./inception-v1.py)
+--2018-04-17 20:17:13--  http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
+Resolving download.tensorflow.org (download.tensorflow.org)... 216.58.196.240, 2404:6800:400a:806::2010
+Connecting to download.tensorflow.org (download.tensorflow.org)|216.58.196.240|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 24642554 (24M) [application/x-tar]
+Saving to: ‘inception_v1_2016_08_28.tar.gz’
+
+inception_v1_2016_08_28.tar.gz       100%[=====================================================================>]  23.50M   270KB/s    in 84s
+
+2018-04-17 20:18:38 (287 KB/s) - ‘inception_v1_2016_08_28.tar.gz’ saved [24642554/24642554]
+
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+2018-04-17 20:18:41.299512: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not           compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+mvNCProfile -s 12 output/inception-v1.meta -in=input -on=InceptionV1/Logits/Predictions/Reshape_1
+mvNCProfile v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/pywrap_tensorflow_internal.py:15: DeprecationWarning: the imp module is deprecated in favo          ur of importlib; see the module's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/ops.py:766: DeprecationWarning: builtin type EagerTensor has no __module__ attri          bute
+  EagerTensor = c_api.TFE_Py_InitEagerTensor(_EagerTensorBase)
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/util/tf_inspect.py:45: DeprecationWarning: inspect.getargspec() is deprecated, use inspect          .signature() or inspect.getfullargspec()
+  if d.decorator_argspec is not None), _inspect.getargspec(target))
+Layer  InceptionV1/InceptionV1/Mixed_3c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_3c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4e/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4e/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4f/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4f/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+Time to Execute :  122.28  ms
+USB: Myriad Execution Finished
+Time to Execute :  102.04  ms
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+Network Summary
+
+Detailed Per Layer Profile
+                                                                                                                                  Bandwidth   time
+#    Name                                                                                                                   MFLOPs  (MB/s)    (ms)
+==================================================================================================================================================
+0    InceptionV1/InceptionV1/Conv2d_1a_7x7/Relu                                                                              236.0  1907.9   7.386
+1    InceptionV1/InceptionV1/MaxPool_2a_3x3/MaxPool                                                                            1.8  1338.1   1.144
+2    InceptionV1/InceptionV1/Conv2d_2b_1x1/Relu                                                                               25.7   481.7   0.811
+3    InceptionV1/InceptionV1/Conv2d_2c_3x3/Relu                                                                              693.6   306.1  11.954
+4    InceptionV1/InceptionV1/MaxPool_3a_3x3/MaxPool                                                                            1.4  1391.2   0.826
+5    InceptionV1/InceptionV1/Mixed_3b/Branch_0/Conv2d_0a_1x1/Relu                                                             19.3   522.4   0.595
+6    InceptionV1/InceptionV1/Mixed_3b/Branch_1/Conv2d_0a_1x1/Relu                                                             28.9   450.8   0.715
+7    InceptionV1/InceptionV1/Mixed_3b/Branch_1/Conv2d_0b_3x3/Relu                                                            173.4   311.2   4.837
+8    InceptionV1/InceptionV1/Mixed_3b/Branch_2/Conv2d_0a_1x1/Relu                                                              4.8   970.8   0.302
+9    InceptionV1/InceptionV1/Mixed_3b/Branch_2/Conv2d_0b_3x3/Relu                                                              7.2   413.1   0.544
+10   InceptionV1/InceptionV1/Mixed_3b/Branch_3/MaxPool_0a_3x3/MaxPool                                                          1.4   631.2   0.455
+11   InceptionV1/InceptionV1/Mixed_3b/Branch_3/Conv2d_0b_1x1/Relu                                                              9.6   622.3   0.480
+12   InceptionV1/InceptionV1/Mixed_3c/Branch_0/Conv2d_0a_1x1/Relu                                                             51.4   443.3   1.005
+13   InceptionV1/InceptionV1/Mixed_3c/Branch_1/Conv2d_0a_1x1/Relu                                                             51.4   444.4   1.003
+14   InceptionV1/InceptionV1/Mixed_3c/Branch_1/Conv2d_0b_3x3/Relu                                                            346.8   264.8   8.111
+15   InceptionV1/InceptionV1/Mixed_3c/Branch_2/Conv2d_0a_1x1/Relu                                                             12.8   833.0   0.478
+16   InceptionV1/InceptionV1/Mixed_3c/Branch_2/Conv2d_0b_3x3/Relu                                                             43.4   406.1   1.194
+17   InceptionV1/InceptionV1/Mixed_3c/Branch_3/MaxPool_0a_3x3/MaxPool                                                          1.8   665.1   0.576
+18   InceptionV1/InceptionV1/Mixed_3c/Branch_3/Conv2d_0b_1x1/Relu                                                             25.7   619.1   0.669
+19   InceptionV1/InceptionV1/MaxPool_4a_3x3/MaxPool                                                                            0.8  1221.2   0.589
+20   InceptionV1/InceptionV1/Mixed_4b/Branch_0/Conv2d_0a_1x1/Relu                                                             36.1   400.5   0.888
+21   InceptionV1/InceptionV1/Mixed_4b/Branch_1/Conv2d_0a_1x1/Relu                                                             18.1   487.2   0.549
+22   InceptionV1/InceptionV1/Mixed_4b/Branch_1/Conv2d_0b_3x3/Relu                                                             70.4   286.3   2.338
+23   InceptionV1/InceptionV1/Mixed_4b/Branch_2/Conv2d_0a_1x1/Relu                                                              3.0   651.6   0.298
+24   InceptionV1/InceptionV1/Mixed_4b/Branch_2/Conv2d_0b_3x3/Relu                                                              2.7   195.1   0.348
+25   InceptionV1/InceptionV1/Mixed_4b/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.8   614.9   0.293
+26   InceptionV1/InceptionV1/Mixed_4b/Branch_3/Conv2d_0b_1x1/Relu                                                             12.0   551.1   0.432
+27   InceptionV1/InceptionV1/Mixed_4c/Branch_0/Conv2d_0a_1x1/Relu                                                             32.1   309.0   1.126
+28   InceptionV1/InceptionV1/Mixed_4c/Branch_1/Conv2d_0a_1x1/Relu                                                             22.5   364.7   0.825
+29   InceptionV1/InceptionV1/Mixed_4c/Branch_1/Conv2d_0b_3x3/Relu                                                             88.5   284.5   2.852
+30   InceptionV1/InceptionV1/Mixed_4c/Branch_2/Conv2d_0a_1x1/Relu                                                              4.8   514.4   0.418
+31   InceptionV1/InceptionV1/Mixed_4c/Branch_2/Conv2d_0b_3x3/Relu                                                              5.4   238.2   0.454
+32   InceptionV1/InceptionV1/Mixed_4c/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.9   627.1   0.307
+33   InceptionV1/InceptionV1/Mixed_4c/Branch_3/Conv2d_0b_1x1/Relu                                                             12.8   556.2   0.457
+34   InceptionV1/InceptionV1/Mixed_4d/Branch_0/Conv2d_0a_1x1/Relu                                                             25.7   392.6   0.807
+35   InceptionV1/InceptionV1/Mixed_4d/Branch_1/Conv2d_0a_1x1/Relu                                                             25.7   393.2   0.805
+36   InceptionV1/InceptionV1/Mixed_4d/Branch_1/Conv2d_0b_3x3/Relu                                                            115.6   265.8   3.753
+37   InceptionV1/InceptionV1/Mixed_4d/Branch_2/Conv2d_0a_1x1/Relu                                                              4.8   511.4   0.420
+38   InceptionV1/InceptionV1/Mixed_4d/Branch_2/Conv2d_0b_3x3/Relu                                                              5.4   237.7   0.455
+39   InceptionV1/InceptionV1/Mixed_4d/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.9   635.3   0.303
+40   InceptionV1/InceptionV1/Mixed_4d/Branch_3/Conv2d_0b_1x1/Relu                                                             12.8   562.8   0.451
+41   InceptionV1/InceptionV1/Mixed_4e/Branch_0/Conv2d_0a_1x1/Relu                                                             22.5   374.7   0.803
+42   InceptionV1/InceptionV1/Mixed_4e/Branch_1/Conv2d_0a_1x1/Relu                                                             28.9   481.1   0.691
+43   InceptionV1/InceptionV1/Mixed_4e/Branch_1/Conv2d_0b_3x3/Relu                                                            146.3   395.4   3.038
+44   InceptionV1/InceptionV1/Mixed_4e/Branch_2/Conv2d_0a_1x1/Relu                                                              6.4   675.3   0.330
+45   InceptionV1/InceptionV1/Mixed_4e/Branch_2/Conv2d_0b_3x3/Relu                                                              7.2   340.8   0.422
+46   InceptionV1/InceptionV1/Mixed_4e/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.9   621.8   0.309
+47   InceptionV1/InceptionV1/Mixed_4e/Branch_3/Conv2d_0b_1x1/Relu                                                             12.8   554.7   0.458
+48   InceptionV1/InceptionV1/Mixed_4f/Branch_0/Conv2d_0a_1x1/Relu                                                             53.0   298.7   1.526
+49   InceptionV1/InceptionV1/Mixed_4f/Branch_1/Conv2d_0a_1x1/Relu                                                             33.1   279.1   1.286
+50   InceptionV1/InceptionV1/Mixed_4f/Branch_1/Conv2d_0b_3x3/Relu                                                            180.6   274.7   5.180
+51   InceptionV1/InceptionV1/Mixed_4f/Branch_2/Conv2d_0a_1x1/Relu                                                              6.6   443.1   0.518
+52   InceptionV1/InceptionV1/Mixed_4f/Branch_2/Conv2d_0b_3x3/Relu                                                             14.5   339.6   0.531
+53   InceptionV1/InceptionV1/Mixed_4f/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.9   607.4   0.327
+54   InceptionV1/InceptionV1/Mixed_4f/Branch_3/Conv2d_0b_1x1/Relu                                                             26.5   406.7   0.803
+55   InceptionV1/InceptionV1/MaxPool_5a_2x2/MaxPool                                                                            0.2   918.8   0.340
+56   InceptionV1/InceptionV1/Mixed_5b/Branch_0/Conv2d_0a_1x1/Relu                                                             20.9   591.6   0.819
+57   InceptionV1/InceptionV1/Mixed_5b/Branch_1/Conv2d_0a_1x1/Relu                                                             13.0   553.9   0.599
+58   InceptionV1/InceptionV1/Mixed_5b/Branch_1/Conv2d_0b_3x3/Relu                                                             45.2   549.5   1.854
+59   InceptionV1/InceptionV1/Mixed_5b/Branch_2/Conv2d_0a_1x1/Relu                                                              2.6   276.4   0.465
+60   InceptionV1/InceptionV1/Mixed_5b/Branch_2/Conv2d_0a_3x3/Relu                                                              3.6   251.6   0.395
+61   InceptionV1/InceptionV1/Mixed_5b/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.4   436.2   0.182
+62   InceptionV1/InceptionV1/Mixed_5b/Branch_3/Conv2d_0b_1x1/Relu                                                             10.4   496.4   0.566
+63   InceptionV1/InceptionV1/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu                                                             31.3   573.8   1.199
+64   InceptionV1/InceptionV1/Mixed_5c/Branch_1/Conv2d_0a_1x1/Relu                                                             15.7   608.0   0.630
+65   InceptionV1/InceptionV1/Mixed_5c/Branch_1/Conv2d_0b_3x3/Relu                                                             65.0   571.9   2.507
+66   InceptionV1/InceptionV1/Mixed_5c/Branch_2/Conv2d_0a_1x1/Relu                                                              3.9   324.4   0.475
+67   InceptionV1/InceptionV1/Mixed_5c/Branch_2/Conv2d_0b_3x3/Relu                                                              5.4   372.4   0.398
+68   InceptionV1/InceptionV1/Mixed_5c/Branch_3/MaxPool_0a_3x3/MaxPool                                                          0.4   501.1   0.158
+69   InceptionV1/InceptionV1/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu                                                             10.4   489.1   0.575
+70   InceptionV1/Logits/MaxPool_0a_7x7/AvgPool                                                                                 0.1   456.4   0.214
+71   InceptionV1/Logits/Conv2d_0c_1x1/BiasAdd                                                                                  2.1  1971.4   0.994
+72   InceptionV1/Logits/Predictions/Softmax                                                                                    0.0    18.8   0.203
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                      Total inference time                   91.05
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Generating Profile Report 'output_report.html'...
+mvNCCheck -s 12 output/inception-v1.meta -in=input -on=InceptionV1/Logits/Predictions/Reshape_1 -i ../../data/images/cat.jpg -id 829 -S 2 -M 128 -c          s 0,1,2 -metric top1
+mvNCCheck v02.00, Copyright @ Movidius Ltd 2016
+
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/pywrap_tensorflow_internal.py:15: DeprecationWarning: the imp module is deprecated in favo          ur of importlib; see the module's documentation for alternative uses
+  import imp
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/ops.py:766: DeprecationWarning: builtin type EagerTensor has no __module__ attri          bute
+  EagerTensor = c_api.TFE_Py_InitEagerTensor(_EagerTensorBase)
+/usr/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: compiletime version 3.5 of module 'tensorflow.python.framework.fast_tensor_util' do          es not match runtime version 3.6
+  return f(*args, **kwds)
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/util/tf_inspect.py:45: DeprecationWarning: inspect.getargspec() is deprecated, use inspect          .signature() or inspect.getfullargspec()
+  if d.decorator_argspec is not None), _inspect.getargspec(target))
+/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, 'constant', will be changed to 'reflect' in s          kimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+Layer  InceptionV1/InceptionV1/Mixed_3c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_3c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4d/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4d/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4e/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4e/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4f/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_4f/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5b/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5b/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5c/Branch_0/Conv2d_0a_1x1/Relu  forced to im2col_v2, because its output is used in concat
+Layer  InceptionV1/InceptionV1/Mixed_5c/Branch_3/Conv2d_0b_1x1/Relu  forced to im2col_v2, because its output is used in concat
+/usr/local/bin/ncsdk/Controllers/FileIO.py:52: UserWarning: You are using a large type. Consider reducing your data sizes for best performance
+  "Consider reducing your data sizes for best performance\033[0m")
+USB: Transferring Data...
+USB: Myriad Execution Finished
+USB: Myriad Connection Closing.
+USB: Myriad Connection Closed.
+
+Result: Validation Pass
+
+Result:  (1, 1, 1001)
+1) 829 1.0
+Expected:  (1, 1, 1, 1001)
+1) 829 0.999999
+------------------------------------------------------------
+ Obtained values
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 7.152562488954572e-05% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 1.4047987217935543e-07% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 2.898541877932491e-06% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 1.4062025002203882e-06
+------------------------------------------------------------
+test -f graph || mvNCCompile -s 12 output/inception-v1.meta -in=input -on=InceptionV1/Logits/Predictions/Reshape_1
+make[3]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow/inception_v1'
+make[2]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/tensorflow'
+make -C data/.
+make[2]: Entering directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data'
+Possible Make targets
+  make help - shows this message
+  make clean - Removes all temp files from all directories
+make[2]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples/data'
+make[1]: Leaving directory '/home/oedev/ML_NeuralNetwork/MovidiusNCS/ncsdk/examples'
