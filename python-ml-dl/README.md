@@ -24,6 +24,7 @@ Python, Machine Learning, Deep Learning and other stuffs
 
 ### 4. Linh tinh
 - [Tải file bằng nhiều thread](./utils/MultiThreading_Downloader.py)
+- [Img](./img)
 
 ### 5. Học framework, python
 #### 5.1 Tensorflow
