@@ -1,0 +1,91 @@
+---
+layout: post
+title: Khóa học online đầu tiên về Machine Learning (note 3) - Khó ~~
+date: 2018-05-24 00:30:01.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Machine Learning
+tags:
+- CourserA
+meta:
+  _wpcom_is_markdown: '1'
+  _wp_desired_post_slug: ''
+  timeline_notification: '1527145699'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '18197498103'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2018/05/24/__trashed/"
+---
+<p>Tiếp theo <a href="https://lazytrick.wordpress.com/2018/05/23/khoa-hoc-online-dau-tien-ve-machine-learning-note-2-kho/">bài trước</a> trong loạt note về Khóa học online về Machine Learning đầu tiên.</p>
+<h2>Tuần 6 : Lời khuyên khi ứng áp dụng Machine Learning.</h2>
+<p>Kiến thúc trong phần này không phải nói về thuật toán, mà là kĩ năng, rồi những thứ cần chú ý khi áp dụng Machine Learning. Và tất nhiên của khi áp dụng Deep Learning nữa.</p>
+<p><!--more--></p>
+<p>Khi áp dụng Machine Learning để giải quyết vấn đề, thì một 2 việc được lặp đi lắm lại là :<br />
+<strong>Chạy</strong> -&gt; <strong>Đánh giá</strong> -&gt; <strong>Thử cải tiến</strong> -&gt; <strong>Chạy tiếp</strong> -&gt; <strong>Đánh giá</strong> ...<br />
+Đầu tiên là đánh giá, từ đánh giá đó ta sẽ xác định nên làm gì tiếp theo để cải tiến.<br />
+Một số hành động thường được làm:<br />
+- Lấy thêm dữ liệu<br />
+- Thử với tập đặc trưng nhỏ hơn<br />
+- Tìm thêm đặc trưng<br />
+- Thử thêm đặc trưng đa thức<br />
+- Tăng hoặc giảm learning rate (tốc độ học)<br />
+Một số hành động ở trên có thể không tốn quá nhiều công sức, nhưng đánh giá hệ thống hiện tại để đưa ra hành động hợp lý giúp nâng cao hiệu quả sẽ là tốt nhất.</p>
+<p>Bước đánh giá, 2 thống số được xem xét để đánh giá chính là : giá trị lỗi khi thực hiện đoán các dữ liệu trong tập <strong>Train</strong> và <strong>Tập set</strong>.<br />
+Đầu tiên, xem xét các điểm bị lỗi trong tập <strong>Test</strong>, phân tích nó để biết tại sao lại lỗi.</p>
+<p>Về cơ bản, một model dự đoán (fit) tốt với tập traing, thì không có nghĩa là nó là một model tốt. Số lỗi mà thấy được trên tập traing thường ít hơn trên các tập khác.</p>
+<p>Giả sử ta cần chọn nào là tốt nhất cho vấn đề của chúng ta.</p>
+<ul>
+<li>Với trường hợp không sử dụng tập Validation: chỉ có tập dữ liệu để train và để test (được khuyên là không nên sử dụng)</li>
+</ul>
+<ol>
+<li>Tối ưu hệ số trong model bằng tập training cho mỗi bậc.</li>
+<li>Tìm bậc cho lỗi nhỏ nhất trên trập test</li>
+<li>Tính lỗi trên tập test bằng cách tính <strong>Cost Function</strong>, kí hiệu là J.<br />
+Vì sử dụng tập test để tìm giá trị bậc phù hợp nên model được chọn có thể gây lỗi lớn trên tập khác tập test này.</li>
+</ol>
+<ul>
+<li>Với trường hợp sử dụng tập Validation : ta có tập train, tập validation, và tập test.<br />
+Để giải quyết vấn đề còn lại ở cách làm trên, người ta đưa thêm một tập nữa gọi là Cross-Validation (kí hiệu : <strong>CV</strong>). Tỉ lệ cho lượng data ở mỗi tập có thể theo tỉ lệ : 6:2:2<br />
+Với cách làm nay</li>
+</ul>
+<ol>
+<li>Tối ưu hệ số trong model bằng tập train cho mỗi bậc</li>
+<li>Tìm bậc đa thức của model có lỗi nhỏ nhất trên tập Cross-Validation</li>
+<li>Đánh giá lỗi trên trập Test bằng cách tìm giá trị hàm <strong>Cost Function</strong> J.</li>
+</ol>
+<p>Với các này, cả việc train và chọn bậc đều không liên quan gì đến tập Test.<br />
+Có một chú ý: Tập CV đã sử dụng để chọn bậc đa thức rồi thì không nên sử dụng chính nó khi lambda nữa</p>
+<p>Tiếp theo, đến phân tích Bias và Variance<br />
+Đầu tiên, là nhận biết xem <strong>bias</strong> hoặc <strong>variance</strong> có liên quan đến việc dự đoán kém của hệ thống không?<br />
+- <strong>High bias</strong> sẽ sinh ra <strong>Underfitting</strong> (<strong>Underfitting</strong> là dự đoán kém trên cả tập train và test, tức là <strong>J(train)</strong> và <strong>J(test)</strong> đều cao.)<br />
+- <strong>High variance</strong> sẽ sinh ra <strong>Overfitting</strong> (<strong>Overfitting</strong> là dự đoán rất tốt trên tập train, nhưng dự đoán rất kém trên tập test, tức là <strong>J(train) thâp, J(test) cao.).<br />
+Chúng ta cần cân bằng giữa **Bias</strong> và <strong>Variance</strong>.</p>
+<p>Khi bậc tăng lên, thì training error sẽ có xu hướng giảm xuống nhanh hơn.<br />
+Cùng lúc khi tăng bậc thì validation error sẽ giảm cho đến một điểm, thì nó sẽ tăng khi bậc tăng lên.</p>
+<p>Regularization và Bias/Variance<br />
+Tham số lambda trong Regularization ảnh hưởng đến <strong>Bias</strong>.<br />
+- Lambda quá cao : gây ra <strong>High bias</strong><br />
+- Lambda vừa : đủ đẹp<br />
+- Lambda quá thấp : gây ra <strong>Overfitting</strong><br />
+Lamda cao sẽ phạt nặng tất cả các tham số của model, tức là làm đơn giản hóa dường biểu diễn ranh giới kết quả, dẫn đến <strong>Underfitting</strong>.<br />
+Sự ảnh hưởng của lambda lên kết quả dự đoán tập train và tập validation như sau:<br />
+- <strong>Lambda thấp</strong>: <strong>J(train)</strong> thấp, <strong>J(CV)</strong> sẽ cao. (dẫn đến <strong>High variance</strong> hay <strong>Overfitting</strong>)<br />
+- <strong>Lambda trung bình</strong>: Nói chung cả <strong>J(train)</strong> và <strong>J(CV)</strong> đều thâp, xấp xỉ nhau.<br />
+- <strong>Lambda lớn</strong>: <strong>J(train)</strong> và <strong>J(CV)</strong> đều cao. (dẫn đến <strong>Underfitting</strong> hay <strong>High bias</strong>)</p>
+<p>Cách chọn giá trị <strong>lambda</strong> phù hợp:<br />
+1. Tao một list các <strong>lambda</strong> có thể.<br />
+2. Tạo một tập các model tương ứng với nhiều bậc khác nhau.<br />
+3. Thủ lần lượt mỗi <strong>lambda</strong> cho tất cả các model để tìm ra tập trọng số tối ưu.<br />
+4. Tinh giá trị lỗi trên tập validation <strong>J(CV)</strong> khi không sử dụng Regularization (hay <strong>lambda</strong> = 0).<br />
+5.<br />
+<strong>Còn tiếp</strong></p>

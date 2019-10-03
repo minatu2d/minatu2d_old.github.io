@@ -1,0 +1,84 @@
+---
+layout: post
+title: Bộ nhớ Flash
+date: 2016-01-25 14:29:09.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Basic
+- Embedded
+tags:
+- Draft
+- Flash
+meta:
+  _wpcom_is_markdown: '1'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '19106965273'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2016/01/25/bo-nho-flash-se-viet/"
+---
+<p>Để thành 1 bài thì hơi nhiều, những thôi đã để thành 1 bài thì vẫn phải viết.</p>
+<h5>Lập trình với bộ nhớ Flash</h5>
+<p>Nếu là Flash memory, khi lập trình nhất định phải có một thao tác xóa trước một thao tác ghi. Sau khi xóa, giá trị tất cả các ô nhớ là 1, tức là nếu đọc ra ta sẽ thấy toàn <strong>0xFF</strong> thôi.</p>
+<h5>Serial Flash</h5>
+<p>Có rất nhiều loại Flash, nhưng trên các ứng dụng embedded thì Serial Flash được sử dụng phổ biến nhất. Vì giao tiếp được bằng các chuẩn Serial như SPI, I2C nên nó dễ dàng ghép nối với các chip trên board.</p>
+<h5>NAND và NOR</h5>
+<p>Có 2 điểm khác biệt giữa 2<!--more--> loại chip nhớ này. Đó là</p>
+<ul>
+<li>Kết nối giữa memory cell khác nhau. Trong NOR, các phần tử nhớ kết nối song song với nhau, nên cho phép lập trình với từng cái. Còn NAND thì được kết nối dạng nối tiếp</li>
+<li>Giao diện để đọc, ghi khác nhau (NOR cho phép đọc Random-Access, NAND chỉ cho phép đọc theo Page)</li>
+</ul>
+<p>Bảng so sánh giữa NAND và NOR</p>
+<table class="wikitable">
+<tbody>
+<tr>
+<th>Attribute</th>
+<th>NAND</th>
+<th>NOR</th>
+</tr>
+<tr>
+<td>Main Application</td>
+<td>File Storage</td>
+<td>Code execution</td>
+</tr>
+<tr>
+<td>Storage capacity</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Cost per bit</td>
+<td>Better</td>
+<td>.</td>
+</tr>
+<tr>
+<td>Active Power</td>
+<td>Better</td>
+<td>.</td>
+</tr>
+<tr>
+<td>Standby Power</td>
+<td>.</td>
+<td>Better</td>
+</tr>
+<tr>
+<td>Write Speed</td>
+<td>Good</td>
+<td>.</td>
+</tr>
+<tr>
+<td>Read Speed</td>
+<td>.</td>
+<td>Good</td>
+</tr>
+</tbody>
+</table>

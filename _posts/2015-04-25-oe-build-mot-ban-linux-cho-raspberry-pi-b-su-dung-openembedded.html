@@ -1,0 +1,152 @@
+---
+layout: post
+title: "[OE] Build một bản Linux cho Raspberry PI B+ sử dụng OpenEmbedded"
+date: 2015-04-25 15:30:15.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Embedded
+- OpenEmbbeded
+- YoctoProject
+tags:
+- RaspberryPI
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _oembed_b3731bff579b26a876efbe94aa00fa59: "{{unknown}}"
+  _oembed_bc66e91ab4e74e140821c8c69d3058b6: "{{unknown}}"
+  _oembed_be61d38dae8b3f4c0afa8a85e4e22ea9: "{{unknown}}"
+  _oembed_4066d1fdce6c4e38eedf17c0446c3dc4: "{{unknown}}"
+  _oembed_77061a24d380b09847fb19678640c312: "{{unknown}}"
+  _oembed_2c1abe0f3df73c658a81eeb8ca4da50c: "{{unknown}}"
+  _oembed_30dcf9076808cbc265524b81d37da5f9: "{{unknown}}"
+  _wpcom_is_markdown: '1'
+  _publicize_job_id: '26770590217'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2015/04/25/oe-build-mot-ban-linux-cho-raspberry-pi-b-su-dung-openembedded/"
+---
+<p>Bài này đã cũ, xin hãy xem bài cập nhật chi tiết hơn tại: <a href="https://lazytrick.wordpress.com/2016/07/29/tao-nas-server-tren-pi-bang-yocto-project/">Tạo một bản build Linux cho Raspberry PI bằng Yocto Project</a></p>
+<p>Chúng ta đã có bài tìm hiểu về BitBake ở <a href="https://lazytrick.wordpress.com/2015/04/25/oebitbake-tu-hello-world-den-mot-distro/">link</a></p>
+<p>Đây là bài thứ 2 trong loại bài phát triển ứng dụng trên Raspberry PI sử dụng OpenEmbedded</p>
+<p><a href="http://www.cnx-software.com/2013/07/05/12mb-minimal-image-for-raspberry-pi-using-the-yocto-project/">http://www.cnx-software.com/2013/07/05/12mb-minimal-image-for-raspberry-pi-using-the-yocto-project/</a></p>
+<p>Trước hết ta nói qua một chút về một bản Linux là gì?</p>
+<p>Nhân Linux là mã nguồn mở, hầu hết các phần mềm chạy trên nhân đó cũng là mã nguồn mở.<!--more--></p>
+<p>Có nghĩa bất kì ai, có download source của nhân, các phần mềm về rồi tự build riêng một bản</p>
+<p>để chạy. Mỗi bản Linux được công bố rộng rãi được gọi là một distro, về cơ bản chúng đề sử dụng</p>
+<p>nhân Linux (có thể khác phiên bản). Các distro ngoài miễn phí, thì đều được một công ty</p>
+<p>duy trì để kinh doanh các dịch vụ support hoặc cộng đồng đóng góp.</p>
+<p>Và tất nhiên, bất kì ai cũng có thể tự build cho mình 1 distro. Việc này khá phức tạp. Phức tạp vừa ở</p>
+<p>việc build chạy trên một môi trường đích ngoài PC chẳng hạn, bạn sẽ phải kiếm 1 compiler cho nó.</p>
+<p>Rồi việc cài đặt những phần mềm hệ thống nào, việc phát triển ứng dụng ra sao.</p>
+<p>Hầu hết Linux cho hệ nhúng chạy trên 1 hệ thống ít tài nguyên, để quá trình phát triển nhanh,</p>
+<p>người ta nghĩ ra việc build trên 1 máy rất khỏe và kết quả thu được nạp vào máy đích để chạy.</p>
+<p>Với mỗi môi trường máy đích, thì việc khó khăn đầu tiên là xây dựng 1 distro với yêu cầu tối thiểu,</p>
+<p>sau đó tạo môi trường phát triển ứng dụng ().</p>
+<p>Theo những gì mình biết, việc tạo ra các bản linux được làm bởi các chuyên gia am hiểu nhân và phần cứng môi trường đích.</p>
+<p>Việc phát triển ứng dụng sẽ sử dụng các cross-compiler thương mại hoặc miễn phí.</p>
+<p>Quá trình xây dựng bản distro và phát triển ứng dụng có thể không đồng nhất với nhau.</p>
+<p>Dự án Yocto <a href="http://yoctoproject.org/">http://yoctoproject.org/</a></p>
+<p>sinh ra để giải quyết 2 vấn đề</p>
+<ul>
+<li>Tìm xây dựng một distro phù hợp nhất với yêu cầu hệ thống sao cho ít tốn công sức nhất.</li>
+<li>
+<p>Đồng thời với việc tạo distro thì cũng sinh ra 1 môi trường phát triển cho môi trường đích luôn.</p>
+</li>
+</ul>
+<p>Bản thân Yocto không có source, nó cung cấp các tool, giống như một bộ khung cho người phát triển tùy biến dễ dàng nhất có thể.</p>
+<p>Poky là một hệ distro linux ở dạng tham chiếu của Yocto Project.</p>
+<p>OpenEmbedded là một phần trong đó.</p>
+<p>Nào thế đủ rồi, ta đi vào phần chính.</p>
+<p>Lần trước, tôi có viết một hứng về việc <a href="http://www.cnx-software.com/2012/07/31/84-mb-minimal-raspbian-armhf-image-for-raspberry-pi/">tạo ra một ảnh cho Raspberry</a> dựa trên Raspbian (chụp lại ảnh của một hệ thống đang chạy). Với kết quả lúc trước, thì vấn đề là nó không thực sự nhỏ hơn, khi giải nén ra nó vẫn chiếm khoảng 414MB.</p>
+<p>Nào, ngay hôm nay, tôi sẽ hướng dẫn để tạo một ảnh của hệ thống (Linux distro) sử dụng Yocto Project,</p>
+<p>1 platform cho phép bạn build một Embedded Linux Distribution phù hợp chính xác với yêu cầu của dự án.</p>
+<p>Một điểm nữa là, quá trình build có thể được configure với các configure file. Nó khá năng suất trong việc tạo ra một bản distro chỉ với rất ít thao tác.</p>
+<p>Nếu bạn muốn image, banjcos thể download về ngày qua <a href="http://www.cnx-software.com/raspberry-pi/rpi-basic-image-raspberrypi-20130702123605.rootfs.rpi-sdimg.7z">link </a>này.</p>
+<p>Sau khi download về rồi thì giải nén nó, ghi vào SD card. Rồi chạy thôi.</p>
+<p>Còn nếu bạn muốn customize nó thì tiếp tục đọc.</p>
+<p>Tôi đã thử với hướng dẫn từ <a title=" pimpmypi" href="http://www.pimpmypi.com/blog/blogPost.php?blogPostID=7">pimpmypi</a>. Nhưng nó khá cũ, giờ mọi thứ dường như trở nên đơn gian hơn.</p>
+<p>Với môi trường thực hiện là Ubuntu 14.04 LTS.</p>
+<p>Đầu tiên chúng ta lấy source của poky và meta layer dành cho Raspberry PI.</p>
+<p>&nbsp;</p>
+<p>mkdir yocto</p>
+<p>cd yocto</p>
+<p>git clone -b dylan git://git.yoctoproject.org/poky.git</p>
+<p>cd poky</p>
+<p>git clone -b dylan git://git.yoctoproject.org/meta-raspberrypi</p>
+<p>Chạy lệnh sau để setup một số biến môi trường</p>
+<p><code>. oe-init-build-env build</code></p>
+<p>Nhất định phải có dấu cách sau dấu "." .</p>
+<p>Sau khi chạy xong lệnh trên và succecced.</p>
+<p>Con trỏ lệnh sẽ tự động chuyển về thư mục build.</p>
+<p>Chúng sẽ edit 1 file cấu hình để giúp bitbake sử dụng CPU của PC chúng ta build tốt hơn.</p>
+<p>Giúp tiết kiệm thời gian build.</p>
+<p>Edit conf/local.conf</p>
+<p>&nbsp;</p>
+<p>BB_NUMBER_THREADS = "9"</p>
+<p>PARALLEL_MAKE = "-j 9"</p>
+<p>MACHINE ?= "raspberrypi"</p>
+<p>GPU_MEM = "16"</p>
+<p>&nbsp;</p>
+<p>Trường nào không có thì bỏ qua, kết quả cuối cùng không thay đổi tuy nhiên, nếu cấu hình chính xác</p>
+<p>với thông tin của máy sẽ giúp quá trình build nhanh hơn.</p>
+<p>Cuối cùng, để OE build một image cho Raspberry PI, ta cần thêm lớp của RPI vào danh sách các lớp</p>
+<p>mà OE có thể biết.</p>
+<p>Edit conf/bblayers</p>
+<p>&nbsp;</p>
+<p>BBLAYERS ?= " \</p>
+<p>poky/meta \</p>
+<p>poky/meta-yocto \</p>
+<p>poky/meta-yocto-bsp \</p>
+<p>poky/meta-raspberrypi \</p>
+<p>"</p>
+<p>Giờ là lệnh build, có 2 option cho file image. Đó là <strong>rpi-basic-image</strong> và <strong>rpi-hwup-image</strong>.</p>
+<p>Cả 2 đều là minimal image. Nhưng <strong>rpi-basic-image</strong> có sẵn ssh-server-dropbear và splash</p>
+<p>(cho splash screen).</p>
+<p>Chúng ta sẽ build <strong>rpi-basic-image</strong></p>
+<p>Lệnh build như sau</p>
+<p><code>bitbake rpi-basic-image</code></p>
+<p>Quá trình build này phụ thuộc vào perform của máy và tốc độ mạng.</p>
+<p>Có thể mất cả tiếng đồng hồ.</p>
+<p>Khi quá trình build này hoàn thành, bạn sẽ thấy file ảnh nằm ở đây</p>
+<p><strong>tmp/deploy/images/rpi-basic-image-raspberrypi.rpi-sdimg</strong></p>
+<p>Ghi file đó ra SD Card là bạn đã có thể boot ngay vào PI được rồi.</p>
+<p>User là root và không cần pass.</p>
+<p>Bản linux này bao gồm những đặc điểm sau</p>
+<ul>
+<li>shell chạy là : busybox, đương nhiên là thư viện là uglibc rồi.</li>
+</ul>
+<p><del> + Không tích hợp driver cho wifi dongle.</del></p>
+<ul>
+<li>Chưa thấy code car wlan0.</li>
+<li>Có sắn driver cho Ethernet</li>
+</ul>
+<p>Tình trạng sau khi khởi động của máy như thế này</p>
+<p><img id="featured-image" src="{{ site.baseurl }}/assets/dsc_0084.jpg?w=300" alt="Featured image" /></p>
+<p>Trong hình trên, dù đã kết nối wireless dongle với PI qua USB rồi.</p>
+<p>Kiểm tra lại log hệ thống để xem, PI đã nhận dạng được thiết bị này chưa.</p>
+<p>Log như hình sau, ở đây t sử dụng lệnh</p>
+<p><code>tail -f /var/log/messages </code></p>
+<p>Ta sẽ thấy log dưới đây khi cắm wire dongle vào PI.</p>
+<p><img id="featured-image" src="{{ site.baseurl }}/assets/dsc_0086.jpg?w=300" alt="Featured image" /></p>
+<p>Từ màn hình log ta thấy, thiết bị dường như đã được nhận dạng thành công.</p>
+<p>Hiện tại có thể đã lỗi tại dòng</p>
+<p>phy3: Failed to initialize wep : -2</p>
+<p>Mình có 2 suy đoán ở đây</p>
+<ul>
+<li>Có thể phần wireless thiếu file cấu hình nên xảy ra tình trạng này.</li>
+</ul>
+<li>
+<p>Có thể vẫn do lỗi driver, thiếu cái gì đó vì nếu chỉ khởi động bị failure thì phần hàm ifconfig phải list ra được chứ nhi.</p>
+</li>
+<p>Giờ sẽ thử làm theo hướng dẫn này, đưa file cấu hình wifi vào PI</p>
+<p>http://www.jann.cc/2012/08/08/building_freescale_s_community_yocto_bsp_for_the_olinuxino.html#extending-the-wifi-support</p>
+<p>Trong thư mục build của yocto, add thêm dòng này vào <strong>conf/local.conf</strong><br />
+IMAGE_INSTALL_append = " wpa-supplicant wireless-tools dhcp-client linux-firmware"</p>

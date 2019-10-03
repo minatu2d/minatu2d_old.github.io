@@ -1,0 +1,32 @@
+---
+layout: post
+title: Trường Remain Length trong MQTT Fixed Header
+date: 2016-03-08 15:39:23.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Basic
+- Communication
+- IoT
+tags:
+- mqtt
+meta:
+  _wpcom_is_markdown: '1'
+  _rest_api_published: '1'
+  _rest_api_client_id: '43452'
+  _publicize_job_id: '20555779060'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2016/03/08/truong-remain-length-trong-mqtt-fixed-header/"
+---
+<p>Như ta đã biết trong bản <a href="http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html">gốc</a> và bản tiếng <a href="http://minatu2d.github.io/MQTT_V3r1_Protocol_Specification_vi.htm">Việt</a> của giao thức MQTT, đơn vị truyền tin trong MQTT là message. Message chứa 2 phần cơ bản là Header (phần mô tả thuộc tính dữ liệu) và Payload (phần mô tả dữ liệu). Phần header chứa 2 phần nữa là Header có độ dài cố định và Header có độ dài thay đổi được.</p>
+<p>Hầu hết các trường của phần Header cố định đều khá dễ hiểu, duy chỉ có 1 trường tương đối khó hiểu. Đó là Remain Length (độ dài còn lại). Trường này cho biết độ dài của phần phía sau Header cố định (chính là Header có độ dài thay đổi và phần Payload).</p>
+<p><img class="alignnone size-full wp-image-500" src="{{ site.baseurl }}/assets/remainlength.png" alt="RemainLength.png" width="823" height="117" /></p>
+<p>Remain Length : là trường giá trị nằm trong phần header, miêu tả độ dài phần header</p>

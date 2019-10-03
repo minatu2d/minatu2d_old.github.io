@@ -1,0 +1,139 @@
+---
+layout: post
+title: Ví dụ minh họa sử dụng pthread
+date: 2016-04-06 15:26:51.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- CodeSkill
+- thread
+tags:
+- pthread
+meta:
+  _wpcom_is_markdown: '1'
+  _rest_api_client_id: '43452'
+  _rest_api_published: '1'
+  _publicize_job_id: '21516086216'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2016/04/06/vi-du-minh-hoa-su-dung-pthread/"
+---
+<p>Dự trong loạt công việc sắp tới, tôi cần hiểu kĩ về các cơ chế sử dụng của pthread để viết code sao cho ổn nhất.</p>
+<p>Mục đích ban đầu nói đến ở bài <a href="https://lazytrick.wordpress.com/2015/07/16/dung-pthread-theo-cac-da-nen-tang-den-muc-nao/">Cơ bản về pthread</a>, là tạo một CMake Project cho cho ứng dụng có sử dụng pthread. Nhưng vì yêu cầu công việc sắp tới, tôi sẽ bỏ qua việc tạo CMake project mà đi vào ví dụ source code cụ thể để minh họa các đặc tính của pthread.<!--more--></p>
+<p>1 . Hello world</p>
+<p>[code lang="C"]<br />
+/*<br />
+* p_hello.c -- a hello program (in pthread)<br />
+*/<br />
+#include<br />
+#include<br />
+#include<br />
+#include &amp;lt;sys/types.h&amp;gt;<br />
+#include</p>
+<p>#define MAX_THREAD 1000<br />
+#define CURRENT_TERMINAL_CMD &amp;quot;tty&amp;quot;</p>
+<p>typedef struct {<br />
+int id;<br />
+char *terminal;<br />
+} parm;</p>
+<p>void *hello(void *arg)<br />
+{<br />
+parm *p=(parm *)arg;<br />
+FILE *fo = fopen(p-&amp;gt;terminal, &amp;quot;wt&amp;quot;);<br />
+if (fo == NULL)<br />
+{<br />
+printf(&amp;quot;Using stdout as output terminal\n&amp;quot;);<br />
+printf(&amp;quot;[Node %d] : Hello các anh\n&amp;quot;, p-&amp;gt;id);<br />
+sleep (p-&amp;gt;id * 2);<br />
+printf(&amp;quot;[Node %d] : Em kết thúc đây...\n&amp;quot;,p-&amp;gt;id);<br />
+return ;<br />
+}</p>
+<p>fprintf(fo,&amp;quot;Using %s as output terminal\n&amp;quot;,p-&amp;gt;terminal);<br />
+fprintf(fo,&amp;quot;[Node %d] : Hello các anh\n&amp;quot;, p-&amp;gt;id);<br />
+sleep (p-&amp;gt;id * 2);<br />
+fprintf(fo,&amp;quot;[Node %d] : Em kết thúc đây...\n&amp;quot;,p-&amp;gt;id);</p>
+<p>fclose(fo);</p>
+<p>return (NULL);<br />
+}</p>
+<p>int getCurrentTerminal(char *terminal)<br />
+{<br />
+int retVal = 0;</p>
+<p>FILE *ttyCmdFo = popen(CURRENT_TERMINAL_CMD,&amp;quot;r&amp;quot;);<br />
+if (ttyCmdFo == NULL)<br />
+{<br />
+retVal = -1;<br />
+return retVal;<br />
+}</p>
+<p>if (fscanf(ttyCmdFo,&amp;quot;%s&amp;quot;,terminal) != 0)<br />
+{<br />
+retVal = -1;<br />
+return retVal;<br />
+}</p>
+<p>printf(&amp;quot;Terminal :%s&amp;quot;,terminal);</p>
+<p>return retVal;<br />
+}</p>
+<p>typedef char T_TERM_NAME[100];<br />
+void main(int argc, char* argv[]) {<br />
+int n,i;<br />
+pthread_t *threads;<br />
+parm *p;<br />
+char currentTerminal[100];<br />
+T_TERM_NAME terminals[10];<br />
+char tmpTerm[100];</p>
+<p>if (argc != 2)<br />
+{<br />
+printf (&amp;quot;Usage: %s n\n N là số threads được tạo, xin nhập lại đi.\n&amp;quot;,argv[0]);<br />
+exit(1);<br />
+}</p>
+<p>n=atoi(argv[1]);</p>
+<p>if ((n &amp;lt; 1) || (n &amp;gt; MAX_THREAD))<br />
+{<br />
+printf (&amp;quot;Số lượng thread phải &amp;gt;=1 và &amp;lt; %d.\n&amp;quot;, MAX_THREAD);<br />
+exit(1);<br />
+}</p>
+<p>threads=(pthread_t *)malloc(n*sizeof(*threads));</p>
+<p>p=(parm *)malloc(sizeof(parm)*n);</p>
+<p>/* Tạo và bắt đầu các threads */<br />
+getCurrentTerminal(&amp;amp;currentTerminal[0]);</p>
+<p>for (i=0; i&amp;lt;n; i++)<br />
+{<br />
+printf(&amp;quot;Đầu ra của thread %d (default =%s) : &amp;quot;,i, currentTerminal);<br />
+gets(tmpTerm);<br />
+if (strlen(tmpTerm) == 0)<br />
+{<br />
+strcpy(terminals[i], currentTerminal);<br />
+}<br />
+else<br />
+{<br />
+strcpy(terminals[i], tmpTerm);<br />
+}<br />
+}</p>
+<p>#if 0<br />
+for (i=0; i&amp;lt;n; i++)<br />
+{<br />
+printf(&amp;quot;Thread : %s\n&amp;quot;,terminals[i]);<br />
+}<br />
+#endif</p>
+<p>for (i=0; i&amp;lt;n; i++)<br />
+{<br />
+p[i].id=i;<br />
+p[i].terminal = terminals[i];<br />
+pthread_create(&amp;amp;threads[i], NULL, hello, (void *)(p+i));<br />
+}</p>
+<p>/* Đợt để các thread được tạo cùng kết thúc. */</p>
+<p>for (i=0; i&amp;lt;n; i++)<br />
+{<br />
+printf(&amp;quot;[Main] : Đang đợi [Node %d] kết thúc \n&amp;quot;,i);<br />
+pthread_join(threads[i],NULL);<br />
+printf(&amp;quot;[Main] : [Node %d] đã kết thúc\n&amp;quot;,i);<br />
+}</p>
+<p>free(p);<br />
+}</p>
+<p>[/code]</p>

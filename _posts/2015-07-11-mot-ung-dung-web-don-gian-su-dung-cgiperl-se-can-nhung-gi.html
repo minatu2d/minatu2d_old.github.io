@@ -1,0 +1,58 @@
+---
+layout: post
+title: Một ứng dụng Web đơn giản sử dụng CGI/Perl sẽ cần những gì?
+date: 2015-07-11 13:52:18.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Khác
+tags: []
+meta:
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _publicize_job_id: '12626400480'
+  _wpcom_is_markdown: '1'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2015/07/11/mot-ung-dung-web-don-gian-su-dung-cgiperl-se-can-nhung-gi/"
+---
+<p>Với những ai đã từng làm nhiều với CGI và Perl sẽ dễ dàng đưa ra phương án tối ưu nhất.</p>
+<p>Còn với những ai mới bắt đầu, hoặc chỉ cần 1 chút thôi chẳng hạn thì có thể dễ bị lạc đường giữa rất nhiều framework hoặc thư viện của perl.</p>
+<p>Vừa rồi mình có làm một ứng dụng Web</p>
+<ul>
+<li>Server Side : CGI sử dụng ngôn ngữ perl. (Tức là các file xử lý viết bằng ngôn ngữ Perl, và được server Apache gọi xử lý theo kiểu CGI (sử dụng module mod_perl).</li>
+<li>
+<p>Phía Client là Javascript và HTML.</p>
+</li>
+</ul>
+<p>Mình là người mới hoàn toàn với Perl. Đã từng 1 chút với PHP.<!--more--></p>
+<p>Tuy tìm hiểu thấy mọi người nói là giống nhau. Giống nhau ở đây được hiểu theo nghĩa khi viết 1 xử lý bằng Perl và PHP sẽ tương đối giống nhau.</p>
+<p>Ai cũng biết ta không nên chế tạo lại "chiếc bánh xe", cần chọn công cụ để reuse giúp quá trình thực hiện dự án nhanh và phù hợp nhất với yêu cầu.</p>
+<p>Yêu cầu dự án của tôi không cần nhiều, chỉ đơn giản cũng khoảng 20 trang giao diện Web, đọc một số file cấu hình, ghi những gì người dùng phía Client gửi đến ra file. Yêu cầu rất đơn giản, nhưng có 1 điểm, số màn hình sẽ có thể thay đổi trong tương lai mà tôi lại không đủ thời gian để đưa ra một thiết kế from scratch.</p>
+<p>Bạn đầu, tôi viết chay bằng Perl trong CGI, phân tách các http request gửi đến để</p>
+<p>routing đến xử lý phù hợp. Code ban đầu hoàn toàn là dạng cấu trúc kiểu theo flow xử lý chứ chẳng có tí hướng đối tượng nào.</p>
+<p>Rồi tôi tìm thấy CGI::Application (đây là cách viết một module trong Perl), nó cung cấp 1 cách khá hệ thống các thành phần để phát triển một ứng dụng Web sử dụng CGI/Perl. Nhưng xử lý liên quan đến Session, xuất ra view, routing, phương thức debug, các xử lý lỗi đã được module này cung cấp.</p>
+<p>Việc cần làm là sử dụng các thành phần đó cho ứng dụng của mình.</p>
+<p>Thông thương một ứng dụng web bất kì nào cũng có 3 thành phần theo mô hình MVC. Cái này là kinh điển rồi.</p>
+<p>M : (Model) là nói dữ liệu có thể là file, nhưng thường là database.</p>
+<p>V : (View) là nói đến phần show ra cho người dùng cuối.(người ta hay gọi là giao diện đó)</p>
+<p>C: (Control) là nói đến phần xử lý logic từ yêu cầu của người dùng và data để đưa ra cái view theo mong muốn của người dùng.</p>
+<p>Trong cái ứng dụng CGI/Perl của tôi, do CGI::Application đã cung cấp phần khung bao gồm:</p>
+<ol>
+<li>Một cơ chế đọc các request và routing đến xử lý mong muốn, cái này giúp việc đưa request đến Control phù hợp.</li>
+</ol>
+<li>
+<p>Một cơ chế xuất view từ temple (cấu trúc giống HTML + có nhúng các phần có thể thay đổi) sử dụng module HTML::Template</p>
+</li>
+<li>
+<p>Cơ chế sử dụng session.<br />
+Session sử dụng có quản lý của CGI::Application, nó dựa trên CGI::Session nhưng được sử dụng một cách thông nhất bên trong CGI::Application.</p>
+</li>
+<p>Do yêu cầu dự án khá đơn giản, những việc cần làm của tôi chỉ là học cách sử dụng HTML::Template, thêm các xử lý file.</p>

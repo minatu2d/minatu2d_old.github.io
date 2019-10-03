@@ -1,0 +1,674 @@
+---
+layout: post
+title: "[OE]Bitbake - Từ Hello World đến một Distro"
+date: 2015-04-25 07:50:24.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Embedded
+- OpenEmbbeded
+- YoctoProject
+tags:
+- Bitbake
+- Distro
+- HelloWorld
+meta:
+  _edit_last: '72243466'
+  geo_public: '0'
+  _oembed_b99dc982d254783d84da9909eedb2426: "{{unknown}}"
+  _wpcom_is_markdown: '1'
+  _publicize_job_id: '20014763206'
+author:
+  login: minatu
+  email: pvta2pn@gmail.com
+  display_name: minatu
+  first_name: トウー
+  last_name: フン・ヴァン
+permalink: "/2015/04/25/oebitbake-tu-hello-world-den-mot-distro/"
+---
+<p><img class="alignnone  wp-image-1070" src="{{ site.baseurl }}/assets/user-configuration.png?w=300" alt="user-configuration" width="497" height="217" /></p>
+<p>Bitbake là một công cụ cốt lõi của <a href="https://www.yoctoproject.org/about">Yocto Project</a>. Nó bao gồm 1 bộ thông dịch các script được viết trong các file recipe (công thức tạo phần mềm), và thực hiện các lệnh trong đó. Nó mô tả lại và tự động hóa qúa trình người ta đưa một phần mềm vào một distro.</p>
+<p>Về việc đưa một phần mềm vào distro, ta có thể thấy nó bao gồm vài step chính. Từ việc tải source code (ở đây là tải source code chứ không phải các gói đã được build sẵn đâu nhé, nó gần giống với ArchLinux, Gentoo và hoàn toàn khác với Ubuntu) , thực hiện các bản patch (sửa source hoặc kịch bản build đề phù hợp mục đích sử dụng), biên dịch, cuối cùng là tích hợp vào distro (kèm theo các thông số cấu hình).</p>
+<p>Mục đích của bitbake là tạo ra một quy trình tự động mà đầu vào là các file kịch bản, bitbake sẽ tự làm các công việc còn lại. Ý tưởng của bitbake thực sự rất hay, dù rằng để áp dụng thực tế một cách nuột nà thì cần khá nhiều công sức để hiểu cách nó làm việc với các công cụ truyền thống.</p>
+<p>(Link gốc của <a href="http://hambedded.org/blog/2012/11/24/from-bitbake-hello-world-to-an-image/">bài</a>)</p>
+<p>OpenEmbedded (OE) và Yocto Project (YP) sử dụng <strong>Bitbake</strong> là công cụ chính.</p>
+<p>Sẽ rất có ích cho việc hiểu về OE nếu ta hiểu BitBake ở mức độ nào đó thông qua các task (task ở đây xoanh quanh các xử lý của source code như tải, patch, build như đã nỏi ở trên), các class được định nghĩa trong OE.</p>
+<p>Tài liệu này với mong muốn đưa ra một bức tranh mô tả việc tạo ra một Image (ảnh của một Distro) sử dụng OE và YP. Nó sẽ bắt đầu từ một project rất đơn giản sử dụng bitbake. Thông qua project đó sẽ giải thích các khái niệm quan trọng từ các OE class, cuối cùng là chỉ ra quá trình tạo một Image.</p>
+<ol>
+<li>Về Bitbake</li>
+<li>Tải Bitbake</li>
+</ol>
+<h5>1. BITBAKE là cái gì?</h5>
+<p><!--more--></p>
+<p>Về cơ bản, khi được chạy nó đọc vào các tasks định nghĩa trong các bitbake metadata(.bbclass, .bb), làm rõ các phụ thuộc (phụ thuộc) giữa chúng, đặt chúng theo một thứ tự và chạy các task cho các metadata đó. Ví dụ như cài dể build một gói A thì phải build gói B trước, tải source nó ở địa chỉ nào etc, các thông tin như thế sẽ nằm trong các file metadata.</p>
+<p>(Ở đây có khái niệm metadata, tức là phần siêu dữ liệu chứ không phải dữ liệu chính.)</p>
+<p>Bitbake là 1 hệ thống build source code, data của nó là source code, các bản patch.</p>
+<p>Còn metadata là các file phục vụ quá trình buid như định nghĩa các biến môi trường, trình biên dịch, máy đích để chạy code sau khi biên dịch.</p>
+<p>Bạn có thể nghĩ 1 task như 1 function sẽ được thiết lập để chạy trước hoặc sau một function (task) khác.</p>
+<p>Trước khi chúng ta bắt đầu với ví dụ Hello World. Tôi muốn nhắc lại rằng, cái mà  bitbake sẽ đọc và hiểu là các file metadata. Nó có cú pháp riêng của nó giống như một ngôn ngữ lập trình vậy. Nó không giống như các chương trình shell phổ biến khác, đừng nhầm lẫn đấy.</p>
+<p>Bạn có thể đọc thêm về  ở metadata section của bitbake manual (đang được dịch)</p>
+<h3>LẤY BITBAKE VỀ</h3>
+<p>[code lang="shell"]<br />
+wget http://git.openembedded.org/bitbake/snapshot/bitbake-1.16.0.tar.bz2<br />
+tar xvf bitbake-1.16.0.tar.bz2<br />
+cd bitbake-1.16.0&amp;lt;/code&amp;gt;</p>
+<p>[/code]</p>
+<p>Thay vì cài đặt, trong bài này ta sẽ chạy nó từ thư mục buil bằng cách add PATH.</p>
+<p>[code lang="shell"]<br />
+# FIXME: how to disable xml doc generation? It takes a little time for this doc.<br />
+python setup.py build<br />
+export PYTHONPATH=`pwd`/build/lib<br />
+[/code]</p>
+<p>Chúng ta sẽ đi vào một project cụ thẻ.<br />
+<em>Hello World Project</em><br />
+Bắt đầu với những ví dụ kinh điển nhất, chúng ta sẽ tìm hiểu cách BitBake làm việc bằng cách chơi với chúng. Trong phần này, chúng ta sẽ cover những phần sau<br />
+- Task là cái gì, được định nghĩa như thế nào, task được ghi đè như thế nào.<br />
+- Flag là cái gì, Flag được sử dụng như thế nào trong BitBake.<br />
+Với những thành phần như vậy chúng ta sẽ xem làm thế nào chúng được kết hợp với nhau trong một hệ thống build để taojra một Embedded Linux Image. Sau đó chúng ta sẽ vào xem Code của OpenEmbedded và xem những gì đã học được thực hiện như thế nào.</p>
+<p>Chú ý : Phần này được viết với sự trợ giúp từ những &lt;a href=&quot;http://www.mail-archive.com/yocto@yoctoproject.org/msg09379.html&quot;&gt;email &lt;/a&gt;được gửi trong Yocto Project Mailing List.</p>
+<p>Trong thư mục bitbake được giải nén ở trên, bạn sẽ thấy có file class/base.class.<br />
+Nó bao gồm 1 vài hàm cho việc in ra các info, warning, 3 hàm showdata, listtasks, build.</p>
+<p>Khi bitbake được chay để build một recipe, mặc định rằng bất kì recipe nào cũng kế thừa file này. Đây là một nơi lý tưởng cho chúng ta định nghĩa build logic. Nếu bạn đã quen với việc build prorams cho UNIX-like OS, bạn chắc chắn sẽ biết rằng, việc build bao gồm những công đoạn sau.<br />
+&lt;strong&gt; + Fetch source về.&lt;/strong&gt;<br />
+&lt;strong&gt; + Giải nén&lt;/strong&gt;<br />
+&lt;strong&gt; + Patch&lt;/strong&gt;<br />
+&lt;strong&gt; + Cấu hình&lt;/strong&gt;<br />
+&lt;strong&gt; + Biên dịch (making)&lt;/strong&gt;<br />
+&lt;strong&gt; + Cài đặt (nếu cần thiết)&lt;/strong&gt;<br />
+Giờ cùng xem những công được này được thực hiện như thế nào.<br />
+&lt;h3&gt;Thêm task&lt;/h3&gt;<br />
+Syntax : &lt;strong&gt;addtask&lt;/strong&gt;<br />
+Câu trên chỉ giống như khai bao tên hàm.<br />
+Code của task được định nghĩa như sau:</p>
+<p>[code lang="python"]<br />
+do_ {<br />
+}<br />
+[/code]</p>
+<p>Phần code này có thể là python hoặc shell.<br />
+Chúng ta cùng định nghĩa build logic.<br />
+Giờ edit file &lt;em&gt;base.bbclass&lt;/em&gt; và thay đổi nó thành như thế này:</p>
+<p>[code lang="python"]<br />
+&amp;lt;code&amp;gt;<br />
+bbplain() {<br />
+echo &amp;quot;$*&amp;quot;<br />
+}&amp;lt;/code&amp;gt;</p>
+<p>bbnote() {<br />
+echo &amp;quot;NOTE: $*&amp;quot;<br />
+}</p>
+<p>bbwarn() {<br />
+echo &amp;quot;WARNING: $*&amp;quot;<br />
+}</p>
+<p>bberror() {<br />
+echo &amp;quot;ERROR: $*&amp;quot;<br />
+}</p>
+<p>bbfatal() {<br />
+echo &amp;quot;ERROR: $*&amp;quot;<br />
+exit 1<br />
+}</p>
+<p>addtask fetch<br />
+python base_do_fetch() {<br />
+bb.note(&amp;quot;BASE_DO_FETCH&amp;quot;)<br />
+}</p>
+<p>addtask unpack after do_fetch<br />
+python base_do_unpack() {<br />
+bb.note(&amp;quot;BASE_DO_UNPACK&amp;quot;)<br />
+}</p>
+<p>addtask patch after do_unpack<br />
+base_do_patch() {<br />
+bbnote &amp;quot;BASE_DO_PATCH&amp;quot;<br />
+}</p>
+<p>addtask configure after do_patch<br />
+base_do_configure() {<br />
+bbnote &amp;quot;BASE_DO_CONFIGURE&amp;quot;<br />
+}</p>
+<p>addtask make after do_configure<br />
+base_do_make() {<br />
+bbnote &amp;quot;BASE_DO_MAKE&amp;quot;<br />
+}</p>
+<p>addtask install after do_make<br />
+base_do_install() {<br />
+bbnote &amp;quot;BASE_DO_INSTALL&amp;quot;<br />
+}</p>
+<p>addtask build after do_install<br />
+base_do_build() {<br />
+bbnote &amp;quot;DO_BUILD&amp;quot;<br />
+}</p>
+<p>[/code]</p>
+<p>EXPORT_FUNCTIONS do_fetch do_unpack do_patch do_configure do_make do_install do_build</p>
+<p>Như bạn đã thấy, ở code ở trên có 2 hàm là python, còn lại là shell.<br />
+Việc in ra tên function ở trên khiến cho việc đọc lại logic dễ dàng hơn từ logs.</p>
+<p>Chúng ta sẽ thấy được build logic từ cách làm trên nhưng sẽ tốt hơn nếu tách riêng chúng ra thành module<br />
+cho việc logging.<br />
+Chúng ta cùng tạo một <strong>logging.bblass</strong> trong thư mục <em>classes/</em>. File <strong>logging.bbclass</strong> trông sẽ giống như sau:</p>
+<p><code>bbplain() {<br />
+echo "$*"<br />
+}</code></p>
+<p>bbnote() {<br />
+echo "NOTE: $*"<br />
+}</p>
+<p>bbwarn() {<br />
+echo "WARNING: $*"<br />
+}</p>
+<p>bberror() {<br />
+echo "ERROR: $*"<br />
+}</p>
+<p>bbfatal() {<br />
+echo "ERROR: $*"<br />
+exit 1<br />
+}</p>
+<p>Chúng ta sẽ kế thừa module logging bằng cách như sau, file này là base.bbclass như đã được<br />
+nói đến ở trên.<br />
+<code>inherit logging</code></p>
+<p>addtask fetch<br />
+python base_do_fetch() {<br />
+bb.note("BASE_DO_FETCH")<br />
+}</p>
+<p>Khi file này được parse, các hàm được định nghĩa ở loggging sẽ được kế thừa.<br />
+Kế thừa là một trong rất nhiều cách để thực hiện module hóa trong BitBake.</p>
+<p>THỬ THÊM 1 LỚP</p>
+<hr />
+<p>&nbsp;</p>
+<p>Tạo một thư mục tên <strong>meta-test</strong> trong thư mục hiện tại (thư mục giải nén bitbake).<br />
+Giờ chúng ta phải cho BitBake biết rằng chúng ta có 1 layer.<br />
+Cách làm như sau, tạo file <strong>conf/bblayers.conf</strong> với nội dung như sau:<br />
+<code><br />
+BBPATH := "${TOPDIR}"<br />
+BBFILES ?= ""<br />
+BBLAYERS = " \<br />
+${TOPDIR}/meta-test \<br />
+"</code></p>
+<p>Biến ${TOPDIR} ta thấy chưa được nhắc đến. Khi parse đến file này mà biến vẫn chưa định nghĩa, thì BitBake sẽ tự địn nghĩa.<br />
+Trong source code của BitBake có đoạn như sau:<br />
+<em>lib/bb/parse/parse_py/ConfHandler.py:36. </em><br />
+<code><br />
+(...)</code></p>
+<p>def init(data):<br />
+topdir = data.getVar('TOPDIR')<br />
+if not topdir:<br />
+data.setVar('TOPDIR', os.getcwd())</p>
+<p>(...)</p>
+<p>Bạn sẽ thấy rằng, nếu chưa được định nghĩa thì TOPDIR sẽ là đường dẫn đến thư mục chạy BitBake.<br />
+Vậy các biến được gán giá trị ở đây :BBPATH, BBFILES, BBLAYERS sẽ được sử dụng để nhằm mục đích gì?<br />
+Trong manual của Bitbake có đoạn như sau:<br />
+<a href="http://docs.openembedded.org/bitbake/html/ch02s03.html">http://docs.openembedded.org/bitbake/html/ch02s03.html</a></p>
+<blockquote><p>Bitbake will first search the current working directory for an optional<br />
+"conf/bblayers.conf" configuration file. This file is expected to contain a<br />
+BBLAYERS variable which is a space delimited list of 'layer' directories. For<br />
+each directory in this list a "conf/layer.conf" file will be searched for and<br />
+parsed with the LAYERDIR variable being set to the directory where the layer was<br />
+found. The idea is these files will setup BBPATH and other variables correctly<br />
+for a given build directory automatically for the user.</p>
+<p>Bitbake will then expect to find 'conf/bitbake.conf' somewhere in the user<br />
+specified BBPATH. That configuration file generally has include directives<br />
+to pull in any other metadata (generally files specific to architecture,<br />
+machine, local and so on.</p></blockquote>
+<p>dịch ra là</p>
+<blockquote><p>Đầu tiên BitBake sẽ search trong thư mục hiện tại để tìm file conf/bblayers.conf.<br />
+Nhiệm vụ của file này thông thường sẽ chứa giá trị biến BBLAYERS. Biến này là một danh sách<br />
+các thư mục của các layer.(như ta vừa tạo ở trên đó là 1 thư mục cho 1 layer).<br />
+Mỗi thư mục trong danh sách trên, BitBake sẽ tìm kiếm lần lượt.<br />
+Trong mỗi thư mục, nó sẽ tìm kiếm conf/layers.conf trước tiên. Trong file layers.conf này<br />
+nó sẽ đọc để gán giá trị cho biến LAYERDIR. Biến này, tiếp theo đó được sử dụng để xác định<br />
+thư mục có chứa các LAYER.<br />
+Ý tưởng việc sinh ra các file này nhằm mục đích sẽ gán giá trị biến BBPATH và các biến môi trường khác<br />
+một cách chính xác để phục vụ việc build.</p></blockquote>
+<p>Biến BBPATH cũng tương tự như biến môi trường PATH.<br />
+Các file configuration có thể chưa các file configure khác.<br />
+Việc xác định đường dẫn tuyết đối của các file này được thực hiện bằng thao tác search<br />
+đường dấn tương đối trong các thư mục được liệt kê trong BBPATH, cái tìm thấy trước sẽ được sử dụng.</p>
+<p>Như đã nói ở trên, ta cần tạo file conf/layer.conf cho layer meta-test.<br />
+Nội dung sẽ như sau:<br />
+<code><br />
+BBPATH .= ":${LAYERDIR}"</code></p>
+<p>BBFILES += "${LAYERDIR}/recipes-<em>/</em>/<em>.bb \<br />
+${LAYERDIR}/recipes-</em>/<em>/</em>.bbappend"</p>
+<p>BBFILE_COLLECTIONS += "test"<br />
+BBFILE_PATTERN_test := "^${LAYERDIR}/"<br />
+BBFILE_PRIORITY_test = "5"</p>
+<p>Chúng ta sẽ thêm layer của chúng ta vào BBPATH để Bitbake có thể tìm thấy.<br />
+Bằng biến BBFILES, chúng ta sẽ chỉ cho Bitbake thấy rằng, chúng ta có những file với mẫu như vậy trong thư mục layer của chúng ta.</p>
+<p>Chúng ta hãy tạo một recipe trong thư mục.<br />
+<code>mkdir -p meta-test/recipes-example/firstrecipe<br />
+vim meta-test/recipes-example/firstrecipe/firstrecipe_0.0.bb</code></p>
+<p>File <strong>firstrecipe_0.0.bb</strong> sẽ có nội dung như sau:<br />
+<code>DESCRIPTION = "Our first recipe for bitbake hello world"</code></p>
+<p>Ta sẽ có thư mục meta-test được tổ chức như dưới đây:</p>
+<p><code>.<br />
+|-- classes<br />
+| |-- base.bbclass<br />
+| <code>-- logging.bbclass<br />
+|-- conf<br />
+| |-- bblayers.conf<br />
+|</code>-- bitbake.conf<br />
+|-- meta-test<br />
+| |-- conf<br />
+| | <code>-- layer.conf<br />
+|</code>-- recipes-example<br />
+| <code>-- firstrecipe<br />
+|</code>-- firstrecipe_0.0.bb<br />
+&#045;-</code></p>
+<p>Với cấu trúc thư mục ở trên, ta có thể chạy Bitbake được rồi.<br />
+<code>./bin/bitbake firstrecipe -vDD</code></p>
+<p>Đến đây, sau khi chạy thành công ta ta sẽ thấy được logic buid package thông qua các log.<br />
+Đường dẫn log <strong>tmp/work/firstrecipe-0.0-r0/temp/</strong><br />
+trong đường dẫn trên kiểm tra file "<strong>run_TASK.PID</strong>" ta sẽ thấy được cái gì đã được chạy trong<br />
+các task, file <strong>log.task_order</strong> sẽ định nghĩa thứ tự chạy các task của chúng ta.</p>
+<p>Nào, giờ hãy thêm code vào các task đã được định nghĩa để hiểu cơ bản chức năng của hệ thống build này.</p>
+<p><strong>OVERRIDE TASK</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Việc định nghĩa logic build các package chưa đủ để tạo một hệ thống build thực sự nào.<br />
+Có nhiều cách để thực hiện việc cấu hình, biên dịch, cài đặt thông qua các tool kinh điển như autotoool,<br />
+cmake, scons, etc.. Ta sẽ override các hàm <strong>do_configure, do_make, do_instal</strong> cho các recipe khác nhau.</p>
+<p>Giả sử <strong>firstrecipe </strong>sử dụng autotools.<br />
+có nghĩa là nó sẽ có <strong>configure script</strong>, sau đó chúng ta biên dịch sử dụng <strong>make</strong>,<br />
+và cài đặt sử dụng <strong>make install</strong>.<br />
+Chúng ta sẽ bắt đầu ngay với việc tạo file <strong>autotools.bbclass</strong> trong <strong>classes/</strong><br />
+với nội dung như sau:</p>
+<p><code><br />
+autotools_do_configure() {<br />
+bbnote "AUTOTOOLS_CONFIGURE"<br />
+}</code></p>
+<p>autotools_do_make() {<br />
+bbnote "AUTOTOOLS_MAKE"<br />
+}</p>
+<p>autotools_do_install() {<br />
+bbnote "AUTOTOOLS_INSTALL"<br />
+}</p>
+<p>EXPORT_FUNCTIONS do_configure do_make do_install</p>
+<p>Kế thừa autotools package trong <strong>firstrecipe</strong><br />
+<code><br />
+DESCRIPTION = "Our first recipe for bitbake hello world"</code></p>
+<p>inherit autotools</p>
+<p>chúng ta cùng sẽ chạy lại BitBake với các hàm kế thừa từ autotool package</p>
+<p><code>./bin/bitbake firstrecipe -vDD</code></p>
+<p>Kiểm tra 2 file log trong thư mục temp để thấy các hàm mới đã được gọi (một cách tự động)<br />
+Khi không có kế thừa trong recipi thì code chạy sẽ như thế này.<br />
+<code></code></p>
+<p>do_configure() {<br />
+base_do_configure</p>
+<p>}</p>
+<p>base_do_configure() {<br />
+bbnote "BASE_DO_CONFIGURE"</p>
+<p>}</p>
+<p>bbnote() {<br />
+echo "NOTE: $*"</p>
+<p>}<br />
+Hàm của lớp base BitBake bass class sẽ được gọi.<br />
+Khi sử dụng kế thừa thì nó thế này:</p>
+<p><code><br />
+do_configure() {<br />
+base_do_configure</code></p>
+<p>}</p>
+<p>base_do_configure() {<br />
+bbnote "BASE_DO_CONFIGURE"</p>
+<p>}</p>
+<p>bbnote() {<br />
+echo "NOTE: $*"</p>
+<p>}</p>
+<p>Việc gọi các hàm từ lớp kế thừa được thực hiện thông qua từ khóa EXPORT_FUNCTIONS.<br />
+Khi từ khóa này được sử dụng được dunjgthif do_xxx sẽ được map đến autotools_do_xxx.</p>
+<p>Kết luận nhỏ : Đến đây, ta có thể hiểu được bộ khung hay logic của quá trình build package sử dụng<br />
+BitBake.</p>
+<p><strong>Áp dụng trên OpenEmbedded</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>OpenEmbedded(OE) cung cấp một hệ thống build hoàn chỉnh và rất nhiều recipe.<br />
+Nó có rất code, script để phục vụ các giai đoạn trong quá trình như:<br />
+tải source code, patching (chỉnh sửa lại để phù hợp mục đích build thường là để<br />
+tương tích với target), biên dịch, cài đặt, đóng gọi package ipk, deb, rpm, cả việc<br />
+tạo ảnh hệ thống nữa.<br />
+Ngoài ra OE còn cung cấp các tính năng khác như caching,... Sẽ bàn ở một bài khác.</p>
+<p><a href="https://www.yoctoproject.org/docs/current/yocto-project-qs/figures/yocto-environment.png"><img class="" src="{{ site.baseurl }}/assets/yocto-environment.png" alt="" /></a> Cấu trúc của OpenEmbedded</p>
+<p>Từ hình ta thấy các quá trình chuyển từ code sang các package, image, SDK.<br />
+Trong bài này, chúng ta không bàn về chi tiết.<br />
+Từ những điều đã biết ở trên về Hell World, hãy thử chúng được áp dụng như thế nào trong OE.</p>
+<p>Tải source code<br />
+<code><br />
+wget http://downloads.yoctoproject.org/releases/yocto/yocto-1.3/poky-danny-8.0.tar.bz2<br />
+tar xvf poky-danny-8.0.tar.bz2<br />
+cd poky-danny-8.0</code></p>
+<p>Như chúng ta đã nói ở trên, bitbake.conf sẽ được parse khi bitbake được chạy. File là một trong những file cấu hình quan trọng của OE.<br />
+Vị trí file này</p>
+<p><strong>meta/conf/bitbake.conf</strong></p>
+<p>File cấu hình này có thể được module hóa, ở đây chúng được chia ra làm nhiều file.<br />
+Nội dung file sẽ có dòng như thế này:</p>
+<p><code><br />
+include conf/build/${BUILD_SYS}.conf<br />
+include conf/target/${TARGET_SYS}.conf<br />
+include conf/machine/${MACHINE}.conf<br />
+include conf/machine-sdk/${SDKMACHINE}.conf<br />
+include conf/distro/${DISTRO}.conf</code></p>
+<p>Các file configure này sẽ được search trong các thư mục được định nghĩa ở BBPATH.<br />
+Điều đó có nghĩa là khi BitBake chạy, những file cấu hình này sẽ được searched trong tất các<br />
+các layer bạn định nghĩa. Cái tìm thấy đầu tiên sẽ được sử dụng.<br />
+Nhớ rằng, đường dẫn của tất cả các LAYER sẽ được thêm vào BBPATH.<br />
+và có đến 99% số biến được định nghĩa trong bitbake.conf, còn lại là các file include.</p>
+<p><strong>TASKS</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Để hiểu về kiến trúc của OE, điều quan trọng đầu tiên ta phải biết là các task được định nghĩa ở đâu.<br />
+Chúng ta đã được thấy file <strong>base.bbclass</strong> là một nơi lý tưởng để định nghĩa logic và các code chúng.<br />
+tất cả các file bbclass được định nghĩa trong <em>meta/classes/</em>.<br />
+Mở file base.bbclass và search "addtask" keyword, ta sẽ thấy nội dung sẽ giống như thế này:</p>
+<p><code><br />
+...<br />
+addtask fetch</code></p>
+<p>...<br />
+addtask unpack after do_fetch</p>
+<p>...<br />
+addtask configure after do_patch</p>
+<p>...<br />
+addtask compile after do_configure</p>
+<p>...<br />
+addtask install after do_compile</p>
+<p>...<br />
+addtask build after do_populate_sysroot</p>
+<p>...<br />
+addtask cleansstate after do_clean</p>
+<p>...<br />
+addtask cleanall after do_cleansstate</p>
+<p>Tuy nhiên, trong file này không chỉ có những task này được định nghĩa.<br />
+Có những task được định nghĩa trong <strong>{patch, staging}.</strong>bbclass.<br />
+Chúng ta cùng nhau xem task nào được định nghĩa.</p>
+<p><code><br />
+// patch.bbclass<br />
+addtask patch after do_unpack</code></p>
+<p>// staging.bbclass<br />
+addtask populate_sysroot after do_install<br />
+addtask do_populate_sysroot_setscene</p>
+<p>Những task này cũng vẫn chưa đủ. Trong file bitbake.còn, ta thấy file conf.distro/defaultsetup.conf được<br />
+include. Nó định nghĩa các packagage sau đây được kế thừa.<br />
+<em> package_ipk, insane, debian devshell sstate license</em><br />
+<code><br />
+USER_CLASSES ?= ""<br />
+PACKAGE_CLASSES ?= "package_ipk"<br />
+INHERIT_INSANE ?= "insane"<br />
+INHERIT_DISTRO ?= "debian devshell sstate license"<br />
+INHERIT += "${PACKAGE_CLASSES} ${USER_CLASSES} ${INHERIT_INSANE} ${INHERIT_DISTRO}"</code></p>
+<p>Trong các bbclass file, có 1 file liên quan tưới việc quản lý các gói/<br />
+Ta cùng tìm hiểu 1 loại dễ nhất là package_ipk.bblcass. File này được kế thừa package.bbclass.<br />
+File package.bbclass sẽ định nghĩa logic build, như thế này:</p>
+<p><code><br />
+...<br />
+addtask package before do_build after do_install</code></p>
+<p>...<br />
+addtask do_package_setscene</p>
+<p>...<br />
+addtask package_write before do_build after do_package</p>
+<p>Thứ tự là install -&gt; packaging.<br />
+Vì vậy task cũng đượ địnhg nghĩa như vậy.<br />
+Với mỗi loại package khác nhau, ipk, deb, rpm...<br />
+Chúng ta cùng tìm hiểu loại dễ nhất là ipk.<br />
+Nó định nghĩa như sau :</p>
+<p><code><br />
+...<br />
+addtask do_package_write_ipk_setscene</code></p>
+<p>...<br />
+python do_package_write_ipk () {<br />
+bb.build.exec_func("read_subpackage_metadata", d)<br />
+bb.build.exec_func("do_package_ipk", d)<br />
+}</p>
+<p>...<br />
+addtask package_write_ipk before do_package_write after do_package</p>
+<p>Như bạn thấy, khi package_write_ipk được chạy, nó sẽ gọi <strong>read_subpackage_metadata</strong><br />
+và thực hiện hàm do_package_ipk để tạo ipk package.<br />
+Nhưng gói khác cũng tương tự như vậy.</p>
+<p><strong>Package Groups</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Quan hệ giữa các gọi được sử dụng để cung cấp một gói ảo (virtual package), cái mà có cùng chức năng.<br />
+cái này xử lý thông qua <strong>package groups</strong> trong OE.<br />
+Package group có thể được xem như package ảo, chúng có các gói phụ thuộc.</p>
+<p>Package groups nằm ở <em>recipes-packagegroups</em>. Chúng là các bitbake recipes như "busybox" hoặc<br />
+"tinylogin". Tuy nhiên chúng không có source để build, chúng phụ thuộc vào những gói khác để cung cấp<br />
+chức năng. Bên dưới là danh sách các package groups trong OE-core layer<br />
+ta hãy xem có những group nào</p>
+<p><code><br />
+% find meta/recipes-*/packagegroups -type d | xargs tree --charset=utf</code></p>
+<p>meta/recipes-core/packagegroups<br />
+|-- nativesdk-packagegroup-sdk-host.bb<br />
+|-- packagegroup-base.bb<br />
+|-- packagegroup-core-boot.bb<br />
+|-- packagegroup-core-buildessential.bb<br />
+|-- packagegroup-core-nfs.bb<br />
+|-- packagegroup-core-sdk.bb<br />
+|-- packagegroup-core-ssh-dropbear.bb<br />
+|-- packagegroup-core-ssh-openssh.bb<br />
+|-- packagegroup-core-standalone-sdk-target.bb<br />
+|-- packagegroup-core-tools-debug.bb<br />
+|-- packagegroup-core-tools-profile.bb<br />
+|-- packagegroup-core-tools-testapps.bb<br />
+|-- packagegroup-cross-canadian.bb<br />
+<code>-- packagegroup-self-hosted.bb<br />
+meta/recipes-devtools/packagegroups</code>-- packagegroup-core-device-devel.bb<br />
+meta/recipes-extended/packagegroups<br />
+|-- packagegroup-core-basic.bb<br />
+<code>-- packagegroup-core-lsb.bb<br />
+meta/recipes-gnome/packagegroups<br />
+|-- packagegroup-core-sdk-gmae.bb<br />
+|-- packagegroup-core-standalone-gmae-sdk-target.bb</code>-- packagegroup-sdk-gmae.inc<br />
+meta/recipes-graphics/packagegroups<br />
+|-- packagegroup-core-clutter.bb<br />
+|-- packagegroup-core-gtk-directfb.bb<br />
+|-- packagegroup-core-x11-base.bb<br />
+|-- packagegroup-core-x11-xserver.bb<br />
+<code>-- packagegroup-core-x11.bb<br />
+meta/recipes-qt/packagegroups<br />
+|-- nativesdk-packagegroup-qte-toolchain-host.bb<br />
+|-- packagegroup-core-qt.bb<br />
+|-- packagegroup-core-qt4e.bb</code>-- packagegroup-qte-toolchain-target.bb<br />
+meta/recipes-sato/packagegroups<br />
+`-- packagegroup-core-x11-sato.bb</p>
+<p>Quá nhiều, ta chỉ xét 1 cái thôi. Đó là <strong>packagegroup-core-boot</strong><br />
+Đây là group sẽ yêu cầu các package để có thể boot hệ thống.<br />
+Nào cùng tìm hiểu về nó</p>
+<p>meta/recipes-core/packagegroups/packagegroup-core-boot.bb<br />
+<code><br />
+#</p>
+<h1>Copyright (C) 2007 OpenedHand Ltd.</h1>
+<p>#</code></p>
+<p>SUMMARY = "Minimal boot requirements"<br />
+DESCRIPTION = "The minimal set of packages required to boot the system"<br />
+LICENSE = "MIT"<br />
+DEPENDS = "virtual/kernel"<br />
+PR = "r10"</p>
+<p>inherit packagegroup</p>
+<p>PACKAGE_ARCH = "${MACHINE_ARCH}"</p>
+<p>#</p>
+<h1>Set by the machine configuration with packages essential for device bootup</h1>
+<p>#<br />
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS ?= ""<br />
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS ?= ""</p>
+<h1>For backwards compatibility after rename</h1>
+<p>RPROVIDES_${PN} = "task-core-boot"<br />
+RREPLACES_${PN} = "task-core-boot"<br />
+RCONFLICTS_${PN} = "task-core-boot"</p>
+<h1>Distro can override the following VIRTUAL-RUNTIME providers:</h1>
+<p>VIRTUAL-RUNTIME_dev_manager ?= "udev"<br />
+VIRTUAL-RUNTIME_login_manager ?= "tinylogin"<br />
+VIRTUAL-RUNTIME_init_manager ?= "sysvinit"<br />
+VIRTUAL-RUNTIME_initscripts ?= "initscripts"<br />
+VIRTUAL-RUNTIME_keymaps ?= "keymaps"</p>
+<p>RDEPENDS_${PN} = "\<br />
+base-files \<br />
+base-passwd \<br />
+busybox \<br />
+${@base_contains("MACHINE_FEATURES", "rtc", "busybox-hwclock", "", d)} \<br />
+${VIRTUAL-RUNTIME_initscripts} \<br />
+${@base_contains("MACHINE_FEATURES", "keyboard", "${VIRTUAL-RUNTIME_keymaps}", "", d)} \<br />
+modutils-initscripts \<br />
+netbase \<br />
+${VIRTUAL-RUNTIME_login_manager} \<br />
+${VIRTUAL-RUNTIME_init_manager} \<br />
+${VIRTUAL-RUNTIME_dev_manager} \<br />
+${VIRTUAL-RUNTIME_update-alternatives} \<br />
+${MACHINE_ESSENTIAL_EXTRA_RDEPENDS}"</p>
+<p>RRECOMMENDS_${PN} = "\<br />
+${MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS}"</p>
+<p>Biến <strong>RDEPENDS_${PN}</strong>chưa các package sẽ bitbake build.<br />
+Các package này cũng được control bằng các tham số được định nghĩa ở trên như<br />
+rtc, keyboard,....</p>
+<p><strong>Core Image Minimal</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Các recipes Image, tức là chưa đầy đủ các package cho 1 hệ thống.<br />
+nằm ở <strong>recipes-*/images/</strong>. Có nhiều loại image với các mục đích khác nhau.<br />
+Danh sách có thể được list ra như sau</p>
+<p>% find meta/recipes-*/images -type d | xargs tree --charset=utf</p>
+<p><code><br />
+meta/recipes-core/images<br />
+|-- build-appliance-image<br />
+| |-- Yocto_Build_Appliance.vmx<br />
+| <code>-- Yocto_Build_Appliance.vmxf<br />
+|-- build-appliance-image.bb<br />
+|-- core-image-base.bb<br />
+|-- core-image-minimal-dev.bb<br />
+|-- core-image-minimal-initramfs.bb<br />
+|-- core-image-minimal-mtdutils.bb</code>-- core-image-minimal.bb<br />
+meta/recipes-core/images/build-appliance-image<br />
+|-- Yocto_Build_Appliance.vmx<br />
+<code>-- Yocto_Build_Appliance.vmxf<br />
+meta/recipes-extended/images<br />
+|-- core-image-basic.bb<br />
+|-- core-image-lsb-dev.bb<br />
+|-- core-image-lsb-sdk.bb</code>-- core-image-lsb.bb<br />
+meta/recipes-graphics/images<br />
+|-- core-image-clutter.bb<br />
+|-- core-image-gtk-directfb.bb<br />
+<code>-- core-image-x11.bb<br />
+meta/recipes-qt/images</code>-- qt4e-demo-image.bb<br />
+meta/recipes-rt/images<br />
+|-- core-image-rt-sdk.bb<br />
+<code>-- core-image-rt.bb<br />
+meta/recipes-sato/images<br />
+|-- core-image-sato-dev.bb<br />
+|-- core-image-sato-sdk.bb</code>-- core-image-sato.bb</code></p>
+<p>Minimal image là dễ hiểu nhất. Chúng ta sẽ tìm hiểu 1 chút về nó.<br />
+core-image-minimal.<br />
+Vậy làm thế nào core-image-minimal được built.</p>
+<p>File recipie của core-image-minimal như sau</p>
+<p>meta/recipes-core/images/core-image-minimal.bb<br />
+<code><br />
+DESCRIPTION = "A small image just capable of allowing a device to boot."</code></p>
+<p>IMAGE_INSTALL = "packagegroup-core-boot ${ROOTFS_PKGMANAGE_BOOTSTRAP} ${CORE_IMAGE_EXTRA_INSTALL}"</p>
+<p>IMAGE_LINGUAS = " "</p>
+<p>LICENSE = "MIT"</p>
+<p>inherit core-image</p>
+<p>IMAGE_ROOTFS_SIZE = "8192"</p>
+<h1>remove not needed ipkg informations</h1>
+<p>ROOTFS_POSTPROCESS_COMMAND += "remove_packaging_data_files ; "</p>
+<p>Như các bạn thấy, biến IMAGE_INSTALL chưa <strong>packagegroup-core-boot</strong><br />
+Và nó cũng kế thừa một lớp core-image bbclass.</p>
+<p>Tìm hiểu qua về core-image</p>
+<p>meta/classes/core-image.bbclass</p>
+<p><code></p>
+<h1>Common code for generating core reference images</h1>
+<p>#</p>
+<h1>Copyright (C) 2007-2011 Linux Foundation</h1>
+<p></code></p>
+<p>LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=3f40d7994397109285ec7b81fdeb3b58 \<br />
+file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"</p>
+<h1>IMAGE_FEATURES control content of the core reference images</h1>
+<p>#</p>
+<h1>By default we install packagegroup-core-boot and packagegroup-base packages - this gives us</h1>
+<h1>working (console only) rootfs.</h1>
+<p>#</p>
+<h1>Available IMAGE_FEATURES:</h1>
+<p>#</p>
+<h1>- x11 - X server</h1>
+<h1>- x11-base - X server with minimal environment</h1>
+<h1>- x11-sato - OpenedHand Sato environment</h1>
+<h1>- tools-debug - debugging tools</h1>
+<h1>- tools-profile - profiling tools</h1>
+<h1>- tools-testapps - tools usable to make some device tests</h1>
+<h1>- tools-sdk - SDK (C/C++ compiler, autotools, etc.)</h1>
+<h1>- nfs-server - NFS server</h1>
+<h1>- ssh-server-dropbear - SSH server (dropbear)</h1>
+<h1>- ssh-server-openssh - SSH server (openssh)</h1>
+<h1>- qt4-pkgs - Qt4/X11 and demo applications</h1>
+<h1>- package-management - installs package management tools and preserves the package manager database</h1>
+<h1>- debug-tweaks - makes an image suitable for development, e.g. allowing passwordless root logins</h1>
+<h1>- dev-pkgs - development packages (headers, etc.) for all installed packages in the rootfs</h1>
+<h1>- dbg-pkgs - debug symbol packages for all installed packages in the rootfs</h1>
+<h1>- doc-pkgs - documentation packages for all installed packages in the rootfs</h1>
+<p>#<br />
+PACKAGE_GROUP_x11 = "packagegroup-core-x11"<br />
+PACKAGE_GROUP_x11-base = "packagegroup-core-x11-base"<br />
+PACKAGE_GROUP_x11-sato = "packagegroup-core-x11-sato"<br />
+PACKAGE_GROUP_tools-debug = "packagegroup-core-tools-debug"<br />
+PACKAGE_GROUP_tools-profile = "packagegroup-core-tools-profile"<br />
+PACKAGE_GROUP_tools-testapps = "packagegroup-core-tools-testapps"<br />
+PACKAGE_GROUP_tools-sdk = "packagegroup-core-sdk packagegroup-core-standalone-sdk-target"<br />
+PACKAGE_GROUP_nfs-server = "packagegroup-core-nfs-server"<br />
+PACKAGE_GROUP_ssh-server-dropbear = "packagegroup-core-ssh-dropbear"<br />
+PACKAGE_GROUP_ssh-server-openssh = "packagegroup-core-ssh-openssh"<br />
+PACKAGE_GROUP_package-management = "${ROOTFS_PKGMANAGE}"<br />
+PACKAGE_GROUP_qt4-pkgs = "packagegroup-core-qt-demoapps"</p>
+<h1>IMAGE_FEATURES_REPLACES_foo = 'bar1 bar2'</h1>
+<h1>Including image feature foo would replace the image features bar1 and bar2</h1>
+<p>IMAGE_FEATURES_REPLACES_ssh-server-openssh = "ssh-server-dropbear"</p>
+<h1>IMAGE_FEATURES_CONFLICTS_foo = 'bar1 bar2'</h1>
+<h1>An error exception would be raised if both image features foo and bar1(or bar2) are included</h1>
+<p>python __anonymous() {</p>
+<h1>Ensure we still have a splash screen for existing images</h1>
+<p>if base_contains("IMAGE_FEATURES", "apps-console-core", "1", "", d) == "1":<br />
+bb.warn("%s: apps-console-core in IMAGE_FEATURES is no longer supported; adding \"splash\" to enable splash screen" % d.getVar("PN", True))<br />
+d.appendVar("IMAGE_FEATURES", " splash")<br />
+}</p>
+<p>CORE_IMAGE_BASE_INSTALL = '\<br />
+packagegroup-core-boot \<br />
+packagegroup-base-extended \<br />
+\<br />
+${CORE_IMAGE_EXTRA_INSTALL} \<br />
+'</p>
+<p>CORE_IMAGE_EXTRA_INSTALL ?= ""</p>
+<p>IMAGE_INSTALL ?= "${CORE_IMAGE_BASE_INSTALL}"</p>
+<p>inherit image</p>
+<h1>Create /etc/timestamp during image construction to give a reasonably sane default time setting</h1>
+<p>ROOTFS_POSTPROCESS_COMMAND += "rootfs_update_timestamp ; "</p>
+<h1>Zap the root password if debug-tweaks feature is not enabled</h1>
+<p>ROOTFS_POSTPROCESS_COMMAND += '${@base_contains("IMAGE_FEATURES", "debug-tweaks", "", "zap_root_password ; ",d)}'</p>
+<h1>Allow openssh accept empty password login if both debug-tweaks and ssh-server-openssh are enabled</h1>
+<p>ROOTFS_POSTPROCESS_COMMAND += '${@base_contains("IMAGE_FEATURES", "debug-tweaks ssh-server-openssh", "openssh_allow_empty_password; ", "",d)}'</p>
+<p>Do biến IMAGE_INSTALL được định nghĩa trước khi kế thừa lớp recipe core-image. Vì thế, giá trị đó vẫn không bị thay đổi khi<br />
+parse đến core-image.bbclass.<br />
+Ỏ đây ta thấy có xử lý postprogress <em>rootfs_update_timestamp</em><br />
+Và cũng phải nhắc đến việc core-image kế thừa từ image</p>
+<p><strong>Vậy điều thú vị xảy ra ở đâu, có phải trong file image.bbclass??</strong></p>
+<hr />
+<p>&nbsp;</p>
+<p>Cuối cùng, đây là nơi mọi chuyện sẽ xảy ra. Hay nói ngắn gọn, ảnh sẽ được tạo từ ipk, deb, ..rpm package.<br />
+Vì ipk được sử dụng trong ở trên rồi ) nên ta sẽ tiếp tục với ipk.<br />
+Danh sách các package được đưa vào image được đưa ra trong file <strong>package_ipk.bbclass</strong><br />
+Nhưng gói trong đó được cài đặt sử dụng <strong>opkg</strong> vào thư mục <strong>rootfs</strong></p>
+<p>Vì file image.bbclas rất dài. Ta sẽ chỉ tập trung vào phần code quan trọng thôi đê hiểu quá trình tạo ra<br />
+1 image.</p>
+<p>Để tạo image cũng như cài đặt vào rootfs.<br />
+Đầu tiên các package phải được build đã.</p>
+<p>Tuy nhiên chúng ta không định nghĩa bất cứ phụ thuộc vào, mà chỉ là set giá trị biến IMAGE_INSTALL</p>
+<p>meta/classes/image.bbclass</p>
+<p><code>...<br />
+RDEPENDS += "${IMAGE_INSTALL} ${LINGUAS_INSTALL} ${NORMAL_FEATURE_INSTALL} ${ROOTFS_BOOTSTRAP_INSTALL}"</code></p>
+<p>...</p>
+<h1>definition of which packages should be installed on image. PACKAGE_INSTALL</h1>
+<h1>variable is used in rootfs creation code in rootfs_ipk.bbclass</h1>
+<p>export PACKAGE_INSTALL ?= "${IMAGE_INSTALL} ${ROOTFS_BOOTSTRAP_INSTALL} ${FEATURE_INSTALL}"<br />
+...<br />
+addtask rootfs before do_build</p>
+<p>Class này phụ thuộc vào biến IMAGE_INSTALL và các biến khác vì thế. Các package cần được build trước.<br />
+Ta cũng thấy một task là <em>rootfs</em> chạy trước task build. Vì thế khi mà tất cả các task khác được chạy<br />
+xong thì do_rootfs sẽ bắt đầu việc tạo image.</p>
+<p>Sau khi check một vài thư mục, do_rootfs sẽ gọi đến hàm tạo cho loại package tương tứng.</p>
+<p><code><br />
+meta/classes/image.bbclass, do_rootfs()</code></p>
+<p>rootfs_${IMAGE_PKGTYPE}_do_rootfs</p>
+<p>ví dụ<br />
+trong trường của chúng ta sử dụng ipk, nó sẽ như thế này :<br />
+<strong>rootfs_ipk_do_rootfs</strong></p>
+<p>Cùng xem 1 chút về hàm tạo <strong>rootfs_ipk_do_rootfs</strong> này<br />
+rootfs_ipk_do_rootfs() tạo các thư mục cần thiết cho opkg làm việc, ghi một số file trạng thái và update chings nó<br />
+bằng : <em>opk-cl update</em>.</p>
