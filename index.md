@@ -1,5 +1,10 @@
 {% include header.html %}
 
+## Các bài viết kĩ thuật
+- Đây là bài thứ nhất
+- Đây là bài thứ nhất
+
+
 ## Các tài liệu đang dịch sang tiếng Việt
 
 ### A. Tài liệu trong Yocto Project
